@@ -53,7 +53,7 @@ function prettyTimestamp(timestamp){
 	var h = pad(timestamp.substring(8, 10) + 1, 2);
 	var i = timestamp.substring(10, 12);
 	var s = timestamp.substring(12, 14);
-*//*
+
 	var dN = new Date();
 	var dNt = timestampFromDate(dN);
 	
@@ -152,7 +152,7 @@ function getNew(called){
 			
 			console.log('called from ' + called + ' at ' + new Date().getTime() );
 			
-    		//console.log(request);
+    		console.log(request);
 
 			var data = JSON.parse(request.response);
 			
@@ -222,12 +222,13 @@ function getNew(called){
 }
 
 function addMessage(user, message, url, timestamp){
+	var post = true;
 	
 	$(".mwchat-message").each(function(index, value){
+		console.log($(value).children(".mwchat-item-timestamp").attr("data-timestamp") + " =? " + timestamp);
 		if($(value).children(".mwchat-item-timestamp").attr("data-timestamp") == timestamp){
-			if($(value).children(".mwchat-item-user").html() == user){
-				return;
-			}
+			console.log("==");
+			post = false;
 		}
 	});
 	
@@ -245,8 +246,11 @@ function addMessage(user, message, url, timestamp){
 	html += "</span></div>";
 
 	//console.log(html);
-	
-	$("#mwchat-content").append(html);
+	if( post ){
+		$("#mwchat-content").append(html);
+	} else {
+		console.log("message not posted");
+	}
 }
 
 var selector;
@@ -452,9 +456,9 @@ function addMe(data){
 
 getNew('starter');
 
-interval = 15000;
+interval = 25000;
 
-setTimeout(getNew, 1500);
+setTimeout(getNew, 2500);
 
 var newInterval = setInterval(getNew, interval);
 var redoInterval = setInterval(redoTimestamps, interval/2);
