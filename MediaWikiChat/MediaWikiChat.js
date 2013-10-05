@@ -470,3 +470,18 @@ setTimeout(getNew, 2500);
 var newInterval = setInterval(getNew, interval);
 var redoInterval = setInterval(redoTimestamps, interval/2);
 
+var fullscreen = false;
+$(".fullscreen").click(function(){
+	if(fullscreen){
+		$("#leftbar, #rightbar").fadeIn();
+		$("#contentwrapper").animate({'margin-left': '12em', 'margin-right': '12em'}, function(){
+			$(".fullscreen").html("go fullscreen");
+		});
+	} else {
+		$("#leftbar, #rightbar").fadeOut();
+		$("#contentwrapper").animate({'margin-left': '0em', 'margin-right': '0em'}, function(){
+			$(".fullscreen").html("back to normal");
+		});
+	}
+	fullscreen = !fullscreen;
+});

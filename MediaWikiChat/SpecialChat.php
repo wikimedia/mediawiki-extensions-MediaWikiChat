@@ -46,6 +46,7 @@ class SpecialChat extends SpecialPage {
                 			<span class='mwchat-useritem-user'></span>
 						</div>
 					</div>
+                	<a href='javascript:;' class='fullscreen'>go fullscreen</a>
                 	<script>";
                 $html .= file_get_contents( __DIR__ . '/MediaWikiChat.js' );
                 $html .= "</script>";
