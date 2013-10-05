@@ -338,7 +338,7 @@ function addUser(user, url, id, mod){
 		html += user;
 		html += "</span>";
 		if(amIMod){
-			html += "<a class='mwchat-useritem-blocklink' href='" + wgArticlePath.replace('$1', 'Special:UserRights/'+user) + ">block</a>";
+			html += "<a class='mwchat-useritem-blocklink' href='" + wgArticlePath.replace('$1', 'Special:UserRights/'+user) + "'>block</a>";
 		}
 		if(mod){
 			html += "<img src='http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png' height='16px' alt='mod' title='This user is a moderator' />";
