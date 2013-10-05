@@ -224,26 +224,26 @@ function getNew(called){
 function addMessage(user, message, url, timestamp){
 	var post = true;
 	
-	$(".mwchat-message").each(function(index, value){
-		console.log($(value).children(".mwchat-item-timestamp").attr("data-timestamp") + " =? " + timestamp);
-		if($(value).children(".mwchat-item-timestamp").attr("data-timestamp") == timestamp){
+	$(".mwchat-item-timestamp").each(function(index, value){
+		console.log($(value).attr("data-timestamp") + " =? " + timestamp);
+		if($(value).attr("data-timestamp") == timestamp){
 			console.log("==");
 			post = false;
 		}
 	});
 	
-	var html = "<div class='mwchat-message'>";
-	html += "<span class='mwchat-item-user'>";
+	var html = "<tr class='mwchat-message'>";
+	html += "<td class='mwchat-item-user'>";
 	html += user;
 	html += "</span>";
-	html += "<img src='";
+	html += "<td class='mwchat-item-avatar'><img src='";
 	html += url;
-	html += "' />";
-	html += "<span class='mwchat-item-message'>";
+	html += "' /></td>";
+	html += "<td class='mwchat-item-message'>";
 	html += message;
-	html += "</span><span class='mwchat-item-timestamp' data-timestamp='" + timestamp + "'>";
+	html += "<span class='mwchat-item-timestamp' data-timestamp='" + timestamp + "'>";
 	html += prettyTimestamp(timestamp);
-	html += "</span></div>";
+	html += "</span></td></tr>";
 
 	//console.log(html);
 	if( post ){
