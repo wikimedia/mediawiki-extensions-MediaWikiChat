@@ -287,11 +287,15 @@ function addPrivateMessage(user, convwith, message, url, timestamp){
 	}
 }
 
+var amIMod;
+
 function doUsers(newusers, data){
 	var allusers = users.concat(newusers);
 	allusers = unique(allusers);
 	//console.log(users);
 	//console.log(newusers);
+	
+	amIMod = data['amIMod'];
 	
 	allusers.forEach(function(user){
 		//console.log(user);
@@ -333,8 +337,11 @@ function addUser(user, url, id, mod){
 		html += "' /><span class='mwchat-useritem-user'>";
 		html += user;
 		html += "</span>";
+		if(amIMod){
+			html += "<a class='mwchat-useritem-blocklink' href='" + wgArticlePath.replace('$1', 'Special:UserRights/'+user) + ">block</a>";
+		}
 		if(mod){
-			html += "<img src='http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png' height='16px' alt='moderator' title='This user is a moderator' />";
+			html += "<img src='http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png' height='16px' alt='mod' title='This user is a moderator' />";
 		}
 		html += "<div class='mwchat-useritem-window' style='display:none;'>";
 		html += "<div class='mwchat-useritem-content'></div>";

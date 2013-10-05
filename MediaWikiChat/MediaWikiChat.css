@@ -79,3 +79,10 @@ img {
 .mwchat-item-message * {
 	display: inline;
 }
+.mwchat-useritem-blocklink {
+	float: right;
+	color: #000;
+}
+.mwchat-useritem-blocklink:hover {
+	color: #000 !important;
+}
