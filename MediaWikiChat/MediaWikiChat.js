@@ -235,19 +235,19 @@ function addMessage(user, message, url, timestamp){
 	var html = "<tr class='mwchat-message'>";
 	html += "<td class='mwchat-item-user'>";
 	html += user;
-	html += "</span>";
+	html += "</td>";
 	html += "<td class='mwchat-item-avatar'><img src='";
 	html += url;
 	html += "' /></td>";
-	html += "<td class='mwchat-item-message'>";
+	html += "<td class='mwchat-item-messagecell'><span class='mwchat-item-message'>";
 	html += message;
-	html += "<span class='mwchat-item-timestamp' data-timestamp='" + timestamp + "'>";
+	html += "</span><span class='mwchat-item-timestamp' data-timestamp='" + timestamp + "'>";
 	html += prettyTimestamp(timestamp);
 	html += "</span></td></tr>";
 
 	//console.log(html);
 	if( post ){
-		$("#mwchat-content").append(html);
+		$("#mwchat-table").append(html);
 	} else {
 		console.log("message not posted");
 	}

@@ -11,6 +11,7 @@
 }
 #mwchat-table {
 	width: 100%;
+	table-layout: fixed;
 }
 .mwchat-useritem-content {
 	height: 200px;
@@ -32,11 +33,10 @@
 #mwchat-type input, .mwchat-useritem input {
 	width: 100%;
 }
-.mwchat-item-user {
-	margin: 5px;
-}
 .mwchat-item-message {
-	margin: 5px;
+}
+.mwchat-item-messagecell {
+	width: 77%;
 }
 .mwchat-item-timestamp {
 	float: right;
@@ -48,10 +48,11 @@
 }
 .mwchat-item-user {
 	margin: 5px;
-	width: 180px;
+	width: 20%;
 	overflow: hidden;
 	white-space: nowrap;
 	text-align: right;
+	vertical-align: top;
 }
 .mwchat-useritem-content .mwchat-item-user {
 	width: 90px;
@@ -68,6 +69,10 @@
 .mwchat-useritem.noshow {
 	cursor: pointer;
 }
+.mwchat-item-avatar {
+	width: 26px;
+	vertical-align: top;
+}
 .mwchat-item-avatar img {
 	margin-left: 5px;
 	margin-right: 5px;
@@ -81,7 +86,4 @@
 }
 .mwchat-useritem-blocklink:hover {
 	color: #000 !important;
-}
-.mwchat-item-avatar {
-	width: 26px;
 }
