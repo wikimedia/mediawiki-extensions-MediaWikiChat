@@ -148,9 +148,6 @@ class MediaWikiChat {
 			$fromid = $wgUser -> getID();
 			$fromname = $wgUser -> getName();
 			$timestamp = MediaWikiChat::now();
-
-			//$fromid = $wgUser -> getID();
-			//$fromname = $wgUser -> getName();
 	
 			$dbw -> insert(
 					'chat',
@@ -278,11 +275,6 @@ class MediaWikiChat {
 				)
 		);
 		
-		//echo $res2;
-		
-		//return;
-		
-		//var_dump($res -> result);
 		return get_class_methods($res);
 		
 		$latest = $res -> fetchRow();
@@ -301,11 +293,9 @@ class MediaWikiChat {
 	function parseMessage( $message ){
 		
 		$s2 = wfMessage('smileys') -> plain();
-		
 		$sm2 = explode( '* ', $s2 );
 		
 		$this -> data['debug']['log'][] = 'parse';
-		
 		$this -> data['debug']['log'][] = $sm2;
 		
 		$smileys = array();
@@ -313,7 +303,6 @@ class MediaWikiChat {
 		if( is_array( $sm2 ) ){
 			
 			foreach( $sm2 as $line ){
-				
 				$bits = explode( ' ', $line );
 				
 				if( count( $bits ) > 1 ){
@@ -369,8 +358,6 @@ class MediaWikiChat {
 		$parseOut = $parser -> parseLight( $message, Title::newFromText( 'Special:Chat' ), $opts );
 		
 		return $parseOut -> getText();
-		
-		//return $message;
 	}
 	
 	function getNew(){
@@ -525,15 +512,26 @@ class MediaWikiChat {
 				$this -> data['users'][$toname][0] = $toid;
 			} else if( $row -> chat_type == 'kick' ) {
 				if( $row -> chat_to_name == $wgUser -> getName() ){
-					//display you've been kicked
-					//kick
-				} else {
-					//display X's been kicked
+					$this -> data['kick'] = true;
 				}
+				$data['system'][] = array(
+					'type' => 'kick',
+					'from' => $row -> chat_user_name,
+					'to' => $row -> chat_to_name,
+					'timestamp' => $row -> chat_timestamp
+				);
 			} else if( $row -> chat_type == 'block' ){
-				//display X's been blocked
+				$data['system'][] = array(
+					'type' => 'block',
+					'to' => $row -> chat_to_name,
+					'timestamp' => $row -> chat_timestamp
+				);
 			} else if( $row -> chat_type == 'unblock' ){
-				//display X's been unblocked
+				$data['system'][] = array(
+					'type' => 'unblock',
+					'to' => $row -> chat_to_name,
+					'timestamp' => $row -> chat_timestamp
+				);
 			}
 		}
 		
@@ -570,11 +568,7 @@ class MediaWikiChat {
 		
 
 		$this -> data['interval'] = MediaWikiChat::getInterval();
-		/*	
-		if($res -> numRows() < 1){
-			$this -> data['debug']['error'][] = "ERROR: No rows";
-		}
-		*/
+		
 		$this -> data['now'] = MediaWikiChat::now();
 		
 		$this -> data['mods'] = array();
@@ -595,11 +589,8 @@ class MediaWikiChat {
 			$this -> data['amIMod'] = false;
 		}
 		
-		
-		global $bmProject;
-		
-		if( $bmProject = 'lmbw' ){
-		//	var_dump( $this -> data );
+		if( !$wgUser -> isAllowed( 'chat' ) ){
+			$this -> data['kick'] = true; //if user has since been blocked from chat, kick them now
 		}
 		
 		return json_encode($this -> data);
