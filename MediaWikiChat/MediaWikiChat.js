@@ -17,8 +17,7 @@ function safe(string){
 		var patt = new RegExp('\\'+char, 'g');
 		string = string.replace(patt, '');
 		//console.log('/\\'+char+'/g');
-	})
-	
+	});
 	return string;
 }
 
@@ -30,10 +29,8 @@ function unique(array) {
                 a.splice(j--, 1);
         }
     }
-
     return a;
 };
-
 
 function timestampFromDate(date){
 	var y = pad(date.getUTCFullYear(), 4);
@@ -45,27 +42,24 @@ function timestampFromDate(date){
 	return y+m+d+h+i+s;
 }
 
-function prettyTimestamp(timestamp){
-/*
-	var y = timestamp.substring(0, 4);
-	var m = pad(timestamp.substring(4, 6) - 1, 2);
-	var d = pad(timestamp.substring(6, 8) - 1, 2);
-	var h = pad(timestamp.substring(8, 10) + 1, 2);
-	var i = timestamp.substring(10, 12);
-	var s = timestamp.substring(12, 14);
-
-	var dN = new Date();
-	var dNt = timestampFromDate(dN);
-	
-	var diff = dNt - timestamp
-	*/
+function realTimestamp(timestamp){
 	var d = new Date();
-	var now = parseInt(d.getTime() / 10);
 	
-	var diff = (now - timestamp) / 100;
-	//console.log(timestamp);
-	//console.log(dNt);
-	//console.log(diff);
+	d.setTime(timestamp * 10);
+	
+	return d.toString();
+}
+
+function prettyTimestamp(timestamp){
+	var dateThen = new Date();
+	dateThen.setTime(timestamp * 10);
+	var dayThen = dateThen.getDate();
+	
+	var dateNow = new Date();
+	var tsNow = parseInt(dateNow.getTime() / 10);
+	var dayNow = dateNow.getDate();
+	
+	var diff = (tsNow - timestamp) / 100;
 	
 	if(diff < 30){//30
 		return "just now";
@@ -89,36 +83,48 @@ function prettyTimestamp(timestamp){
 		return "45 minutes ago";
 	} else if(diff < 90*60){//13000
 		return "an hour ago";
-	} else if(diff < 2.5*60*60){//30000
-		return "2 hours ago";
-	} else if(diff < 3.5*60*60){//80000
-		return "3 hours ago";
-	} else if(diff < 4.5*60*60){//80000
-		return "4 hours ago";
-	} else if(diff < 5.5*60*60){//80000
-		return "5 hours ago";
-	} else if(diff < 6.5*60*60){//80000
-		return "6 hours ago";
-	} else if(diff < 7.5*60*60){//80000
-		return "7 hours ago";
-	} else if(diff < 8.5*60*60){//80000
-		return "8 hours ago";
-	} else if(diff < 11*60*60){//80000
-		return "10 hours ago";
-	} else if(diff < 18*60*60){//180000
-		return "12 hours ago";
-	} else if(diff < 106*60*60){//1060000
-		return "yesterday";
-	} else {//if(diff < 2000000){
-		return "before yesterday";
+	} else if(diff < 2.5*60*60){
+		
+		if(dateNow == dateThen){
+			return dateThen.getHours() + ":" + dateThen.getMinutes();
+			
+		} else {
+			if(dateNow == dateThen + 1){ //@TODO handle 31s
+				return "yesterday, " + dateThen.getHours() + ":" + dateThen.getMinutes();
+				
+			} else {
+				switch(dateThen.getDay){
+				case 0:
+					var day = 'sunday, ';
+					break;
+				case 1:
+					var day = 'monday, ';
+					break;
+				case 2:
+					var day = 'tuesday, ';
+					break;
+				case 3:
+					var day = 'wednesday, ';
+					break;
+				case 4:
+					var day = 'thursday, ';
+					break;
+				case 5:
+					var day = 'friday, ';
+					break;
+				case 6:
+					var day = 'saturday, ';
+					break;
+				}
+				return day + dateThen.getHours() + ":" + dateThen.getMinutes();
+			}
+		}
 	}
 }
 
 function redoTimestamps(){
-	//console.log('redoing timestamps');
-	
-	$.each($(".mwchat-item-timestamp"), function(index, item){
-		//console.log(item);
+	$.each($(".mwchat-item-timestamp.pretty"), function(index, item){
+
 		var timestamp = $(this).attr('data-timestamp');
 		var oldpretty = $(this).html();
 		var newpretty = prettyTimestamp(timestamp);
@@ -131,27 +137,25 @@ function redoTimestamps(){
 	});
 }
 
+function htmlTimestamp(timestamp){
+	var html = "<span class='mwchat-item-timestamp pretty' data-timestamp='" + timestamp + "'>";
+	html += prettyTimestamp(timestamp);
+	html += "</span><span class='mwchat-item-timestamp real'>";
+	html += realTimestamp(timestamp);
+	html += "</span>";
+	return html
+}
+
 var obj2;
 var user2;
 
 function getNew(called){
 	
-	//console.log("getNew");
-	
-	//console.log(last)
-	//var time = stamp || last;//use stamp; if none; use last
-	
 	sajax_do_call(
 		"getNew",
 		[],
 		function(request){
-			
-			//if(!called){
-			//	var called = 'null';
-			//}
-			
 			console.log('called from ' + called + ' at ' + new Date().getTime() );
-			
     		console.log(request);
 
 			var data = JSON.parse(request.response);
@@ -250,7 +254,6 @@ function showKickMessage(from, to, timestamp){
 	} else {
 		var message = from + " kicked " + to;
 	}
-	
 	addSystemMessage(message, timestamp);
 }
 
@@ -260,7 +263,6 @@ function showBlockMessage(to, timestamp){
 	} else {
 		var message = to + " has been blocked <a href=''>(details)</a>";
 	}
-	
 	addSystemMessage(message, timestamp);
 }
 
@@ -275,9 +277,9 @@ function addSystemMessage(text, timestamp){
 	var html = "<tr class='mwchat-message system'>";
 	html += "<td colspan=3 class='mwchat-item-messagecell'><span class='mwchat-item-message'>";
 	html += text;
-	html += "</span><span class='mwchat-item-timestamp' data-timestamp='" + timestamp + "'>";
-	html += prettyTimestamp(timestamp);
-	html += "</span></td></tr>";
+	html += "</span>";
+	html += htmlTimestamp(timestamp);
+	html += "</td></tr>";
 	
 	addGeneralMessage(html, timestamp);
 }
@@ -293,9 +295,9 @@ function addMessage(user, message, url, timestamp){
 	html += "' /></td>";
 	html += "<td class='mwchat-item-messagecell'><span class='mwchat-item-message'>";
 	html += message;
-	html += "</span><span class='mwchat-item-timestamp' data-timestamp='" + timestamp + "'>";
-	html += prettyTimestamp(timestamp);
-	html += "</span></td></tr>";
+	html += "</span>";
+	html += htmlTimestamp(timestamp);
+	html += "</td></tr>";
 
 	addGeneralMessage(html, timestamp);
 }
@@ -303,7 +305,7 @@ function addMessage(user, message, url, timestamp){
 function addGeneralMessage(html, timestamp){
 	var post = true;
 	
-	$(".mwchat-item-timestamp").each(function(index, value){
+	$(".mwchat-item-timestamp.pretty").each(function(index, value){
 		console.log($(value).attr("data-timestamp") + " =? " + timestamp);
 		if($(value).attr("data-timestamp") == timestamp){
 			console.log("==");
@@ -333,11 +335,9 @@ function addPrivateMessage(user, convwith, message, url, timestamp){
 	html += "' alt='" + user + "' name='" + user + "' title='" + user + "' />";
 	html += "<span class='mwchat-item-message'>";
 	html += message;
-	html += "</span><span class='mwchat-item-timestamp' data-timestamp='" + timestamp + "'>";
-	html += prettyTimestamp(timestamp);
-	html += "</span></div>";
-
-	//console.log(html);
+	html += "</span>";
+	html += htmlTimestamp(timestamp);
+	html += "</div>";
 	
 	$("#" + convwithE + " .mwchat-useritem-content").append(html);
 	console.log("appending html to:");
@@ -357,25 +357,18 @@ var amIMod;
 function doUsers(newusers, data){
 	var allusers = users.concat(newusers);
 	allusers = unique(allusers);
-	//console.log(users);
-	//console.log(newusers);
 	
 	amIMod = data['amIMod'];
 	
 	allusers.forEach(function(user){
-		//console.log(user);
 		if( newusers.indexOf(user) == -1){
 			removeUser(user);
-			//console.log('removing'+user);
 		}  else if( newusers.indexOf(user) != -1 && users.indexOf(user) == -1 ){
 			var mod = false;
 			if(data['mods'].indexOf(user) != -1){
 				mod = true;
 			}
 			addUser(user, data['users'][user][1], data['users'][user][0], mod);
-			//console.log('adding'+user);
-		} else {
-			//console.log('doing nothingA');
 		}
 	})
 	
@@ -430,7 +423,6 @@ function removeUser(user){
 }
 
 function clickUser(e){
-	//console.log("click");
 	$(this).attr('data-read', '');	
 	
 	if($(this).hasClass('noshow')){
@@ -448,7 +440,6 @@ $($("#mwchat-type input")[0]).keypress(function(e) {
 
     if(e.which == 13 && e.shiftKey) {
     	
-    	//$("#mwchat-type input").val( $("#mwchat-type input").val() + '\n' );
     	return false;
     	
     } else if(e.which == 13) {
@@ -459,9 +450,6 @@ $($("#mwchat-type input")[0]).keypress(function(e) {
         	"sendMessage",
         	[$("#mwchat-type input")[0].value],
         	function(request){
-        		//do shiz
-        		//console.log('keypress request');
-        		//console.log(request);
                 getNew('main input keypress');
                 window.clearInterval(newInterval);
                 newInterval = setInterval(getNew, interval);
@@ -473,17 +461,12 @@ $($("#mwchat-type input")[0]).keypress(function(e) {
 });
 
 function userKeypress(e) {
-	//console.log('keypress');
-	$(this).parents('.mwchat-useritem').attr('data-read', '');	
-	
-	//console.log('keypress' + e.which);
+	$(this).parents('.mwchat-useritem').attr('data-read', '');
 	
     if(e.which == 13) {
     	
     	var toname = $(this).parents('.mwchat-useritem').attr('data-name');
     	var toid = $(this).parents('.mwchat-useritem').attr('data-id');
-		
-		//console.log("sendPM");
         
         sajax_do_call(
         	"sendPM",
@@ -518,14 +501,6 @@ var amI = false;
 function addMe(data){
 	if(!amI){
 		console.log("adding me");
-		/*
-		var html = "<div class='mwchat-useritem-me'><img src='";
-		html += data['users'][data['me']][1];
-		html += "' /><span class='mwchat-useritem-user'>";
-		html += data['me'];
-		html += "</span>";
-		html += "</div>";
-		*/
 		console.log(data);
 		$("#mwchat-me span").html(data['me']);
 		
