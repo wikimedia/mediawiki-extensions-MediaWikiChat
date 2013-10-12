@@ -132,7 +132,7 @@ function prettyTimestamp(timestamp){
 		
 		if(dayNow == dayThen){
 			console.log(dateThen);
-			return "today, " + pad(dateThen.getHours(), 2) + ":" + pad(dateThen.getMinutes(), 2);
+			return pad(dateThen.getHours(), 2) + ":" + pad(dateThen.getMinutes(), 2);
 			
 		} else {
 			if(dayNow == dayThen + 1){ //@TODO handle 31s
