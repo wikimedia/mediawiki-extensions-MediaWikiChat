@@ -47,7 +47,50 @@ function realTimestamp(timestamp){
 	
 	d.setTime(timestamp * 10);
 	
-	return d.toString();
+	switch(d.getMonth()){
+	case 0:
+		var month = 'January';
+		break;
+	case 1:
+		var month = 'February';
+		break;
+	case 2:
+		var month = 'March';
+		break;
+	case 3:
+		var month = 'April';
+		break;
+	case 4:
+		var month = 'May';
+		break;
+	case 5:
+		var month = 'Jun';
+		break;
+	case 6:
+		var month = 'July';
+		break;
+	case 7:
+		var month = 'August';
+		break;
+	case 8:
+		var month = 'September';
+		break;
+	case 9:
+		var month = 'October';
+		break;
+	case 10:
+		var month = 'November';
+		break;
+	case 11:
+		var month = 'December';
+		break;
+	}
+	
+	var date = d.getDate();
+	var hours = pad(d.getHours(), 2);
+	var mins = pad(d.getMinutes(), 2);
+	
+	return month + " " + date + ", " + hours + ":" + mins;
 }
 
 function prettyTimestamp(timestamp){
@@ -138,12 +181,14 @@ function redoTimestamps(){
 }
 
 function htmlTimestamp(timestamp){
-	var html = "<span class='mwchat-item-timestamp pretty' data-timestamp='" + timestamp + "'>";
+	var html = "<span class='mwchat-item-timestamp pretty' title='";
+	//html += realTimestamp(timestamp);
+	html += "' data-timestamp='" + timestamp + "'>";
 	html += prettyTimestamp(timestamp);
-	html += "</span><span class='mwchat-item-timestamp real'>";
+	html += "</span><span class='mwchat-item-timestamp real' style='display:none;'>";
 	html += realTimestamp(timestamp);
 	html += "</span>";
-	return html
+	return html;
 }
 
 var obj2;
@@ -318,6 +363,7 @@ function addGeneralMessage(html, timestamp){
 	} else {
 		console.log("message not posted");
 	}
+	setupTimestampHover();
 }
 
 var selector;
@@ -514,6 +560,15 @@ function addMe(data){
 	}
 }
 
+function setupTimestampHover(){
+	$(".mwchat-message").hover(function(){
+		$(".pretty").hide();
+		$(".real").show();
+	}, function(){
+		$(".real").hide()
+		$(".pretty").show();
+	});
+}
 getNew('starter');
 
 interval = 25000;
