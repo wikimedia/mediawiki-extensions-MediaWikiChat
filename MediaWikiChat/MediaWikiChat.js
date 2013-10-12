@@ -126,7 +126,7 @@ function prettyTimestamp(timestamp){
 		return "45 minutes ago";
 	} else if(diff < 90*60){//13000
 		return "an hour ago";
-	} else if(diff < 2.5*60*60){
+	} else {
 		
 		if(dateNow == dateThen){
 			return dateThen.getHours() + ":" + dateThen.getMinutes();
