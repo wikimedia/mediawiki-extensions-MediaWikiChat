@@ -104,6 +104,8 @@ function prettyTimestamp(timestamp){
 	
 	var diff = (tsNow - timestamp) / 100;
 	
+	console.log(dateThen);
+	
 	if(diff < 30){//30
 		return "just now";
 	} else if(diff < 90){//130
@@ -128,15 +130,16 @@ function prettyTimestamp(timestamp){
 		return "an hour ago";
 	} else {
 		
-		if(dateNow == dateThen){
-			return dateThen.getHours() + ":" + dateThen.getMinutes();
+		if(dayNow == dayThen){
+			console.log(dateThen);
+			return "today, " + pad(dateThen.getHours(), 2) + ":" + pad(dateThen.getMinutes(), 2);
 			
 		} else {
-			if(dateNow == dateThen + 1){ //@TODO handle 31s
-				return "yesterday, " + dateThen.getHours() + ":" + dateThen.getMinutes();
+			if(dayNow == dayThen + 1){ //@TODO handle 31s
+				return "yesterday, " + pad(dateThen.getHours(), 2) + ":" + pad(dateThen.getMinutes(), 2);
 				
 			} else {
-				switch(dateThen.getDay){
+				switch(dateThen.getDay()){
 				case 0:
 					var day = 'sunday, ';
 					break;
@@ -159,7 +162,7 @@ function prettyTimestamp(timestamp){
 					var day = 'saturday, ';
 					break;
 				}
-				return day + dateThen.getHours() + ":" + dateThen.getMinutes();
+				return day + pad(dateThen.getHours(), 2) + ":" + pad(dateThen.getMinutes(), 2);
 			}
 		}
 	}
