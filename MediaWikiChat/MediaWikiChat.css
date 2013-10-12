@@ -38,15 +38,14 @@
 .mwchat-item-messagecell {
 	width: 77%;
 }
-.mwchat-item-timestamp {
+.mwchat-item-timestamp-container {
 	float: right;
-	color: #CCC;
 	margin-left: 6px;
+}
+.mwchat-item-timestamp {
+	color: #CCC;
 	text-transform: lowercase;
 }
-/*.mwchat-message:hover .mwchat-item-timestamp {
-	color: #555;
-}*/
 .mwchat-item-user {
 	margin: 5px;
 	width: 20%;
