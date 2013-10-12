@@ -181,13 +181,12 @@ function redoTimestamps(){
 }
 
 function htmlTimestamp(timestamp){
-	var html = "<span class='mwchat-item-timestamp pretty' title='";
-	//html += realTimestamp(timestamp);
-	html += "' data-timestamp='" + timestamp + "'>";
+	var html = "<span class='mwchat-item-timestamp-container'>";
+	html += "<span class='mwchat-item-timestamp pretty' data-timestamp='" + timestamp + "'>";
 	html += prettyTimestamp(timestamp);
 	html += "</span><span class='mwchat-item-timestamp real' style='display:none;'>";
 	html += realTimestamp(timestamp);
-	html += "</span>";
+	html += "</span></span>";
 	return html;
 }
 
@@ -524,9 +523,7 @@ function userKeypress(e) {
                 newInterval = setInterval(getNew, interval);
         	}
         );
-        
     	$(this).val('');
-        
     }
 }
 
@@ -562,11 +559,11 @@ function addMe(data){
 
 function setupTimestampHover(){
 	$(".mwchat-message").hover(function(){
-		$(".pretty").hide();
-		$(".real").show();
+		$(this).find(".pretty").hide();
+		$(this).find(".real").show();
 	}, function(){
-		$(".real").hide()
-		$(".pretty").show();
+		$(this).find(".real").hide();
+		$(this).find(".pretty").show();
 	});
 }
 getNew('starter');
