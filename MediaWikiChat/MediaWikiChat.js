@@ -104,7 +104,7 @@ function prettyTimestamp(timestamp){
 	
 	var diff = (tsNow - timestamp) / 100;
 	
-	console.log(dateThen);
+	//console.log(dateThen);
 	
 	if(diff < 30){//30
 		return "just now";
