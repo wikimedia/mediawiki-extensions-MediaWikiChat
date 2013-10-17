@@ -554,11 +554,10 @@ class MediaWikiChat {
 		
 		foreach( $onlineUsers as $user){
 			
-			//$this -> $data['debug']['log'][] = $user;
-			
 			$this -> data['online'][] = $user[0];
 			$x = MediaWikiChat::getAvatar($user[1]);
-			
+
+			$this -> data['users'][$user[0]][0] = $user[1];
 			$this -> data['users'][$user[0]][1] = MediaWikiChat::getAvatar($user[1]);
 		}
 
