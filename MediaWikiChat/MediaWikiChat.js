@@ -538,7 +538,7 @@ function setupKickLinks(){
 				"kick",
 				[parent.attr('data-name'), parent.attr('data-id')],
         		function(request){
-					console.log('followthrough');
+					getNew('kick');
 				}
 		);
 	});

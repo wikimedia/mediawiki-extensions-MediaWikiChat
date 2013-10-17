@@ -76,6 +76,9 @@ class MediaWikiChat {
 					'chat_type' => 'kick'
 				)
 			);
+			return 'true';
+		} else {
+			return 'false';
 		}
 	}
 	
