@@ -24,7 +24,6 @@ class MediaWikiChat {
 		} else {
 			$avatar = '/images/avatars/default_s.gif';
 		}
-		
 		return $avatar;
 	}
 	
@@ -98,9 +97,6 @@ class MediaWikiChat {
 			$fromid = $wgUser -> getID();
 			$fromname = $wgUser -> getName();
 			$timestamp = MediaWikiChat::now();
-
-			//$fromid = $wgUser -> getID();
-			//$fromname = $wgUser -> getName();
 	
 			$dbw -> insert(
 					'chat',
@@ -141,20 +137,16 @@ class MediaWikiChat {
 					
 				$id = $row -> cu_user_id;
 				$name = $row -> cu_user_name;
-				//$avatar = MediaWikiChat::getAvatar( $id );
 	
 				$data[] = array($name, $id);
 			}
-			//return array_unique($data);
 			return $data;
 	  	} else {
 	  		trigger_error( "You are blocked from chat", E_USER_ERROR );
 	  		return false;
 	  	}
-	
 	}
 	
-
 	function getOnlineText(){
 		global $wgUser;
 		if( $wgUser -> isAllowed('chat') ){
@@ -175,7 +167,6 @@ class MediaWikiChat {
 			trigger_error( "You are blocked from chat", E_USER_ERROR );
 			return false;
 		}
-	
 	}
 	
 
@@ -192,14 +183,12 @@ class MediaWikiChat {
 					array( 'cu_user_name', 'cu_user_id' ),
 					array( "cu_timestamp > $timestamp", "cu_user_id != {$wgUser -> getId()}" )
 			);
-			
 			return $res;
 			
 		} else {
 			trigger_error( "You are blocked from chat", E_USER_ERROR );
 			return false;
 		}
-	
 	}
 	
 	function getInterval(){
@@ -228,11 +217,6 @@ class MediaWikiChat {
 				)
 		);
 		
-		//echo $res2;
-		
-		//return;
-		
-		//var_dump($res -> result);
 		return get_class_methods($res);
 		
 		$latest = $res -> fetchRow();
@@ -292,16 +276,8 @@ class MediaWikiChat {
 			
 				$this -> data['debug']['messager1'][] = $message;
 	
-				//$message = preg_replace( '( |\n)'.$chars.'( |\n)', ' '.$image.' ', '\n'.$message.'\n' );
-				//$message = preg_replace( '`.?$`', 'ss', $message );
-				//$image = 'image';
 				$message = preg_replace( '` '.$chars.' `', ' '.$image.' ', $message );
 	
-				//$match = preg_match( '( |\n)'.$chars.'( |\n)', '\n'.$message.'\n', $matches);
-				//$this -> data['debug']['matches'][] = $matches;
-			
-				//$this -> data['debug']['chars'][] = '( |\n)'.$chars.'( |\n)';
-				//$this -> data['debug']['image'][] = ' '.$image.' ';
 				$this -> data['debug']['messager2'][] = $message;
 			}
 		}
@@ -362,11 +338,6 @@ class MediaWikiChat {
 			);
 			$lastCheck = 0;
 		}
-		
-		//var_dump( $lastCheck );
-		//echo $resTt;
-		//var_dump( $resT -> fetchRow() );
-		//var_dump( $resT -> fetchObject() );
 		
 		$thisCheck = MediaWikiChat::now();
 		
@@ -443,12 +414,6 @@ class MediaWikiChat {
 						'LIMIT' => 20,
 				)
 		);
-		//$resPMt = $dbr -> selectSQLText(
-		//);
-
-		//$data['log'][] = $resPM;
-		//$data['log'][] = $resPM;
-		//$data['log'][] = $resPMt;
 		
 		foreach( $resPM as $row ){
 			$message = $row -> chat_message;
@@ -463,13 +428,9 @@ class MediaWikiChat {
 			$this -> data['debug']['log'][] = $convwith;
 			if($fromname == $wgUser -> getName()){
 				$convwith = $toname;
-				//$convid = $toid;
 			} else {
 				$convwith = $fromname;
-				//$convid = $fromid;
 			}
-			
-			//echo $convwith;
 			
 			$fromavatar = MediaWikiChat::getAvatar( $fromid );
 			$toavatar = MediaWikiChat::getAvatar( $toid );
@@ -500,11 +461,7 @@ class MediaWikiChat {
 		
 		$onlineUsers = MediaWikiChat::getOnline();
 		
-		//$this -> $data['debug']['log'][] = serialize($onlineUsers);
-		
 		foreach( $onlineUsers as $user){
-			
-			//$this -> $data['debug']['log'][] = $user;
 			
 			$this -> data['online'][] = $user[0];
 			$x = MediaWikiChat::getAvatar($user[1]);
@@ -512,17 +469,8 @@ class MediaWikiChat {
 			$this -> data['users'][$user[0]][1] = MediaWikiChat::getAvatar($user[1]);
 		}
 
-		//$this -> data['onlinetext'] = MediaWikiChat::getOnlineText();
-		//$this -> data['onlineraw'] = MediaWikiChat::getOnlineRaw();
-		//$this -> data['onlinefout'] = MediaWikiChat::getOnline();
-		
-
 		$this -> data['interval'] = MediaWikiChat::getInterval();
-		/*	
-		if($res -> numRows() < 1){
-			$this -> data['debug']['error'][] = "ERROR: No rows";
-		}
-		*/
+		
 		$this -> data['now'] = MediaWikiChat::now();
 		
 		$this -> data['mods'] = array();
@@ -541,13 +489,6 @@ class MediaWikiChat {
 			$this -> data['amIMod'] = true;
 		} else {
 			$this -> data['amIMod'] = false;
-		}
-		
-		
-		global $bmProject;
-		
-		if( $bmProject = 'lmbw' ){
-		//	var_dump( $this -> data );
 		}
 		
 		return json_encode($this -> data);
