@@ -6,13 +6,10 @@ class MediaWikiChat {
 	
 	function now(){
 		$m = explode(' ', microtime() );
-		return intval(
-			    $m[1]
-			   ) * 100 
+
+		return intval( $m[1] ) * 100 
 			   +
-		   	   intval(
-		   	   	$m[0]
-		   	   * 100
+		   	   intval( $m[0] * 100
 		   	   );
 	}
 	
@@ -24,7 +21,62 @@ class MediaWikiChat {
 		} else {
 			$avatar = '/images/avatars/default_s.gif';
 		}
+
 		return $avatar;
+	}
+	
+	public static function onUserRights( $user, array $add, array $remove ) {
+	
+		if( in_array( 'blockedfromchat', $add ) ){
+			$this -> sendSystemBlockingMessage( 'block', $user );
+		}
+		if( in_array( 'blockedfromchat', $remove ) ){
+			$this -> sendSystemBlockingMessage( 'unblock', $user );
+		}
+	}
+	
+	function sendSystemBlockingMessage( $type, $user ){
+	
+		$dbw = wfGetDB( DB_MASTER );
+	
+		$id = $user -> getID();
+		$name = $user -> getName();
+		$timestamp = MediaWikiChat::now();
+	
+		$dbw -> insert(
+				'chat',
+				array(
+						'chat_to_id' => $id,
+						'chat_to_name' => $name,
+						'chat_timestamp' => $timestamp,
+						'chat_type' => $type
+				)
+		);
+	}
+	
+	function kick( $toName, $toId ){
+		global $wgUser;
+		
+		if( $wgUser -> isAllowed( 'modchat' ) ){
+			
+			$dbw = wfGetDB( DB_MASTER );
+
+			$fromId = $wgUser -> getID();
+			$fromName = $wgUser -> getName();
+			$timestamp = MediaWikiChat::now();
+		
+			$dbw -> insert(
+				'chat',
+				array(
+					'chat_to_id' => $toId,
+					'chat_to_name' => $toName,
+					'chat_user_id' => $fromId,
+					'chat_user_name' => $fromName,
+					'chat_timestamp' => $timestamp,
+					'chat_type' => 'kick'
+				)
+			);
+		}
 	}
 	
 	function sendMessage( $message ){
@@ -235,11 +287,9 @@ class MediaWikiChat {
 	function parseMessage( $message ){
 		
 		$s2 = wfMessage('smileys') -> plain();
-		
 		$sm2 = explode( '* ', $s2 );
 		
 		$this -> data['debug']['log'][] = 'parse';
-		
 		$this -> data['debug']['log'][] = $sm2;
 		
 		$smileys = array();
@@ -247,7 +297,6 @@ class MediaWikiChat {
 		if( is_array( $sm2 ) ){
 			
 			foreach( $sm2 as $line ){
-				
 				$bits = explode( ' ', $line );
 				
 				if( count( $bits ) > 1 ){
@@ -277,7 +326,7 @@ class MediaWikiChat {
 				$this -> data['debug']['messager1'][] = $message;
 	
 				$message = preg_replace( '` '.$chars.' `', ' '.$image.' ', $message );
-	
+
 				$this -> data['debug']['messager2'][] = $message;
 			}
 		}
@@ -354,8 +403,8 @@ class MediaWikiChat {
 		
 		$res = $dbr -> select(
 			'chat',
-			array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp' ),
-			array( "chat_timestamp > $lastCheck", "chat_type = 'message'" ),
+			array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_type', 'chat_to_name', 'chat_to_id' ),
+			array( "chat_timestamp > $lastCheck" ),
 			'',
 			__METHOD__,
 			array(
@@ -364,8 +413,8 @@ class MediaWikiChat {
 		);
 		$text = $dbr -> selectSQLText(
 			'chat',
-			array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp' ),
-			array( "chat_timestamp > $lastCheck", "chat_type = 'message'" ),
+			array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_type', 'chat_to_name', 'chat_to_id' ),
+			array( "chat_timestamp > $lastCheck" ),
 			'',
 			__METHOD__,
 			array(
@@ -379,78 +428,100 @@ class MediaWikiChat {
 		$results = 0;
 		
 		foreach( $res as $row ){
-			$this -> data['debug']['log'][] = 'result!';
-			$results += 1;
-				
-			$id = $row -> chat_user_id;
-			$name = $row -> chat_user_name;
-			$message = $row -> chat_message;
-			$timestamp = $row -> chat_timestamp;
-			$avatar = MediaWikiChat::getAvatar( $id );
-			
-			$message = $this -> parseMessage( $message );
 		
-			$this -> data['messages'][] = array(
-				'name' => $name,
-				'message' => $message,
-				'timestamp' => $timestamp,
-			);
-
-			$this -> data['users'][$name][1] = $avatar;
-			$this -> data['users'][$name][0] = $id;
+			if( $row -> chat_type == 'message' ){
+				$this -> data['debug']['log'][] = 'result!';
+				$results += 1;
+					
+				$id = $row -> chat_user_id;
+				$name = $row -> chat_user_name;
+				$message = $row -> chat_message;
+				$timestamp = $row -> chat_timestamp;
+				$avatar = MediaWikiChat::getAvatar( $id );
+				
+				$message = $this -> parseMessage( $message );
+			
+				$this -> data['messages'][] = array(
+					'name' => $name,
+					'message' => $message,
+					'timestamp' => $timestamp,
+				);
+	
+				$this -> data['users'][$name][1] = $avatar;
+				$this -> data['users'][$name][0] = $id;
+			} else if( $row -> chat_type == 'private message'
+					&& ( 
+					 	$row -> chat_user_name == $wgUser -> getName() 
+					 	|| $row -> chat_to_name == $wgUser -> getName()
+					 ) ) {
+				
+				$message = $row -> chat_message;
+				$timestamp = $row -> chat_timestamp;
+				
+				$fromid = $row -> chat_user_id;
+				$fromname = $row -> chat_user_name;
+				$toid = $row -> chat_to_id;
+				$toname = $row -> chat_to_name;
+					
+				$convwith = "convwith was not defined";
+				$this -> data['debug']['log'][] = $convwith;
+				if($fromname == $wgUser -> getName()){
+					$convwith = $toname;
+					//$convid = $toid;
+				} else {
+					$convwith = $fromname;
+					//$convid = $fromid;
+				}
+					
+				//echo $convwith;
+					
+				$fromavatar = MediaWikiChat::getAvatar( $fromid );
+				$toavatar = MediaWikiChat::getAvatar( $toid );
+				
+				$message = MediaWikiChat::parseMessage( $message );
+					
+				$this -> data['debug']['log'][] = $convwith;
+				
+				$this -> data['pms'][] = array(
+						'message' => $message,
+						'timestamp' => $timestamp,
+						'from' => $fromname,
+						'conv' => $convwith
+				);
+				
+				$this -> data['users'][$fromname][1] = $fromavatar;
+				$this -> data['users'][$toname][1] = $toavatar;
+				$this -> data['users'][$fromname][0] = $fromid;
+				$this -> data['users'][$toname][0] = $toid;
+			} else if( $row -> chat_type == 'kick' ) {
+				if( $row -> chat_to_name == $wgUser -> getName() ){
+					$this -> data['kick'] = true;
+				}
+				$this -> data['system'][] = array(
+					'type' => 'kick',
+					'from' => $row -> chat_user_name,
+					'to' => $row -> chat_to_name,
+					'timestamp' => $row -> chat_timestamp
+				);
+			} else if( $row -> chat_type == 'block' ){
+				$this -> data['system'][] = array(
+					'type' => 'block',
+					'to' => $row -> chat_to_name,
+					'timestamp' => $row -> chat_timestamp
+				);
+			} else if( $row -> chat_type == 'unblock' ){
+				$this -> data['system'][] = array(
+					'type' => 'unblock',
+					'to' => $row -> chat_to_name,
+					'timestamp' => $row -> chat_timestamp
+				);
+			}
 		}
+		
 		$this -> data['debug']['log'][] = $results;
 
 		$this -> data['debug']['lastcheck'] = $lastCheck;
 		$this -> data['debug']['thischeck'] = $thisCheck;
-		
-		$resPM = $dbr -> select(
-				'chat',
-				array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_to_id', 'chat_to_name' ),
-				array( "chat_timestamp > $lastCheck", "chat_type = 'private message'", "chat_to_name = '{$wgUser -> getName()}' OR chat_user_name = '{$wgUser -> getName()}'" ),
-				'',
-				__METHOD__,
-				array(
-						'LIMIT' => 20,
-				)
-		);
-		
-		foreach( $resPM as $row ){
-			$message = $row -> chat_message;
-			$timestamp = $row -> chat_timestamp;
-
-			$fromid = $row -> chat_user_id;
-			$fromname = $row -> chat_user_name;
-			$toid = $row -> chat_to_id;
-			$toname = $row -> chat_to_name;
-			
-			$convwith = "convwith was not defined";
-			$this -> data['debug']['log'][] = $convwith;
-			if($fromname == $wgUser -> getName()){
-				$convwith = $toname;
-			} else {
-				$convwith = $fromname;
-			}
-			
-			$fromavatar = MediaWikiChat::getAvatar( $fromid );
-			$toavatar = MediaWikiChat::getAvatar( $toid );
-				
-			$message = MediaWikiChat::parseMessage( $message );
-			
-			$this -> data['debug']['log'][] = $convwith;
-		
-			$this -> data['pms'][] = array(
-					'message' => $message,
-					'timestamp' => $timestamp,
-					'from' => $fromname,
-					'conv' => $convwith
-			);
-
-			$this -> data['users'][$fromname][1] = $fromavatar;
-			$this -> data['users'][$toname][1] = $toavatar;
-			$this -> data['users'][$fromname][0] = $fromid;
-			$this -> data['users'][$toname][0] = $toid;
-		}
 		
 		$this -> data['me'] = $wgUser -> getName();
 		
@@ -465,7 +536,8 @@ class MediaWikiChat {
 			
 			$this -> data['online'][] = $user[0];
 			$x = MediaWikiChat::getAvatar($user[1]);
-			
+
+			$this -> data['users'][$user[0]][0] = $user[1];
 			$this -> data['users'][$user[0]][1] = MediaWikiChat::getAvatar($user[1]);
 		}
 
@@ -489,6 +561,10 @@ class MediaWikiChat {
 			$this -> data['amIMod'] = true;
 		} else {
 			$this -> data['amIMod'] = false;
+		}
+		
+		if( !$wgUser -> isAllowed( 'chat' ) ){
+			$this -> data['kick'] = true; //if user has since been blocked from chat, kick them now
 		}
 		
 		return json_encode($this -> data);

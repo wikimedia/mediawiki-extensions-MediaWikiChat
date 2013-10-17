@@ -104,8 +104,6 @@ function prettyTimestamp(timestamp){
 	
 	var diff = (tsNow - timestamp) / 100;
 	
-	//console.log(dateThen);
-	
 	if(diff < 30){//30
 		return "just now";
 	} else if(diff < 90){//130
@@ -263,6 +261,27 @@ function getNew(called){
 				me = data['me'];
 			}
 			
+			if('kick' in data){
+				$("#mwchat-type input").attr('disabled','disabled');
+				clearInterval(newInterval);
+			}
+			
+			if('system' in data){
+				data['system'].forEach(function(obj){
+					switch(obj['type']){
+						case 'kick':
+							showKickMessage(obj['from'], obj['to'], obj['timestamp'])
+							break;
+						case 'block':
+							showBlockMessage(obj['to'], obj['timestamp']);
+							break;
+						case 'unblock':
+							showUnblockMessage(obj['to'], obj['timestamp']);
+							break;
+					}
+				});
+			}
+			
 			addMe(data);
 			
 			now = data['now'];
@@ -272,16 +291,45 @@ function getNew(called){
 	last = timestampFromDate(date);
 }
 
-function addMessage(user, message, url, timestamp){
-	var post = true;
+function showKickMessage(from, to, timestamp){
+	if(to == me){
+		var message = "You have been kicked by " + from + ". Refresh the page to chat";
+	} else if(from == me){
+		var message = "You kicked " + to;
+	} else {
+		var message = from + " kicked " + to;
+	}
+	addSystemMessage(message, timestamp);
+}
+
+function showBlockMessage(to, timestamp){
+	if(to == me){
+		var message = "You have been blocked <a href=''>(details)</a>";
+	} else {
+		var message = to + " has been blocked <a href=''>(details)</a>";
+	}
+	addSystemMessage(message, timestamp);
+}
+
+function showUnblockMessage(to, timestamp){
+	var message = to + " has been unblocked <a href=''>(details)</a>";
 	
-	$(".mwchat-item-timestamp").each(function(index, value){
-		console.log($(value).attr("data-timestamp") + " =? " + timestamp);
-		if($(value).attr("data-timestamp") == timestamp){
-			console.log("==");
-			post = false;
-		}
-	});
+	addSystemMessage(message, timestamp);
+}
+
+function addSystemMessage(text, timestamp){
+
+	var html = "<tr class='mwchat-message system'>";
+	html += "<td colspan=3 class='mwchat-item-messagecell'><span class='mwchat-item-message'>";
+	html += text;
+	html += "</span>";
+	html += htmlTimestamp(timestamp);
+	html += "</td></tr>";
+	
+	addGeneralMessage(html, timestamp);
+}
+
+function addMessage(user, message, url, timestamp){
 	
 	var html = "<tr class='mwchat-message'>";
 	html += "<td class='mwchat-item-user'>";
@@ -296,6 +344,20 @@ function addMessage(user, message, url, timestamp){
 	html += htmlTimestamp(timestamp);
 	html += "</td></tr>";
 
+	addGeneralMessage(html, timestamp);
+}
+
+function addGeneralMessage(html, timestamp){
+	var post = true;
+	
+	$(".mwchat-item-timestamp.pretty").each(function(index, value){
+		console.log($(value).attr("data-timestamp") + " =? " + timestamp);
+		if($(value).attr("data-timestamp") == timestamp){
+			console.log("==");
+			post = false;
+		}
+	});
+	
 	if( post ){
 		$("#mwchat-table").append(html);
 	} else {
@@ -381,6 +443,7 @@ function addUser(user, url, id, mod){
 		html += "</span>";
 		if(amIMod){
 			html += "<a class='mwchat-useritem-blocklink' href='" + wgArticlePath.replace('$1', 'Special:UserRights/'+user) + "'>block</a>";
+			html += "<a class='mwchat-useritem-kicklink' href='javascript:;'>kick</a>";
 		}
 		if(mod){
 			html += "<img src='http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png' height='16px' alt='mod' title='This user is a moderator' />";
@@ -396,6 +459,8 @@ function addUser(user, url, id, mod){
 		$("#mwchat-users #" + userE).click(clickUser);
 
 		$("#mwchat-users #" + userE + " input").keypress(userKeypress);
+		
+		setupKickLinks();
 	}
 }
 
@@ -463,6 +528,20 @@ function userKeypress(e) {
         );
     	$(this).val('');
     }
+}
+
+function setupKickLinks(){
+	$(".mwchat-useritem-kicklink").click(function(){
+		var parent = $(this).parent();
+			
+		sajax_do_call(
+				"kick",
+				[parent.attr('data-name'), parent.attr('data-id')],
+        		function(request){
+					console.log('followthrough');
+				}
+		);
+	});
 }
 
 var amI = false;
