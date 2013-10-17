@@ -82,8 +82,17 @@
 }
 .mwchat-useritem-blocklink {
 	float: right;
-	color: #000;
-}
-.mwchat-useritem-blocklink:hover {
+	padding-left: 0.5em;
 	color: #000 !important;
+}
+.mwchat-useritem-kicklink {
+	float: right;
+	padding-right: 0.5em;
+	color: #000 !important;
+}
+.mwchat-message.system .mwchat-item-message {
+	color: #888;
+}
+.mwchat-message.system td {
+	padding-left: 3em;
 }

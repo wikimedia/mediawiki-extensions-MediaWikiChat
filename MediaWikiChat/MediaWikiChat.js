@@ -292,7 +292,7 @@ function getNew(called){
 
 function showKickMessage(from, to, timestamp){
 	if(to == me){
-		var message = "You have been kicked by " + from;
+		var message = "You have been kicked by " + from + ". Refresh the page to chat";
 	} else if(from == me){
 		var message = "You kicked " + to;
 	} else {
