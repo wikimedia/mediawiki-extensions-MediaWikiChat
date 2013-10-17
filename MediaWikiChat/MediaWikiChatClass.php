@@ -430,8 +430,8 @@ class MediaWikiChat {
 		);
 		$text = $dbr -> selectSQLText(
 			'chat',
-			array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp' ),
-			array( "chat_timestamp > $lastCheck", "chat_type = 'message'" ),
+			array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_type', 'chat_to_name', 'chat_to_id' ),
+			array( "chat_timestamp > $lastCheck" ),
 			'',
 			__METHOD__,
 			array(
@@ -514,20 +514,20 @@ class MediaWikiChat {
 				if( $row -> chat_to_name == $wgUser -> getName() ){
 					$this -> data['kick'] = true;
 				}
-				$data['system'][] = array(
+				$this -> data['system'][] = array(
 					'type' => 'kick',
 					'from' => $row -> chat_user_name,
 					'to' => $row -> chat_to_name,
 					'timestamp' => $row -> chat_timestamp
 				);
 			} else if( $row -> chat_type == 'block' ){
-				$data['system'][] = array(
+				$this -> data['system'][] = array(
 					'type' => 'block',
 					'to' => $row -> chat_to_name,
 					'timestamp' => $row -> chat_timestamp
 				);
 			} else if( $row -> chat_type == 'unblock' ){
-				$data['system'][] = array(
+				$this -> data['system'][] = array(
 					'type' => 'unblock',
 					'to' => $row -> chat_to_name,
 					'timestamp' => $row -> chat_timestamp
