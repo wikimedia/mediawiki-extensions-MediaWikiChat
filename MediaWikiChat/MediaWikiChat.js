@@ -458,6 +458,8 @@ function addUser(user, url, id, mod){
 		$("#mwchat-users #" + userE).click(clickUser);
 
 		$("#mwchat-users #" + userE + " input").keypress(userKeypress);
+		
+		setupKickLinks();
 	}
 }
 
@@ -527,17 +529,19 @@ function userKeypress(e) {
     }
 }
 
-$(".mwchat-useritem-kicklink").click(function(){
-	var parent = $(this).parent();
-	
-    sajax_do_call(
-        	"kick",
-        	[parent.attr('data-name'), parent.attr('data-id')],
-        	function(request){
-        		console.log('followthrough');
-        	}
-    );
-});
+function setupKickLinks(){
+	$(".mwchat-useritem-kicklink").click(function(){
+		var parent = $(this).parent();
+			
+		sajax_do_call(
+				"kick",
+				[parent.attr('data-name'), parent.attr('data-id')],
+        		function(request){
+					console.log('followthrough');
+				}
+		);
+	});
+}
 
 var amI = false;
 
