@@ -420,7 +420,7 @@ class MediaWikiChat {
 		
 		$res = $dbr -> select(
 			'chat',
-			array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_type' ),
+			array( 'chat_user_name', 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_type', 'chat_to_name', 'chat_to_id' ),
 			array( "chat_timestamp > $lastCheck" ),
 			'',
 			__METHOD__,
