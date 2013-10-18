@@ -442,7 +442,7 @@ function addUser(user, url, id, mod){
 		html += user;
 		html += "</span>";
 		if(amIMod){
-			html += "<a class='mwchat-useritem-blocklink' href='" + wgArticlePath.replace('$1', 'Special:UserRights/'+user) + "'>block</a>";
+			html += "<a class='mwchat-useritem-blocklink' href='" + wgArticlePath.replace('$1', 'Special:UserRights/'+user) + "' target='_blank'>block</a>";
 			html += "<a class='mwchat-useritem-kicklink' href='javascript:;'>kick</a>";
 		}
 		if(mod){
