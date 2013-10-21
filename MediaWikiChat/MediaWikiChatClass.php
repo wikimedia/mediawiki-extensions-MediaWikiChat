@@ -33,6 +33,7 @@ class MediaWikiChat {
 		if( in_array( 'blockedfromchat', $remove ) ){
 			$this -> sendSystemBlockingMessage( 'unblock', $user );
 		}
+		return true;
 	}
 	
 	function sendSystemBlockingMessage( $type, $user ){
