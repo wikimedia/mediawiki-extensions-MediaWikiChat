@@ -15,7 +15,6 @@ $wgExtensionCredits[ 'specialpage' ][] = array(
 );
 
 $wgAutoloadClasses[ 'SpecialChat' ] = __DIR__ . '/SpecialChat.php';
-$wgAutoloadClasses[ 'ChatParser' ] = __DIR__ . '/ChatParser.php';
 
 $wgExtensionMessagesFiles[ 'MediaWikiChat' ] = __DIR__ . '/MediaWikiChat.i18n.php';
 
@@ -70,3 +69,5 @@ $wgAddGroups['sysop'][] = 'forcechat';
 $wgRemoveGroups['sysop'][] = 'forcechat';
 $wgAddGroups['sysop'][] = 'blockedfromchat';
 $wgRemoveGroups['sysop'][] = 'blockedfromchat';
+
+$wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChat::onParserBeforeInternalParse';

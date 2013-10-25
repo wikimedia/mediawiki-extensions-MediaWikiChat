@@ -340,16 +340,52 @@ class MediaWikiChat {
 		$message = str_ireplace( '[[File:', '[[:File:', $message );
 		$message = str_ireplace( '[[!File:', '[[File:', $message );
 		
+		$message = "MWCHAT$message";
+		
 		$opts = new ParserOptions();
 		$opts -> setEditSection( false );
 		$opts -> setExternalLinkTarget( '_blank' );
 		$opts -> setAllowSpecialInclusion( false );
 		$opts -> setAllowExternalImages( false );
 		
-		$parser = new ChatParser();
-		$parseOut = $parser -> parseLight( $message, Title::newFromText( 'Special:Chat' ), $opts );
+		$parser = new Parser();
+		$parseOut = $parser -> parse( $message, Title::newFromText( 'Special:Chat' ), $opts );
 		
-		return $parseOut -> getText();
+		$text = $parseOut -> getText();
+		$text = str_replace( 'MWCHAT', '', $text );
+		return $text;
+	}
+	
+	public static function onParserBeforeInternalParse( &$parser, &$text, &$strip_state ) {
+		
+		if ( strpos( $text, 'MWCHAT' ) === false ) {
+    		return true;
+		} else {
+		
+			$text = $parser->replaceVariables( $text );
+		
+			//$text = $this->doTableStuff( $text );
+		
+			$text = preg_replace( '/(^|\n)-----*/', '\\1<hr />', $text );
+		
+			//$text = $this->doDoubleUnderscore( $text );
+		
+			//$text = $this->doHeadings( $text );
+			if ( $parser->mOptions->getUseDynamicDates() ) {
+				$df = DateFormatter::getInstance();
+				$text = $df->reformat( $parser->mOptions->getDateFormat(), $text );
+			}
+			$text = $parser->replaceInternalLinks( $text );
+			$text = $parser->doAllQuotes( $text );
+			$text = $parser->replaceExternalLinks( $text );
+		
+			$text = str_replace( $parser->mUniqPrefix.'NOPARSE', '', $text );
+		
+			$text = $parser->doMagicLinks( $text );
+			//$text = $this->formatHeadings( $text, $origText, $isMain );
+		
+			return false;
+		}
 	}
 	
 	function getNew(){
