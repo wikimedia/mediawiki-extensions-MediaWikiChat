@@ -346,7 +346,7 @@ class MediaWikiChat {
 		$opts -> setAllowSpecialInclusion( false );
 		$opts -> setAllowExternalImages( false );
 		
-		$parser = new Parser();
+		$parser = new ChatParser();
 		$parseOut = $parser -> parseLight( $message, Title::newFromText( 'Special:Chat' ), $opts );
 		
 		return $parseOut -> getText();

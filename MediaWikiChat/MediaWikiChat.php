@@ -11,15 +11,15 @@ $wgExtensionCredits[ 'specialpage' ][] = array(
 		'author' => 'Adam Carter/UltrasonicNXT',
 		'url' => '',
 		'descriptionmsg' => 'chat-desc',
-		'version' => '0.0.0',
+		'version' => '1.0',
 );
 
-$wgAutoloadClasses[ 'SpecialChat' ] = __DIR__ . '/SpecialChat.php'; # Location of the SpecialMyExtension class (Tell MediaWiki to load this file)
-//$wgAutoloadClasses[ 'MediaWikiChat' ] = __DIR__ . '/MediaWikiChatClass.php'; # Location of the SpecialMyExtension class (Tell MediaWiki to load this file)
+$wgAutoloadClasses[ 'SpecialChat' ] = __DIR__ . '/SpecialChat.php';
+$wgAutoloadClasses[ 'ChatParser' ] = __DIR__ . '/ChatParser.php';
 
-$wgExtensionMessagesFiles[ 'MediaWikiChat' ] = __DIR__ . '/MediaWikiChat.i18n.php'; # Location of a messages file (Tell MediaWiki to load this file)
+$wgExtensionMessagesFiles[ 'MediaWikiChat' ] = __DIR__ . '/MediaWikiChat.i18n.php';
 
-$wgSpecialPages[ 'Chat' ] = 'SpecialChat'; # Tell MediaWiki about the new special page and its class name
+$wgSpecialPages[ 'Chat' ] = 'SpecialChat';
 
 //HOOKS
 $wgHooks['UserRights'][] = 'MediaWikiChat::onUserRights';
@@ -28,8 +28,6 @@ $wgHooks['UserRights'][] = 'MediaWikiChat::onUserRights';
 $wgLogTypes[] = 'chat';
 $wgLogActionsHandlers['chat/send'] = 'LogFormatter';
 $wgFilterLogTypes['chat'] = true;
-
-//$wgAjaxExportList[] = 'MediaWikiChat::getOnline';
 
 require_once( __DIR__ . '/MediaWikiChatClass.php' );
 
@@ -72,20 +70,3 @@ $wgAddGroups['sysop'][] = 'forcechat';
 $wgRemoveGroups['sysop'][] = 'forcechat';
 $wgAddGroups['sysop'][] = 'blockedfromchat';
 $wgRemoveGroups['sysop'][] = 'blockedfromchat';
-
-/*
-$mwChatResourceTemplate = array(
-		'localBasePath' => __DIR__,
-		'remoteExtPath' => 'MediaWikiChat',
-		'group' => 'ext.mwchat',
-);
-$wgResourceModules['ext.mwchat'] = $mwChatResourceTemplate + array(
-		'scripts' => array(
-				'MediaWikiChat.js',
-		),
-		'styles' => array(
-				//'ajaxpoll.css',
-		),
-		'dependencies' => array(
-		)
-);*/
