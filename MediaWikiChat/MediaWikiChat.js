@@ -446,7 +446,7 @@ function addUser(user, url, id, mod){
 			html += "<a class='mwchat-useritem-kicklink' href='javascript:;'>kick</a>";
 		}
 		if(mod){
-			html += "<img src='http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png' height='16px' alt='mod' title='This user is a moderator' />";
+			html += "<img src='http://meta.brickimedia.org/images/thumb/c/cb/Golden-minifigure.png/16px-Golden-minifigure.png' height='16px' alt='mod' title='This user is a moderator' />";
 		}
 		html += "<div class='mwchat-useritem-window' style='display:none;'>";
 		html += "<div class='mwchat-useritem-content'></div>";
