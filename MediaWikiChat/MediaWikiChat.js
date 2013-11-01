@@ -461,8 +461,6 @@ function addUser(user, url, id, mod){
 		$("#mwchat-users #" + userE + " input").keypress(userKeypress);
 		
 		setupKickLinks();
-		
-		addGeneralMessage(user + " has joined the chat");
 	}
 }
 
@@ -470,8 +468,6 @@ function removeUser(user){
 	var userE = safe(user);
 	
 	$("#mwchat-users #" + userE).remove();
-	
-	addGeneralMessage(user + " has left the chat");
 }
 
 function clickUser(e){
@@ -577,7 +573,7 @@ function setupTimestampHover(){
 }
 getNew('starter');
 
-interval = 15000;
+interval = 25000;
 
 setTimeout(getNew, 2500);
 
