@@ -1,7 +1,6 @@
 <?php 
 
-# Alert the user that this is not a valid access point to MediaWiki if they try to access the special pages file directly.
-if ( !defined( 'MEDIAWIKI' ) ) {
+if( !defined( 'MEDIAWIKI' ) ){
 	exit( 1 );
 }
 
@@ -15,10 +14,9 @@ $wgExtensionCredits[ 'specialpage' ][] = array(
 );
 
 $wgAutoloadClasses[ 'SpecialChat' ] = __DIR__ . '/SpecialChat.php';
+$wgSpecialPages[ 'Chat' ] = 'SpecialChat';
 
 $wgExtensionMessagesFiles[ 'MediaWikiChat' ] = __DIR__ . '/MediaWikiChat.i18n.php';
-
-$wgSpecialPages[ 'Chat' ] = 'SpecialChat';
 
 //HOOKS
 $wgHooks['UserRights'][] = 'MediaWikiChat::onUserRights';
@@ -57,16 +55,14 @@ $wgAjaxExportList[] = 'kick';
 
 
 $wgGroupPermissions['user']['chat'] = true;
-$wgGroupPermissions['chatmod']['chat'] = true;
-$wgGroupPermissions['sysop']['chat'] = true;
 $wgGroupPermissions['blockedfromchat']['chat'] = false;
+
+$wgGroupPermissions['chatmod']['modchat'] = true;
+$wgAddGroups['sysop'][] = 'chatmod';
+$wgRemoveGroups['sysop'][] = 'chatmod';
 
 $wgAddGroups['chatmod'][] = 'blockedfromchat';
 $wgRemoveGroups['chatmod'][] = 'blockedfromchat';
-$wgGroupPermissions['chatmod']['modchat'] = true;
-
-$wgAddGroups['sysop'][] = 'forcechat';
-$wgRemoveGroups['sysop'][] = 'forcechat';
 $wgAddGroups['sysop'][] = 'blockedfromchat';
 $wgRemoveGroups['sysop'][] = 'blockedfromchat';
 
