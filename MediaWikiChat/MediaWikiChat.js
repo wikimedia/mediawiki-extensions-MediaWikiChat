@@ -400,6 +400,7 @@ function addPrivateMessage(user, convwith, message, url, timestamp){
 }
 
 var amIMod;
+var firstTime = true;
 
 function doUsers(newusers, data){
 	var allusers = users.concat(newusers);
@@ -415,14 +416,16 @@ function doUsers(newusers, data){
 			if(data['mods'].indexOf(user) != -1){
 				mod = true;
 			}
-			addUser(user, data['users'][user][1], data['users'][user][0], mod);
+			addUser(user, data['users'][user][1], data['users'][user][0], mod, firstTime);
 		}
 	})
 	
 	users = newusers;
+	
+	firstTime = false;
 }
 
-function addUser(user, url, id, mod){
+function addUser(user, url, id, mod, firstTime){
 	var userE = safe(user);
 	
 	var add = true;
@@ -462,6 +465,10 @@ function addUser(user, url, id, mod){
 		$("#mwchat-users #" + userE + " input").keypress(userKeypress);
 		
 		setupKickLinks();
+		
+		if(!firstTime){
+			addSystemMessage(user + " has joined the chat");
+		}
 	}
 }
 
@@ -469,6 +476,9 @@ function removeUser(user){
 	var userE = safe(user);
 	
 	$("#mwchat-users #" + userE).remove();
+	
+	addSystemMessage(user + " has left the chat");
+
 }
 
 function clickUser(e){
@@ -574,7 +584,7 @@ function setupTimestampHover(){
 }
 getNew('starter');
 
-interval = 25000;
+interval = 15000;
 
 setTimeout(getNew, 2500);
 
