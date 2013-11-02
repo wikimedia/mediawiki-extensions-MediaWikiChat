@@ -449,6 +449,7 @@ class MediaWikiChat {
 			__METHOD__,
 			array(
 				'LIMIT' => 20,
+				'ORDER BY' => 'chat_timestamp DESC'
 			)
 		);
 		$text = $dbr -> selectSQLText(
@@ -459,6 +460,7 @@ class MediaWikiChat {
 			__METHOD__,
 			array(
 				'LIMIT' => 20,
+				'ORDER BY' => '`chat_timestamp` DESC'
 			)
 		);
 
