@@ -1,33 +1,40 @@
 <?php 
+/**
+ * An extension to integrate a special page with a built in chat.
+ *
+ * @file
+ * @ingroup Extensions
+ * @author Adam Carter
+ * @copyright Copyright © 2013, Adam Carter
+ */
 
-if( !defined( 'MEDIAWIKI' ) ){
-	exit( 1 );
+ if ( !defined( 'MEDIAWIKI' ) ) {
+	die();
 }
 
 $wgExtensionCredits[ 'specialpage' ][] = array(
 		'path' => __FILE__,
 		'name' => 'MediaWikiChat',
 		'author' => 'Adam Carter/UltrasonicNXT',
-		'url' => '',
+		'url' => 'https://github.com/Brickimedia/MediaWikiChat',
 		'descriptionmsg' => 'chat-desc',
 		'version' => '1.0',
 );
 
-$wgAutoloadClasses[ 'SpecialChat' ] = __DIR__ . '/SpecialChat.php';
+$dir = dirname( __FILE__ ) . '/';
+$wgAutoloadClasses['SpecialChat'] = $dir . 'SpecialChat.php';
+$wgAutoloadClasses['MediaWikiChat'] = $dir. 'MediaWikiChatClass.php';
 $wgSpecialPages[ 'Chat' ] = 'SpecialChat';
+$wgExtensionMessagesFiles[ 'MediaWikiChat' ] = $dir . 'MediaWikiChat.i18n.php';
 
-$wgExtensionMessagesFiles[ 'MediaWikiChat' ] = __DIR__ . '/MediaWikiChat.i18n.php';
-
-//HOOKS
+// Hooks
+$wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChat::onParserBeforeInternalParse';
 $wgHooks['UserRights'][] = 'MediaWikiChat::onUserRights';
 
-//LOGS
+// Logs
 $wgLogTypes[] = 'chat';
 $wgLogActionsHandlers['chat/send'] = 'LogFormatter';
 $wgFilterLogTypes['chat'] = true;
-
-require_once( __DIR__ . '/MediaWikiChatClass.php' );
-
 
 $mwchat = new MediaWikiChat();
 
@@ -53,7 +60,7 @@ $wgAjaxExportList[] = 'sendMessage';
 $wgAjaxExportList[] = 'sendPM';
 $wgAjaxExportList[] = 'kick';
 
-
+// Permissions
 $wgGroupPermissions['user']['chat'] = true;
 $wgGroupPermissions['blockedfromchat']['chat'] = false;
 
@@ -65,5 +72,3 @@ $wgAddGroups['chatmod'][] = 'blockedfromchat';
 $wgRemoveGroups['chatmod'][] = 'blockedfromchat';
 $wgAddGroups['sysop'][] = 'blockedfromchat';
 $wgRemoveGroups['sysop'][] = 'blockedfromchat';
-
-$wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChat::onParserBeforeInternalParse';
