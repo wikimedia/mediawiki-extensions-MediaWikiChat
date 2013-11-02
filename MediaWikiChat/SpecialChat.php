@@ -1,56 +1,53 @@
 <?php
 
 class SpecialChat extends SpecialPage {
+
+	/**
+	 * Constructor -- set up the new special page
+	 */
 	public function __construct() {
 		parent::__construct( 'Chat', 'chat' );
 	}
- 
-	public function execute( $par ) {
-		global $bmProject, $wgUser;
-		
-		if( !$wgUser->isAllowed('chat') ){
-			$out = $this->getOutput();
-			$out->addWikiText("{{MediaWiki:BlockedFromChat}}");
-		} else {
-			$request = $this->getRequest();
-			$out = $this->getOutput();
-			$this->setHeaders();
 
-			# Get request data from, e.g.
-			$param = $request->getText( 'param' );
-                
-			$html = "<style>";
-			$html .= file_get_contents( __DIR__ . '/MediaWikiChat.css' );
-			if( $bmProject == 'dev' ){
-				$html .= file_get_contents( __DIR__ . '/dev.css' );
+	/**
+	 * Show the special page
+	 *
+	 * @param $par Mixed: parameter passed to the special page or null
+	 */
+	public function execute( $par ) {
+		global $bmProject;
+
+		$out = $this->getOutput();
+
+		// Set the page title, robot policies, etc.
+		$this->setHeaders();
+
+		if ( !$this->getUser()->isAllowed( 'chat' ) ) {
+			// @todo FIXME: rename this i18n message to conform with coding
+			// standards, i.e lowercase-separated-with-hyphens and prefixed
+			// with the extension's name (chat-)
+			$out->addWikiMsg( 'BlockedFromChat' );
+		} else {
+			// What CSS & JS modules do we need?
+			$modules = array(
+				'ext.mediawikichat.css',
+				'ext.mediawikichat.js'
+			);
+
+			// CSS styles specific to the development site
+			if ( $bmProject == 'dev' ) {
+				$modules[] = 'ext.mediawikichat.css.dev';
 			}
-			$html .= "
-				<!-- test -->
-				</style>
-				<!-- test2 -->
-				<div id='mwchat-container'>
-					<!-- test3 -->
-					<div id='mwchat-main'>
-						<div id='mwchat-content'>
-							<table id='mwchat-table'></table>
-						</div>
-						<div id='mwchat-type'>
-							<!--<span></span>
-							<img />-->
-							<input type='text' placeholder='Type your message' />
-						</div>
-					</div>
-					<div id='mwchat-users'></div>
-					<div id='mwchat-me'>
-						<img src='' />
-						<span class='mwchat-useritem-user'></span>
-					</div>
-				</div>
-			<script>";
-			$html .= file_get_contents( __DIR__ . '/MediaWikiChat.js' );
-			$html .= "</script>";
-                
-			$out->addHTML( $html );
+
+			// Load CSS & JS via ResourceLoader
+			$out->addModules( $modules );
+
+			// Load the GUI (from its own, separate file)
+			include( 'SpecialChat.template.php' );
+			$template = new SpecialChatTemplate;
+
+			// Output the GUI HTML
+			$out->addTemplate( $template );
 		}
 	}
 }
