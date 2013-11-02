@@ -33,7 +33,7 @@ $wgHooks['UserRights'][] = 'MediaWikiChat::onUserRights';
 
 // Logs
 $wgLogTypes[] = 'chat';
-$wgLogActionsHandlers['chat/send'] = 'LogFormatter';
+$wgLogActionsHandlers['chat/*'] = 'LogFormatter';
 $wgFilterLogTypes['chat'] = true;
 
 $mwchat = new MediaWikiChat();

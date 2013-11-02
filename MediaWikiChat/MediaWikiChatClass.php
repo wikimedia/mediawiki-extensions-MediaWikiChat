@@ -77,6 +77,17 @@ class MediaWikiChat {
 					'chat_type' => 'kick'
 				)
 			);
+			
+			$logEntry = new ManualLogEntry( 'chat', 'kick' );
+			$logEntry->setPerformer( $wgUser );
+			$page = Title::newFromText( 'Special:Chat' );
+			$logEntry->setTarget( $page );
+			$logEntry->setParameters( array(
+					'4::kick' => $toName,
+			) );
+			
+			$logid = $logEntry->insert();
+			
 			return 'true';
 		} else {
 			return 'false';
