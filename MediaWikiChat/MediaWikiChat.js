@@ -262,7 +262,8 @@ function getNew(called){
 			}
 			
 			if('kick' in data){
-				$("#mwchat-type input").attr('disabled','disabled');
+				$("#mwchat-type input").attr('disabled', 'disabled');
+				$("#mwchat-users div input").attr('disabled', 'disabled');
 				clearInterval(newInterval);
 			}
 			
