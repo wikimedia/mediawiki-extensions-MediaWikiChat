@@ -70,8 +70,10 @@ class MediaWikiChat {
 
 	function kick( $toName, $toId ) {
 		global $wgUser;
+		
+		$toUser = User::newFromId( $toID );
 
-		if ( $wgUser->isAllowed( 'modchat' ) ) {
+		if ( $wgUser->isAllowed( 'modchat' ) && ( ! $toUser->isAllowed( 'modchat' ) ) ) {
 			$dbw = wfGetDB( DB_MASTER );
 
 			$fromId = $wgUser->getId();
