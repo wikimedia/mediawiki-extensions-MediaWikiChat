@@ -335,84 +335,7 @@ var MediaWikiChat = {
 		} else {
 			message = to + ' has been blocked <a href="">(details)</a>';
 		}
-<<<<<<< HEAD
-	});
-	
-	if( post ){
-		$("#mwchat-table").append(html);
-	} else {
-		console.log("message not posted");
-	}
-	setupTimestampHover();
-}
 
-var selector;
-var ghtml;
-var guser
-
-function addPrivateMessage(user, convwith, message, url, timestamp){
-	console.log("addPM");
-	var userE = safe(user);
-	var convwithE = safe(convwith);
-	
-	var html = "<div class='mwchat-message'>";
-	html += "<img src='";
-	html += url;
-	html += "' alt='" + user + "' name='" + user + "' title='" + user + "' />";
-	html += "<span class='mwchat-item-message'>";
-	html += message;
-	html += "</span>";
-	html += htmlTimestamp(timestamp);
-	html += "</div>";
-	
-	$("#" + convwithE + " .mwchat-useritem-content").append(html);
-	console.log("appending html to:");
-	console.log($("#" + convwithE + " .mwchat-useritem-content"));
-	console.log(html);
-	ghtml = html
-	selector = $("#" + convwithE + " .mwchat-useritem-content");
-	guser = convwithE;
-	
-	if(user != me){	
-		$("#" + convwithE).attr('data-read', 'true');
-	}
-}
-
-var amIMod;
-var firstTime = true;
-
-function doUsers(newusers, data){
-	var allusers = users.concat(newusers);
-	allusers = unique(allusers);
-	
-	amIMod = data['amIMod'];
-	
-	allusers.forEach(function(user){
-		if( newusers.indexOf(user) == -1){
-			removeUser(user);
-		}  else if( newusers.indexOf(user) != -1 && users.indexOf(user) == -1 ){
-			var mod = false;
-			if(data['mods'].indexOf(user) != -1){
-				mod = true;
-			}
-			addUser(user, data['users'][user][1], data['users'][user][0], mod, firstTime);
-		}
-	})
-	
-	users = newusers;
-	
-	firstTime = false;
-}
-
-function addUser(user, url, id, mod, firstTime){
-	var userE = safe(user);
-	
-	var add = true;
-	
-	$.each($("#mwchat-users div"), (function(index, item){
-		
-			if( item.id == user ){
-=======
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
 
@@ -530,7 +453,6 @@ function addUser(user, url, id, mod, firstTime){
 
 		$.each( $( '#mwchat-users div' ), ( function( index, item ) {
 			if ( item.id == user ) {
->>>>>>> ae7555037a6e2f453ee4a64c8f0164eb54c2bdd8
 				add = false;
 			}
 		})
@@ -611,50 +533,7 @@ function addUser(user, url, id, mod, firstTime){
 			);
 			$( this ).val( '' );
 		}
-<<<<<<< HEAD
-		html += "<div class='mwchat-useritem-window' style='display:none;'>";
-		html += "<div class='mwchat-useritem-content'></div>";
-		html += "<input type='text' placeholder='Type your private message' />"
-		html += "</div>";
-		html += "</div>";
-
-		$("#mwchat-users").append(html);
-		$("#mwchat-users #" + userE).fadeIn();
-		$("#mwchat-users #" + userE).click(clickUser);
-
-		$("#mwchat-users #" + userE + " input").keypress(userKeypress);
-		
-		setupKickLinks();
-		
-		if(!firstTime){
-			addSystemMessage(user + " has joined the chat");
-		}
-	}
-}
-
-function removeUser(user){
-	var userE = safe(user);
-	
-	$("#mwchat-users #" + userE).remove();
-	
-	addSystemMessage(user + " has left the chat");
-
-}
-
-function clickUser(e){
-	$(this).attr('data-read', '');	
-	
-	if($(this).hasClass('noshow')){
-		$(this).children('.mwchat-useritem-window').slideDown();
-	
-		$(".mwchat-useritem.show .mwchat-useritem-window").slideUp();
-		$(".mwchat-useritem.show").toggleClass('show noshow');
-	
-		$(this).toggleClass('show noshow');
-	}
-=======
 	},
->>>>>>> ae7555037a6e2f453ee4a64c8f0164eb54c2bdd8
 
 	setupKickLinks: function() {
 		$( '.mwchat-useritem-kicklink' ).click( function() {
@@ -698,9 +577,6 @@ function clickUser(e){
 		});
 	}
 
-<<<<<<< HEAD
-interval = 15000;
-=======
 };
 
 $( document ).ready( function() {
@@ -723,7 +599,6 @@ $( document ).ready( function() {
 			$( '#mwchat-type input' ).val( '' );
 		}
 	});
->>>>>>> ae7555037a6e2f453ee4a64c8f0164eb54c2bdd8
 
 	MediaWikiChat.getNew( 'starter' );
 

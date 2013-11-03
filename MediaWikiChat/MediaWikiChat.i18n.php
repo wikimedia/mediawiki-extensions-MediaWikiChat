@@ -18,11 +18,7 @@ $messages['en'] = array(
 	'log-description-chat' => 'Messages sent by MediaWikiChat, as well as user kicks',
 	'logentry-chat-send' => '$1: $4',
 	'logentry-chat-kick' => '$1 kicked $4',
-<<<<<<< HEAD
-	'log-show-hide-chat' => '$1 chat log', // For Special:Log
-=======
 	'log-show-hide-chat' => '$1 chat log',
->>>>>>> ae7555037a6e2f453ee4a64c8f0164eb54c2bdd8
 	'smileys' => '* :) Bricki-emote-smile.gif'
 );
  

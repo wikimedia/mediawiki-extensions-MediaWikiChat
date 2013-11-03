@@ -68,9 +68,6 @@ class MediaWikiChat {
 		);
 	}
 
-	/**
-	 * @todo FIXME: why the hell is this returning a STRING instead of a BOOLEAN???
-	 */
 	function kick( $toName, $toId ) {
 		global $wgUser;
 
@@ -93,19 +90,6 @@ class MediaWikiChat {
 				),
 				__METHOD__
 			);
-<<<<<<< HEAD
-			
-			$logEntry = new ManualLogEntry( 'chat', 'kick' );
-			$logEntry->setPerformer( $wgUser );
-			$page = Title::newFromText( 'Special:Chat' );
-			$logEntry->setTarget( $page );
-			$logEntry->setParameters( array(
-					'4::kick' => $toName,
-			) );
-			
-			$logid = $logEntry->insert();
-			
-=======
 
 			// Log the kick to Special:Log/chat
 			$logEntry = new ManualLogEntry( 'chat', 'kick' );
@@ -118,10 +102,9 @@ class MediaWikiChat {
 
 			$logId = $logEntry->insert();
 
->>>>>>> ae7555037a6e2f453ee4a64c8f0164eb54c2bdd8
-			return 'true';
+			return true;
 		} else {
-			return 'false';
+			return false;
 		}
 	}
 
@@ -470,11 +453,7 @@ class MediaWikiChat {
 			__METHOD__,
 			array(
 				'LIMIT' => 20,
-<<<<<<< HEAD
-				'ORDER BY' => '`chat_timestamp` DESC'
-=======
 				'ORDER BY' => 'chat_timestamp DESC'
->>>>>>> ae7555037a6e2f453ee4a64c8f0164eb54c2bdd8
 			)
 		);
 
