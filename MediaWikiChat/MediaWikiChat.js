@@ -288,6 +288,7 @@ var MediaWikiChat = {
 					$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
 					$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
 					clearInterval( MediaWikiChat.newInterval );
+					MediaWikiChat.getNew();
 				}
 
 				if ( 'system' in data ) {
