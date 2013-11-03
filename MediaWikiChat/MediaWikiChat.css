@@ -41,6 +41,7 @@
 .mwchat-item-timestamp-container {
 	float: right;
 	margin-left: 6px;
+	margin-right: 3px;
 }
 .mwchat-item-timestamp {
 	color: #CCC;
@@ -95,4 +96,7 @@
 }
 .mwchat-message.system td {
 	padding-left: 3em;
+}
+.mwchat-useritem-window .mwchat-avatar {
+	margin-right: 2px;
 }
