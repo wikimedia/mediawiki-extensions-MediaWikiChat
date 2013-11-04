@@ -222,7 +222,7 @@ var MediaWikiChat = {
 				console.log(data);
 				MediaWikiChat.global = data;
 
-				data.foreach( function( key, value ) ){
+				data.foreach( function( key, value ) {
 					if ( key == data ) {
 						value.forEach( function( obj ) {
 							MediaWikiChat.addMessage(
@@ -292,8 +292,8 @@ var MediaWikiChat = {
 				MediaWikiChat.addMe( data );
 
 				MediaWikiChat.now = data['now'];
-				}
-			);
+			}
+		);
 
 		var date = new Date();
 		MediaWikiChat.last = MediaWikiChat.timestampFromDate( date );
