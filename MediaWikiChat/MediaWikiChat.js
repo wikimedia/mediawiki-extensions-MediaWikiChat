@@ -471,8 +471,9 @@ var MediaWikiChat = {
 				html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user ) + '" target="_blank">block</a>';
 			}
 			if ( mod ) {
-				html += '<a class="mwchat-useritem-kicklink" href="javascript:;">kick</a>';
 				html += '<img src="http://meta.brickimedia.org/images/thumb/c/cb/Golden-minifigure.png/16px-Golden-minifigure.png" height="16px" alt="mod" title="This user is a moderator" />';
+			} else {
+				html += '<a class="mwchat-useritem-kicklink" href="javascript:;">kick</a>';
 			}
 			html += '<div class="mwchat-useritem-window" style="display:none;">';
 			html += '<div class="mwchat-useritem-content"></div>';
