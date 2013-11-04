@@ -216,84 +216,65 @@ var MediaWikiChat = {
 			'getNew',
 			[],
 			function( request ) {
-				//console.log('called from ' + called + ' at ' + new Date().getTime() );
 				//console.log(request);
-
 				var data = JSON.parse( request.response );
 
-				//console.log(data);
+				console.log(data);
 				MediaWikiChat.global = data;
 
-				// @todo FIXME: wasn't there a good reason to not use if/for x in something?
-				// I recall there was...probably need to investigate this.
-				if ( 'messages' in data ) {
-					data['messages'].forEach( function( obj ) {
-						MediaWikiChat.addMessage(
-							obj['name'],
-							obj['message'],
-							data['users'][obj['name']][1],
-							obj['timestamp']
-						);
-					});
-
-					//$("#mwchat-content").animate({scrollTop: $(this).scrollHeight}, 1000)
-					var div = $( '#mwchat-content' );
-					//div.scrollTop = div.scrollHeight;
-					//div.animate({'scrollTop': div.scrollHeight}, 1000);//{'scrollTop', div.scrollHeight}
-					//var objDiv = document.getElementById("mwchat-content");
-					var objDiv = $( '#mwchat-content' );
-					//objDiv.scrollTop = objDiv.scrollHeight;
-					objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
-				}
-
-				if ( 'online' in data ) {
-					MediaWikiChat.doUsers( data['online'], data );
-				}
-
-				if ( 'pms' in data ) {
-					data['pms'].forEach( function( obj ) {
-						if ( MediaWikiChat.users.indexOf( obj['conv'] ) != -1 ) {
-							//console.log( 'doing conv' + obj['conv'] );
-
-							var Ruser = obj['conv'];
-							//console.log( obj );
-							MediaWikiChat.obj2 = obj;
-							//console.log(Ruser+"user1");
-							//console.log(safe(Ruser)+"user2");
-							MediaWikiChat.addPrivateMessage(
-								obj['from'],
-								Ruser,
+				data.foreach( function( key, value ) ){
+					if ( key == data ) {
+						value.forEach( function( obj ) {
+							MediaWikiChat.addMessage(
+								obj['name'],
 								obj['message'],
-								data['users'][obj['from']][1],
+								data['users'][obj['name']][1],
 								obj['timestamp']
 							);
-							//console.log(obj);
-							//console.log(Ruser+'safe(user)');
-							var div = $( '#' + MediaWikiChat.safe( Ruser ) + ' .mwchat-useritem-content' );
-							//div.scrollTop = div.scrollHeight;
-							//div.animate({'scrollTop': div.scrollHeight}, 1000);//{'scrollTop', div.scrollHeight}
-							//var objDiv = document.getElementById("mwchat-content");
-							var objDiv = $( '#' + MediaWikiChat.safe( Ruser ) + ' .mwchat-useritem-content' );
-							//objDiv.scrollTop = objDiv.scrollHeight;
-							objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
-						}
-					});
-				}
+						});
 
-				if ( 'me' in data ) {
-					MediaWikiChat.me = data['me'];
-				}
+						var div = $( '#mwchat-content' );
+						var objDiv = $( '#mwchat-content' );
+						objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+						
+					} else if ( key == 'online' ) {
+						MediaWikiChat.doUsers( value, data );
+						
+					} else if ( key == 'pms' ) {
+						value.forEach( function( obj ) {
+							if ( MediaWikiChat.users.indexOf( obj['conv'] ) != -1 ) {
 
-				if ( 'kick' in data ) {
-					$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
-					$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
-					clearInterval( MediaWikiChat.newInterval );
-					MediaWikiChat.getNew();
-				}
+								var Ruser = obj['conv'];
+								
+								MediaWikiChat.obj2 = obj;
 
-				if ( 'system' in data ) {
-					data['system'].forEach( function( obj ) {
-						switch ( obj['type'] ) {
+								MediaWikiChat.addPrivateMessage(
+									obj['from'],
+									Ruser,
+									obj['message'],
+									data['users'][obj['from']][1],
+									obj['timestamp']
+								);
+								var div = $( '#' + MediaWikiChat.safe( Ruser ) + ' .mwchat-useritem-content' );
+
+								var objDiv = $( '#' + MediaWikiChat.safe( Ruser ) + ' .mwchat-useritem-content' );
+								
+								objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+							}
+						});
+						
+					} else if ( key == 'me' ) {
+						MediaWikiChat.me = value;
+						
+					} else if ( key == 'kick' ) {
+						$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
+						$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
+						clearInterval( MediaWikiChat.newInterval );
+						MediaWikiChat.getNew();
+						
+					} else if ( key == 'system' ) {
+						value.forEach( function( obj ) {
+							switch ( obj['type'] ) {
 							case 'kick':
 								MediaWikiChat.showKickMessage( obj['from'], obj['to'], obj['timestamp'] );
 								break;
@@ -303,15 +284,16 @@ var MediaWikiChat = {
 							case 'unblock':
 								MediaWikiChat.showUnblockMessage( obj['to'], obj['timestamp'] );
 								break;
-						}
-					});
-				}
+							}
+						});
+					}
+				});
 
 				MediaWikiChat.addMe( data );
 
 				MediaWikiChat.now = data['now'];
-			}
-		);
+				}
+			);
 
 		var date = new Date();
 		MediaWikiChat.last = MediaWikiChat.timestampFromDate( date );
