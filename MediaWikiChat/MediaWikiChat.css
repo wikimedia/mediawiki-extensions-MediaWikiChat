@@ -100,3 +100,7 @@
 .mwchat-useritem-window .mwchat-avatar {
 	margin-right: 2px;
 }
+.mwchat-useritem img {
+	margin-left: 3px;
+	margin-right: 2px;
+}
