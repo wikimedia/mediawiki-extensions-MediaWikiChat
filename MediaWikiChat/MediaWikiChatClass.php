@@ -26,9 +26,11 @@ class MediaWikiChat {
 	 * @return String: avatar image path
 	 */
 	function getAvatar( $id ) {
+		global $wgUploadPath;
+		
 		$avatar = new wAvatar( $id, 's' );
 
-		return $avatar->getAvatarImage();
+		return $wgUploadPath . '/avatars/' . $avatar->getAvatarImage();
 	}
 
 	/**
