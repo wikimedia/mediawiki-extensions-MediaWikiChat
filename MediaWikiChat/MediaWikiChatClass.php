@@ -6,7 +6,7 @@
  */
 class MediaWikiChat {
 
-	public $data;
+	public $data = array();
 
 	/**
 	 * @todo FIXME: this looks like it could and should go away and be replaced
@@ -294,9 +294,6 @@ class MediaWikiChat {
 		$s2 = wfMessage( 'smileys' )->plain();
 		$sm2 = explode( '* ', $s2 );
 
-		$this->data['debug']['log'][] = 'parse';
-		$this->data['debug']['log'][] = $sm2;
-
 		$smileys = array();
 
 		if ( is_array( $sm2 ) ) {
@@ -314,21 +311,13 @@ class MediaWikiChat {
 			}
 		}
 
-		$this->data['messager'] = $message;
-
 		$message = ' ' . $message . ' ';
-
-		$this->data['debug']['log'][] = $smileys;
 
 		if ( is_array( $smileys ) ) {
 			foreach ( $smileys as $chars => $image ) {
 				$chars = preg_quote( $chars );
 
-				$this->data['debug']['messager1'][] = $message;
-
 				$message = preg_replace( '` ' . $chars . ' `', ' ' . $image . ' ', $message );
-
-				$this->data['debug']['messager2'][] = $message;
 			}
 		}
 
@@ -410,12 +399,12 @@ class MediaWikiChat {
 				)
 		);
 		
-		$this->data['debug']['log'][] = "chat_timestamp < $field";
-		
-		$dbw -> delete(
-				'chat',
-				array( "chat_timestamp < $field" )
-		);
+		if( is_int( $field ) ){
+			$dbw -> delete(
+					'chat',
+					array( "chat_timestamp < $field" )
+			);
+		}
 	}
 
 	/** 
@@ -430,16 +419,7 @@ class MediaWikiChat {
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 
-		$this->data = array();
-
 		$resT = $dbr->select(
-			'chat_users',
-			array( 'cu_timestamp' ),
-			array( "cu_user_id = {$wgUser->getId()}" ),
-			__METHOD__
-		);
-
-		$resTt = $dbr->selectSQLText(
 			'chat_users',
 			array( 'cu_timestamp' ),
 			array( "cu_user_id = {$wgUser->getId()}" ),
@@ -495,13 +475,9 @@ class MediaWikiChat {
 				'ORDER BY' => 'chat_timestamp DESC'
 			)
 		);
-		
-		$results = 0;
 
 		foreach ( $res as $row ) {
 			if ( $row->chat_type == 'message' ) {
-				$this->data['debug']['log'][] = 'result!';
-				$results += 1;
 
 				$id = $row->chat_user_id;
 				$name = $row->chat_user_name;
@@ -533,9 +509,6 @@ class MediaWikiChat {
 				$toid = $row->chat_to_id;
 				$toname = $row->chat_to_name;
 
-				$convwith = 'convwith was not defined';
-				$this->data['debug']['log'][] = $convwith;
-
 				if ( $fromname == $wgUser->getName() ) {
 					$convwith = $toname;
 					//$convid = $toid;
@@ -548,8 +521,6 @@ class MediaWikiChat {
 				$toavatar = MediaWikiChat::getAvatar( $toid );
 
 				$message = MediaWikiChat::parseMessage( $message );
-
-				$this->data['debug']['log'][] = $convwith;
 
 				$this->data['pms'][] = array(
 					'message' => $message,
