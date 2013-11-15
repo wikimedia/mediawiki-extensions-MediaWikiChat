@@ -13,6 +13,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This is not a valid entry point to MediaWiki.' );
 }
 
+//Needs SocialProfile (for the mo)
+require_once( "$IP/extensions/SocialProfile/SocialProfile.php" );
+
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,

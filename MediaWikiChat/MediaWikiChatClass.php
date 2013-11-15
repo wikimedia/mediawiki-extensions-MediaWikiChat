@@ -22,22 +22,18 @@ class MediaWikiChat {
 	/**
 	 * Get the path to the specified user's avatar image.
 	 *
-	 * @todo FIXME: this is both horribly platform *and* project-specific
 	 * @param $id Integer: user ID
 	 * @return String: avatar image path
 	 */
 	function getAvatar( $id ) {
-		if ( is_file( '/var/www/wiki/images/avatars/' . $id . '_s.png' ) ) {
-			$avatar = '/images/avatars/' . $id . '_s.png';
-		} elseif ( is_file( '/var/www/wiki/images/avatars/' . $id . '_s.jpg' ) ) {
-			$avatar = '/images/avatars/' . $id . '_s.jpg';
-		} else {
-			$avatar = '/images/avatars/default_s.gif';
-		}
+		$avatar = new wAvatar( $id, 's' );
 
-		return $avatar;
+		return $avatar->getAvatarImage();
 	}
 
+	/**
+	 * Hook for user rights changes
+	 */
 	public static function onUserRights( $user, array $add, array $remove ) {
 		if ( in_array( 'blockedfromchat', $add ) ) {
 			$this->sendSystemBlockingMessage( 'block', $user );
@@ -49,7 +45,12 @@ class MediaWikiChat {
 
 		return true;
 	}
-
+	/**
+	 * Send a message to the db that a user has been (un)blocked
+	 * 
+	 * @param $type String: block/unblock: whether the user has been blocked or unblocked
+	 * @param $user User: user that has been blocked/unblocked
+	 */
 	function sendSystemBlockingMessage( $type, $user ) {
 		$dbw = wfGetDB( DB_MASTER );
 
@@ -67,7 +68,14 @@ class MediaWikiChat {
 			)
 		);
 	}
-
+	
+	/**
+	 * Perform a kick on the user details given.
+	 * 
+	 * @param String $toName: name of user to kick
+	 * @param Integer $toId: id of user to kick
+	 * @return boolean: success
+	 */
 	function kick( $toName, $toId ) {
 		global $wgUser;
 		
@@ -115,9 +123,8 @@ class MediaWikiChat {
 	 * message isn't empty.
 	 *
 	 * @param $message String: user-supplied message
-	 * @return Mixed: timestamp (on success), error message (if the provided
-	 *                message to send was empty) or boolean false (if the user
-	 *                doesn't have the "chat" user right)
+	 * @return Mixed: timestamp (on success), or boolean false (if message sending
+	 *		failed because message was blank, or user is blocked
 	 */
 	function sendMessage( $message ) {
         global $wgUser;
@@ -151,17 +158,28 @@ class MediaWikiChat {
 				) );
 
 				$logid = $logEntry->insert();
+		
+				$this->deleteEntryIfNeeded();
 
 				return $timestamp;
 			} else {
-				// @todo FIXME: i18n
-				return 'blank messages not allowed';
+				return false;
 			}
 		} else {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * Send a private message message a user, if the user is allowed to chat 
+	 * and the provided message isn't empty.
+	 *
+	 * @param $message String: user-supplied message
+	 * @param String $toName: username of user to send message to
+	 * @param Integer $toId: id of user to send message to
+	 * @return Mixed: timestamp (on success), or boolean false (if message sending
+	 *		failed because message was blank, or user is blocked
+	 */
 	function sendPM( $message, $toName, $toId ) {
 		global $wgUser;
 
@@ -187,6 +205,8 @@ class MediaWikiChat {
 				),
 				__METHOD__
 			);
+
+			$this->deleteEntryIfNeeded();
 
 			return $timestamp;
 		} else {
@@ -228,50 +248,44 @@ class MediaWikiChat {
 			}
 			return $data;
 		} else {
-			// @todo FIXME: wtf?
-			trigger_error( "You are blocked from chat", E_USER_ERROR );
 			return false;
 		}
 	}
 
+	/**
+	 * Get average milliseconds beteen recent messages. Note: not currently in use
+	 * 
+	 * @return Integer: average milliseconds between message sends
+	 */
 	function getInterval() {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$res = $dbr->select(
 			'chat',
 			'chat_timestamp',
-			'',
+			array( 'chat_type' => 'message' ),
 			__METHOD__,
 			array(
 				'LIMIT' => 5,
 				'ORDER BY' => 'chat_timestamp DESC'
 			)
 		);
+		
+		$i = 0;
+		
+		foreach( $res as $row ){
+			if ( $i == 0 ) {
+				$latest = $row;
+			} elseif ( $i == 4 ){
+				$oldest = $row;
+			}
+			$i++;
+		}
 
-		// @todo FIXME: everything below here is just so wrong on so many
-		// different levels
-		$res2 = $dbr->selectSQLText(
-			'chat',
-			'chat_timestamp',
-			'',
-			__METHOD__,
-			array(
-				'LIMIT' => 5,
-				'ORDER BY' => 'chat_timestamp DESC'
-			)
-		);
+		$latestTime = $latest->chat_timestamp;
+		$oldestTime = $oldest->chat_timestamp;
 
-		return get_class_methods( $res );
-
-		$latest = $res->fetchRow();
-		$latest = $latest['chat_timestamp'];
-		$res->fetchRow();
-		$res->fetchRow();
-		$res->fetchRow();
-		$oldest = $res->fetchRow();
-		$oldest = $oldest['chat_timestamp'];
-
-		$av = ( $latest - $oldest ) / 5;
+		$av = ( $latestTime - $oldestTime ) / 5;
 
 		return $av;
 	}
@@ -343,6 +357,10 @@ class MediaWikiChat {
 		return $text;
 	}
 
+	/**
+	 * Hook for parser, to parse chat messages slightly differently,
+	 * not parsing tables, double underscores, and headings
+	 */
 	public static function onParserBeforeInternalParse( &$parser, &$text, &$strip_state ) {
 		if ( strpos( $text, 'MWCHAT' ) === false ) {
 			return true;
@@ -372,7 +390,40 @@ class MediaWikiChat {
 			return false;
 		}
 	}
+	/**
+	 * Remove entries from chat table if table is already full 
+	 * 
+	 * Prevents speeds slowing down due to massive IM tables
+	 */
+	function deleteEntryIfNeeded(){
+		$dbr = wfGetDB( DB_SLAVE );
+		$dbw = wfGetDB( DB_MASTER );
+		$field = $dbr -> selectField(
+				'chat',
+				'chat_timestamp',
+				array(),
+				__METHOD__,
+				array(
+						'ORDER_BY' => 'chat_timestamp DESC',
+						'OFFSET' => 50,
+						'LIMIT' => 1
+				)
+		);
+		
+		$this->data['debug']['log'][] = "chat_timestamp < $field";
+		
+		$dbw -> delete(
+				'chat',
+				array( "chat_timestamp < $field" )
+		);
+	}
 
+	/** 
+	 * Main function to get everything that's happened since the client's
+	 * last request.
+	 * 
+	 * @return string: JSON encoded string of all data
+	 */
 	function getNew() {
 		global $wgUser;
 
@@ -444,24 +495,7 @@ class MediaWikiChat {
 				'ORDER BY' => 'chat_timestamp DESC'
 			)
 		);
-		$text = $dbr->selectSQLText(
-			'chat',
-			array(
-				'chat_user_name', 'chat_user_id', 'chat_message',
-				'chat_timestamp', 'chat_type', 'chat_to_name', 'chat_to_id'
-			),
-			array( "chat_timestamp > $lastCheck" ),
-			'',
-			__METHOD__,
-			array(
-				'LIMIT' => 20,
-				'ORDER BY' => 'chat_timestamp DESC'
-			)
-		);
-
-		$this->data['debug']['log'][] = $lastCheck;
-		$this->data['debug']['log'][] = $text;
-		$this->data['debug']['log'][] = get_class( $res );
+		
 		$results = 0;
 
 		foreach ( $res as $row ) {
@@ -510,8 +544,6 @@ class MediaWikiChat {
 					//$convid = $fromid;
 				}
 
-				//echo $convwith;
-
 				$fromavatar = MediaWikiChat::getAvatar( $fromid );
 				$toavatar = MediaWikiChat::getAvatar( $toid );
 
@@ -555,11 +587,6 @@ class MediaWikiChat {
 			}
 		}
 
-		$this->data['debug']['log'][] = $results;
-
-		$this->data['debug']['lastcheck'] = $lastCheck;
-		$this->data['debug']['thischeck'] = $thisCheck;
-
 		$this->data['me'] = $wgUser->getName();
 
 		$this->data['users'][$wgUser->getName()] = array(
@@ -577,7 +604,7 @@ class MediaWikiChat {
 			$this ->data['users'][$user[0]][1] = MediaWikiChat::getAvatar( $user[1] );
 		}
 
-		$this->data['interval'] = MediaWikiChat::getInterval();
+		//$this->data['interval'] = MediaWikiChat::getInterval();
 
 		$this->data['now'] = MediaWikiChat::now();
 

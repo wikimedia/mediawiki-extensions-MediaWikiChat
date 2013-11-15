@@ -200,7 +200,7 @@ var MediaWikiChat = {
 			}
 		});
 	},
-
+	
 	htmlTimestamp: function( timestamp ) {
 		var html = '<span class="mwchat-item-timestamp-container">';
 		html += '<span class="mwchat-item-timestamp pretty" data-timestamp="' + timestamp + '">';
