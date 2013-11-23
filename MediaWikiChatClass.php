@@ -9,8 +9,10 @@ class MediaWikiChat {
 	public $data = array();
 
 	/**
-	 * @todo FIXME: this looks like it could and should go away and be replaced
-	 * with wfTimestampNow(), but that might require a database schema change
+	 * Get the current UNIX time with microseconds (i.e. 138524180871).
+	 * Standard UNIX timestamp contains only 10 digits.
+	 *
+	 * @return Integer: current UNIX timestamp + microseconds
 	 */
 	function now() {
 		$m = explode( ' ', microtime() );
@@ -27,7 +29,7 @@ class MediaWikiChat {
 	 */
 	function getAvatar( $id ) {
 		global $wgUploadPath;
-		
+
 		$avatar = new wAvatar( $id, 's' );
 
 		return $wgUploadPath . '/avatars/' . $avatar->getAvatarImage();
@@ -35,6 +37,14 @@ class MediaWikiChat {
 
 	/**
 	 * Hook for user rights changes
+	 *
+	 * Whenever a user is added to or removed from the 'blockedfromchat' group,
+	 * this function ensures that the chat database table is updated accordingly.
+	 *
+	 * @param $user User|UserRightsProxy: object that was changed
+	 * @param $add Array: array of strings corresponding to groups added
+	 * @param $remove Array: array of strings corresponding to groups removed
+	 * @return Boolean
 	 */
 	public static function onUserRights( $user, array $add, array $remove ) {
 		if ( in_array( 'blockedfromchat', $add ) ) {
@@ -47,9 +57,10 @@ class MediaWikiChat {
 
 		return true;
 	}
+
 	/**
-	 * Send a message to the db that a user has been (un)blocked
-	 * 
+	 * Send a message to the database that a user has been (un)blocked
+	 *
 	 * @param $type String: block/unblock: whether the user has been blocked or unblocked
 	 * @param $user User: user that has been blocked/unblocked
 	 */
@@ -70,17 +81,17 @@ class MediaWikiChat {
 			)
 		);
 	}
-	
+
 	/**
 	 * Perform a kick on the user details given.
-	 * 
+	 *
 	 * @param String $toName: name of user to kick
 	 * @param Integer $toId: id of user to kick
 	 * @return boolean: success
 	 */
 	function kick( $toName, $toId ) {
 		global $wgUser;
-		
+
 		$toUser = User::newFromId( $toID );
 
 		if ( $wgUser->isAllowed( 'modchat' ) && ( ! $toUser->isAllowed( 'modchat' ) ) ) {
@@ -129,7 +140,7 @@ class MediaWikiChat {
 	 *		failed because message was blank, or user is blocked
 	 */
 	function sendMessage( $message ) {
-        global $wgUser;
+		global $wgUser;
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
 			if ( $message != '' ) {
@@ -160,7 +171,7 @@ class MediaWikiChat {
 				) );
 
 				$logid = $logEntry->insert();
-		
+
 				$this->deleteEntryIfNeeded();
 
 				return $timestamp;
@@ -171,9 +182,9 @@ class MediaWikiChat {
 			return false;
 		}
 	}
-	
+
 	/**
-	 * Send a private message message a user, if the user is allowed to chat 
+	 * Send a private message message to a user, if the user is allowed to chat
 	 * and the provided message isn't empty.
 	 *
 	 * @param $message String: user-supplied message
@@ -223,7 +234,7 @@ class MediaWikiChat {
 	 *                if the current user doesn't have the "chat" right
 	 */
 	function getOnline() {
-        global $wgUser;
+		global $wgUser;
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
@@ -256,7 +267,7 @@ class MediaWikiChat {
 
 	/**
 	 * Get average milliseconds beteen recent messages. Note: not currently in use
-	 * 
+	 *
 	 * @return Integer: average milliseconds between message sends
 	 */
 	function getInterval() {
@@ -272,13 +283,13 @@ class MediaWikiChat {
 				'ORDER BY' => 'chat_timestamp DESC'
 			)
 		);
-		
+
 		$i = 0;
-		
-		foreach( $res as $row ){
+
+		foreach ( $res as $row ) {
 			if ( $i == 0 ) {
 				$latest = $row;
-			} elseif ( $i == 4 ){
+			} elseif ( $i == 4 ) {
 				$oldest = $row;
 			}
 			$i++;
@@ -373,7 +384,7 @@ class MediaWikiChat {
 			$text = $parser->doAllQuotes( $text );
 			$text = $parser->replaceExternalLinks( $text );
 
-			$text = str_replace( $parser->mUniqPrefix.'NOPARSE', '', $text );
+			$text = str_replace( $parser->mUniqPrefix . 'NOPARSE', '', $text );
 
 			$text = $parser->doMagicLinks( $text );
 			//$text = $this->formatHeadings( $text, $origText, $isMain );
@@ -381,38 +392,40 @@ class MediaWikiChat {
 			return false;
 		}
 	}
+
 	/**
-	 * Remove entries from chat table if table is already full 
-	 * 
+	 * Remove entries from chat table if table is already full
+	 *
 	 * Prevents speeds slowing down due to massive IM tables
 	 */
-	function deleteEntryIfNeeded(){
+	function deleteEntryIfNeeded() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
-		$field = $dbr -> selectField(
-				'chat',
-				'chat_timestamp',
-				array(),
-				__METHOD__,
-				array(
-						'ORDER_BY' => 'chat_timestamp DESC',
-						'OFFSET' => 50,
-						'LIMIT' => 1
-				)
+		$field = $dbr->selectField(
+			'chat',
+			'chat_timestamp',
+			array(),
+			__METHOD__,
+			array(
+				'ORDER_BY' => 'chat_timestamp DESC',
+				'OFFSET' => 50,
+				'LIMIT' => 1
+			)
 		);
-		
-		if( is_int( $field ) ){
-			$dbw -> delete(
-					'chat',
-					array( "chat_timestamp < $field" )
+
+		if ( is_int( $field ) ) {
+			$dbw->delete(
+				'chat',
+				array( "chat_timestamp < $field" ),
+				__METHOD__
 			);
 		}
 	}
 
-	/** 
+	/**
 	 * Main function to get everything that's happened since the client's
 	 * last request.
-	 * 
+	 *
 	 * @return string: JSON encoded string of all data
 	 */
 	function getNew() {
