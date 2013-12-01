@@ -48,11 +48,11 @@ class MediaWikiChat {
 	 */
 	public static function onUserRights( $user, array $add, array $remove ) {
 		if ( in_array( 'blockedfromchat', $add ) ) {
-			$this->sendSystemBlockingMessage( 'block', $user );
+			MediaWikiChat::sendSystemBlockingMessage( 'block', $user );
 		}
 
 		if ( in_array( 'blockedfromchat', $remove ) ) {
-			$this->sendSystemBlockingMessage( 'unblock', $user );
+			MediaWikiChat::sendSystemBlockingMessage( 'unblock', $user );
 		}
 
 		return true;
