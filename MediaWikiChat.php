@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * An extension to integrate a special page with a built in chat.
  *
@@ -103,3 +103,12 @@ $wgAddGroups['chatmod'][] = 'blockedfromchat';
 $wgRemoveGroups['chatmod'][] = 'blockedfromchat';
 $wgAddGroups['sysop'][] = 'blockedfromchat';
 $wgRemoveGroups['sysop'][] = 'blockedfromchat';
+
+// DB updates for update.php
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'mwChatUpdate';
+
+function mwChatUpdate( DatabaseUpdater $updater ) {
+	$updater->addExtensionTable( 'chat', $dir . 'chat.sql', true );
+	$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );
+	return true;
+}
