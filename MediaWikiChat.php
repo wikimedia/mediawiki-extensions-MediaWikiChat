@@ -108,6 +108,7 @@ $wgRemoveGroups['sysop'][] = 'blockedfromchat';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'mwChatUpdate';
 
 function mwChatUpdate( DatabaseUpdater $updater ) {
+	$dir = dirname( __FILE__ ) . '/';
 	$updater->addExtensionTable( 'chat', $dir . 'chat.sql', true );
 	$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );
 	return true;
