@@ -369,17 +369,10 @@ class MediaWikiChat {
 		} else {
 			$text = $parser->replaceVariables( $text );
 
-			//$text = $this->doTableStuff( $text );
+			$text = Sanitizer::removeHTMLtags( $text, array( &$parser, 'attributeStripCallback' ), false, array_keys( $parser->mTransparentTagHooks ) );
 
 			$text = preg_replace( '/(^|\n)-----*/', '\\1<hr />', $text );
 
-			//$text = $this->doDoubleUnderscore( $text );
-
-			//$text = $this->doHeadings( $text );
-			if ( $parser->mOptions->getUseDynamicDates() ) {
-				$df = DateFormatter::getInstance();
-				$text = $df->reformat( $parser->mOptions->getDateFormat(), $text );
-			}
 			$text = $parser->replaceInternalLinks( $text );
 			$text = $parser->doAllQuotes( $text );
 			$text = $parser->replaceExternalLinks( $text );
@@ -387,7 +380,6 @@ class MediaWikiChat {
 			$text = str_replace( $parser->mUniqPrefix . 'NOPARSE', '', $text );
 
 			$text = $parser->doMagicLinks( $text );
-			//$text = $this->formatHeadings( $text, $origText, $isMain );
 
 			return false;
 		}
