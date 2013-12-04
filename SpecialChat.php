@@ -15,8 +15,6 @@ class SpecialChat extends SpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $bmProject;
-
 		$out = $this->getOutput();
 
 		// Set the page title, robot policies, etc.
@@ -33,11 +31,6 @@ class SpecialChat extends SpecialPage {
 				'ext.mediawikichat.css',
 				'ext.mediawikichat.js'
 			);
-
-			// CSS styles specific to the development site
-			if ( $bmProject == 'dev' ) {
-				$modules[] = 'ext.mediawikichat.css.dev';
-			}
 
 			// Load CSS & JS via ResourceLoader
 			$out->addModules( $modules );

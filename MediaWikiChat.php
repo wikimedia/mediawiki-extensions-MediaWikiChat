@@ -34,13 +34,6 @@ $wgResourceModules['ext.mediawikichat.css'] = array(
 	'position' => 'top' // available since r85616
 );
 
-$wgResourceModules['ext.mediawikichat.css.dev'] = array(
-	'styles' => 'dev.css',
-	'localBasePath' => dirname( __FILE__ ),
-	'remoteExtPath' => 'MediaWikiChat',
-	'position' => 'top' // available since r85616
-);
-
 $wgResourceModules['ext.mediawikichat.js'] = array(
 	'scripts' => 'MediaWikiChat.js',
 	'localBasePath' => dirname( __FILE__ ),

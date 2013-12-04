@@ -303,6 +303,12 @@ class MediaWikiChat {
 		return $av;
 	}
 
+	/**
+	 * Parses the given message as wikitext, and replaces smileys
+	 *
+	 * @param String $message
+	 * @return String
+	 */
 	function parseMessage( $message ) {
 		$s2 = wfMessage( 'smileys' )->plain();
 		$sm2 = explode( '* ', $s2 );
