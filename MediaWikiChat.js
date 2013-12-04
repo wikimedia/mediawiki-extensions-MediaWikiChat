@@ -200,7 +200,7 @@ var MediaWikiChat = {
 			}
 		});
 	},
-	
+
 	htmlTimestamp: function( timestamp ) {
 		var html = '<span class="mwchat-item-timestamp-container">';
 		html += '<span class="mwchat-item-timestamp pretty" data-timestamp="' + timestamp + '">';
@@ -236,16 +236,16 @@ var MediaWikiChat = {
 						var div = $( '#mwchat-content' );
 						var objDiv = $( '#mwchat-content' );
 						objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
-						
+
 					} else if ( key == 'online' ) {
 						MediaWikiChat.doUsers( data[key], data );
-						
+
 					} else if ( key == 'pms' ) {
 						data[key].forEach( function( obj ) {
 							if ( MediaWikiChat.users.indexOf( obj.conv ) != -1 ) {
 
 								var Ruser = obj.conv;
-								
+
 								MediaWikiChat.obj2 = obj;
 
 								MediaWikiChat.addPrivateMessage(
@@ -258,20 +258,20 @@ var MediaWikiChat = {
 								var div = $( '#' + MediaWikiChat.safe( Ruser ) + ' .mwchat-useritem-content' );
 
 								var objDiv = $( '#' + MediaWikiChat.safe( Ruser ) + ' .mwchat-useritem-content' );
-								
+
 								objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
 							}
 						});
-						
+
 					} else if ( key == 'me' ) {
 						MediaWikiChat.me = data[key];
-						
+
 					} else if ( key == 'kick' ) {
 						$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
 						$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
 						clearInterval( MediaWikiChat.newInterval );
 						MediaWikiChat.getNew();
-						
+
 					} else if ( key == 'system' ) {
 						data[key].forEach( function( obj ) {
 							switch ( obj.type ) {
@@ -423,6 +423,12 @@ var MediaWikiChat = {
 				);
 			}
 		});
+
+		if ( allusers.length ){
+			$("#mwchat-no-other-users").hide();
+		} else {
+			$("#mwchat-no-other-users").show();
+		}
 
 		MediaWikiChat.users = newusers;
 

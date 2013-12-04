@@ -23,7 +23,11 @@ class SpecialChatTemplate extends QuickTemplate {
 					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
 				</div>
 			</div>
-			<div id="mwchat-users"></div>
+			<div id="mwchat-users">
+				<div id="mwchat-no-other-users" style="display:none;">
+					<?php echo wfMessage( 'chat-no-other-users' )->plain() ?>
+				</div>
+			</div>
 			<div id="mwchat-me">
 				<img src="" alt="" />
 				<span class="mwchat-useritem-user"></span>

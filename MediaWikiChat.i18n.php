@@ -6,7 +6,7 @@
  * @ingroup Extensions
  */
 $messages = array();
- 
+
 /** English
  * @author Adam Carter
  */
@@ -14,13 +14,14 @@ $messages['en'] = array(
 	'chat' => 'Chat',
 	'chat-desc' => 'MediaWikiChat, a chat extension built in MediaWiki',
 	'chat-type-your-message' => 'Type your message',
+	'chat-no-other-users' => 'No other users on chat',
 	'log-name-chat' => 'Chat log',
 	'log-description-chat' => 'Messages sent by MediaWikiChat, as well as user kicks',
 	'logentry-chat-send' => '$1: $4',
 	'logentry-chat-kick' => '$1 kicked $4',
 	'log-show-hide-chat' => '$1 chat log',
 	'smileys' => '* :) Bricki-emote-smile.gif',
-	'group-blockedfromchat-member' => 'blocked from chat'
+	'group-blockedfromchat-member' => 'blocked from chat',
 );
 
 /** Deutsch/German
@@ -38,7 +39,7 @@ $messages['de'] = array(
 	'smileys' => '* :) Bricki-emote-smile.gif',
 	'group-blockedfromchat-member' => 'aus dem Chat gesperrte'
 );
- 
+
 /** Message documentation
  * @author Adam Carter
  */
