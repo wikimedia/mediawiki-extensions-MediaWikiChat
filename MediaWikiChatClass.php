@@ -65,17 +65,25 @@ class MediaWikiChat {
 	 * @param $user User: user that has been blocked/unblocked
 	 */
 	function sendSystemBlockingMessage( $type, $user ) {
+		global $wgUser;
+
 		$dbw = wfGetDB( DB_MASTER );
 
-		$id = $user->getId();
-		$name = $user->getName();
+		$toid = $user->getId();
+		$toname = $user->getName();
+		$fromid = $wgUser->getId();
+		$fromname = $wgUser->getName();
 		$timestamp = MediaWikiChat::now();
+
+		$
 
 		$dbw->insert(
 			'chat',
 			array(
-				'chat_to_id' => $id,
-				'chat_to_name' => $name,
+				'chat_to_id' => $toid,
+				'chat_to_name' => $toname,
+				'chat_user_id' => $fromid,
+				'chat_user_name' => $fromname,
 				'chat_timestamp' => $timestamp,
 				'chat_type' => $type
 			)
@@ -172,7 +180,7 @@ class MediaWikiChat {
 
 				$logid = $logEntry->insert();
 
-				$this->deleteEntryIfNeeded();
+				MediaWikiChat::deleteEntryIfNeeded();
 
 				return $timestamp;
 			} else {
@@ -219,7 +227,7 @@ class MediaWikiChat {
 				__METHOD__
 			);
 
-			$this->deleteEntryIfNeeded();
+			MediaWikiChat::deleteEntryIfNeeded();
 
 			return $timestamp;
 		} else {
@@ -257,7 +265,7 @@ class MediaWikiChat {
 				$id = $row->cu_user_id;
 				$name = $row->cu_user_name;
 
-				$data[] = array( $name, $id );
+				$data[id] = $name;
 			}
 			return $data;
 		} else {
@@ -396,7 +404,7 @@ class MediaWikiChat {
 	 *
 	 * Prevents speeds slowing down due to massive IM tables
 	 */
-	function deleteEntryIfNeeded() {
+	static function deleteEntryIfNeeded() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 		$field = $dbr->selectField(
@@ -412,6 +420,7 @@ class MediaWikiChat {
 		);
 
 		if ( is_int( $field ) ) {
+			$field = intval( $field );
 			$dbw->delete(
 				'chat',
 				array( "chat_timestamp < $field" ),
@@ -432,17 +441,15 @@ class MediaWikiChat {
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 
-		$resT = $dbr->select(
+		$res = $dbr->selectField(
 			'chat_users',
 			array( 'cu_timestamp' ),
 			array( "cu_user_id = {$wgUser->getId()}" ),
 			__METHOD__
 		);
 
-		$fO = $resT->fetchObject();
-
-		if ( is_object( $fO ) ) {
-			$lastCheck = $fO->cu_timestamp;
+		if ( is_int( $res ) ) {
+			$lastCheck = $res;
 		} else {
 			$lastCheck = 0;
 		}
@@ -461,18 +468,6 @@ class MediaWikiChat {
 		}
 
 		$thisCheck = MediaWikiChat::now();
-
-		$updateT = $dbw->update(
-			'chat_users',
-			array(
-				'cu_timestamp' => $thisCheck,
-				'cu_user_name' => $wgUser->getName()
-		 	),
-			array(
-				'cu_user_id' => $wgUser->getId(),
-		 	),
-			__METHOD__
-		);
 
 		$res = $dbr->select(
 			'chat',
@@ -582,10 +577,9 @@ class MediaWikiChat {
 
 		foreach ( $onlineUsers as $user ) {
 			$this->data['online'][] = $user[0];
-			$x = MediaWikiChat::getAvatar( $user[1] );
 
-			$this ->data['users'][$user[0]][0] = $user[1];
-			$this ->data['users'][$user[0]][1] = MediaWikiChat::getAvatar( $user[1] );
+			$this->data['users'][$user[0]][0] = $user[1];
+			$this->data['users'][$user[0]][1] = MediaWikiChat::getAvatar( $user[1] );
 		}
 
 		//$this->data['interval'] = MediaWikiChat::getInterval();

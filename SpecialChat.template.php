@@ -34,5 +34,5 @@ class SpecialChatTemplate extends QuickTemplate {
 			</div>
 		</div>
 <?php
-	} // execute()
-} // class
+	}
+}

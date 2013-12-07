@@ -460,7 +460,11 @@ var MediaWikiChat = {
 			}
 			if ( mod ) {
 				html += '<img src="http://meta.brickimedia.org/images/thumb/c/cb/Golden-minifigure.png/16px-Golden-minifigure.png" height="16px" alt="mod" title="This user is a moderator" />';
-			} else {
+			}
+
+			html += '<span class="mwchat-pm-text" style="display:none">(private message)</span>';
+
+			if ( !mod ) {
 				html += '<a class="mwchat-useritem-kicklink" href="javascript:;">kick</a>';
 			}
 			html += '<div class="mwchat-useritem-window" style="display:none;">';
@@ -475,7 +479,7 @@ var MediaWikiChat = {
 
 			$( '#mwchat-users #' + userE + ' input' ).keypress( MediaWikiChat.userKeypress );
 
-			MediaWikiChat.setupKickLinks();
+			MediaWikiChat.setupUserLinks();
 
 			if ( !firstTime ) {
 				var date = new Date();
@@ -529,7 +533,7 @@ var MediaWikiChat = {
 		}
 	},
 
-	setupKickLinks: function() {
+	setupUserLinks: function() {
 		$( '.mwchat-useritem-kicklink' ).click( function() {
 			var parent = $( this ).parent();
 
@@ -541,12 +545,16 @@ var MediaWikiChat = {
 				}
 			);
 		} );
+
+		$( '.mwchat-useritem' ).hover( function() {
+			$( this ).find( '.mwchat-pm-text' ).fadeIn();
+		}, function() {
+			$( this ).find( '.mwchat-pm-text' ).fadeIn();
+		} );
 	},
 
 	addMe: function( data ) {
 		if ( !MediaWikiChat.amI ) {
-			//console.log("adding me");
-			//console.log(data);
 			$( '#mwchat-me span' ).html( data['me'] );
 
 			$( '#mwchat-me img' ).attr( 'src', data['users'][data['me']][1] );
