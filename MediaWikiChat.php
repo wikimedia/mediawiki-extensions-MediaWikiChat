@@ -52,14 +52,14 @@ $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChat::onParserBeforeInternal
 $wgHooks['UserRights'][] = 'MediaWikiChat::onUserRights';
 
 //API
-$wgAutoloadClasses['GetNewAPI'] = $dir . 'GetNew.api.php';
-$wgAutoloadClasses['SendAPI'] = $dir . 'Send.api.php';
-$wgAutoloadClasses['SendPMAPI'] = $dir . 'SendPM.api.php';
-$wgAutoloadClasses['KickAPI'] = $dir . 'Kick.api.php';
-$wgAPIModules['chatgetnew'] = 'GetNewAPI';
-$wgAPIModules['chatsend'] = 'SendAPI';
-$wgAPIModules['chatsendpm'] = 'SendPMAPI';
-$wgAPIModules['chatkick'] = 'KickAPI';
+$wgAutoloadClasses['ChatGetNewAPI'] = $dir . 'GetNew.api.php';
+$wgAutoloadClasses['ChatSendAPI'] = $dir . 'Send.api.php';
+$wgAutoloadClasses['ChatSendPMAPI'] = $dir . 'SendPM.api.php';
+$wgAutoloadClasses['ChatKickAPI'] = $dir . 'Kick.api.php';
+$wgAPIModules['chatgetnew'] = 'ChatGetNewAPI';
+$wgAPIModules['chatsend'] = 'ChatSendAPI';
+$wgAPIModules['chatsendpm'] = 'ChatSendPMAPI';
+$wgAPIModules['chatkick'] = 'ChatKickAPI';
 
 // Logs
 $wgLogTypes[] = 'chat';

@@ -1,9 +1,8 @@
 <?php
 
-class GetNewAPI extends APIBase {
+class ChatGetNewAPI extends APIBase {
 
 	public function execute() {
-
 		global $wgUser;
 
 		$result = $this->getResult();
@@ -12,6 +11,8 @@ class GetNewAPI extends APIBase {
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 
+		$thisCheck = MediaWikiChat::now();
+
 		$res = $dbr->selectField(
 				'chat_users',
 				array( 'cu_timestamp' ),
@@ -19,26 +20,26 @@ class GetNewAPI extends APIBase {
 				__METHOD__
 		);
 
-		if ( is_int( $res ) ) {
-			$lastCheck = $res;
-		} else {
-			$lastCheck = 0;
-		}
+		$lastCheck = strval( $res );
 
-		if ( !$lastCheck ) {
+		if ( $lastCheck ) {
+			$dbw->update(
+				'chat_users',
+				array( 'cu_timestamp' => $thisCheck ),
+				array( 'cu_user_id' => $wgUser->getId() ),
+				__METHOD__
+			);
+		} else {
 			$dbw->insert(
 				'chat_users',
 				array(
 					'cu_user_id' => $wgUser->getId(),
 					'cu_user_name' => $wgUser->getName(),
-					'cu_timestamp' => 0,
+					'cu_timestamp' => $thisCheck,
 				),
 				__METHOD__
 			);
-			$lastCheck = 0;
 		}
-
-		$thisCheck = MediaWikiChat::now();
 
 		$res = $dbr->select(
 			'chat',
@@ -58,23 +59,21 @@ class GetNewAPI extends APIBase {
 		$users = array();
 
 		foreach ( $res as $row ) {
-			if ( $row->chat_type == 'message' ) {
+			if ( $row->chat_type == MediaWikiChat::TYPE_MESSAGE ) {
 
 				$id = $row->chat_user_id;
 				$name = $row->chat_user_name;
 				$message = $row->chat_message;
 				$timestamp = $row->chat_timestamp;
-				$avatar = MediaWikiChat::getAvatar( $id );
 
 				$message = MediaWikiChat::parseMessage( $message );
 
-				$result->addValue( array( $mName, 'messages', 'msg' ), 'from', $name );
-				$result->addValue( array( $mName, 'messages', 'msg' ), 'text', $message );
-				$result->addValue( array( $mName, 'messages', 'msg' ), 'timestamp', $timestamp );
+				$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
+				$result->addValue( array( $mName, 'messages', $timestamp ), 'text', $message );
 
-				$users[id] = $name;
+				$users[$id] = $name; // ensure message sender is in users list
 
-			} elseif ( $row->chat_type == 'private message'
+			} elseif ( $row->chat_type == MediaWikiChat::TYPE_PM
 					&& (
 						$row->chat_user_name == $wgUser->getName()
 						|| $row->chat_to_name == $wgUser->getName()
@@ -110,10 +109,10 @@ class GetNewAPI extends APIBase {
 				$result->addValue( array( $mName, 'pms', 'msg' ), 'from', $fromname );
 				$result->addValue( array( $mName, 'pms', 'msg' ), 'conv', $convwith );
 
-				$users[fromid] = $fromname;
-				$users[toid] = $toname;
+				$users[fromid] = $fromname; // ensure pm sender is in users list
+				$users[toid] = $toname; // ensure pm receiver is in users list
 
-			} elseif ( $row->chat_type == 'kick' ) {
+			} elseif ( $row->chat_type == MediaWikiChat::TYPE_KICK ) {
 				if ( $row->chat_to_name == $wgUser->getName() ) {
 					$result->addValue( $mName, 'kick', true );
 				}
@@ -121,61 +120,46 @@ class GetNewAPI extends APIBase {
 				$result->addValue( array( $mName, 'messages', 'kick' ), 'to', $row->chat_to_name );
 				$result->addValue( array( $mName, 'messages', 'kick' ), 'timestamp', $row->chat_timestamp );
 
-			} elseif ( $row->chat_type == 'block' ) {
+			} elseif ( $row->chat_type == MediaWikiChat::TYPE_BLOCK ) {
 				$result->addValue( array( $mName, 'messages', 'block' ), 'from', $row->chat_user_name );
 				$result->addValue( array( $mName, 'messages', 'block' ), 'to', $row->chat_to_name );
 				$result->addValue( array( $mName, 'messages', 'block' ), 'timestamp', $row->chat_timestamp );
 
-			} elseif ( $row->chat_type == 'unblock' ) {
+			} elseif ( $row->chat_type == MediaWikiChat::TYPE_UNBLOCK ) {
 				$result->addValue( array( $mName, 'messages', 'unblock' ), 'from', $row->chat_user_name );
 				$result->addValue( array( $mName, 'messages', 'unblock' ), 'to', $row->chat_to_name );
 				$result->addValue( array( $mName, 'messages', 'unblock' ), 'timestamp', $row->chat_timestamp );
-
 			}
 		}
 
-		$result->addValue( $mName, 'me', $wgUser->getName() );
-
-		$users[$wgUser->getId()] = $wgUser->getName();
+		$users[$wgUser->getId()] = $wgUser->getName(); // ensure current user is in the users list
 
 		$onlineUsers = MediaWikiChat::getOnline();
-
 		foreach ( $onlineUsers as $id => $name ) {
-			$users[$id] = $name;
+			$users[$id] = $name; // ensure all online users are present in the users list
 		}
 
 		foreach ( $users as $id => $name ) {
-			$result->addValue( array( $mName, 'users', 'user' ), 'id', $id );
-			$result->addValue( array( $mName, 'users', 'user' ), 'name', $name );
-			$result->addValue( array( $mName, 'users', 'user' ), 'avatar', MediaWikiChat::getAvatar( $id ) );
+			$userObject = User::newFromId( $id );
+			$idString = strval( $id );
+			echo gettype( $idString );
+
+			$result->addValue( array( $mName, 'users', $idString ), 'name', $name );
+			$result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );
 			if ( array_key_exists( $id, $onlineUsers ) ) {
-				$result->addValue( array( $mName, 'users', 'user' ), 'online', true );
+				$result->addValue( array( $mName, 'users', $idString ), 'online', true );
+			}
+			$groups = $userObject->getGroups();
+			if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
+				$result->addValue( array( $mName, 'users', $idString ), 'mod', true );
 			}
 		}
 
 		//$this->data['interval'] = MediaWikiChat::getInterval();
 		$result->addValue( $mName, 'now', MediaWikiChat::now() );
 
-		$this->data['mods'] = array();
-
-		foreach ( $this->data['users'] as $name => $arr ) {
-			$user = User::newFromName( $name );
-			$groups = $user->getGroups();
-
-			if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
-				$this->data['mods'][] = $name;
-			}
-		}
-
-		$myGroups = $wgUser->getGroups();
-		if ( in_array( 'chatmod', $myGroups ) || in_array( 'sysop', $myGroups ) ) {
-			$this->data['amIMod'] = true;
-		} else {
-			$this->data['amIMod'] = false;
-		}
-
 		if ( !$wgUser->isAllowed( 'chat' ) ) {
-			$this->data['kick'] = true; // if user has since been blocked from chat, kick them now
+			$result->addValue( $mName, 'kick', true ); // if user has since been blocked from chat, kick them now
 		}
 
 		return true;
