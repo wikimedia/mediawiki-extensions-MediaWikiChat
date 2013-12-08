@@ -69,7 +69,7 @@ class ChatGetNewAPI extends APIBase {
 				$message = MediaWikiChat::parseMessage( $message );
 
 				$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
-				$result->addValue( array( $mName, 'messages', $timestamp ), 'text', $message );
+				$result->addValue( array( $mName, 'messages', $timestamp ), '*', $message );
 
 				$users[$id] = $name; // ensure message sender is in users list
 
@@ -104,31 +104,30 @@ class ChatGetNewAPI extends APIBase {
 					'from' => $fromname,
 					'conv' => $convwith
 				);
-				$result->addValue( array( $mName, 'pms', 'msg' ), 'text', $message );
-				$result->addValue( array( $mName, 'pms', 'msg' ), 'timestamp', $timestamp );
-				$result->addValue( array( $mName, 'pms', 'msg' ), 'from', $fromname );
-				$result->addValue( array( $mName, 'pms', 'msg' ), 'conv', $convwith );
+				$result->addValue( array( $mName, 'pms', $timestamp ), '*', $message );
+				$result->addValue( array( $mName, 'pms', $timestamp ), 'from', $fromid );
+				$result->addValue( array( $mName, 'pms', $timestamp ), 'conv', $convwith );
 
-				$users[fromid] = $fromname; // ensure pm sender is in users list
-				$users[toid] = $toname; // ensure pm receiver is in users list
+				$users[$fromid] = $fromname; // ensure pm sender is in users list
+				$users[$toid] = $toname; // ensure pm receiver is in users list
 
 			} elseif ( $row->chat_type == MediaWikiChat::TYPE_KICK ) {
 				if ( $row->chat_to_name == $wgUser->getName() ) {
 					$result->addValue( $mName, 'kick', true );
 				}
-				$result->addValue( array( $mName, 'messages', 'kick' ), 'from', $row->chat_user_name );
-				$result->addValue( array( $mName, 'messages', 'kick' ), 'to', $row->chat_to_name );
-				$result->addValue( array( $mName, 'messages', 'kick' ), 'timestamp', $row->chat_timestamp );
+				$timestamp = $row->chat_timestamp;
+				$result->addValue( array( $mName, 'kicks', $timestamp ), 'from', $row->chat_user_name );
+				$result->addValue( array( $mName, 'kicks', $timestamp ), 'to', $row->chat_to_name );
 
 			} elseif ( $row->chat_type == MediaWikiChat::TYPE_BLOCK ) {
-				$result->addValue( array( $mName, 'messages', 'block' ), 'from', $row->chat_user_name );
-				$result->addValue( array( $mName, 'messages', 'block' ), 'to', $row->chat_to_name );
-				$result->addValue( array( $mName, 'messages', 'block' ), 'timestamp', $row->chat_timestamp );
+				$timestamp = $row->chat_timestamp;
+				$result->addValue( array( $mName, 'blocks', $timestamp ), 'from', $row->chat_user_name );
+				$result->addValue( array( $mName, 'blocks', $timestamp ), 'to', $row->chat_to_name );
 
 			} elseif ( $row->chat_type == MediaWikiChat::TYPE_UNBLOCK ) {
-				$result->addValue( array( $mName, 'messages', 'unblock' ), 'from', $row->chat_user_name );
-				$result->addValue( array( $mName, 'messages', 'unblock' ), 'to', $row->chat_to_name );
-				$result->addValue( array( $mName, 'messages', 'unblock' ), 'timestamp', $row->chat_timestamp );
+				$timestamp = $row->chat_timestamp;
+				$result->addValue( array( $mName, 'unblocks', $timestamp ), 'from', $row->chat_user_name );
+				$result->addValue( array( $mName, 'unblocks', $timestamp ), 'to', $row->chat_to_name );
 			}
 		}
 
@@ -142,7 +141,6 @@ class ChatGetNewAPI extends APIBase {
 		foreach ( $users as $id => $name ) {
 			$userObject = User::newFromId( $id );
 			$idString = strval( $id );
-			echo gettype( $idString );
 
 			$result->addValue( array( $mName, 'users', $idString ), 'name', $name );
 			$result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );

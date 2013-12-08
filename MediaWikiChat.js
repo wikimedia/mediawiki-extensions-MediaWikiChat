@@ -26,7 +26,6 @@ var MediaWikiChat = {
 		nochars.forEach( function( character ) {
 			var patt = new RegExp( '\\' + character, 'g' );
 			string = string.replace( patt, '' );
-			//console.log( '/\\' + character + '/g' );
 		});
 
 		return string;
@@ -78,7 +77,7 @@ var MediaWikiChat = {
 				month = 'May';
 				break;
 			case 5:
-				month = 'Jun';
+				month = 'June';
 				break;
 			case 6:
 				month = 'July';
@@ -142,7 +141,6 @@ var MediaWikiChat = {
 			return 'an hour ago';
 		} else {
 			if ( dayNow == dayThen ) {
-				//console.log( dateThen );
 				return MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
 			} else {
 				if ( dayNow == dayThen + 1 ) { // @TODO handle 31s
@@ -222,7 +220,6 @@ var MediaWikiChat = {
 
 			for ( var userId in data.users ) {
 				var obj = data.users[userId];
-				console.log( obj );
 				MediaWikiChat.userData[userId] = { 'name': obj.name, 'avatar': obj.avatar };
 				if ( obj.mod ) {
 					MediaWikiChat.userData[userId].mod = true;
@@ -236,31 +233,41 @@ var MediaWikiChat = {
 
 			for ( var timestamp in data.messages ) {
 				var obj = data.messages[timestamp];
-				console.log( obj );
 				MediaWikiChat.addMessage(
 					obj.from,
-					obj.text,
+					obj['*'],
 					timestamp
 				);
 			}
 
-			for ( var key in data.pms ) {
-				var obj = data.pms[key];
-				if ( MediaWikiChat.users.indexOf( obj.conv ) != -1 ) {
+			for ( var timestamp in data.pms ) {
+				var obj = data.pms[timestamp];
 
-					var Ruser = obj.conv;
+				var convWith = obj.conv;
+				console.log( convWith );
 
-					MediaWikiChat.addPrivateMessage(
-						obj.from,
-						Ruser,
-						obj.message,
-						data.users[obj.from][1],
-						obj.timestamp
-					);
-					var div = $( '#' + MediaWikiChat.safe( Ruser ) + ' .mwchat-useritem-content' );
-					var objDiv = $( '#' + MediaWikiChat.safe( Ruser ) + ' .mwchat-useritem-content' );
-					objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
-				}
+				MediaWikiChat.addPrivateMessage(
+					obj.from,
+					convWith,
+					obj['*'],
+					timestamp
+				);
+				var div = $( '#' + MediaWikiChat.safe( convWith ) + ' .mwchat-useritem-content' );
+				var objDiv = $( '#' + MediaWikiChat.safe( convWith ) + ' .mwchat-useritem-content' );
+				objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+			}
+
+			for ( var timestamp in data.kicks ) {
+				var obj = data.kicks[timestamp];
+				MediaWikiChat.showKickMessage( obj.from, obj.to, timestamp );
+			}
+			for ( var timestamp in data.blocks ) {
+				var obj = data.blocks[timestamp];
+				MediaWikiChat.showBlockMessage( obj.from, obj.to, timestamp );
+			}
+			for ( var timestamp in data.unblocks ) {
+				var obj = data.unblocks[timestamp];
+				MediaWikiChat.showUnblockMessage( obj.from, obj.to, timestamp );
 			}
 
 			if ( data.kick ) {
@@ -268,21 +275,6 @@ var MediaWikiChat = {
 				$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
 				clearInterval( MediaWikiChat.newInterval );
 				MediaWikiChat.getNew();
-			}
-
-			for ( var key in data.system ) {
-				var obj = data.system[key];
-				switch ( obj.type ) {
-				case 'kick':
-					MediaWikiChat.showKickMessage( obj.from, obj.to, obj.timestamp );
-					break;
-				case 'block':
-					MediaWikiChat.showBlockMessage( obj.to, obj.timestamp );
-					break;
-				case 'unblock':
-					MediaWikiChat.showUnblockMessage( obj.to, obj.timestamp );
-					break;
-				}
 			}
 
 			MediaWikiChat.amIMod = data.users[wgUserId].mod;
@@ -372,13 +364,14 @@ var MediaWikiChat = {
 		MediaWikiChat.setupTimestampHover();
 	},
 
-	addPrivateMessage: function( user, convwith, message, url, timestamp ) {
+	addPrivateMessage: function( userId, convwith, message, timestamp ) {
 		//console.log("addPM");
-		var userE = MediaWikiChat.safe( user );
+		var user = MediaWikiChat.userData[userId];
+		var userE = MediaWikiChat.safe( user.name );
 		var convwithE = MediaWikiChat.safe( convwith );
 
 		var html = '<div class="mwchat-message">';
-		html += '<img src="' + url + '" alt="' + user + '" name="' + user + '" title="' + user + '" />';
+		html += '<img src="' + user.avatar + '" alt="' + user.name + '" name="' + user.name + '" title="' + user.name + '" />';
 		html += '<span class="mwchat-item-message">';
 		html += message;
 		html += '</span>';
@@ -387,7 +380,7 @@ var MediaWikiChat = {
 
 		$( '#' + convwithE + ' .mwchat-useritem-content' ).append( html );
 
-		if ( user != wgUserName ) {
+		if ( user.name != wgUserName ) {
 			$( '#' + convwithE ).attr( 'data-read', 'true' );
 		}
 	},
@@ -395,10 +388,8 @@ var MediaWikiChat = {
 	doUsers: function( newusers ) {
 		var allusers = MediaWikiChat.users.concat( newusers );
 		allusers = MediaWikiChat.unique( allusers );
-		console.log( allusers );
 
 		allusers.forEach( function( userId ) {
-			console.log( userId );
 			if ( newusers.indexOf( userId ) == -1 ) {
 				MediaWikiChat.removeUser( userId );
 			} else if ( newusers.indexOf( userId ) != -1 && MediaWikiChat.users.indexOf( userId ) == -1 ) {
@@ -416,7 +407,6 @@ var MediaWikiChat = {
 		}
 
 		MediaWikiChat.users = newusers;
-
 		MediaWikiChat.firstTime = false;
 	},
 
@@ -523,15 +513,17 @@ var MediaWikiChat = {
 
 	setupUserLinks: function() {
 		$( '.mwchat-useritem-kicklink' ).click( function() {
+			console.log( 'click' );
 			var parent = $( this ).parent();
 
-			sajax_do_call(
-				'kick',
-				[parent.attr( 'data-name' ), parent.attr( 'data-id' )],
-				function( request ) {
-					MediaWikiChat.getNew( 'kick' );
-				}
-			);
+			$.ajax({
+				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
+				data: { 'action': 'chatkick', 'id': parent.attr( 'data-id' ), 'format': 'json' },
+			})
+			.done( function() {
+				console.log( 'return' );
+				MediaWikiChat.getNew( 'kick' );
+			});
 		} );
 
 		$( '.mwchat-useritem' ).hover( function() {

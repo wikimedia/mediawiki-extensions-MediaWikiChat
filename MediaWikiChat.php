@@ -71,6 +71,7 @@ $wgGroupPermissions['user']['chat'] = true;
 $wgGroupPermissions['blockedfromchat']['chat'] = false;
 
 $wgGroupPermissions['chatmod']['modchat'] = true;
+$wgGroupPermissions['sysop']['modchat'] = true;
 $wgAddGroups['sysop'][] = 'chatmod';
 $wgRemoveGroups['sysop'][] = 'chatmod';
 
