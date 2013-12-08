@@ -54,11 +54,11 @@ class MediaWikiChat {
 	 */
 	public static function onUserRights( $user, array $add, array $remove ) {
 		if ( in_array( 'blockedfromchat', $add ) ) {
-			MediaWikiChat::sendSystemBlockingMessage( 'block', $user );
+			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_BLOCK, $user );
 		}
 
 		if ( in_array( 'blockedfromchat', $remove ) ) {
-			MediaWikiChat::sendSystemBlockingMessage( 'unblock', $user );
+			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_UNBLOCK, $user );
 		}
 
 		return true;
@@ -80,8 +80,6 @@ class MediaWikiChat {
 		$fromid = $wgUser->getId();
 		$fromname = $wgUser->getName();
 		$timestamp = MediaWikiChat::now();
-
-		$
 
 		$dbw->insert(
 			'chat',

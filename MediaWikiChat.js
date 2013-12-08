@@ -209,8 +209,6 @@ var MediaWikiChat = {
 		})
 		.done( function( response ) {
 
-			console.log( response );
-
 			var data = response.chatgetnew;
 
 			console.log(data);
@@ -228,6 +226,8 @@ var MediaWikiChat = {
 					onlineUsers[onlineUsers.length] = userId;
 				}
 			}
+
+			MediaWikiChat.amIMod = data.users[wgUserId].mod;
 
 			MediaWikiChat.doUsers( onlineUsers );
 
@@ -277,8 +277,6 @@ var MediaWikiChat = {
 				MediaWikiChat.getNew();
 			}
 
-			MediaWikiChat.amIMod = data.users[wgUserId].mod;
-
 			var div = $( '#mwchat-content' );
 			var objDiv = $( '#mwchat-content' );
 			objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
@@ -300,21 +298,31 @@ var MediaWikiChat = {
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
 
-	showBlockMessage: function( to, timestamp ) {
+	showBlockMessage: function( from, to, timestamp ) {
 		var message;
-		if ( to == wgUserName ) {
-			message = 'You have been blocked <a href="">(details)</a>';
+		if ( from == wgUserName ) {
+			message = 'You blocked ' + to;
+		} else if ( to == wgUserName ) {
+			message = 'You have been blocked by ' + from;
 		} else {
-			message = to + ' has been blocked <a href="">(details)</a>';
+			message = to + ' has been blocked by ' + from;
 		}
 
 		MediaWikiChat.addSystemMessage( message, timestamp );
+		$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
+		$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
 	},
 
-	showUnblockMessage: function( to, timestamp ) {
-		var message = to + ' has been unblocked <a href="">(details)</a>';
+	showUnblockMessage: function( from, to, timestamp ) {
+		if ( from == wgUserName ) {
+			var message = 'You unblocked ' + to;
+		} else {
+			var message = from + ' unblocked ' + to;
+		}
 
 		MediaWikiChat.addSystemMessage( message, timestamp );
+		$( '#mwchat-type input' ).attr( 'disabled', '' );
+		$( '#mwchat-users div input' ).attr( 'disabled', '' );
 	},
 
 	addSystemMessage: function( text, timestamp ) {
