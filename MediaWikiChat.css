@@ -59,7 +59,7 @@
 	width: 90px;
 }
 .mwchat-useritem {
-	margin: 5px;
+	padding: 5px;
 	background-color: #FFF;
 	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
@@ -89,6 +89,10 @@
 .mwchat-useritem-kicklink {
 	float: right;
 	padding-right: 0.5em;
+	color: #000 !important;
+}
+.mwchat-useritem-pmlink {
+	padding-left: 0.5em;
 	color: #000 !important;
 }
 .mwchat-message.system .mwchat-item-message {

@@ -24,7 +24,7 @@ class SpecialChat extends SpecialPage {
 			// @todo FIXME: rename this i18n message to conform with coding
 			// standards, i.e lowercase-separated-with-hyphens and prefixed
 			// with the extension's name (chat-)
-			$out->addWikiMsg( 'BlockedFromChat' );
+			$out->addWikiMsg( 'chat-blocked-from-chat' );
 		} else {
 			// What CSS & JS modules do we need?
 			$modules = array(

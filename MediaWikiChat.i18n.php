@@ -15,6 +15,7 @@ $messages['en'] = array(
 	'chat-desc' => 'MediaWikiChat, a chat extension built in MediaWiki',
 	'chat-type-your-message' => 'Type your message',
 	'chat-no-other-users' => 'No other users on chat',
+	'chat-blocked-from-chat' => 'You have been blocked from this chat.',
 	'log-name-chat' => 'Chat log',
 	'log-description-chat' => 'Messages sent by MediaWikiChat, as well as user kicks',
 	'logentry-chat-send' => '$1: $4',

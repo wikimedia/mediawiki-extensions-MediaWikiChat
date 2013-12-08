@@ -6,7 +6,7 @@
  * @ingroup Extensions
  * @version 1.0
  * @author Adam Carter
- * @copyright Copyright Â© 2013, Adam Carter
+ * @copyright Copyright © 2013, Adam Carter
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -20,7 +20,7 @@ require_once( "$IP/extensions/SocialProfile/SocialProfile.php" );
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '1.0',
+	'version' => '2.0',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://github.com/Brickimedia/MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -51,44 +51,27 @@ $wgExtensionMessagesFiles['MediaWikiChat'] = $dir . 'MediaWikiChat.i18n.php';
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChat::onParserBeforeInternalParse';
 $wgHooks['UserRights'][] = 'MediaWikiChat::onUserRights';
 
+//API
+$wgAutoloadClasses['ChatGetNewAPI'] = $dir . 'GetNew.api.php';
+$wgAutoloadClasses['ChatSendAPI'] = $dir . 'Send.api.php';
+$wgAutoloadClasses['ChatSendPMAPI'] = $dir . 'SendPM.api.php';
+$wgAutoloadClasses['ChatKickAPI'] = $dir . 'Kick.api.php';
+$wgAPIModules['chatgetnew'] = 'ChatGetNewAPI';
+$wgAPIModules['chatsend'] = 'ChatSendAPI';
+$wgAPIModules['chatsendpm'] = 'ChatSendPMAPI';
+$wgAPIModules['chatkick'] = 'ChatKickAPI';
+
 // Logs
 $wgLogTypes[] = 'chat';
 $wgLogActionsHandlers['chat/*'] = 'LogFormatter';
 $wgFilterLogTypes['chat'] = true;
-
-// @todo FIXME: this is wrong, should 1) be in their own file and 2) be using
-// the API instead of AJAX stuff (that's stupid, but don't blame it on me, I'm
-// just the messenger here)
-$mwchat = new MediaWikiChat();
-
-function getNew() {
-	global $mwchat;
-	return $mwchat->getNew();
-}
-function sendMessage( $message ) {
-	global $mwchat;
-	return $mwchat->sendMessage( $message );
-}
-function sendPM( $message, $toName, $toId ) {
-	global $mwchat;
-	return $mwchat->sendPM( $message, $toName, $toId );
-}
-function kick( $userName, $userId ) {
-	global $mwchat;
-	return $mwchat->kick( $userName, $userId );
-}
-
-$wgAjaxExportList[] = 'getNew';
-$wgAjaxExportList[] = 'sendMessage';
-$wgAjaxExportList[] = 'sendPM';
-$wgAjaxExportList[] = 'kick';
-// </fixme>
 
 // Permissions
 $wgGroupPermissions['user']['chat'] = true;
 $wgGroupPermissions['blockedfromchat']['chat'] = false;
 
 $wgGroupPermissions['chatmod']['modchat'] = true;
+$wgGroupPermissions['sysop']['modchat'] = true;
 $wgAddGroups['sysop'][] = 'chatmod';
 $wgRemoveGroups['sysop'][] = 'chatmod';
 
