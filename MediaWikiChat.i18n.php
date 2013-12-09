@@ -42,7 +42,7 @@ $messages['en'] = array(
 	'logentry-chat-send' => '$1: $4',
 	'logentry-chat-kick' => '$1 kicked $4',
 	'log-show-hide-chat' => '$1 chat log',
-	'smileys' => '* :) Bricki-emote-smile.gif',
+	'smileys' => '',
 	'group-blockedfromchat-member' => 'blocked from chat',
 );
 
