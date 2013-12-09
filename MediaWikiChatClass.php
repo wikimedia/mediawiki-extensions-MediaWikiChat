@@ -242,8 +242,8 @@ class MediaWikiChat {
 					$image = "[[!File:$filename|x20px|alt=$chars|link=|$chars]]";
 
 					$smileys[$chars] = $image; // given chars give given image
-					$smileys[strtolower($chars)] = $image; // given chars in upper or
-					$smileys[strtoupper($chars)] = $image; // lower case give given image
+					$smileys[strtolower( $chars )] = $image; // given chars in upper or
+					$smileys[strtoupper( $chars )] = $image; // lower case give given image
 				}
 			}
 		}
