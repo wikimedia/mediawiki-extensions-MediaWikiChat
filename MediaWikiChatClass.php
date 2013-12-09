@@ -144,30 +144,6 @@ class MediaWikiChat {
 	}
 
 	/**
-	 * Send a message to chat, if the user is allowed to chat and the provided
-	 * message isn't empty.
-	 *
-	 * @param $message String: user-supplied message
-	 * @return Mixed: timestamp (on success), or boolean false (if message sending
-	 *		failed because message was blank, or user is blocked
-	 */
-	function sendMessage( $message ) {
-	}
-
-	/**
-	 * Send a private message message to a user, if the user is allowed to chat
-	 * and the provided message isn't empty.
-	 *
-	 * @param $message String: user-supplied message
-	 * @param String $toName: username of user to send message to
-	 * @param Integer $toId: id of user to send message to
-	 * @return Mixed: timestamp (on success), or boolean false (if message sending
-	 *		failed because message was blank, or user is blocked
-	 */
-	function sendPM( $message, $toName, $toId ) {
-	}
-
-	/**
 	 * Get the list of users who are online, if we have the "chat" user right.
 	 *
 	 * @return Mixed: array of user IDs and user names on success, boolean false
@@ -179,7 +155,7 @@ class MediaWikiChat {
 		if ( $wgUser->isAllowed( 'chat' ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 
-			$timestamp = MediaWikiChat::now() - 2 * 60 * 100; // minus 2 mins
+			$timestamp = MediaWikiChat::now() - 1 * 60 * 100; // minus 1 mins
 
 			$res = $dbr->select(
 				'chat_users',
@@ -361,14 +337,4 @@ class MediaWikiChat {
 			);
 		}
 	}
-
-	/**
-	 * Main function to get everything that's happened since the client's
-	 * last request.
-	 *
-	 * @return string: JSON encoded string of all data
-	 */
-	function getNew() {
-	}
-
 }

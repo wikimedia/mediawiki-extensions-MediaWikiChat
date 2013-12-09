@@ -28,7 +28,6 @@ class SpecialChat extends SpecialPage {
 			$modules = array(
 				'ext.mediawikichat.css',
 				'ext.mediawikichat.js',
-				'ext.mediawikichat.messages'
 			);
 			$out->addModules( $modules );
 

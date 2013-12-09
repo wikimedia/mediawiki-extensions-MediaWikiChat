@@ -4,7 +4,7 @@ var MediaWikiChat = {
 	amIMod: false,
 	amI: false,
 	firstTime: true,
-	interval: 15000,
+	interval: 10000,
 	newInterval: null,
 	redoInterval: null,
 	userData: [],
