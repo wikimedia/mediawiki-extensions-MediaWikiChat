@@ -1,4 +1,5 @@
 <?php
+
 class ChatSendAPI extends ApiBase {
 
 	public function execute() {

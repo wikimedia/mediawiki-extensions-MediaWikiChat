@@ -39,6 +39,25 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 	'localBasePath' => dirname( __FILE__ ),
 	'remoteExtPath' => 'MediaWikiChat',
 );
+$wgResourceModules['ext.mediawikichat.messages'] = array(
+	'messages' => array(
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	),
+	'localBasePath' => dirname( __FILE__ ),
+	'remoteExtPath' => 'MediaWikiChat',
+);
+
 
 // Set up everything
 $dir = dirname( __FILE__ ) . '/';

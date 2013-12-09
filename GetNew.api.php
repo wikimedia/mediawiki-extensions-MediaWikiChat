@@ -1,6 +1,6 @@
 <?php
 
-class ChatGetNewAPI extends APIBase {
+class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
 		global $wgUser;

@@ -60,44 +60,9 @@ var MediaWikiChat = {
 
 		d.setTime( timestamp * 10 );
 
-		switch ( d.getMonth() ) {
-			case 0:
-				month = 'January';
-				break;
-			case 1:
-				month = 'February';
-				break;
-			case 2:
-				month = 'March';
-				break;
-			case 3:
-				month = 'April';
-				break;
-			case 4:
-				month = 'May';
-				break;
-			case 5:
-				month = 'June';
-				break;
-			case 6:
-				month = 'July';
-				break;
-			case 7:
-				month = 'August';
-				break;
-			case 8:
-				month = 'September';
-				break;
-			case 9:
-				month = 'October';
-				break;
-			case 10:
-				month = 'November';
-				break;
-			case 11:
-				month = 'December';
-				break;
-		}
+		var months = [ 'january', 'february', 'march', 'april', 'may', 'june',
+			'july', 'august', 'september', 'october', 'november', 'december' ];
+		var month = mw.message( months[d.getMonth()] ).text();
 
 		var date = d.getDate();
 		var hours = MediaWikiChat.pad( d.getHours(), 2 );
@@ -117,60 +82,48 @@ var MediaWikiChat = {
 
 		var diff = ( tsNow - timestamp ) / 100;
 
-		if ( diff < 30 ) { // 30
-			return 'just now';
-		} else if ( diff < 90 ) { // 130
-			return 'a minute ago';
-		} else if ( diff < 3 * 60 ) { // 300
-			return '2 minutes ago';
-		} else if ( diff < 7 * 60 ) { // 700
-			return '5 minutes ago';
-		} else if ( diff < 12 * 60 ) { // 1200
-			return '10 minutes ago';
-		} else if ( diff < 17 * 60 ) { // 1700
-			return 'quarter of an hour ago';
-		} else if ( diff < 23 * 60 ) { // 2500
-			return '20 minutes ago';
-		} else if ( diff < 27 * 60 ) { // 2500
-			return '25 minutes ago';
-		} else if ( diff < 37 * 60 ) { // 3700
-			return 'half an hour ago';
-		} else if ( diff < 50 * 60 ) { // 5000
-			return '45 minutes ago';
-		} else if ( diff < 90 * 60 ) { // 13000
-			return 'an hour ago';
+		if ( diff < 30 ) {
+			return mw.message( 'chat-just-now' ).text();
+		} else if ( diff < 90 ) {
+			return mw.message( 'chat-a-minute-ago' ).text();
+		} else if ( diff < 3 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 2 ).text();
+		} else if ( diff < 7 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 5 ).text();
+		} else if ( diff < 12 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 10 ).text();
+		} else if ( diff < 17 * 60 ) {
+			return mw.message( 'chat-quarter-of-an-hour-ago' ).text();
+		} else if ( diff < 23 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 20 ).text();
+		} else if ( diff < 27 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 25 ).text();
+		} else if ( diff < 33 * 60 ) {
+			return mw.message( 'chat-half-an-hour-ago' ).text();
+		} else if ( diff < 37 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 35 ).text();
+		} else if ( diff < 42 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 40 ).text();
+		} else if ( diff < 47 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 45 ).text();
+		} else if ( diff < 52 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 50 ).text();
+		} else if ( diff < 57 * 60 ) {
+			return mw.message( 'chat-minutes-ago', 55 ).text();
+		} else if ( diff < 90 * 60 ) {
+			return mw.message( 'chat-an-hour-ago' ).text();
 		} else {
 			if ( dayNow == dayThen ) {
 				return MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
 			} else {
 				if ( dayNow == dayThen + 1 ) { // @TODO handle 31s
-					return 'yesterday, ' + MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
+					return mw.message( 'chat-yesterday' ).text().toLowerCase() + ', ' + MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
 				} else {
 					var day;
-					switch ( dateThen.getDay() ) {
-						case 0:
-							day = 'sunday, ';
-							break;
-						case 1:
-							day = 'monday, ';
-							break;
-						case 2:
-							day = 'tuesday, ';
-							break;
-						case 3:
-							day = 'wednesday, ';
-							break;
-						case 4:
-							day = 'thursday, ';
-							break;
-						case 5:
-							day = 'friday, ';
-							break;
-						case 6:
-							day = 'saturday, ';
-							break;
-					}
-					return day +
+					var days = [ 'sunday', 'monday', 'tuesday', 'wednesday',
+						'thursday', 'friday', 'saturday', 'sunday' ];
+					day = mw.message( days[dateThen.getDay()] ).text().toLowerCase();
+					return day + ', ' +
 						MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' +
 						MediaWikiChat.pad( dateThen.getMinutes(), 2 );
 				}
@@ -277,10 +230,11 @@ var MediaWikiChat = {
 				MediaWikiChat.getNew();
 			}
 
-			var div = $( '#mwchat-content' );
-			var objDiv = $( '#mwchat-content' );
-			objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
-
+			if ( data.message ) {
+				var div = $( '#mwchat-content' );
+				var objDiv = $( '#mwchat-content' );
+				objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+			}
 			MediaWikiChat.addMe();
 
 		});
@@ -289,28 +243,27 @@ var MediaWikiChat = {
 	showKickMessage: function( from, to, timestamp ) {
 		var message;
 		if ( to == wgUserName ) {
-			message = 'You have been kicked by ' + from + '. Refresh the page to chat';
+			message = mw.message( 'chat-youve-been-kicked', from ).text();
 		} else if ( from == wgUserName ) {
-			message = 'You kicked ' + to;
+			message = mw.message( 'chat-you-kicked', to ).text();
 		} else {
-			message = from + ' kicked ' + to;
+			message = mw.message( 'chat-kicked', from, to ).text();
 		}
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
 
 	showBlockMessage: function( from, to, timestamp ) {
 		var message;
-		if ( from == wgUserName ) {
-			message = 'You blocked ' + to;
-		} else if ( to == wgUserName ) {
-			message = 'You have been blocked by ' + from;
+		if ( to == wgUserName ) {
+			message = mw.message( 'chat-youve-been-blocked', from ).text();
+			$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
+			$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
+		} else if ( from == wgUserName ) {
+			message = mw.message( 'chat-you-blocked', to ).text();
 		} else {
-			message = to + ' has been blocked by ' + from;
+			message = mw.message( 'chat-blocked', from, to ).text();
 		}
-
 		MediaWikiChat.addSystemMessage( message, timestamp );
-		$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
-		$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
 	},
 
 	showUnblockMessage: function( from, to, timestamp ) {
@@ -441,20 +394,24 @@ var MediaWikiChat = {
 			html += user.name;
 			html += '</span>';
 			if ( MediaWikiChat.amIMod ) {
-				html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user.name ) + '" target="_blank">block</a>';
+				html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user.name );
+				html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
 			}
 			if ( user.mod ) {
-				html += '<img src="http://meta.brickimedia.org/images/thumb/c/cb/Golden-minifigure.png/16px-Golden-minifigure.png" height="16px" alt="mod" title="This user is a moderator" />';
+				html += '<img src="http://meta.brickimedia.org/images/thumb/c/cb/Golden-minifigure.png/16px-Golden-minifigure.png" height="16px" alt="" title="';
+				html += mw.message( 'user-is-a moderator' ).text() + '" />';
 			}
 
-			html += ' <span class="mwchat-useritem-pmlink" style="display:none">(private message)</span>';
+			html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
+			html += mw.message( 'chat-private-message' ).text() + '</span>';
 
 			if ( !user.mod ) {
-				html += '<a class="mwchat-useritem-kicklink" href="javascript:;">kick</a>';
+				html += '<a class="mwchat-useritem-kicklink" href="javascript:;">';
+				html += mw.message( 'chat-kick' ).text() + '</a>';
 			}
 			html += '<div class="mwchat-useritem-window" style="display:none;">';
 			html += '<div class="mwchat-useritem-content"></div>';
-			html += '<input type="text" placeholder="Type your private message" />';
+			html += '<input type="text" placeholder="' + mw.message( 'chat-type-your-private-message' ).text() + '" />';
 			html += '</div>';
 			html += '</div>';
 
@@ -469,7 +426,7 @@ var MediaWikiChat = {
 			if ( !firstTime ) {
 				var date = new Date();
 				var timestamp = MediaWikiChat.timestampFromDate( date );
-				MediaWikiChat.addSystemMessage( user.name + ' has joined the chat', timestamp );
+				MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name ).text(), timestamp );
 			}
 		}
 	},
@@ -482,7 +439,7 @@ var MediaWikiChat = {
 
 		var date = new Date();
 		var timestamp = MediaWikiChat.timestampFromDate( date );
-		MediaWikiChat.addSystemMessage( user.name + ' has left the chat', timestamp );
+		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name ).text(), timestamp );
 	},
 
 	clickUser: function( e ) {
@@ -551,7 +508,8 @@ var MediaWikiChat = {
 
 			if ( me.mod ) {
 				$( '#mwchat-me' ).append(
-					'<img src="http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png" height="20px" alt="moderator" title="This user is a moderator" />'
+					'<img src="http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png" height="20px" alt="" title="\
+					"' + mw.message( 'chat-you-are-moderator' ).text() + '" />'
 				);
 			}
 			MediaWikiChat.amI = true;
