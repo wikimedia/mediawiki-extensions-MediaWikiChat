@@ -398,7 +398,7 @@ var MediaWikiChat = {
 				html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
 			}
 			if ( user.mod ) {
-				html += '<img src="http://meta.brickimedia.org/images/thumb/c/cb/Golden-minifigure.png/16px-Golden-minifigure.png" height="16px" alt="" title="';
+				html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
 				html += mw.message( 'user-is-a moderator' ).text() + '" />';
 			}
 
@@ -508,8 +508,7 @@ var MediaWikiChat = {
 
 			if ( me.mod ) {
 				$( '#mwchat-me' ).append(
-					'<img src="http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png" height="20px" alt="" title="\
-					"' + mw.message( 'chat-you-are-moderator' ).text() + '" />'
+					'<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="20px" alt="" title="' + mw.message( 'chat-you-are-moderator' ).text() + '" />'
 				);
 			}
 			MediaWikiChat.amI = true;

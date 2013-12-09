@@ -33,7 +33,6 @@ $wgResourceModules['ext.mediawikichat.css'] = array(
 	'remoteExtPath' => 'MediaWikiChat',
 	'position' => 'top' // available since r85616
 );
-
 $wgResourceModules['ext.mediawikichat.js'] = array(
 	'scripts' => 'MediaWikiChat.js',
 	'localBasePath' => dirname( __FILE__ ),
@@ -52,6 +51,7 @@ $wgResourceModules['ext.mediawikichat.messages'] = array(
 		'chat-youve-been-blocked', 'chat-you-blocked', 'chat-blocked',
 		'chat-block', 'chat-private-message', 'chat-user-is-moderator',
 		'chat-you-are-moderator', 'chat-joined', 'chat-left',
+		'chat-mod-image'
 	),
 	'localBasePath' => dirname( __FILE__ ),
 	'remoteExtPath' => 'MediaWikiChat',

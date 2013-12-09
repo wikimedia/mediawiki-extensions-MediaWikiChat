@@ -21,18 +21,15 @@ class SpecialChat extends SpecialPage {
 		$this->setHeaders();
 
 		if ( !$this->getUser()->isAllowed( 'chat' ) ) {
-			// @todo FIXME: rename this i18n message to conform with coding
-			// standards, i.e lowercase-separated-with-hyphens and prefixed
-			// with the extension's name (chat-)
 			$out->addWikiMsg( 'chat-blocked-from-chat' );
+
 		} else {
-			// What CSS & JS modules do we need?
+			// Load modules via ResourceLoader
 			$modules = array(
 				'ext.mediawikichat.css',
-				'ext.mediawikichat.js'
+				'ext.mediawikichat.js',
+				'ext.mediawikichat.messages'
 			);
-
-			// Load CSS & JS via ResourceLoader
 			$out->addModules( $modules );
 
 			// Load the GUI (from its own, separate file)
