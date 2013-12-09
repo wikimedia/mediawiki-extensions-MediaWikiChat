@@ -64,9 +64,9 @@ class ChatSendPMAPI extends ApiBase {
 	}
 
 	public function getParamDescription() {
-		return array_merge( parent::getParamDescription(), array(
+		return array(
 			'message' => 'The message to send.'
-		) );
+		);
 	}
 
 	public function getExamples() {

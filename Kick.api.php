@@ -69,9 +69,9 @@ class ChatKickAPI extends ApiBase {
 	}
 
 	public function getParamDescription() {
-		return array_merge( parent::getParamDescription(), array(
+		return array(
 			'id' => 'The user ID to kick.'
-		) );
+		);
 	}
 
 	public function getExamples() {
