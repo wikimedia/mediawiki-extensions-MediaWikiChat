@@ -230,7 +230,7 @@ var MediaWikiChat = {
 				MediaWikiChat.getNew();
 			}
 
-			if ( data.message ) {
+			if ( data.messages ) {
 				var div = $( '#mwchat-content' );
 				var objDiv = $( '#mwchat-content' );
 				objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
