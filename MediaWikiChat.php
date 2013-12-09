@@ -20,7 +20,7 @@ require_once( "$IP/extensions/SocialProfile/SocialProfile.php" );
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.0',
+	'version' => '2.1',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://github.com/Brickimedia/MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
