@@ -12,8 +12,6 @@ class MediaWikiChat {
 	const TYPE_UNBLOCK = 3;
 	const TYPE_KICK = 4;
 
-	public $data = array();
-
 	/**
 	 * Get the current UNIX time with microseconds (i.e. 138524180871).
 	 * Standard UNIX timestamp contains only 10 digits.

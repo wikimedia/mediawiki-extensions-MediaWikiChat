@@ -18,17 +18,7 @@ var MediaWikiChat = {
 	},
 
 	safe: function( string ) {
-		var nochars = [
-			'/', '(', ')', '[', ']', '{', '}', '.', '*', '+', '?', '^', '=',
-			'!', ':', '$', '|', ' '
-		];
-
-		nochars.forEach( function( character ) {
-			var patt = new RegExp( '\\' + character, 'g' );
-			string = string.replace( patt, '' );
-		});
-
-		return string;
+		return string.replace( /\(\)\/\\\[\]\{\}\.\*\+\?\^=!:$\| /g, '' );
 	},
 
 	unique: function( array ) {
@@ -45,14 +35,8 @@ var MediaWikiChat = {
 		return a;
 	},
 
-	timestampFromDate: function( date ) {
-		var y = MediaWikiChat.pad( date.getUTCFullYear(), 4 );
-		var m = MediaWikiChat.pad( date.getUTCMonth() + 1, 2 );
-		var d = MediaWikiChat.pad( date.getUTCDate(), 2 );
-		var h = MediaWikiChat.pad( date.getUTCHours(), 2 );
-		var i = MediaWikiChat.pad( date.getUTCMinutes(), 2 );
-		var s = MediaWikiChat.pad( date.getUTCSeconds(), 2 );
-		return y + m + d + h + i + s;
+	now: function() {
+		return Math.round( new Date().getTime() / 10 ); // we need it in 10 millisecond sizes
 	},
 
 	realTimestamp: function( timestamp ) {
@@ -424,9 +408,7 @@ var MediaWikiChat = {
 			MediaWikiChat.setupUserLinks();
 
 			if ( !firstTime ) {
-				var date = new Date();
-				var timestamp = MediaWikiChat.timestampFromDate( date );
-				MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name ).text(), timestamp );
+				MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name ).text(), MediaWikiChat.now() );
 			}
 		}
 	},
@@ -437,9 +419,7 @@ var MediaWikiChat = {
 
 		$( '#mwchat-users #' + userE ).remove();
 
-		var date = new Date();
-		var timestamp = MediaWikiChat.timestampFromDate( date );
-		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name ).text(), timestamp );
+		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name ).text(), MediaWikiChat.now() );
 	},
 
 	clickUser: function( e ) {
