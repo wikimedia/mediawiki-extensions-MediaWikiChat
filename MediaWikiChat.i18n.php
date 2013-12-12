@@ -23,6 +23,7 @@ $messages['en'] = array(
 	'chat-half-an-hour-ago' => 'half an hour ago',
 	'chat-an-hour-ago' => 'an hour ago',
 	'chat-minutes-ago' => '$1 minutes ago',
+	'chat-yesterday' => 'yesterday',
 	'chat-youve-been-kicked' => 'You have been kicked by $1. Refresh the page to chat',
 	'chat-you-kicked' => 'You kicked $1',
 	'chat-kicked' => '$1 kicked $2',
