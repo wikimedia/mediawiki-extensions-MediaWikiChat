@@ -3,7 +3,7 @@
 class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser;
+		global $wgUser, $wgChatSocialAvatars;
 
 		$result = $this->getResult();
 		$mName = $this->getModuleName();
@@ -95,9 +95,6 @@ class ChatGetNewAPI extends ApiBase {
 						$convwith = $fromname;
 					}
 
-					$fromavatar = MediaWikiChat::getAvatar( $fromid );
-					$toavatar = MediaWikiChat::getAvatar( $toid );
-
 					$message = MediaWikiChat::parseMessage( $message );
 
 					$this->data['pms'][] = array(
@@ -145,7 +142,9 @@ class ChatGetNewAPI extends ApiBase {
 				$idString = strval( $id );
 
 				$result->addValue( array( $mName, 'users', $idString ), 'name', $name );
-				$result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );
+				if ( $wgChatSocialAvatars ) {
+					$result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );
+				}
 				if ( array_key_exists( $id, $onlineUsers ) ) {
 					$result->addValue( array( $mName, 'users', $idString ), 'online', true );
 				}

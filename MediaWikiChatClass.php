@@ -1,6 +1,6 @@
 <?php
 /**
- * Main backend class for the MediaWikiChat extension.
+ * Backend class for various static methods for the MediaWikiChat extension.
  *
  * @file
  */
@@ -18,7 +18,7 @@ class MediaWikiChat {
 	 *
 	 * @return Integer: current UNIX timestamp + microseconds
 	 */
-	function now() {
+	static function now() {
 		$m = explode( ' ', microtime() );
 
 		return intval( $m[1] ) * 100 +
@@ -31,7 +31,7 @@ class MediaWikiChat {
 	 * @param $id Integer: user ID
 	 * @return String: avatar image path
 	 */
-	function getAvatar( $id ) {
+	static function getAvatar( $id ) {
 		global $wgUploadPath;
 
 		$avatar = new wAvatar( $id, 's' );
@@ -40,35 +40,12 @@ class MediaWikiChat {
 	}
 
 	/**
-	 * Hook for user rights changes
-	 *
-	 * Whenever a user is added to or removed from the 'blockedfromchat' group,
-	 * this function ensures that the chat database table is updated accordingly.
-	 *
-	 * @param $user User|UserRightsProxy: object that was changed
-	 * @param $add Array: array of strings corresponding to groups added
-	 * @param $remove Array: array of strings corresponding to groups removed
-	 * @return Boolean
-	 */
-	public static function onUserRights( $user, array $add, array $remove ) {
-		if ( in_array( 'blockedfromchat', $add ) ) {
-			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_BLOCK, $user );
-		}
-
-		if ( in_array( 'blockedfromchat', $remove ) ) {
-			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_UNBLOCK, $user );
-		}
-
-		return true;
-	}
-
-	/**
 	 * Send a message to the database that a user has been (un)blocked
 	 *
 	 * @param $type String: block/unblock: whether the user has been blocked or unblocked
 	 * @param $user User: user that has been blocked/unblocked
 	 */
-	function sendSystemBlockingMessage( $type, $user ) {
+	static function sendSystemBlockingMessage( $type, $user ) {
 		global $wgUser;
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -93,61 +70,12 @@ class MediaWikiChat {
 	}
 
 	/**
-	 * Perform a kick on the user details given.
-	 *
-	 * @param String $toName: name of user to kick
-	 * @param Integer $toId: id of user to kick
-	 * @return boolean: success
-	 */
-	function kick( $toName, $toId ) {
-		global $wgUser;
-
-		$toUser = User::newFromId( $toID );
-
-		if ( $wgUser->isAllowed( 'modchat' ) && ( ! $toUser->isAllowed( 'modchat' ) ) ) {
-			$dbw = wfGetDB( DB_MASTER );
-
-			$fromId = $wgUser->getId();
-			$fromName = $wgUser->getName();
-			$timestamp = MediaWikiChat::now();
-
-			$dbw->insert(
-				'chat',
-				array(
-					'chat_to_id' => $toId,
-					'chat_to_name' => $toName,
-					'chat_user_id' => $fromId,
-					'chat_user_name' => $fromName,
-					'chat_timestamp' => $timestamp,
-					'chat_type' => 'kick'
-				),
-				__METHOD__
-			);
-
-			// Log the kick to Special:Log/chat
-			$logEntry = new ManualLogEntry( 'chat', 'kick' );
-			$logEntry->setPerformer( $wgUser );
-			$page = SpecialPage::getTitleFor( 'Chat' );
-			$logEntry->setTarget( $page );
-			$logEntry->setParameters( array(
-				'4::kick' => $toName,
-			) );
-
-			$logId = $logEntry->insert();
-
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
 	 * Get the list of users who are online, if we have the "chat" user right.
 	 *
 	 * @return Mixed: array of user IDs and user names on success, boolean false
 	 *                if the current user doesn't have the "chat" right
 	 */
-	function getOnline() {
+	static function getOnline() {
 		global $wgUser;
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
@@ -184,7 +112,7 @@ class MediaWikiChat {
 	 *
 	 * @return Integer: average milliseconds between message sends
 	 */
-	function getInterval() {
+	static function getInterval() {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$res = $dbr->select(
@@ -223,7 +151,7 @@ class MediaWikiChat {
 	 * @param String $message
 	 * @return String
 	 */
-	function parseMessage( $message ) {
+	static function parseMessage( $message ) {
 		$s2 = wfMessage( 'smileys' )->plain();
 		$sm2 = explode( '* ', $s2 );
 
@@ -280,32 +208,6 @@ class MediaWikiChat {
 		$text = str_replace( 'MWCHAT', '', $text );
 		$text = ltrim( $text );
 		return $text;
-	}
-
-	/**
-	 * Hook for parser, to parse chat messages slightly differently,
-	 * not parsing tables, double underscores, and headings
-	 */
-	public static function onParserBeforeInternalParse( &$parser, &$text, &$strip_state ) {
-		if ( strpos( $text, 'MWCHAT' ) === false ) {
-			return true;
-		} else {
-			$text = $parser->replaceVariables( $text );
-
-			$text = Sanitizer::removeHTMLtags( $text, array( &$parser, 'attributeStripCallback' ), false, array_keys( $parser->mTransparentTagHooks ) );
-
-			$text = preg_replace( '/(^|\n)-----*/', '\\1<hr />', $text );
-
-			$text = $parser->replaceInternalLinks( $text );
-			$text = $parser->doAllQuotes( $text );
-			$text = $parser->replaceExternalLinks( $text );
-
-			$text = str_replace( $parser->mUniqPrefix . 'NOPARSE', '', $text );
-
-			$text = $parser->doMagicLinks( $text );
-
-			return false;
-		}
 	}
 
 	/**

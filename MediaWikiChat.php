@@ -13,9 +13,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This is not a valid entry point to MediaWiki.' );
 }
 
-//Needs SocialProfile (for the mo)
-require_once( "$IP/extensions/SocialProfile/SocialProfile.php" );
-
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
@@ -47,7 +44,7 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 		'chat-youve-been-blocked', 'chat-you-blocked', 'chat-blocked',
 		'chat-block', 'chat-private-message', 'chat-user-is-moderator',
 		'chat-you-are-moderator', 'chat-joined', 'chat-left',
-		'chat-mod-image'
+		'chat-mod-image', 'chat-yesterday'
 	),
 	'localBasePath' => dirname( __FILE__ ),
 	'remoteExtPath' => 'MediaWikiChat',
@@ -57,12 +54,18 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 $dir = dirname( __FILE__ ) . '/';
 $wgAutoloadClasses['SpecialChat'] = $dir . 'SpecialChat.php';
 $wgAutoloadClasses['MediaWikiChat'] = $dir. 'MediaWikiChatClass.php';
+$wgAutoloadClasses['MediaWikiChatHooks'] = $dir. 'MediaWikiChat.hooks.php';
 $wgSpecialPages['Chat'] = 'SpecialChat';
 $wgExtensionMessagesFiles['MediaWikiChat'] = $dir . 'MediaWikiChat.i18n.php';
 
+// Config vars
+$wgChatKicks = false; // allow 'kicking' of users?
+$wgChatSocialAvatars = true; // use SocialProfile avatars?
+
 // Hooks
-$wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChat::onParserBeforeInternalParse';
-$wgHooks['UserRights'][] = 'MediaWikiChat::onUserRights';
+$wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';
+$wgHooks['UserRights'][] = 'MediaWikiChatHooks::onUserRights';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'MediaWikiChatHooks::onLoadExtensionSchemaUpdates';
 
 //API
 $wgAutoloadClasses['ChatGetNewAPI'] = $dir . 'GetNew.api.php';
@@ -92,13 +95,3 @@ $wgAddGroups['chatmod'][] = 'blockedfromchat';
 $wgRemoveGroups['chatmod'][] = 'blockedfromchat';
 $wgAddGroups['sysop'][] = 'blockedfromchat';
 $wgRemoveGroups['sysop'][] = 'blockedfromchat';
-
-// DB updates for update.php
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'mwChatUpdate';
-
-function mwChatUpdate( DatabaseUpdater $updater ) {
-	$dir = dirname( __FILE__ ) . '/';
-	$updater->addExtensionTable( 'chat', $dir . 'chat.sql', true );
-	$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );
-	return true;
-}
