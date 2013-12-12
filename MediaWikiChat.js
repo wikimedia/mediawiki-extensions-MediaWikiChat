@@ -224,9 +224,8 @@ var MediaWikiChat = {
 
 	scrollToBottom: function() {
 		var div = $( '#mwchat-content' );
-		var objDiv = $( '#mwchat-content' );
-		objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
-	}
+		div.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+	},
 
 	showKickMessage: function( from, to, timestamp ) {
 		var message;
@@ -424,8 +423,7 @@ var MediaWikiChat = {
 
 		$( '#mwchat-users #' + userE ).remove();
 
-		MediaWikiChat.addSystemMessage( mw.mes
-				sage( 'chat-left', user.name ).text(), MediaWikiChat.now() );
+		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name ).text(), MediaWikiChat.now() );
 		MediaWikiChat.scrollToBottom();
 	},
 
