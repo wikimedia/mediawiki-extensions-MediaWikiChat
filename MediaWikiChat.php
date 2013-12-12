@@ -22,7 +22,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'MediaWikiChat',
 	'version' => '2.1',
 	'author' => 'Adam Carter/UltrasonicNXT',
-	'url' => 'https://github.com/Brickimedia/MediaWikiChat',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
 );
 

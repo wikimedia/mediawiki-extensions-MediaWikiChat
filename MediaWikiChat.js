@@ -214,15 +214,19 @@ var MediaWikiChat = {
 				MediaWikiChat.getNew();
 			}
 
-			if ( data.messages ) {
-				var div = $( '#mwchat-content' );
-				var objDiv = $( '#mwchat-content' );
-				objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+			if ( data.messages || data.kicks || data.blocks || data.unblocks ) {
+				MediaWikiChat.scrollToBottom();
 			}
 			MediaWikiChat.addMe();
 
 		});
 	},
+
+	scrollToBottom: function() {
+		var div = $( '#mwchat-content' );
+		var objDiv = $( '#mwchat-content' );
+		objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+	}
 
 	showKickMessage: function( from, to, timestamp ) {
 		var message;
@@ -409,6 +413,7 @@ var MediaWikiChat = {
 
 			if ( !firstTime ) {
 				MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name ).text(), MediaWikiChat.now() );
+				MediaWikiChat.scrollToBottom();
 			}
 		}
 	},
@@ -419,7 +424,9 @@ var MediaWikiChat = {
 
 		$( '#mwchat-users #' + userE ).remove();
 
-		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name ).text(), MediaWikiChat.now() );
+		MediaWikiChat.addSystemMessage( mw.mes
+				sage( 'chat-left', user.name ).text(), MediaWikiChat.now() );
+		MediaWikiChat.scrollToBottom();
 	},
 
 	clickUser: function( e ) {
