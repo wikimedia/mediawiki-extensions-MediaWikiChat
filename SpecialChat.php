@@ -15,6 +15,8 @@ class SpecialChat extends SpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
+		global $wgChatSocialAvatars, $wgChatKicks;
+
 		$out = $this->getOutput();
 
 		// Set the page title, robot policies, etc.
@@ -30,6 +32,13 @@ class SpecialChat extends SpecialPage {
 				'ext.mediawikichat.js',
 			);
 			$out->addModules( $modules );
+
+			$out->addJsConfigVars(
+				array(
+					'wgChatKicks' => $wgChatKicks,
+					'wgChatSocialAvatars' => $wgChatSocialAvatars
+				)
+			);
 
 			// Load the GUI (from its own, separate file)
 			include( 'SpecialChat.template.php' );

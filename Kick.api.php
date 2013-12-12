@@ -3,7 +3,7 @@
 class ChatKickAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser;
+		global $wgUser, $wgChatKicks;
 
 		$result = $this->getResult();
 		$toId = $this->getMain()->getVal( 'id' );
@@ -11,7 +11,7 @@ class ChatKickAPI extends ApiBase {
 		$toUser = User::newFromId( $toId );
 		$toName = $toUser->getName();
 
-		if ( $wgUser->isAllowed( 'modchat' ) && ( ! $toUser->isAllowed( 'modchat' ) ) ) {
+		if ( $wgUser->isAllowed( 'modchat' ) && !$toUser->isAllowed( 'modchat' ) && $wgChatKicks ) {
 			$dbw = wfGetDB( DB_MASTER );
 
 			$fromId = $wgUser->getId();
@@ -49,6 +49,9 @@ class ChatKickAPI extends ApiBase {
 			}
 			if ( $toUser->isAllowed( 'modchat' ) ) {
 				$result->addValue( $this->getModuleName(), 'error', 'the person you are kicking is a moderator' );
+			}
+			if ( !$wgChatKicks ) {
+				$result->addValue( $this->getModuleName(), 'error', 'kicking has been disabled' );
 			}
 		}
 

@@ -145,11 +145,8 @@ var MediaWikiChat = {
 			data: { 'action': 'chatgetnew', 'format': 'json' },
 		})
 		.done( function( response ) {
-
 			var data = response.chatgetnew;
-
-			console.log(data);
-			MediaWikiChat.global = data;
+			console.log( response );
 
 			var onlineUsers = [];
 
@@ -282,7 +279,11 @@ var MediaWikiChat = {
 		html += '<td class="mwchat-item-user">';
 		html += user.name;
 		html += '</td>';
-		html += '<td class="mwchat-item-avatar"><img src="' + user.avatar + '" /></td>';
+		html += '<td class="mwchat-item-avatar">';
+		console.log( mw.config.get( 'wgChatSocialAvatars' ) );
+		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
+			html += '<img src="' + user.avatar + '" /></td>';
+		}
 		html += '<td class="mwchat-item-messagecell"><span class="mwchat-item-message">';
 		html += message;
 		html += '</span>';
@@ -319,7 +320,9 @@ var MediaWikiChat = {
 		var convwithE = MediaWikiChat.safe( convwith );
 
 		var html = '<div class="mwchat-message">';
-		html += '<img src="' + user.avatar + '" alt="' + user.name + '" name="' + user.name + '" title="' + user.name + '" />';
+		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
+			html += '<img src="' + user.avatar + '" alt="' + user.name + '" name="' + user.name + '" title="' + user.name + '" />';
+		}
 		html += '<span class="mwchat-item-message">';
 		html += message;
 		html += '</span>';
@@ -375,9 +378,11 @@ var MediaWikiChat = {
 
 		if ( add ) {
 
-			var html = '<div class="mwchat-useritem noshow" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '"><img src="';
-			html += user.avatar;
-			html += '" /><span class="mwchat-useritem-user">';
+			var html = '<div class="mwchat-useritem noshow" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
+			if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
+				html += '<img src="' + user.avatar + '" />';
+			}
+			html += '<span class="mwchat-useritem-user">';
 			html += user.name;
 			html += '</span>';
 			if ( MediaWikiChat.amIMod ) {
@@ -391,8 +396,9 @@ var MediaWikiChat = {
 
 			html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
 			html += mw.message( 'chat-private-message' ).text() + '</span>';
+			console.log( mw.config.get( 'wgChatKicks' ) );
 
-			if ( !user.mod ) {
+			if ( !user.mod && mw.config.get( 'wgChatKicks' ) ) {
 				html += '<a class="mwchat-useritem-kicklink" href="javascript:;">';
 				html += mw.message( 'chat-kick' ).text() + '</a>';
 			}
