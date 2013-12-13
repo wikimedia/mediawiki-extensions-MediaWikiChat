@@ -17,6 +17,7 @@ $messages['en'] = array(
 	'chat-type-your-private-message' => 'Type your private message',
 	'chat-no-other-users' => 'No other users on chat',
 	'chat-blocked-from-chat' => 'You have been blocked from this chat.',
+	'chat-not-allowed' => 'You are not allowed to chat, try logging in first',
 	'chat-just-now' => 'just now',
 	'chat-a-minute-ago' => 'a minute ago',
 	'chat-quarter-of-an-hour-ago' => 'quarter of an hour ago',
@@ -69,6 +70,7 @@ $messages['de'] = array(
 $messages['qqq'] = array(
 	'chat' => 'Important! This is the string that appears on Special:SpecialPages',
 	'chat-desc' => '{{desc}}',
+	'chat-not-allowed' => 'Message shown to users who are not in the groups required to chat (normally users who are not logged in)',
 	'log-name-chat' => 'Name of the chat log as it appears on the drop-down menu on [[Special:Log]]',
 	'log-show-hide-chat' => 'For [[Special:Log]]. Parameters:
 * $1 - {{int:show}} or {{int:hide}}',
