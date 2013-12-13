@@ -146,68 +146,75 @@ class MediaWikiChat {
 	}
 
 	/**
-	 * Parses the given message as wikitext, and replaces smileys
+	 * Parses the given message as wikitext, and replaces smileys,
+	 * provided $wgChatWikiText is enabled
 	 *
-	 * @param String $message
-	 * @return String
+	 * @param String $message: message to parse
+	 * @return String: parsed message
 	 */
 	static function parseMessage( $message ) {
-		$s2 = wfMessage( 'smileys' )->plain();
-		$sm2 = explode( '* ', $s2 );
+		global $wgChatRichMessages;
 
-		$smileys = array();
+		if ( $wgChatRichMessages ) {
 
-		if ( is_array( $sm2 ) ) {
-			foreach ( $sm2 as $line ) {
-				$bits = explode( ' ', $line );
+			$rawSmileyData = wfMessage( 'smileys' )->plain();
+			$smileyData = explode( '* ', $rawSmileyData );
 
-				if ( count( $bits ) > 1 ) {
-					$chars = trim( $bits[0] );
-					$filename = trim( $bits[1] );
+			$smileys = array();
 
-					$image = "[[!File:$filename|x20px|alt=$chars|link=|$chars]]";
+			if ( is_array( $smileyData ) ) {
+				foreach ( $smileyData as $line ) {
+					$bits = explode( ' ', $line );
 
-					$smileys[$chars] = $image; // given chars give given image
-					$smileys[strtolower( $chars )] = $image; // given chars in upper or
-					$smileys[strtoupper( $chars )] = $image; // lower case give given image
+					if ( count( $bits ) > 1 ) {
+						$chars = trim( $bits[0] );
+						$filename = trim( $bits[1] );
+
+						$image = "[[!File:$filename|x20px|alt=$chars|link=|$chars]]";
+
+						$smileys[$chars] = $image; // given chars give given image
+						$smileys[strtolower( $chars )] = $image; // given chars in upper or
+						$smileys[strtoupper( $chars )] = $image; // lower case give given image
+					}
 				}
 			}
-		}
 
-		$message = ' ' . $message . ' ';
+			$message = ' ' . $message . ' ';
 
-		if ( is_array( $smileys ) ) {
-			foreach ( $smileys as $chars => $image ) {
-				$chars = preg_quote( $chars );
+			if ( is_array( $smileys ) ) {
+				foreach ( $smileys as $chars => $image ) {
+					$chars = preg_quote( $chars );
 
-				$message = preg_replace( '` ' . $chars . ' `', ' ' . $image . ' ', $message );
+					$message = preg_replace( '` ' . $chars . ' `', ' ' . $image . ' ', $message );
+				}
 			}
+
+			$message = trim( $message );
+
+			$message = str_ireplace( '[[File:', '[[:File:', $message ); // prevent users showing huge local images in chat
+			$message = str_ireplace( '[[!File:', '[[File:', $message );
+
+			$message = "MWCHAT $message"; // flag to show the parser this is a chat message
+
+			$opts = new ParserOptions();
+			$opts->setEditSection( false );
+			$opts->setExternalLinkTarget( '_blank' );
+			$opts->setAllowSpecialInclusion( false );
+			$opts->setAllowExternalImages( false );
+
+			$parser = new Parser();
+			$parseOut = $parser->parse(
+				$message,
+				SpecialPage::getTitleFor( 'Chat' ),
+				$opts
+			);
+
+			$message = $parseOut->getText();
+			$message = str_replace( 'MWCHAT', '', $message );
+			$message = ltrim( $message );
 		}
 
-		$message = trim( $message );
-
-		$message = str_ireplace( '[[File:', '[[:File:', $message );
-		$message = str_ireplace( '[[!File:', '[[File:', $message );
-
-		$message = "MWCHAT $message";
-
-		$opts = new ParserOptions();
-		$opts->setEditSection( false );
-		$opts->setExternalLinkTarget( '_blank' );
-		$opts->setAllowSpecialInclusion( false );
-		$opts->setAllowExternalImages( false );
-
-		$parser = new Parser();
-		$parseOut = $parser->parse(
-			$message,
-			SpecialPage::getTitleFor( 'Chat' ),
-			$opts
-		);
-
-		$text = $parseOut->getText();
-		$text = str_replace( 'MWCHAT', '', $text );
-		$text = ltrim( $text );
-		return $text;
+		return $message;
 	}
 
 	/**

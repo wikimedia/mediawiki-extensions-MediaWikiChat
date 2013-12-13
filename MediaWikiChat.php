@@ -61,6 +61,7 @@ $wgExtensionMessagesFiles['MediaWikiChat'] = $dir . 'MediaWikiChat.i18n.php';
 // Config vars
 $wgChatKicks = false; // allow 'kicking' of users?
 $wgChatSocialAvatars = true; // use SocialProfile avatars?
+$wgChatRichMessages = true; // allow the use of wikitext and smileys in chat?
 
 // Hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';
