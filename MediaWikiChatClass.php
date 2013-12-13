@@ -152,13 +152,15 @@ class MediaWikiChat {
 	 * @return String
 	 */
 	static function parseMessage( $message ) {
-		$s2 = wfMessage( 'smileys' )->plain();
-		$sm2 = explode( '* ', $s2 );
+		global $wgChatWikiText;
+
+		$rawSmileyData = wfMessage( 'smileys' )->plain();
+		$smileyData = explode( '* ', $rawSmileyData );
 
 		$smileys = array();
 
-		if ( is_array( $sm2 ) ) {
-			foreach ( $sm2 as $line ) {
+		if ( is_array( $smileyData ) ) {
+			foreach ( $smileyData as $line ) {
 				$bits = explode( ' ', $line );
 
 				if ( count( $bits ) > 1 ) {
@@ -186,28 +188,31 @@ class MediaWikiChat {
 
 		$message = trim( $message );
 
-		$message = str_ireplace( '[[File:', '[[:File:', $message );
+		$message = str_ireplace( '[[File:', '[[:File:', $message ); // prevent users showing huge local images in chat
 		$message = str_ireplace( '[[!File:', '[[File:', $message );
 
-		$message = "MWCHAT $message";
+		if ( $wgChatWikiText ) {
+			$message = "MWCHAT $message"; // flag to show the parser this is a chat message
 
-		$opts = new ParserOptions();
-		$opts->setEditSection( false );
-		$opts->setExternalLinkTarget( '_blank' );
-		$opts->setAllowSpecialInclusion( false );
-		$opts->setAllowExternalImages( false );
+			$opts = new ParserOptions();
+			$opts->setEditSection( false );
+			$opts->setExternalLinkTarget( '_blank' );
+			$opts->setAllowSpecialInclusion( false );
+			$opts->setAllowExternalImages( false );
 
-		$parser = new Parser();
-		$parseOut = $parser->parse(
-			$message,
-			SpecialPage::getTitleFor( 'Chat' ),
-			$opts
-		);
+			$parser = new Parser();
+			$parseOut = $parser->parse(
+				$message,
+				SpecialPage::getTitleFor( 'Chat' ),
+				$opts
+			);
 
-		$text = $parseOut->getText();
-		$text = str_replace( 'MWCHAT', '', $text );
-		$text = ltrim( $text );
-		return $text;
+			$message = $parseOut->getText();
+			$message = str_replace( 'MWCHAT', '', $message );
+			$message = ltrim( $message );
+		}
+
+		return $message;
 	}
 
 	/**
