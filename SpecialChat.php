@@ -23,7 +23,7 @@ class SpecialChat extends SpecialPage {
 		$this->setHeaders();
 
 		if ( !$this->getUser()->isAllowed( 'chat' ) ) {
-			$groups = $this->getUser->getGroups();
+			$groups = $this->getUser()->getGroups();
 			if ( in_array( 'blockedfromchat', $groups ) ) {
 				$out->addWikiMsg( 'chat-blocked-from-chat' );
 			} else {
