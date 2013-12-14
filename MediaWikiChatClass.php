@@ -168,9 +168,10 @@ class MediaWikiChat {
 
 					if ( count( $bits ) > 1 ) {
 						$chars = trim( $bits[0] );
+						$charsSafe = htmlspecialchars( trim( $bits[0] ) );
 						$filename = trim( $bits[1] );
 
-						$image = "[[!File:$filename|x20px|alt=$chars|link=|$chars]]";
+						$image = "[[!File:$filename|x20px|alt=$charsSafe|link=|$charsSafe]]";
 
 						$smileys[$chars] = $image; // given chars give given image
 						$smileys[strtolower( $chars )] = $image; // given chars in upper or
