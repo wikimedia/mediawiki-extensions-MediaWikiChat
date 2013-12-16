@@ -14,6 +14,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class SpecialChatTemplate extends QuickTemplate {
 	public function execute() {
 ?>
+		<div id="mwchat-topic">
+			<?php echo wfMessage( 'chat-topic' )->parse(); ?>
+		</div>
 		<div id="mwchat-container">
 			<div id="mwchat-main">
 				<div id="mwchat-content">

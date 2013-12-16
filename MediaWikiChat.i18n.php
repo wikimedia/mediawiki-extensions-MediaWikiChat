@@ -39,6 +39,7 @@ $messages['en'] = array(
 	'chat-joined' => '$1 has joined the chat',
 	'chat-left' => '$1 has left chat',
 	'chat-mod-image' => 'http://meta.brickimedia.org/images/c/cb/Golden-minifigure.png',
+	'chat-topic' => 'Welcome to {{SITENAME}} chat. ([[Special:Log/chat|chat log]])',
 	'log-name-chat' => 'Chat log',
 	'log-description-chat' => 'Messages sent by MediaWikiChat, as well as user kicks',
 	'logentry-chat-send' => '$1: $4',
