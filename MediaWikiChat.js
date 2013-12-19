@@ -69,7 +69,7 @@ var MediaWikiChat = {
 		if ( diff < 30 ) {
 			return mw.message( 'chat-just-now' ).text();
 		} else if ( diff < 90 ) {
-			return mw.message( 'chat-a-minute-ago' ).text();
+			return mw.message( 'chat-minutes-ago', 1 ).text();
 		} else if ( diff < 3 * 60 ) {
 			return mw.message( 'chat-minutes-ago', 2 ).text();
 		} else if ( diff < 7 * 60 ) {
@@ -224,11 +224,12 @@ var MediaWikiChat = {
 	showKickMessage: function( from, to, timestamp ) {
 		var message;
 		if ( to == wgUserName ) {
-			message = mw.message( 'chat-youve-been-kicked', from ).text();
+			message = mw.message( 'chat-youve-been-kicked', from, mw.user ).text();
 		} else if ( from == wgUserName ) {
-			message = mw.message( 'chat-you-kicked', to ).text();
+			message = mw.message( 'chat-you-kicked', to, mw.user ).text();
 		} else {
-			message = mw.message( 'chat-kicked', from, to ).text();
+			var userObject; // @FIXME get user object for user we are refering to
+			message = mw.message( 'chat-kicked', from, to, userObject ).text();
 		}
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
@@ -236,22 +237,24 @@ var MediaWikiChat = {
 	showBlockMessage: function( from, to, timestamp ) {
 		var message;
 		if ( to == wgUserName ) {
-			message = mw.message( 'chat-youve-been-blocked', from ).text();
+			message = mw.message( 'chat-youve-been-blocked', from, mw.user ).text();
 			$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
 			$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
 		} else if ( from == wgUserName ) {
-			message = mw.message( 'chat-you-blocked', to ).text();
+			message = mw.message( 'chat-you-blocked', to, mw.user ).text();
 		} else {
-			message = mw.message( 'chat-blocked', from, to ).text();
+			var userObject; // @FIXME get user object for user we are refering to
+			message = mw.message( 'chat-blocked', from, to, userObject ).text();
 		}
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
 
 	showUnblockMessage: function( from, to, timestamp ) {
 		if ( from == wgUserName ) {
-			var message = 'You unblocked ' + to;
+			var message = mw.message( 'chat-you-unblocked', to, mw.user );
 		} else {
-			var message = from + ' unblocked ' + to;
+			var userObject; // @FIXME get user object for user we are refering to
+			var message = mw.message( 'chat-unblocked', from, to, userObject );
 		}
 
 		MediaWikiChat.addSystemMessage( message, timestamp );
@@ -380,7 +383,8 @@ var MediaWikiChat = {
 			}
 			if ( user.mod ) {
 				html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
-				html += mw.message( 'user-is-a moderator' ).text() + '" />';
+				var userObject; // @FIXME get user object for user we are refering to
+				html += mw.message( 'user-is-moderator', userObject ).text() + '" />';
 			}
 
 			html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
@@ -405,7 +409,8 @@ var MediaWikiChat = {
 			MediaWikiChat.setupUserLinks();
 
 			if ( !firstTime ) {
-				MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name ).text(), MediaWikiChat.now() );
+				var userObject; // @FIXME get user object for user we are refering to
+				MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name, userObject ).text(), MediaWikiChat.now() );
 				MediaWikiChat.scrollToBottom();
 			}
 		}
@@ -417,7 +422,8 @@ var MediaWikiChat = {
 
 		$( '#mwchat-users #' + userE ).remove();
 
-		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name ).text(), MediaWikiChat.now() );
+		var userObject; // @FIXME get user object for user we are refering to
+		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name, userObject ).text(), MediaWikiChat.now() );
 		MediaWikiChat.scrollToBottom();
 	},
 
@@ -484,7 +490,8 @@ var MediaWikiChat = {
 
 			if ( me.mod ) {
 				$( '#mwchat-me' ).append(
-					'<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="20px" alt="" title="' + mw.message( 'chat-you-are-moderator' ).text() + '" />'
+					'<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="20px" alt="" title="' +
+						mw.message( 'chat-you-are-moderator', mw.user ).text() + '" />'
 				);
 			}
 			MediaWikiChat.amI = true;
