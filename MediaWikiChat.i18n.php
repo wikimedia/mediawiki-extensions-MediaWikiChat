@@ -12,7 +12,7 @@ $messages = array();
  */
 $messages['en'] = array(
 	'chat' => 'Chat',
-	'chat-desc' => 'MediaWikiChat, a chat extension built in MediaWiki',
+	'chat-desc' => 'Provides a lightweight chat client and server',
 	'chat-type-your-message' => 'Type your message',
 	'chat-type-your-private-message' => 'Type your private message',
 	'chat-no-other-users' => 'No other users on chat',
@@ -23,7 +23,7 @@ $messages['en'] = array(
 	'chat-quarter-of-an-hour-ago' => 'quarter of an hour ago',
 	'chat-half-an-hour-ago' => 'half an hour ago',
 	'chat-an-hour-ago' => 'an hour ago',
-	'chat-minutes-ago' => '$1 minutes ago',
+	'chat-minutes-ago' => '$1 minutes ago', // FIXME: PLURAL needed
 	'chat-yesterday' => 'yesterday',
 	'chat-youve-been-kicked' => 'You have been kicked by $1. Refresh the page to chat',
 	'chat-you-kicked' => 'You kicked $1',
@@ -39,30 +39,14 @@ $messages['en'] = array(
 	'chat-joined' => '$1 has joined the chat',
 	'chat-left' => '$1 has left chat',
 	'chat-topic' => 'Welcome to {{SITENAME}} chat. ([[Special:Log/chat|chat log]])',
-	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png', // Ignore for translation
 	'log-name-chat' => 'Chat log',
 	'log-description-chat' => 'Messages sent by MediaWikiChat, as well as user kicks',
-	'logentry-chat-send' => '$1: $4',
+	'logentry-chat-send' => '$1: $4', // Optional for translation
 	'logentry-chat-kick' => '$1 kicked $4',
 	'log-show-hide-chat' => '$1 chat log',
-	'smileys' => '',
+	'smileys' => '', // FIXME: Add prefix "chat-"
 	'group-blockedfromchat-member' => 'blocked from chat',
-);
-
-/** Deutsch/German
- * @author George Barnick
- */
-$messages['de'] = array(
-	'chat' => 'Chat',
-	'chat-desc' => 'MediaWikiChat, ein Chat-Erweiterung im MediaWiki gebaut',
-	'chat-type-your-message' => 'Geben Sie Ihre Nachricht',
-	'log-name-chat' => 'Chat-Logbuch',
-	'log-description-chat' => 'Nachrichten von MediaWikiChat gesendet, sowie Benutzer-Kicks',
-	'logentry-chat-send' => '$1: $4',
-	'logentry-chat-kick' => 'Rauswurf von $4 durch $1',
-	'log-show-hide-chat' => 'Chat-Logbuch $1',
-	'smileys' => '* :) Bricki-emote-smile.gif',
-	'group-blockedfromchat-member' => 'aus dem Chat gesperrte'
 );
 
 /** Message documentation
@@ -103,4 +87,18 @@ $messages['qqq'] = array(
 	'log-show-hide-chat' => 'For [[Special:Log]]. Parameters: $1 - {{int:show}} or {{int:hide}}',
 	'smileys' => 'JSON array of strings and image names',
 	'group-blockedfromchat-member' => 'Users who are blocked from chat',
+);
+
+/** Deutsch/German
+ * @author George Barnick
+ */
+$messages['de'] = array(
+	'chat' => 'Chat',
+	'chat-desc' => 'MediaWikiChat, ein Chat-Erweiterung im MediaWiki gebaut',
+	'chat-type-your-message' => 'Gib die Nachricht ein',
+	'log-name-chat' => 'Chat-Logbuch',
+	'log-description-chat' => 'Nachrichten von MediaWikiChat gesendet, sowie Benutzer-Kicks',
+	'logentry-chat-kick' => 'Rauswurf von $4 durch $1',
+	'log-show-hide-chat' => 'Chat-Logbuch $1',
+	'group-blockedfromchat-member' => 'aus dem Chat gesperrte'
 );
