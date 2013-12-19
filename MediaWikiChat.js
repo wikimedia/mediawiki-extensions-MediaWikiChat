@@ -69,7 +69,7 @@ var MediaWikiChat = {
 		if ( diff < 30 ) {
 			return mw.message( 'chat-just-now' ).text();
 		} else if ( diff < 90 ) {
-			return mw.message( 'chat-a-minute-ago' ).text();
+			return mw.message( 'chat-minutes-ago', 1 ).text();
 		} else if ( diff < 3 * 60 ) {
 			return mw.message( 'chat-minutes-ago', 2 ).text();
 		} else if ( diff < 7 * 60 ) {
