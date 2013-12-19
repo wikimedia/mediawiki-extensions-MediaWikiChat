@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eeebdf60_6d5460ca",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-19T16:03:30Z",
+      "side": 1,
+      "message": "This needs explicit gender.",
+      "revId": "c4020487bbef3f2999d8c25ca200aa026f92547d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_4d599c00",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-19T16:03:30Z",
+      "side": 1,
+      "message": "This needs explicit gender.",
+      "revId": "c4020487bbef3f2999d8c25ca200aa026f92547d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_2d6e5894",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-19T16:03:30Z",
+      "side": 1,
+      "message": "This should really be fixed before support in twn is added.",
+      "revId": "c4020487bbef3f2999d8c25ca200aa026f92547d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_0d6b9483",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-19T16:03:30Z",
+      "side": 1,
+      "message": "Two more messages are associated with groups, and they are missing.",
+      "revId": "c4020487bbef3f2999d8c25ca200aa026f92547d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
