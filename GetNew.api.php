@@ -115,18 +115,18 @@ class ChatGetNewAPI extends ApiBase {
 						$result->addValue( $mName, 'kick', true );
 					}
 					$timestamp = $row->chat_timestamp;
-					$result->addValue( array( $mName, 'kicks', $timestamp ), 'from', $row->chat_user_name );
-					$result->addValue( array( $mName, 'kicks', $timestamp ), 'to', $row->chat_to_name );
+					$result->addValue( array( $mName, 'kicks', $timestamp ), 'from', $row->chat_user_id );
+					$result->addValue( array( $mName, 'kicks', $timestamp ), 'to', $row->chat_to_id );
 
 				} elseif ( $row->chat_type == MediaWikiChat::TYPE_BLOCK ) {
 					$timestamp = $row->chat_timestamp;
-					$result->addValue( array( $mName, 'blocks', $timestamp ), 'from', $row->chat_user_name );
-					$result->addValue( array( $mName, 'blocks', $timestamp ), 'to', $row->chat_to_name );
+					$result->addValue( array( $mName, 'blocks', $timestamp ), 'from', $row->chat_user_id );
+					$result->addValue( array( $mName, 'blocks', $timestamp ), 'to', $row->chat_to_id );
 
 				} elseif ( $row->chat_type == MediaWikiChat::TYPE_UNBLOCK ) {
 					$timestamp = $row->chat_timestamp;
-					$result->addValue( array( $mName, 'unblocks', $timestamp ), 'from', $row->chat_user_name );
-					$result->addValue( array( $mName, 'unblocks', $timestamp ), 'to', $row->chat_to_name );
+					$result->addValue( array( $mName, 'unblocks', $timestamp ), 'from', $row->chat_user_id );
+					$result->addValue( array( $mName, 'unblocks', $timestamp ), 'to', $row->chat_to_id );
 				}
 			}
 
@@ -136,7 +136,7 @@ class ChatGetNewAPI extends ApiBase {
 			foreach ( $onlineUsers as $id => $name ) {
 				$users[$id] = $name; // ensure all online users are present in the users list
 			}
-
+			$genderCache = GenderCache::singleton();
 			foreach ( $users as $id => $name ) {
 				$userObject = User::newFromId( $id );
 				$idString = strval( $id );
@@ -152,6 +152,8 @@ class ChatGetNewAPI extends ApiBase {
 				if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
 					$result->addValue( array( $mName, 'users', $idString ), 'mod', true );
 				}
+				$gender = $genderCache->getGenderOf( $userObject );
+				$result->addValue( array( $mName, 'users', $idString, ), 'gender', $gender );
 			}
 
 			//$this->data['interval'] = MediaWikiChat::getInterval();
