@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eeebdf60_55eb5edb",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-20T17:43:55Z",
+      "side": 1,
+      "message": "This needs gender for $1",
+      "revId": "b1b4e1abb1bd8d002a4c02a5dc610b9c4affb69c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_95e1e6fd",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-20T17:43:55Z",
+      "side": 1,
+      "message": "This needs gender for $1",
+      "revId": "b1b4e1abb1bd8d002a4c02a5dc610b9c4affb69c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_75e66215",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-20T17:43:55Z",
+      "side": 1,
+      "message": "This needs gender for $1",
+      "revId": "b1b4e1abb1bd8d002a4c02a5dc610b9c4affb69c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_35e8dadc",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-20T17:43:55Z",
+      "side": 1,
+      "message": "This needs gender support.",
+      "revId": "b1b4e1abb1bd8d002a4c02a5dc610b9c4affb69c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_15f5d6b5",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-20T17:43:55Z",
+      "side": 1,
+      "message": "This needs gender for $1",
+      "revId": "b1b4e1abb1bd8d002a4c02a5dc610b9c4affb69c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_f5f152c9",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-20T17:43:55Z",
+      "side": 1,
+      "message": "This needs gender for $1",
+      "revId": "b1b4e1abb1bd8d002a4c02a5dc610b9c4affb69c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeebdf60_b5c3ca60",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-20T17:43:55Z",
+      "side": 1,
+      "message": "This needs gender for $1",
+      "revId": "b1b4e1abb1bd8d002a4c02a5dc610b9c4affb69c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
