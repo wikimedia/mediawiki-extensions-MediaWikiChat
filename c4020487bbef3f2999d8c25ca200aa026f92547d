@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "eeebdf60_cf9fdbb8",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 410
+      },
+      "writtenOn": "2013-12-20T10:18:03Z",
+      "side": 1,
+      "message": "Plural won\u0027t be needed here, chat-minutes-ago is never passed just 1, always more than 1.",
+      "revId": "c4020487bbef3f2999d8c25ca200aa026f92547d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeebdf60_6d5460ca",
         "filename": "MediaWikiChat.i18n.php",
         "patchSetId": 1
