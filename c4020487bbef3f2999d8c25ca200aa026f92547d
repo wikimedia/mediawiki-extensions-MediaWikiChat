@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eeebdf60_af06d7cf",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2013-12-20T10:46:28Z",
+      "side": 1,
+      "message": "Please read https://www.mediawiki.org/wiki/I18n#Be_aware_of_PLURAL_use_on_all_numbers to understand why plural is important.\n\nReading https://www.mediawiki.org/wiki/I18n in full is HIGHLY recommended.",
+      "parentUuid": "eeebdf60_cf9fdbb8",
+      "revId": "c4020487bbef3f2999d8c25ca200aa026f92547d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeebdf60_6d5460ca",
         "filename": "MediaWikiChat.i18n.php",
         "patchSetId": 1
