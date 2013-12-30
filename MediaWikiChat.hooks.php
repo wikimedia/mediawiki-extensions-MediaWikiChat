@@ -50,11 +50,52 @@ class MediaWikiChatHooks {
 	/**
 	 * Hook for update.php
 	 */
-	function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$dir = dirname( __FILE__ ) . '/';
 
 		$updater->addExtensionTable( 'chat', $dir . 'chat.sql', true );
 		$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );
+
+		return true;
+	}
+
+	/**
+	 * Hook for adding a sidebar portlet ($wgChatSidebarPortlet)
+	 */
+	public static function fnNewSidebarItem( Skin $skin, &$bar ) {
+		global $wgArticlePath, $wgChatSidebarPortlet;
+
+		if (
+			$skin->getUser()->isAllowed( 'chat' ) &&
+			$skin->getTitle()->getBaseTitle() != 'Special:Chat' &&
+			$wgChatSidebarPortlet
+		) {
+			$users = MediaWikiChat::getOnline();
+
+			if ( count( $users ) ) {
+				$arr = array();
+
+				foreach ( $users as $id => $name ) {
+					$avatar = MediaWikiChat::getAvatar( $id );
+					$page = str_replace( '$1', 'User:' + urlencode( $name ), $wgArticlePath );
+					$arr[$id] = array(
+						'text' => $name,
+						'href' => $page,
+						'style' => "display: block;
+							background-position: right 1em center;
+							background-repeat: no-repeat;
+							background-image: url($avatar);"
+					);
+				}
+
+				$arr['join'] = array(
+					'text' => wfMessage( 'chat-sidebar-join' )->text(),
+					'href' => str_replace( '$1', 'Special:Chat', $wgArticlePath )
+				);
+
+				$bar[wfMessage( 'chat-sidebar-online' )->text()] = $arr;
+			}
+		}
 
 		return true;
 	}

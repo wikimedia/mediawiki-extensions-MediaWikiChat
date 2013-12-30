@@ -62,11 +62,13 @@ $wgExtensionMessagesFiles['MediaWikiChat'] = $dir . 'MediaWikiChat.i18n.php';
 $wgChatKicks = false; // allow 'kicking' of users?
 $wgChatSocialAvatars = true; // use SocialProfile avatars?
 $wgChatRichMessages = true; // allow the use of wikitext and smileys in chat?
+$wgChatSidebarPortlet = true; // show the online users module in the sidebar?
 
 // Hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';
 $wgHooks['UserRights'][] = 'MediaWikiChatHooks::onUserRights';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MediaWikiChatHooks::onLoadExtensionSchemaUpdates';
+$wgHooks['SkinBuildSidebar'][] = 'MediaWikiChatHooks::fnNewSidebarItem';
 
 //API
 $wgAutoloadClasses['ChatGetNewAPI'] = $dir . 'GetNew.api.php';
