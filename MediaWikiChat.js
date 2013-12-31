@@ -299,10 +299,18 @@ var MediaWikiChat = {
 		});
 
 		if ( post ) {
-			$( '#mwchat-table' ).append( html );
-		}
+			elem = $( html ).appendTo( $( '#mwchat-table' ) );
 
-		MediaWikiChat.setupTimestampHover();
+			elem.hover( function() {
+				$( this ).find( '.pretty' ).hide();
+				$( this ).find( '.real' ).show();
+			}, function() {
+				$( this ).find( '.real' ).hide();
+				$( this ).find( '.pretty' ).show();
+			});
+
+			elem.find( 'a' ).attr( 'target', '_blank' );
+		}
 	},
 
 	addPrivateMessage: function( userId, convwith, message, timestamp ) {
@@ -490,16 +498,6 @@ var MediaWikiChat = {
 			MediaWikiChat.amI = true;
 		}
 	},
-
-	setupTimestampHover: function() {
-		$( '.mwchat-message' ).hover( function() {
-			$( this ).find( '.pretty' ).hide();
-			$( this ).find( '.real' ).show();
-		}, function() {
-			$( this ).find( '.real' ).hide();
-			$( this ).find( '.pretty' ).show();
-		});
-	}
 };
 
 $( document ).ready( function() {
