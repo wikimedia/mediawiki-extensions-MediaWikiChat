@@ -366,11 +366,11 @@ var MediaWikiChat = {
 
 		var add = true;
 
-		$.each( $( '#mwchat-users div' ), ( function( index, item ) {
-			if ( item.id == user.userE ) {
-				add = false;
+		$( '#mwchat-users div' ).each( function( index ) {
+				if ( $( this ).attr( 'data-id' ) == user.id ) {
+					add = false;
+				}
 			}
-		})
 		);
 
 		if ( add ) {
