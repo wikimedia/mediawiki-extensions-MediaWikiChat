@@ -225,21 +225,20 @@ class MediaWikiChat {
 	 */
 	static function deleteEntryIfNeeded() {
 		$dbr = wfGetDB( DB_SLAVE );
-		$dbw = wfGetDB( DB_MASTER );
 		$field = $dbr->selectField(
 			'chat',
 			'chat_timestamp',
 			array(),
 			__METHOD__,
 			array(
-				'ORDER_BY' => 'chat_timestamp DESC',
+				'ORDER BY' => 'chat_timestamp DESC',
 				'OFFSET' => 50,
 				'LIMIT' => 1
 			)
 		);
 
-		if ( is_int( $field ) ) {
-			$field = intval( $field );
+		if ( $field ) {
+			$dbw = wfGetDB( DB_MASTER );
 			$dbw->delete(
 				'chat',
 				array( "chat_timestamp < $field" ),
