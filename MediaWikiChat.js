@@ -336,6 +336,7 @@ var MediaWikiChat = {
 	},
 
 	doUsers: function( newusers ) {
+		MediaWikiChat.newusers = newusers;
 		var allusers = MediaWikiChat.users.concat( newusers );
 		allusers = MediaWikiChat.unique( allusers );
 
@@ -366,56 +367,46 @@ var MediaWikiChat = {
 
 		var add = true;
 
-		$( '#mwchat-users div' ).each( function( index ) {
-				if ( $( this ).attr( 'data-id' ) == user.id ) {
-					add = false;
-				}
-			}
-		);
+		var html = '<div class="mwchat-useritem noshow" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
+		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
+			html += '<img src="' + user.avatar + '" />';
+		}
+		html += '<span class="mwchat-useritem-user">';
+		html += user.name;
+		html += '</span>';
+		if ( MediaWikiChat.amIMod ) {
+			html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user.name );
+			html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
+		}
+		if ( user.mod ) {
+			html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
+			html += mw.message( 'user-is-a moderator' ).text() + '" />';
+		}
 
-		if ( add ) {
+		html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
+		html += mw.message( 'chat-private-message' ).text() + '</span>';
 
-			var html = '<div class="mwchat-useritem noshow" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
-			if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
-				html += '<img src="' + user.avatar + '" />';
-			}
-			html += '<span class="mwchat-useritem-user">';
-			html += user.name;
-			html += '</span>';
-			if ( MediaWikiChat.amIMod ) {
-				html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user.name );
-				html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
-			}
-			if ( user.mod ) {
-				html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
-				html += mw.message( 'user-is-a moderator' ).text() + '" />';
-			}
+		if ( !user.mod && mw.config.get( 'wgChatKicks' ) ) {
+			html += '<a class="mwchat-useritem-kicklink" href="javascript:;">';
+			html += mw.message( 'chat-kick' ).text() + '</a>';
+		}
+		html += '<div class="mwchat-useritem-window" style="display:none;">';
+		html += '<div class="mwchat-useritem-content"></div>';
+		html += '<input type="text" placeholder="' + mw.message( 'chat-type-your-private-message' ).text() + '" />';
+		html += '</div>';
+		html += '</div>';
 
-			html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
-			html += mw.message( 'chat-private-message' ).text() + '</span>';
+		$( '#mwchat-users' ).append( html );
+		$( '#mwchat-users #' + userE ).fadeIn();
+		$( '#mwchat-users #' + userE ).click( MediaWikiChat.clickUser );
 
-			if ( !user.mod && mw.config.get( 'wgChatKicks' ) ) {
-				html += '<a class="mwchat-useritem-kicklink" href="javascript:;">';
-				html += mw.message( 'chat-kick' ).text() + '</a>';
-			}
-			html += '<div class="mwchat-useritem-window" style="display:none;">';
-			html += '<div class="mwchat-useritem-content"></div>';
-			html += '<input type="text" placeholder="' + mw.message( 'chat-type-your-private-message' ).text() + '" />';
-			html += '</div>';
-			html += '</div>';
+		$( '#mwchat-users #' + userE + ' input' ).keypress( MediaWikiChat.userKeypress );
 
-			$( '#mwchat-users' ).append( html );
-			$( '#mwchat-users #' + userE ).fadeIn();
-			$( '#mwchat-users #' + userE ).click( MediaWikiChat.clickUser );
+		MediaWikiChat.setupUserLinks();
 
-			$( '#mwchat-users #' + userE + ' input' ).keypress( MediaWikiChat.userKeypress );
-
-			MediaWikiChat.setupUserLinks();
-
-			if ( !firstTime ) {
-				MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name ).text(), MediaWikiChat.now() );
-				MediaWikiChat.scrollToBottom();
-			}
+		if ( !firstTime ) {
+			MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name ).text(), MediaWikiChat.now() );
+			MediaWikiChat.scrollToBottom();
 		}
 	},
 
