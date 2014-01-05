@@ -68,34 +68,10 @@ var MediaWikiChat = {
 
 		if ( diff < 30 ) {
 			return mw.message( 'chat-just-now' ).text();
-		} else if ( diff < 90 ) {
+		} else if ( diff < 2 * 60 ) {
 			return mw.message( 'chat-a-minute-ago' ).text();
-		} else if ( diff < 3 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 2 ).text();
-		} else if ( diff < 7 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 5 ).text();
-		} else if ( diff < 12 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 10 ).text();
-		} else if ( diff < 17 * 60 ) {
-			return mw.message( 'chat-quarter-of-an-hour-ago' ).text();
-		} else if ( diff < 23 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 20 ).text();
-		} else if ( diff < 27 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 25 ).text();
-		} else if ( diff < 33 * 60 ) {
-			return mw.message( 'chat-half-an-hour-ago' ).text();
-		} else if ( diff < 37 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 35 ).text();
-		} else if ( diff < 42 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 40 ).text();
-		} else if ( diff < 47 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 45 ).text();
-		} else if ( diff < 52 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 50 ).text();
-		} else if ( diff < 57 * 60 ) {
-			return mw.message( 'chat-minutes-ago', 55 ).text();
-		} else if ( diff < 90 * 60 ) {
-			return mw.message( 'chat-an-hour-ago' ).text();
+		} else if ( diff < 60 * 60 ) {
+			return mw.message( 'chat-minutes-ago', Math.floor( diff / 60 ) ).text();
 		} else {
 			if ( dayNow == dayThen ) {
 				return MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
@@ -104,8 +80,7 @@ var MediaWikiChat = {
 					return mw.message( 'chat-yesterday' ).text().toLowerCase() + ', ' + MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
 				} else {
 					var day;
-					var days = [ 'sunday', 'monday', 'tuesday', 'wednesday',
-						'thursday', 'friday', 'saturday', 'sunday' ];
+					var days = [ 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ];
 					day = mw.message( days[dateThen.getDay()] ).text().toLowerCase();
 					return day + ', ' +
 						MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' +
