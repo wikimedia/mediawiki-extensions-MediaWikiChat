@@ -35,7 +35,7 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 	'messages' => array(
 		'january', 'february', 'march', 'april', 'may', 'june',
 		'july',	'august', 'september', 'october', 'november', 'december',
-		'monday', 'tuesday', 'wednesday', 'thursay', 'friday', 'saturday',
+		'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
 		'sunday', 'chat-type-your-private-message',	'chat-no-other-users',
 		'chat-blocked-from-chat', 'chat-just-now', 'chat-a-minute-ago',
 		'chat-quarter-of-an-hour-ago', 'chat-half-an-hour-ago',
