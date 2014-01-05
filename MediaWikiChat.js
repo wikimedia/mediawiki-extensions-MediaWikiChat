@@ -361,7 +361,7 @@ var MediaWikiChat = {
 		html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
 		html += mw.message( 'chat-private-message' ).text() + '</span>';
 
-		if ( !user.mod && mw.config.get( 'wgChatKicks' ) ) {
+		if ( !user.mod && mw.config.get( 'wgChatKicks' ) && MediaWikiChat.amIMod ) {
 			html += '<a class="mwchat-useritem-kicklink" href="javascript:;">';
 			html += mw.message( 'chat-kick' ).text() + '</a>';
 		}
