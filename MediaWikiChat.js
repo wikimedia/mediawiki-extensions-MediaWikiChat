@@ -4,7 +4,7 @@ var MediaWikiChat = {
 	amIMod: false,
 	amI: false,
 	firstTime: true,
-	interval: 10000,
+	interval: 7000,
 	newInterval: null,
 	redoInterval: null,
 	userData: [],
@@ -348,7 +348,7 @@ var MediaWikiChat = {
 		html += '<span class="mwchat-useritem-user">';
 		html += user.name;
 		html += '</span>';
-		if ( MediaWikiChat.amIMod ) {
+		if ( MediaWikiChat.amIMod && ( !user.mod ) ) {
 			html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user.name );
 			html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
 		}
@@ -360,7 +360,7 @@ var MediaWikiChat = {
 		html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
 		html += mw.message( 'chat-private-message' ).text() + '</span>';
 
-		if ( !user.mod && mw.config.get( 'wgChatKicks' ) && MediaWikiChat.amIMod ) {
+		if ( ( !user.mod ) && mw.config.get( 'wgChatKicks' ) && MediaWikiChat.amIMod ) {
 			html += '<a class="mwchat-useritem-kicklink" href="javascript:;">';
 			html += mw.message( 'chat-kick' ).text() + '</a>';
 		}
