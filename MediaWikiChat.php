@@ -6,7 +6,7 @@
  * @ingroup Extensions
  * @version 1.0
  * @author Adam Carter
- * @copyright Copyright © 2013, Adam Carter
+ * @copyright Copyright Â® 2013, Adam Carter
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
