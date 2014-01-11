@@ -23,7 +23,7 @@ $messages['en'] = array(
 	'chat-just-now' => 'just now',
 
 	'chat-a-minute-ago' => 'a minute ago',
-	'chat-minutes-ago' => '$1 minutes ago',
+	'chat-minutes-ago' => '{{PLURAL:$1|1 minute|$1 minutes}} ago',
 
 	'chat-yesterday' => 'yesterday',
 
