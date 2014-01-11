@@ -42,10 +42,20 @@
 	float: right;
 	margin-left: 6px;
 	margin-right: 3px;
+	position: relative;
 }
 .mwchat-item-timestamp {
 	color: #CCC;
 	text-transform: lowercase;
+}
+.mwchat-item-timestamp.real {
+	text-align: right;
+	width: 8em;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #FFF;
+	padding-bottom: 5px;
 }
 .mwchat-item-user {
 	margin: 5px;

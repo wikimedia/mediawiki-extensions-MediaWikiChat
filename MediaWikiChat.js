@@ -276,11 +276,11 @@ var MediaWikiChat = {
 			elem = $( html ).appendTo( $( '#mwchat-table' ) );
 
 			elem.hover( function() {
-				$( this ).find( '.pretty' ).hide();
+				$( this ).find( '.pretty' ).css( 'visibility', 'hidden' );
 				$( this ).find( '.real' ).show();
 			}, function() {
 				$( this ).find( '.real' ).hide();
-				$( this ).find( '.pretty' ).show();
+				$( this ).find( '.pretty' ).css( 'visibility', 'visible' );
 			});
 
 			elem.find( 'a' ).attr( 'target', '_blank' );
@@ -441,9 +441,9 @@ var MediaWikiChat = {
 		} );
 
 		$( '.mwchat-useritem' ).hover( function() {
-			$( this ).find( '.mwchat-useritem-pmlink' ).fadeIn(200);
+			$( this ).find( '.mwchat-useritem-pmlink' ).fadeIn( 100 );
 		}, function() {
-			$( this ).find( '.mwchat-useritem-pmlink' ).fadeOut(200);
+			$( this ).find( '.mwchat-useritem-pmlink' ).fadeOut( 100 );
 		} );
 	},
 
