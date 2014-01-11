@@ -6,7 +6,7 @@
  * @ingroup Extensions
  * @version 1.0
  * @author Adam Carter
- * @copyright Copyright © 2013, Adam Carter
+ * @copyright Copyright 2013, Adam Carter
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
@@ -46,6 +46,7 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 		'chat-you-are-moderator', 'chat-joined', 'chat-left',
 		'chat-mod-image', 'chat-yesterday'
 	),
+	'dependencies' => 'mediawiki.jqueryMsg',
 	'localBasePath' => dirname( __FILE__ ),
 	'remoteExtPath' => 'MediaWikiChat',
 );
