@@ -379,7 +379,7 @@ var MediaWikiChat = {
 		MediaWikiChat.setupUserLinks();
 
 		if ( !firstTime ) {
-			MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name ).text(), MediaWikiChat.now() );
+			MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name, user.gender ).text(), MediaWikiChat.now() );
 			MediaWikiChat.scrollToBottom();
 		}
 	},
