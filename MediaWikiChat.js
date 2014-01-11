@@ -18,7 +18,7 @@ var MediaWikiChat = {
 	},
 
 	safe: function( string ) {
-		return string.replace( /\(\)\/\\\[\]\{\}\.\*\+\?\^=!:$\|/g, '' ).replace( / /g, '' );
+		return string.replace( /[^\w\s]|/g, '' ).replace( / /g, '' );
 	},
 
 	unique: function( array ) {
