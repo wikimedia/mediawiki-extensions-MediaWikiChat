@@ -77,7 +77,7 @@ class MediaWikiChatHooks {
 
 				foreach ( $users as $id => $name ) {
 					$avatar = MediaWikiChat::getAvatar( $id );
-					$page = str_replace( '$1', 'User:' + urlencode( $name ), $wgArticlePath );
+					$page = str_replace( '$1', 'User:' . urlencode( $name ), $wgArticlePath );
 					$arr[$id] = array(
 						'text' => $name,
 						'href' => $page,
