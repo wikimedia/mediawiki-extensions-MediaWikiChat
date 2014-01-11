@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cef0db4e_d532d605",
+        "filename": "MediaWikiChat.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2014-01-11T13:55:39Z",
+      "side": 1,
+      "message": "Registered trademark? Maybe just remove the symbol completely?",
+      "revId": "b94b1ad5af3c47e805d901947ca78f1bd37b7bca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
