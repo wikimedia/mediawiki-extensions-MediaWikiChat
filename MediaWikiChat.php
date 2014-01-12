@@ -63,6 +63,7 @@ $wgChatKicks = false; // allow 'kicking' of users?
 $wgChatSocialAvatars = true; // use SocialProfile avatars?
 $wgChatRichMessages = true; // allow the use of wikitext and smileys in chat?
 $wgChatSidebarPortlet = true; // show the online users module in the sidebar?
+$wgChatOnlineTimeout = 1 * 60 * 100; // how long to wait before a user is considered ofline? (in 100ths of a second)
 
 // Hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';
