@@ -76,12 +76,12 @@ class MediaWikiChat {
 	 *                if the current user doesn't have the "chat" right
 	 */
 	static function getOnline() {
-		global $wgUser;
+		global $wgUser, $wgChatOnlineTimeout;
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 
-			$timestamp = MediaWikiChat::now() - 1 * 60 * 100; // minus 1 mins
+			$timestamp = MediaWikiChat::now() - $wgChatOnlineTimeout;
 
 			$res = $dbr->select(
 				'chat_users',
@@ -105,6 +105,31 @@ class MediaWikiChat {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * Is the current user online or not?
+	 *
+	 * @return boolean: whether they're online or not.
+	 */
+	static function amIOnline() {
+		global $wgUser, $wgChatOnlineTimeout;
+
+		$dbr = wfGetDB( DB_SLAVE );
+
+		$timestamp = MediaWikiChat::now() - $wgChatOnlineTimeout;
+
+		$res = $dbr->select(
+			'chat_users',
+			array( 'cu_user_name', 'cu_user_id' ),
+			array(
+				"cu_timestamp > $timestamp",
+				"cu_user_id = {$wgUser->getId()}"
+			),
+			__METHOD__
+		);
+
+		return $res->numRows();
 	}
 
 	/**
@@ -147,7 +172,7 @@ class MediaWikiChat {
 
 	/**
 	 * Parses the given message as wikitext, and replaces smileys,
-	 * provided $wgChatWikiText is enabled
+	 * provided $wgChatRichMessages is enabled
 	 *
 	 * @param String $message: message to parse
 	 * @return String: parsed message

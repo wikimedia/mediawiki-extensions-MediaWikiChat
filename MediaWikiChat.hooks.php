@@ -88,10 +88,12 @@ class MediaWikiChatHooks {
 					);
 				}
 
-				$arr['join'] = array(
-					'text' => wfMessage( 'chat-sidebar-join' )->text(),
-					'href' => str_replace( '$1', 'Special:Chat', $wgArticlePath )
-				);
+				if ( ! MediaWikiChat::amIOnline() ) {
+					$arr['join'] = array(
+						'text' => wfMessage( 'chat-sidebar-join' )->text(),
+						'href' => str_replace( '$1', 'Special:Chat', $wgArticlePath )
+					);
+				}
 
 				$bar[wfMessage( 'chat-sidebar-online' )->text()] = $arr;
 			}
