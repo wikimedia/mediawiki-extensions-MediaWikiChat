@@ -70,14 +70,6 @@ $messages['en'] = array(
 
 	'right-mediawikichat-chat' => 'Use Special:Chat',
 	'right-mediawikichat-modchat' => 'Block and kick (if enabled) users from Special:Chat',
-
-	'log-name-forum' => 'Forum log',
-	'log-description-forum' => 'Logs [[Special:WikiForum|WikiForum]] events',
-
-	'logentry-forum-add-category' => '$1 {{GENDER:$1|created}} a new category, $4',
-	'logentry-forum-add-forum' => '$1 {{GENDER:$1|created}} a new forum, $4',
-	'logentry-forum-add-thread' => '$1 {{GENDER:$1|created}} a new thread, $4',
-	'logentry-forum-add-reply' => '$1 {{GENDER:$1|replied}} on the thread $4',
 );
 
 /** Message documentation
