@@ -354,7 +354,7 @@ var MediaWikiChat = {
 		}
 		if ( user.mod ) {
 			html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
-			html += mw.message( 'user-is-a moderator' ).text() + '" />';
+			html += mw.message( 'user-is-moderator' ).text() + '" />';
 		}
 
 		html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
