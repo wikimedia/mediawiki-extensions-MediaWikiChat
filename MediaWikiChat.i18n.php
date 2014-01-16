@@ -74,37 +74,120 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Adam Carter
+ * @author Liuxinyu970226
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'chat' => 'Important! This is the string that appears on Special:SpecialPages',
+	'chat' => '{{doc-special|Chat}}
+{{Identical|Chat}}',
 	'chat-desc' => '{{desc}}',
-	'chat-type-your-message' => 'Message shown in the input field you type your message in.',
+	'chat-type-your-message' => 'Used as placeholder shown in the input field you type your message in.',
 	'chat-type-your-private-message' => 'The same as chat-type-your-message, but for private messages, shown in the input field for typing private messages',
 	'chat-no-other-users' => 'Shown in the user list when there are no other users on chat',
 	'chat-blocked-from-chat' => 'Shown to users who have been blocked from chat',
 	'chat-not-allowed' => 'Shown to users who do not have sufficient permissions to chat (normally users who are not logged in)',
-	'chat-just-now' => 'Timestamps: shown when a message was sent in the last 30 seconds',
-	'chat-minutes-ago' => 'Timestamps: the message was sent $1 minutes ago',
-	'chat-yesterday' => 'Timestamps: the message was sent yesterday',
-	'chat-youve-been-kicked' => 'Shown to users who have been kicked from the chat, $1 being the user who kicked them',
-	'chat-you-kicked' => 'Shown when the current user kicked the user $1',
-	'chat-kicked' => 'Shown when the user $1 kicked the user $2',
-	'chat-youve-been-blocked' => 'Shown when the current user has been blocked, by the user $1',
-	'chat-you-blocked' => 'Shown when the current user blocked the user $1',
-	'chat-blocked' => 'Shown when the user $1 blocked the user $2',
-	'chat-block' => 'The link shown to chatmods to block a user',
-	'chat-private-message' => 'The link shown to users to private message another user',
-	'chat-you-are-moderator' => 'Shown when the current user is a moderator',
-	'chat-joined' => 'Shown when the user $1 joined the chat',
-	'chat-left' => 'Shown when the user $1 left the chat',
-	'chat-topic' => 'Header shown at the top of Special:Chat, to allow links and policies to be displayed, like you find on many IRC clients',
-	'chat-sidebar-online' => 'The header for the chat unit on the sidebar that shows online users on chat',
-	'chat-sidebar-join' => 'A link in the sidebar, below the currently active users, linking to Special:Chat',
+	'chat-just-now' => 'Timestamps: shown when a message was sent in the last 30 seconds.
+{{Related|Chat-ago}}',
+	'chat-minutes-ago' => 'Timestamps: the message was sent $1 minutes ago.
+
+Parameters:
+* $1 - number of minutes
+{{Related|Chat-ago}}',
+	'chat-yesterday' => 'Timestamps: the message was sent yesterday.
+{{Related|Chat-ago}}
+{{Identical|Yesterday}}',
+	'chat-youve-been-kicked' => 'Shown to users who have been kicked from the chat. Parameters:
+* $1 - the user who kicked from the chat
+* $2 - GENDER of the user who kicked
+See also:
+* {{msg-mw|Chat-youve-been-blocked}}',
+	'chat-you-kicked' => 'Shown when the current user kicked the user $1. Parameters:
+* $1 - username
+* $2 - GENDER
+See also:
+* {{msg-mw|Chat-you-blocked}}
+* {{msg-mw|Chat-you-unblocked}}',
+	'chat-kicked' => 'Shown when the user $1 kicked the user $2. Parameters:
+* $1 - the user who kicked
+* $2 - the user who was kicked
+* $3 - GENDER of the user who kicked
+See also:
+* {{msg-mw|Chat-blocked}}
+* {{msg-mw|Chat-unblocked}}',
+	'chat-youve-been-blocked' => 'Shown when the current user has been blocked, by the user $1. Parameters:
+* $1 - the user who has blocked
+* $2 - GENDER of the user who has blocked
+See also:
+* {{msg-mw|Chat-youve-been-kicked}}',
+	'chat-you-blocked' => 'Shown when the current user blocked the user $1. Parameters:
+* $1 - username
+* $2 - GENDER
+See also:
+* {{msg-mw|Chat-you-kicked}}
+* {{msg-mw|Chat-you-unblocked}}',
+	'chat-blocked' => 'Shown when the user $1 blocked the user $2. Parameters:
+* $1 - the user who blocked
+* $2 - the user who was blocked
+* $3 - GENDER of the user who blocked
+See also:
+* {{msg-mw|Chat-kicked}}
+* {{msg-mw|Chat-unblocked}}',
+	'chat-block' => 'The link shown to chatmods to block a user.
+{{Identical|Block}}',
+	'chat-you-unblocked' => 'Shown when the current user unblocked the user $1. Parameters:
+* $1 - username
+* $2 - GENDER
+See also:
+* {{msg-mw|Chat-you-kicked}}
+* {{msg-mw|Chat-you-blocked}}',
+	'chat-unblocked' => 'Shown when the user $1 unblocked the user $2. Parameters:
+* $1 - the user who unblocked
+* $2 - the user who was unblocked
+* $3 - GENDER of the user who unblocked
+See also:
+* {{msg-mw|Chat-kicked}}
+* {{msg-mw|Chat-blocked}}',
+	'chat-private-message' => 'The link shown to users to private message another user.
+{{Identical|Private message}}',
+	'chat-user-is-moderator' => 'Parameters:
+* $1 - GENDER of the user
+See also:
+* {{msg-mw|Chat-you-are-moderator}}',
+	'chat-you-are-moderator' => 'Shown when the current user is a moderator. Parameters:
+* $1 - GENDER of the current user
+See also:
+* {{msg-mw|Chat-user-is-moderator}}',
+	'chat-joined' => 'Shown when the user $1 joined the chat. Parameters:
+* $1 - the username
+* $2 - GENDER of the user
+See also:
+* {{msg-mw|Chat-left}}',
+	'chat-left' => 'Shown when the user $1 left the chat. Parameters:
+* $1 - the username
+* $2 - GENDER of the user
+See also:
+* {{msg-mw|Chat-joined}}',
+	'chat-topic' => 'Header shown at the top of [[Special:Chat]], to allow links and policies to be displayed, like you find on many IRC clients',
+	'chat-sidebar-online' => 'The header for the chat unit on the sidebar that shows online users on chat.
+
+Used if there are one or more online users, and followed by usernames.',
+	'chat-sidebar-join' => 'A link in the sidebar, below the currently active users, linking to [[Special:Chat]].
+{{Identical|Join the chat}}',
 	'chat-mod-image' => 'The URL of the image to show a user is a moderator',
-	'log-name-chat' => 'The name of the chat log',
+	'log-name-chat' => 'The name of the chat log.
+
+Also used as page title in [[Special:Log/chat]].
+
+See also:
+* {{msg-mw|Chat-topic}}',
+	'log-description-chat' => 'Used as description for log in [[Special:Log/chat]].',
 	'logentry-chat-send' => 'The user $1 sent the message $4',
-	'logentry-chat-kick' => 'The user $1 kicked the user $4',
-	'log-show-hide-chat' => 'For [[Special:Log]]. Parameters: $1 - {{int:show}} or {{int:hide}}',
+	'logentry-chat-kick' => 'The user $1 kicked the user $4
+* $1 - the user who kicked, may need GENDER
+* $2 - the user who was kicked, no need GENDER',
+	'log-show-hide-chat' => 'For [[Special:Log]]. Parameters:
+* $1 - {{msg-mw|Show}} or {{msg-mw|Hide}}
+{{Related|Log-show-hide}}',
 	'group-chatmod' => '{{doc-group|chatmod}}',
 	'group-chatmod-member' => '{{doc-group|forumadmin|member}}',
 	'grouppage-chatmod' => '{{doc-group|forumadmin|page}}',
@@ -267,17 +350,65 @@ $messages['fr'] = array(
 	'right-mediawikichat-modchat' => 'Bloquer et éjecter (si activé) des utilisateurs depuis Special:Chat',
 );
 
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'chat' => 'チャット',
+	'chat-type-your-message' => 'メッセージを入力',
+	'chat-type-your-private-message' => '非公開メッセージを入力',
+	'chat-no-other-users' => 'チャットには他の利用者はいません',
+	'chat-blocked-from-chat' => 'あなたはこのチャットからブロックされています。',
+	'chat-not-allowed' => 'チャットの使用を許可されていません。ログインしてからお試しください。',
+	'chat-a-minute-ago' => '1分前',
+	'chat-minutes-ago' => '{{PLURAL:$1|$1分}}前',
+	'chat-yesterday' => '昨日',
+	'chat-youve-been-blocked' => '$1 があなたを{{GENDER:$2|ブロックしました}}。',
+	'chat-you-blocked' => '$1 を{{GENDER:$2|ブロックしました}}',
+	'chat-blocked' => '$1 が $2 を{{GENDER:$3|ブロックしました}}',
+	'chat-block' => 'ブロック',
+	'chat-you-unblocked' => '$1 を{{GENDER:$2|ブロック解除しました}}',
+	'chat-unblocked' => '$1 が $2 を{{GENDER:$3|ブロック解除しました}}',
+	'chat-private-message' => '(非公開メッセージ)',
+	'chat-user-is-moderator' => 'この利用者はモデレーター{{GENDER:$1|です}}',
+	'chat-you-are-moderator' => 'あなたはモデレーター{{GENDER:$1|です}}',
+	'chat-joined' => '$1 がチャットに{{GENDER:$2|入室しました}}',
+	'chat-left' => '$1 がチャットから{{GENDER:$2|退室しました}}',
+	'chat-topic' => '{{SITENAME}}のチャットへようこそ。([[Special:Log/chat|チャット記録]])',
+	'chat-sidebar-online' => 'チャットでオンラインの利用者:',
+	'chat-sidebar-join' => 'チャットに入室',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'log-name-chat' => 'チャット記録',
+	'log-show-hide-chat' => 'チャット記録を$1',
+	'group-chatmod' => 'チャット モデレーター',
+	'group-chatmod-member' => '{{GENDER:$1|チャット モデレーター}}',
+	'grouppage-chatmod' => '{{ns:project}}:チャット モデレーター',
+	'right-mediawikichat-chat' => 'Special:Chat を使用',
+);
+
+/** Georgian (ქართული)
+ * @author GeorgeBarnick
+ */
+$messages['ka'] = array(
+	'chat' => 'სტატისტიკა',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
 $messages['lb'] = array(
 	'chat' => 'Chat',
 	'chat-type-your-message' => 'Tippt Äre Message',
+	'chat-type-your-private-message' => 'Tippt Äre private Message',
 	'chat-no-other-users' => 'Keng aner Benotzer am Chat',
 	'chat-blocked-from-chat' => 'Dir gouft an dësem Chat gespaart.',
 	'chat-just-now' => 'grad elo',
+	'chat-a-minute-ago' => 'virun enger Minutt',
 	'chat-minutes-ago' => '{{PLURAL:$1|virun enger Minutt|viru(n) $1 Minutten}}',
 	'chat-yesterday' => 'gëschter',
+	'chat-kick' => 'erausgeheien',
+	'chat-youve-been-blocked' => 'Dir gouft {{GENDER:$2|vum}} $1 gespaart.',
+	'chat-you-blocked' => "Dir hutt {{GENDER:$2|den |d'}}$1 gespaart",
 	'chat-block' => 'spären',
 	'chat-private-message' => '(private Message)',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -402,6 +533,15 @@ $messages['mr'] = array(
 	'right-mediawikichat-chat' => 'Special:चॅट चा वापर करा',
 );
 
+/** Polish (polski)
+ * @author Chrumps
+ */
+$messages['pl'] = array(
+	'chat-yesterday' => 'wczoraj',
+	'chat-youve-been-blocked' => '{{GENDER:$2|Zostałeś zablokowany|Zostałaś zablokowana}} przez $1.',
+	'chat-private-message' => '(prywatna wiadomość)',
+);
+
 /** Brazilian Portuguese (português do Brasil)
  * @author Rodrigo codignoli
  */
@@ -478,6 +618,65 @@ $messages['si'] = array(
 	'chat-blocked-from-chat' => 'ඔබ මෙම කතිකාවට සහහාගී වීම වලක්වා ඇත.',
 );
 
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'chat' => 'Sohbet',
+	'chat-desc' => 'Hafif bir sohbet istemcisi ve sunucusu sağlar',
+	'chat-type-your-message' => 'Mesajınızı yazın',
+	'chat-type-your-private-message' => 'Özel mesajınızı yazın',
+	'chat-no-other-users' => 'Sohbette başka kullanıcı yok',
+	'chat-blocked-from-chat' => 'Bu sohbette engellendiniz.',
+	'chat-not-allowed' => 'Sohbete izniniz yok, önce giriş yapmayı deneyin',
+	'chat-just-now' => 'hemen şimdi',
+	'chat-a-minute-ago' => 'bir dakika önce',
+	'chat-minutes-ago' => '{{PLURAL:$1|1 dakika|$1 dakika}} önce',
+	'chat-yesterday' => 'dün',
+	'chat-youve-been-kicked' => '$1 tarafından {{GENDER:$2|atıldınız}}. Sohbet için sayfayı yenileyin',
+	'chat-you-kicked' => '$1 kullanıcısını {{GENDER:$2|attınız}}',
+	'chat-kicked' => '$1, $2 kullanıcısını {{GENDER:$3|attı}}',
+	'chat-kick' => 'at',
+	'chat-youve-been-blocked' => '$1 tarafından {{GENDER:$2|engellendiniz}}.',
+	'chat-you-blocked' => '$1 kullanıcısını {{GENDER:$2|engellediniz}}',
+	'chat-blocked' => '$2, $1 kullanıcısını {{GENDER:$3|engelledi}}',
+	'chat-block' => 'engelle',
+	'chat-you-unblocked' => '$1 kullanıcısının {{GENDER:$2|engelini kaldırdınız}}',
+	'chat-unblocked' => '$1, $2 kullanıcısının {{GENDER:$3|engelini kaldırdı}}',
+	'chat-private-message' => '(özel mesaj)',
+	'chat-user-is-moderator' => 'Bu kullanıcı {{GENDER:$1|bir}} moderatör',
+	'chat-you-are-moderator' => 'Siz {{GENDER:$1|bir}} moderatörsünüz',
+	'chat-joined' => '$1 sohbete {{GENDER:$2|katıldı}}',
+	'chat-left' => '$1 sohbetten {{GENDER:$2|ayrıldı}}',
+	'chat-topic' => '{{SITENAME}} sohbete hoş geldiniz. ([[Special:Log/chat|sohbet günlüğü]])',
+	'chat-sidebar-online' => 'Sohbetteki çevrimiçi kullanıcılar:',
+	'chat-sidebar-join' => 'Sohbete katıl',
+	'log-name-chat' => 'Sohbet günlüğü',
+	'logentry-chat-kick' => '$1, $4 kullanıcısını {{GENDER:$1|attı}}',
+	'log-show-hide-chat' => 'Sohbet günlüğünü $1',
+	'group-chatmod' => 'Sohbet moderatörleri',
+	'group-chatmod-member' => '{{GENDER:$1|sohbet moderatörü}}',
+	'grouppage-chatmod' => '{{ns:project}}:Sohbet moderatörleri',
+	'group-blockedfromchat' => 'Sohbette engellenen kullanıcılar',
+	'group-blockedfromchat-member' => '{{GENDER:$1|sohbette engellenen}}',
+	'grouppage-blockedfromchat' => '{{ns:project}}:Sohbette engellenen kullanıcılar',
+	'right-mediawikichat-chat' => 'Special:Chat kullan',
+	'right-mediawikichat-modchat' => "Special:Chat'te kullanıcıları engelle ve at (etkinleştirildiyse)",
+);
+
+/** Ukrainian (українська)
+ * @author Andriykopanytsia
+ */
+$messages['uk'] = array(
+	'chat' => 'Чат',
+	'chat-desc' => 'Забезпечує легкий клієнт чату і сервер',
+	'chat-type-your-message' => 'Введіть ваше повідомлення',
+	'chat-type-your-private-message' => 'Введіть ваше особисте повідомлення',
+	'chat-just-now' => 'щойно',
+	'chat-a-minute-ago' => 'хвилину тому',
+	'chat-yesterday' => 'вчора',
+);
+
 /** Yiddish (ייִדיש)
  * @author פוילישער
  */
@@ -488,6 +687,7 @@ $messages['yi'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Liuxinyu970226
  * @author Qiyue2001
  */
 $messages['zh-hans'] = array(
@@ -496,8 +696,8 @@ $messages['zh-hans'] = array(
 	'chat-type-your-message' => '键入您的消息',
 	'chat-type-your-private-message' => '键入您的私人信息',
 	'chat-no-other-users' => '没有其他用户在线',
-	'chat-blocked-from-chat' => '您已经被阻止聊天。',
-	'chat-not-allowed' => '您不允许聊天，请先尝试登录',
+	'chat-blocked-from-chat' => '您已经被此聊天封禁。',
+	'chat-not-allowed' => '您不被允许聊天，请先尝试登录',
 	'chat-just-now' => '刚刚',
 	'chat-a-minute-ago' => '一分钟前',
 	'chat-minutes-ago' => '$1分钟前',
@@ -506,16 +706,31 @@ $messages['zh-hans'] = array(
 	'chat-you-kicked' => '您{{GENDER:$2|踢了}}$1',
 	'chat-kicked' => '$1{{GENDER:$3|踢了}}$2',
 	'chat-kick' => '踢',
-	'chat-youve-been-blocked' => '你已经被$1{{GENDER:$2|阻止}}聊天。',
-	'chat-you-blocked' => '您{{GENDER:$2|阻止了}}$1',
-	'chat-blocked' => '$1{{GENDER:$3|阻止了}}$2',
-	'chat-block' => '阻止',
+	'chat-youve-been-blocked' => '你已经被$1{{GENDER:$2|封禁}}聊天。',
+	'chat-you-blocked' => '您{{GENDER:$2|封禁了}}$1',
+	'chat-blocked' => '$1{{GENDER:$3|封禁了}}$2',
+	'chat-block' => '封禁',
+	'chat-you-unblocked' => '您{{GENDER:$2|解禁}}了$1',
+	'chat-unblocked' => '$1{{GENDER:$3|解禁}}了$2',
 	'chat-private-message' => '(私人消息)',
+	'chat-user-is-moderator' => '此用户{{GENDER:$1|是}}一位版主',
+	'chat-you-are-moderator' => '您{{GENDER:$1|是}}一位版主',
+	'chat-joined' => '$1{{GENDER:$2|加入}}了聊天',
+	'chat-left' => '$1{{GENDER:$2|离开}}了聊天',
+	'chat-topic' => '欢迎来到{{SITENAME}}聊天。（[[Special:Log/chat|聊天日志]]）',
 	'chat-sidebar-online' => '聊天中的在线用户：',
 	'chat-sidebar-join' => '加入聊天',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => '聊天记录',
+	'log-description-chat' => '信息由MediaWikiChat发送，当然用户可以踢人',
+	'logentry-chat-kick' => '$1踢出了$4',
 	'log-show-hide-chat' => '$1聊天记录',
+	'group-chatmod' => '聊天版主',
+	'group-chatmod-member' => '{{GENDER:$1|聊天版主}}',
+	'grouppage-chatmod' => '{{ns:project}}:聊天版主',
 	'group-blockedfromchat' => '被阻止聊天的用户',
 	'group-blockedfromchat-member' => '{{GENDER:$1|阻止聊天}}',
-	'grouppage-blockedfromchat' => '{{ns:project}}：阻止聊天的用户', # Fuzzy
+	'grouppage-blockedfromchat' => '{{ns:project}}:从聊天中被封禁的用户',
+	'right-mediawikichat-chat' => '使用Special:Chat',
+	'right-mediawikichat-modchat' => '从Special:Chat将用户封禁和踢人（如果可用）',
 );
