@@ -199,12 +199,20 @@ See also:
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Tauhid16
  */
 $messages['bn'] = array(
+	'chat-type-your-message' => 'আপনার বার্তা লিখুন',
+	'chat-type-your-private-message' => 'আপনার ব্যক্তিগত বার্তাটি লিখুন',
 	'chat-not-allowed' => 'আপনার বার্তা প্রেরণের অনুমতি নেই, প্রথমে প্রবেশ করার চেষ্টা করুন।',
-	'chat-you-blocked' => 'আপনি {{GENDER:$2|অবরুদ্ধ}} $1.',
-	'chat-left' => '$1 বার্তা {{GENDER:$2|রেখছে}}।',
+	'chat-just-now' => 'এইমাত্র',
+	'chat-a-minute-ago' => 'এক মিনিট আগে',
+	'chat-minutes-ago' => '{{PLURAL:$1|১ মিনিট|$1 মিনিট}} আগে',
+	'chat-yesterday' => 'গতকাল',
+	'chat-you-blocked' => 'আপনি $1কে {{GENDER:$2|অবরুদ্ধ}} করেছেন।',
+	'chat-left' => '$1 আড্ডা চেড়ে {{GENDER:$2|চলে}} গেছেন।',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 );
 
 /** Catalan (català)
@@ -422,6 +430,7 @@ $messages['ka'] = array(
 
 /** Korean (한국어)
  * @author Freebiekr
+ * @author Priviet
  */
 $messages['ko'] = array(
 	'chat' => '채팅',
@@ -437,6 +446,35 @@ $messages['ko'] = array(
 	'chat-yesterday' => '어제',
 	'chat-youve-been-kicked' => '$1 사용자가 당신을 {{GENDER:$2|추방}}했습니다. 페이지를 다시 불러들여 채팅하십시오.',
 	'chat-you-kicked' => '$1 사용자를 {{GENDER:$2|추방했습니다}}.',
+	'chat-kicked' => '$1 사용자가 $2 사용자를 {{GENDER:$3|추방했습니다}}.',
+	'chat-kick' => '추방',
+	'chat-youve-been-blocked' => '$1 사용자가 당신을 {{GENDER:$2|차단했습니다}}.',
+	'chat-you-blocked' => '$1 사용자를 {{GENDER:$2|차단했습니다}}.',
+	'chat-blocked' => '$1 사용자가  $2 사용자를 {{GENDER:$3|차단했습니다}}.',
+	'chat-block' => '차단',
+	'chat-you-unblocked' => '$1 사용자의 차단을 {{GENDER:$2|해제했습니다}}.',
+	'chat-unblocked' => '$1 사용자가 $2 사용자의 {{GENDER:$3|차단을 해제했습니다}}.',
+	'chat-private-message' => '(비공개 메시지)',
+	'chat-user-is-moderator' => '이 사용자는 관리자{{GENDER:$1|입니다}}.',
+	'chat-you-are-moderator' => '당신은 관리자{{GENDER:$1|입니다}}.',
+	'chat-joined' => '$1 사용자가 채팅에 {{GENDER:$2|참여했습니다}}.',
+	'chat-left' => '$1 사용자가 채팅에서 {{GENDER:$2|나갔습니다}}.',
+	'chat-topic' => '{{SITENAME}} 채팅을 환영합니다. ([[Special:Log/chat|채팅 기록]])',
+	'chat-sidebar-online' => '채팅에 참여한 온라인 사용자:',
+	'chat-sidebar-join' => '채팅에 참여',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'log-name-chat' => '채팅 기록',
+	'log-description-chat' => '미디어위키채팅에서 보낸 메시지와 사용자 추방',
+	'logentry-chat-kick' => '$1 사용자가 $4 사용자를 {{GENDER:$1|추방했습니다}}.',
+	'log-show-hide-chat' => '채팅 기록 $1',
+	'group-chatmod' => '채팅 관리자',
+	'group-chatmod-member' => '{{GENDER:$1|채팅 관리자}}',
+	'grouppage-chatmod' => '{{ns:project}}:채팅 관리자',
+	'group-blockedfromchat' => '채팅이 차단된 사용자',
+	'group-blockedfromchat-member' => '{{GENDER:$1|채팅이 차단됨}}',
+	'grouppage-blockedfromchat' => '{{ns:project}}:채팅이 차단된 사용자',
+	'right-mediawikichat-chat' => 'Special:Chat 사용',
+	'right-mediawikichat-modchat' => 'Special:Chat에서 사용자를 가능하다면 차단하고 추방',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -715,6 +753,7 @@ $messages['si'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Jopparn
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
@@ -745,7 +784,7 @@ $messages['sv'] = array(
 	'chat-joined' => '$1 {{GENDER:$2|anslöt sig}} till chatten.',
 	'chat-left' => '$1 {{GENDER:$2|lämnade}} chatten.',
 	'chat-topic' => 'Välkommen till {{SITENAME}}s chatt. ([[Special:Log/chat|chattlogg]])',
-	'chat-sidebar-online' => 'Ansluta användare i chatten:',
+	'chat-sidebar-online' => 'Anslutna användare i chatten:',
 	'chat-sidebar-join' => 'Delta i chatten',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'Chattlogg',
@@ -818,6 +857,29 @@ $messages['uk'] = array(
 	'chat-just-now' => 'щойно',
 	'chat-a-minute-ago' => 'хвилину тому',
 	'chat-yesterday' => 'вчора',
+	'chat-block' => 'заблокувати',
+	'chat-you-unblocked' => 'Ви {{GENDER:$2|розблокували}} $1.',
+	'chat-unblocked' => '$1 {{GENDER:$3|розблокував|розблокувала}}  $2.',
+	'chat-private-message' => '(особисте повідомлення)',
+	'chat-user-is-moderator' => '{{GENDER:$1|Цей користувач - модератор|Ця користувачка - модераторка}}.',
+	'chat-you-are-moderator' => 'Ви — {{GENDER:$1|модератор|модераторка}}.',
+	'chat-joined' => '$1 {{GENDER:$2|приєднався|приєдналася}} до чату.',
+	'chat-left' => '$1 {{GENDER:$2|залишив|залишила}} чат.',
+	'chat-sidebar-online' => 'Онлайн-користувачів у чаті:',
+	'chat-sidebar-join' => 'Приєднатися до чату',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'log-name-chat' => 'Журнал чату',
+	'log-description-chat' => 'Повідомлення від MediaWikiChat, коли користувач усуває іншого',
+	'logentry-chat-kick' => '$1 {{GENDER:$1|усунув|усунула}} $4',
+	'log-show-hide-chat' => '$1 журнал чату',
+	'group-chatmod' => 'Модератори чату',
+	'group-chatmod-member' => '{{GENDER:$1|модератор чату|модераторка чату}}',
+	'grouppage-chatmod' => '{{ns:project}}:модератори чату',
+	'group-blockedfromchat' => 'Заблоковані у чаті користувачі',
+	'group-blockedfromchat-member' => '{{GENDER:$1|заблокований у чаті|заблокована у чаті}}',
+	'grouppage-blockedfromchat' => '{{ns:project}}: заблоковані у чаті користувачі',
+	'right-mediawikichat-chat' => 'Використовувати Special:Chat',
+	'right-mediawikichat-modchat' => 'Блокувати та усувати (коли увімкнено) користувачів із Special:Chat',
 );
 
 /** Yiddish (ייִדיש)
