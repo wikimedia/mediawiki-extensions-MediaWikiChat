@@ -203,16 +203,30 @@ See also:
  * @author Tauhid16
  */
 $messages['bn'] = array(
+	'chat' => 'আড্ডা',
 	'chat-type-your-message' => 'আপনার বার্তা লিখুন',
 	'chat-type-your-private-message' => 'আপনার ব্যক্তিগত বার্তাটি লিখুন',
+	'chat-no-other-users' => 'আর কোনো ব্যবহারকারী আড্ডায় নেই',
+	'chat-blocked-from-chat' => 'আপনি এই আড্ডা থেকে অবরুদ্ধ।',
 	'chat-not-allowed' => 'আপনার বার্তা প্রেরণের অনুমতি নেই, প্রথমে প্রবেশ করার চেষ্টা করুন।',
 	'chat-just-now' => 'এইমাত্র',
 	'chat-a-minute-ago' => 'এক মিনিট আগে',
 	'chat-minutes-ago' => '{{PLURAL:$1|১ মিনিট|$1 মিনিট}} আগে',
 	'chat-yesterday' => 'গতকাল',
+	'chat-kick' => 'পদাঘাত',
 	'chat-you-blocked' => 'আপনি $1কে {{GENDER:$2|অবরুদ্ধ}} করেছেন।',
+	'chat-blocked' => '$1 $2 কে {{GENDER:$3|অবরুদ্ধ}} করেছে।',
+	'chat-block' => 'অবরুদ্ধ',
+	'chat-private-message' => '(ব্যক্তিগত বার্তা)',
 	'chat-left' => '$1 আড্ডা চেড়ে {{GENDER:$2|চলে}} গেছেন।',
+	'chat-topic' => 'আপনাকে {{SITENAME}} আড্ডায় স্বাগতম। ([[Special:Log/chat|আড্ডার লগ]])',
+	'chat-sidebar-online' => 'আড্ডায় অনলাইন ব্যবহারকারীগণ:',
+	'chat-sidebar-join' => 'আড্ডায় যোগ দিন',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'log-name-chat' => 'আড্ডার লগ',
+	'log-show-hide-chat' => 'আড্ডার লগ $1',
+	'group-chatmod' => 'আড্ডা নিয়ামকসমূহ',
+	'group-blockedfromchat' => 'ব্যবহারকারী আড্ডা থেকে অবরুদ্ধ',
 );
 
 /** Catalan (català)
@@ -280,6 +294,47 @@ $messages['en-gb'] = array(
 	'chat-type-your-message' => 'Type your message',
 	'chat-type-your-private-message' => 'Type your private message',
 	'chat-no-other-users' => 'No other users on chat',
+);
+
+/** Spanish (español)
+ * @author Fitoschido
+ */
+$messages['es'] = array(
+	'chat' => 'Charla',
+	'chat-desc' => 'Proporciona un cliente y servidor de chat ligero',
+	'chat-type-your-message' => 'Escribe tu mensaje',
+	'chat-type-your-private-message' => 'Escribe tu mensaje privado',
+	'chat-no-other-users' => 'No hay más usuarios en el chat',
+	'chat-blocked-from-chat' => 'Estás bloqueado en este chat.',
+	'chat-not-allowed' => 'Intenta iniciar sesión primero antes de charlar.',
+	'chat-just-now' => 'ahora mismo',
+	'chat-a-minute-ago' => 'hace un minuto',
+	'chat-minutes-ago' => 'hace {{PLURAL:$1|un minuto|$1 minutos}}',
+	'chat-yesterday' => 'ayer',
+	'chat-youve-been-kicked' => '$1 te ha expulsado. Actualiza la página para charlar.', # Fuzzy
+	'chat-you-kicked' => 'Has expulsado a $1.', # Fuzzy
+	'chat-kicked' => '$1 expulsó a $2.', # Fuzzy
+	'chat-kick' => 'expulsar',
+	'chat-youve-been-blocked' => '$1 te ha bloqueado.', # Fuzzy
+	'chat-you-blocked' => 'Has bloqueado a $1.', # Fuzzy
+	'chat-blocked' => '$1 bloqueó a $2.', # Fuzzy
+	'chat-block' => 'bloquear',
+	'chat-you-unblocked' => 'Has desbloqueado a $1.', # Fuzzy
+	'chat-unblocked' => '$1 desbloqueó a $2.', # Fuzzy
+	'chat-private-message' => '(mensaje privado)',
+	'chat-user-is-moderator' => 'Est{{GENDER:$1|e usuario|a usuaria}} modera el chat.',
+	'chat-you-are-moderator' => 'Eres {{GENDER:$1|un moderador|una moderadora}}.',
+	'chat-joined' => '$1 se ha unido a la charla.', # Fuzzy
+	'chat-left' => '$1 ha abandonado la charla.', # Fuzzy
+	'chat-topic' => 'Te damos la bienvenida al chat de {{SITENAME}}. ([[Special:Log/chat|registro del chat]])',
+	'chat-sidebar-online' => 'Usuarios conectados al chat:',
+	'chat-sidebar-join' => 'Únete a la charla',
+	'log-name-chat' => 'Registro de la charla',
+	'log-show-hide-chat' => '$1 registro de chat',
+	'group-chatmod' => 'Moderadores del chat',
+	'group-chatmod-member' => '{{GENDER:$1|moderador|moderadora}} del chat',
+	'grouppage-chatmod' => '{{ns:project}}:Moderadores del chat',
+	'group-blockedfromchat' => 'Usuarios bloqueados del chat',
 );
 
 /** Persian (فارسی)
@@ -385,6 +440,14 @@ $messages['fr'] = array(
 	'right-mediawikichat-modchat' => 'Bloquer et éjecter (si activé) des utilisateurs depuis Special:Chat',
 );
 
+/** Hebrew (עברית)
+ * @author תומר ט
+ */
+$messages['he'] = array(
+	'chat-not-allowed' => "אין לך הרשאות לשוחח בצ'אט. יש לנסות להתחבר לחשבון.",
+	'log-name-chat' => "יומן צ'אט",
+);
+
 /** Japanese (日本語)
  * @author Shirayuki
  */
@@ -486,6 +549,7 @@ $messages['lb'] = array(
 	'chat-type-your-private-message' => 'Tippt Äre private Message',
 	'chat-no-other-users' => 'Keng aner Benotzer am Chat',
 	'chat-blocked-from-chat' => 'Dir gouft an dësem Chat gespaart.',
+	'chat-not-allowed' => "Dir däerft net chatten, probéiert Iech d'éischt anzeloggen.",
 	'chat-just-now' => 'grad elo',
 	'chat-a-minute-ago' => 'virun enger Minutt',
 	'chat-minutes-ago' => '{{PLURAL:$1|virun enger Minutt|viru(n) $1 Minutten}}',
@@ -697,6 +761,15 @@ $messages['pt-br'] = array(
 	'right-mediawikichat-modchat' => 'Bloquea e quica (se autorizado) usuarios do Special:Chat',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'chat-you-blocked' => 'Tu è state {{GENDER:$2|bloccate}} $1.',
+	'chat-you-unblocked' => 'Tu è state {{GENDER:$2|sbloccate}} $1.',
+	'chat-left' => '$1 è {{GENDER:$2|lassate}} a ciat.',
+);
+
 /** Russian (русский)
  * @author Okras
  */
@@ -798,6 +871,17 @@ $messages['sv'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Användare blockerade från chatten',
 	'right-mediawikichat-chat' => 'Använd Special:Chat',
 	'right-mediawikichat-modchat' => 'Blockera och sparka ut (om det är aktiverat) användare från Special:Chat',
+);
+
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'chat-just-now' => 'ఇప్పుడే',
+	'chat-a-minute-ago' => 'ఒక నిమిషం క్రితం',
+	'chat-minutes-ago' => '{{PLURAL:$1|ఒక నిమిషం|$1 నిమిషాల}} క్రితం',
+	'chat-yesterday' => 'నిన్న',
+	'chat-private-message' => '(అంతరంగిక సందేశం)',
 );
 
 /** Turkish (Türkçe)
@@ -938,4 +1022,51 @@ $messages['zh-hans'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:从聊天中被封禁的用户',
 	'right-mediawikichat-chat' => '使用Special:Chat',
 	'right-mediawikichat-modchat' => '从Special:Chat将用户封禁和踢人（如果可用）',
+);
+
+/** Traditional Chinese (中文（繁體）‎)
+ * @author EagerLin
+ */
+$messages['zh-hant'] = array(
+	'chat' => '聊天',
+	'chat-desc' => '提供了一個羽量級的聊天用戶端和伺服器',
+	'chat-type-your-message' => '鍵入您的消息',
+	'chat-type-your-private-message' => '鍵入您的私人資訊',
+	'chat-no-other-users' => '沒有其他使用者在線',
+	'chat-blocked-from-chat' => '您已被封禁，不能聊天。',
+	'chat-not-allowed' => '您不允許在聊天、請優先嘗試登錄。',
+	'chat-just-now' => '剛才',
+	'chat-a-minute-ago' => '一分鐘前',
+	'chat-minutes-ago' => '$1分鐘前',
+	'chat-yesterday' => '昨天',
+	'chat-youve-been-kicked' => '你已被$1{{GENDER:$2|請出}}。刷新頁面聊天。',
+	'chat-you-kicked' => '您{{GENDER:$2|請出了}}$1',
+	'chat-kicked' => '$1{{GENDER:$3|請出了}}$2',
+	'chat-kick' => '踢',
+	'chat-youve-been-blocked' => '你已經被$1{{GENDER:$2|查封}}聊天。',
+	'chat-you-blocked' => '您{{GENDER:$2|封禁了}}$1',
+	'chat-blocked' => '$1{{GENDER:$3|封禁了}}$2',
+	'chat-block' => '查封',
+	'chat-you-unblocked' => '您{{GENDER:$2|解禁}}了$1',
+	'chat-unblocked' => '$1{{GENDER:$3|解禁}}了$2',
+	'chat-private-message' => '(悄悄話)',
+	'chat-user-is-moderator' => '此使用者{{GENDER:$1|是}}版主。',
+	'chat-you-are-moderator' => '您{{GENDER:$1|是}}版主。',
+	'chat-joined' => '$1{{GENDER:$2|加入}}聊天。',
+	'chat-left' => '$1{{GENDER:$2|離開}}了聊天',
+	'chat-topic' => '歡迎來到{{SITENAME}}聊天。（[[Special:Log/chat|聊天日誌]]）',
+	'chat-sidebar-online' => '在聊天中的線上使用者：',
+	'chat-sidebar-join' => '加入聊天',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'log-name-chat' => '聊天記錄',
+	'log-description-chat' => '信息由MediaWikiChat發送，當然使用者可以將別人請出',
+	'logentry-chat-kick' => '$1請出了$4',
+	'log-show-hide-chat' => '$1聊天記錄',
+	'group-chatmod' => '聊天版主',
+	'group-chatmod-member' => '{{GENDER:$1|聊天版主}}',
+	'grouppage-chatmod' => '{{ns:project}}：聊天版主', # Fuzzy
+	'group-blockedfromchat' => '被阻止聊天的用户',
+	'group-blockedfromchat-member' => '{{GENDER:$1|阻止聊天}}',
+	'grouppage-blockedfromchat' => '{{ns:project}}： 從聊天中被查封的使用者', # Fuzzy
+	'right-mediawikichat-chat' => '使用Special:Chat',
 );
