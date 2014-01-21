@@ -561,8 +561,10 @@ $messages['lb'] = array(
 	'chat-youve-been-blocked' => 'Dir gouft {{GENDER:$2|vum}} $1 gespaart.',
 	'chat-you-blocked' => "Dir hutt {{GENDER:$2|den |d'}}$1 gespaart",
 	'chat-block' => 'spären',
+	'chat-you-unblocked' => 'Dir hutt dem {{GENDER:$2|seng}}$1 Spär opgehuewen.',
 	'chat-private-message' => '(private Message)',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'group-blockedfromchat' => 'Benotzer déi fir den Chat gespaart sinn',
 );
 
 /** Latvian (latviešu)
