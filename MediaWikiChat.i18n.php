@@ -241,6 +241,7 @@ $messages['ca'] = array(
 
 /** German (Deutsch)
  * @author George Barnick
+ * @author GeorgeBarnick
  * @author Metalhead64
  */
 $messages['de'] = array(
@@ -276,6 +277,7 @@ $messages['de'] = array(
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'Chat-Logbuch',
 	'log-description-chat' => 'Dieses Logbuch protokolliert von MediaWikiChat versandte Nachrichten und Hinauswerfungen von Benutzern.',
+	'logentry-chat-send' => '$1: $4',
 	'logentry-chat-kick' => '$1 hat $4 {{GENDER:$1|hinausgeworfen}}',
 	'log-show-hide-chat' => 'Chat-Logbuch $1',
 	'group-chatmod' => 'Chatmoderatoren',
@@ -301,6 +303,7 @@ $messages['en-gb'] = array(
 
 /** Spanish (español)
  * @author Fitoschido
+ * @author GeorgeBarnick
  */
 $messages['es'] = array(
 	'chat' => 'Charla',
@@ -338,6 +341,7 @@ $messages['es'] = array(
 	'group-chatmod-member' => '{{GENDER:$1|moderador|moderadora}} del chat',
 	'grouppage-chatmod' => '{{ns:project}}:Moderadores del chat',
 	'group-blockedfromchat' => 'Usuarios bloqueados del chat',
+	'right-mediawikichat-chat' => 'Uso Special:Chat',
 );
 
 /** Persian (فارسی)
@@ -444,11 +448,25 @@ $messages['fr'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Mbkv717
  * @author תומר ט
  */
 $messages['he'] = array(
+	'chat' => "צ'אט",
 	'chat-not-allowed' => "אין לך הרשאות לשוחח בצ'אט. יש לנסות להתחבר לחשבון.",
+	'chat-a-minute-ago' => 'לפני דקה',
+	'chat-yesterday' => 'אתמול',
 	'log-name-chat' => "יומן צ'אט",
+);
+
+/** Armenian (Հայերեն)
+ * @author Vadgt
+ */
+$messages['hy'] = array(
+	'chat' => 'Վիճակագրություն',
+	'chat-type-your-message' => 'Մուտքագրեք ձեր հաղորդագրությունը',
+	'chat-a-minute-ago' => 'մի քանի րոպե առաջ',
+	'chat-minutes-ago' => '{{PLURAL:$1|$1 րոպե|$1 րոպե}} առաջ', # Fuzzy
 );
 
 /** Japanese (日本語)
@@ -563,6 +581,7 @@ $messages['lb'] = array(
 	'chat-block' => 'spären',
 	'chat-you-unblocked' => 'Dir hutt dem {{GENDER:$2|seng}}$1 Spär opgehuewen.',
 	'chat-private-message' => '(private Message)',
+	'chat-user-is-moderator' => 'Dëse Benotzer {{GENDER:$1|ass}} e Moderateur.',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'group-blockedfromchat' => 'Benotzer déi fir den Chat gespaart sinn',
 );
@@ -696,6 +715,7 @@ $messages['pl'] = array(
 	'chat-type-your-message' => 'Wpisz wiadomość',
 	'chat-blocked-from-chat' => 'Zostałeś zablokowany na tym czacie.',
 	'chat-a-minute-ago' => 'minutę temu',
+	'chat-minutes-ago' => '{{PLURAL:$1|1 minutę|$1 minuty|$1 minut}} temu',
 	'chat-yesterday' => 'wczoraj',
 	'chat-youve-been-kicked' => '{{GENDER:$2|Zostałeś wyrzucony|Zostałaś wyrzucona}} przez $1. Odśwież stronę czatu.',
 	'chat-you-kicked' => 'Ty {{GENDER:$2|wyrzuciłeś|wyrzuciłaś}} $1.',
@@ -711,12 +731,61 @@ $messages['pl'] = array(
 	'chat-you-are-moderator' => 'Ty {{GENDER:$1|jesteś}} moderatorem.',
 	'chat-joined' => '$1 {{GENDER:$2|dołączył|dołączyła}} na czat.',
 	'chat-left' => '$1 {{GENDER:$2|opuścił|opuściła}} czat.',
-	'chat-topic' => 'Witamy na czacie {{SITENAME}}. ([[Specjalna:Rejestr/chat|rejestr czatu]])', # Fuzzy
+	'chat-topic' => 'Witamy na czacie {{SITENAME}}. ([[Special:Log/chat|rejestr czatu]])',
 	'chat-sidebar-online' => 'Użytkowników online na czacie:',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'Rejestr czatu',
 	'group-chatmod' => 'Moderatorzy czatu',
 	'group-chatmod-member' => '{{GENDER:$1|moderator czatu|moderatorka czatu}}',
 	'right-mediawikichat-chat' => 'Użyj Specjalna:Chat',
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'chat' => 'بانډار',
+	'chat-desc' => 'يو سپک وزنه بانډار پېرن او پالنگر برابروي',
+	'chat-type-your-message' => 'خپل پيغام دلته وټاپئ',
+	'chat-type-your-private-message' => 'خپل شخصي پيغام دلته وټاپئ',
+	'chat-no-other-users' => 'نور کارنان په بانډار کې نشته',
+	'chat-blocked-from-chat' => 'په دې بانډار کې په تاسې بنديز لگېدلی',
+	'chat-not-allowed' => 'تاسې بانډار نه شی کولی، لومړی غونډال ته ورننوځئ.',
+	'chat-just-now' => 'همدا اوس',
+	'chat-a-minute-ago' => 'يوه دقيقه دمخه',
+	'chat-minutes-ago' => '{{PLURAL:$1|1 دقيقه|$1 دقيقې}} دمخه',
+	'chat-yesterday' => 'پرون',
+	'chat-youve-been-kicked' => 'تاسې د $1 لخوا {{GENDER:$2|وشړل شوئ}}. د بانډار لپاره مو مخ بياتاند کړئ.',
+	'chat-you-kicked' => 'تاسې $1 {{GENDER:$2|وشاړه}}.',
+	'chat-kicked' => '$2 د $1 لخوا {{GENDER:$3|وشړل شو}}.',
+	'chat-kick' => 'شړل',
+	'chat-youve-been-blocked' => 'د $1 لخوا پر تاسې {{GENDER:$2|بنديز لگېدلی}}.',
+	'chat-you-blocked' => 'تاسې پر $1 {{GENDER:$2|بنديز لگولی}}.',
+	'chat-blocked' => '$1 پر $2 {{GENDER:$3|بنديز لگولی}}.',
+	'chat-block' => 'بنديز لگول',
+	'chat-you-unblocked' => 'تاسې له $1 {{GENDER:$2|بنديز لرې کړ}}.',
+	'chat-unblocked' => '$1 له $2 {{GENDER:$3|بنديز لرې کړ}}.',
+	'chat-private-message' => '(شخصي پيغام)',
+	'chat-user-is-moderator' => 'دا کارن يو منځگړی {{GENDER:$1|دی}}.',
+	'chat-you-are-moderator' => 'تاسې يو منځگړی {{GENDER:$1|ياست}}.',
+	'chat-joined' => '$1 په بانډار کې {{GENDER:$2|ورگډ شو}}.',
+	'chat-left' => '$1 بانډار {{GENDER:$2|پرېښوده}}.',
+	'chat-topic' => 'د {{SITENAME}} بانډار ته ښه راغلئ. ([[Special:Log/chat|بانډار ته ورننوتل]])',
+	'chat-sidebar-online' => 'په بانډار کې پرليکه کارنان:',
+	'chat-sidebar-join' => 'بانډار کې ورگډ شئ',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'log-name-chat' => 'بانډار يادښت',
+	'log-description-chat' => 'پيغامونه د مېډياويکي بانډار لخوا ولېږل شول، همداراز کارن شړل شوی',
+	'logentry-chat-kick' => '$4 د $1 لخوا {{GENDER:$1|وشړل شو}}',
+	'log-show-hide-chat' => 'بانډار يادښت $1',
+	'group-chatmod' => 'بانډار منځگړي',
+	'group-chatmod-member' => '{{GENDER:$1|بانډار منځگړی}}',
+	'grouppage-chatmod' => '{{ns:project}}:بانډار منځگړي',
+	'group-blockedfromchat' => 'په بانډار کې بنديز لگېدلي کارنان',
+	'group-blockedfromchat-member' => '{{GENDER:$1|له بانډار څخه بنديز شوی}}',
+	'grouppage-blockedfromchat' => '{{ns:project}}:په بانډار کې بنديز لگېدلي کارنان',
+	'right-mediawikichat-chat' => 'ځانگړې کارېدنه:بانډار',
+	'right-mediawikichat-modchat' => 'له ځانگړي:بانډار څخه کارنان شړي او بنديز پرې لگوي (که چارن شي)',
 );
 
 /** Brazilian Portuguese (português do Brasil)
@@ -970,6 +1039,35 @@ $messages['uk'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}: заблоковані у чаті користувачі',
 	'right-mediawikichat-chat' => 'Використовувати Special:Chat',
 	'right-mediawikichat-modchat' => 'Блокувати та усувати (коли увімкнено) користувачів із Special:Chat',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Withoutaname
+ */
+$messages['vi'] = array(
+	'chat-type-your-message' => 'Nhập tin nhắn của bạn',
+	'chat-type-your-private-message' => 'Nhập tin nhắn riêng của bạn',
+	'chat-blocked-from-chat' => 'Bạn đã bị cấm từ phòng thảo luận này.',
+	'chat-just-now' => 'mới bây giờ',
+	'chat-a-minute-ago' => 'một phút trước',
+	'chat-minutes-ago' => '{{PLURAL:$1|$1}} phút trước',
+	'chat-yesterday' => 'hôm qua',
+	'chat-you-kicked' => 'Bạn {{GENDER:$2}}đá ra $1.',
+	'chat-kicked' => '$1 {{GENDER:$3}}đá ra $2.',
+	'chat-kick' => 'đá ra',
+	'chat-you-blocked' => 'Bạn {{GENDER:$2}}cấm $1.',
+	'chat-blocked' => '$1 {{GENDER:$3}}cấm $2.',
+	'chat-block' => 'cấm',
+	'chat-you-unblocked' => 'Bạn {{GENDER:$2}}bỏ cấm $1.',
+	'chat-unblocked' => '$1 {{GENDER:$3}}cấm $2.',
+	'chat-private-message' => '(tin nhắn riêng)',
+	'chat-user-is-moderator' => 'Thành viên này {{GENDER:$1}}là một người bảo quản viên.',
+	'chat-you-are-moderator' => 'Bạn {{GENDER:$1}}là bảo quản viên.',
+	'chat-left' => '$1 {{GENDER:$2}}bỏ phòng thảo luận.',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'logentry-chat-kick' => '$1 {{GENDER:$1}}đá ra $4.',
+	'group-blockedfromchat' => 'Thành viên bị cấm từ phòng thảo luận',
+	'group-blockedfromchat-member' => '{{GENDER:$1}}Cấm từ phòng thảo luận',
 );
 
 /** Yiddish (ייִדיש)
