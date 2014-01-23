@@ -8,6 +8,8 @@ var MediaWikiChat = {
 	newInterval: null,
 	redoInterval: null,
 	userData: [],
+	focussed: true,
+	title: document.title,
 
 	pad: function( num, size ) {
 		var s = num + '';
@@ -261,6 +263,8 @@ var MediaWikiChat = {
 		html += '</td></tr>';
 
 		MediaWikiChat.addGeneralMessage( html, timestamp );
+
+		MediaWikiChat.flash();
 	},
 
 	addGeneralMessage: function( html, timestamp ) {
@@ -307,6 +311,8 @@ var MediaWikiChat = {
 		if ( user.name != wgUserName ) {
 			$( '#' + convwithE ).attr( 'data-read', 'true' );
 		}
+
+		MediaWikiChat.flash();
 	},
 
 	doUsers: function( newusers ) {
@@ -464,6 +470,14 @@ var MediaWikiChat = {
 			MediaWikiChat.amI = true;
 		}
 	},
+
+	flash: function() {
+		if ( !MediaWikiChat.focussed ) {
+			//var ping = new Audio('srcfile.wav');
+			//ping.play();
+			document.title = "* " + MediaWikiChat.title;
+		}
+	},
 };
 
 $( document ).ready( function() {
@@ -492,3 +506,12 @@ $( document ).ready( function() {
 	MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
 	MediaWikiChat.redoInterval = setInterval( MediaWikiChat.redoTimestamps, MediaWikiChat.interval / 2 );
 } );
+
+$( window ).blur( function() {
+	MediaWikiChat.focussed = false;
+});
+
+$( window ).focus( function() {
+	MediaWikiChat.focussed = true;
+	document.title = MediaWikiChat.title; // restore title
+});
