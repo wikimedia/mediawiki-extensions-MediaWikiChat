@@ -488,8 +488,7 @@ $( document ).ready( function() {
 			$.ajax({
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 				data: { 'action': 'chatsend', 'message': $( '#mwchat-type input' )[0].value, 'format': 'json' },
-			});
-			.done( function( response ) {
+			}).done( function( response ) {
 				MediaWikiChat.getNew( 'main input keypress' );
 				window.clearInterval( MediaWikiChat.newInterval );
 				MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
