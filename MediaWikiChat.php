@@ -89,7 +89,7 @@ $wgFilterLogTypes['chat'] = true;
 
 // Permissions
 $wgGroupPermissions['user']['chat'] = true;
-$wgGroupPermissions['blockedfromchat']['chat'] = false;
+$wgRevokePermissions['blockedfromchat']['chat'] = true;
 
 $wgGroupPermissions['chatmod']['modchat'] = true;
 $wgGroupPermissions['sysop']['modchat'] = true;
