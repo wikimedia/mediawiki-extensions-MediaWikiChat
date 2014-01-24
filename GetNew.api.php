@@ -1,5 +1,6 @@
 <?php
 
+
 class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
@@ -97,12 +98,6 @@ class ChatGetNewAPI extends ApiBase {
 
 					$message = MediaWikiChat::parseMessage( $message );
 
-					$this->data['pms'][] = array(
-						'message' => $message,
-						'timestamp' => $timestamp,
-						'from' => $fromname,
-						'conv' => $convwith
-					);
 					$result->addValue( array( $mName, 'pms', $timestamp ), '*', $message );
 					$result->addValue( array( $mName, 'pms', $timestamp ), 'from', $fromid );
 					$result->addValue( array( $mName, 'pms', $timestamp ), 'conv', $convwith );
@@ -156,7 +151,6 @@ class ChatGetNewAPI extends ApiBase {
 				$result->addValue( array( $mName, 'users', $idString, ), 'gender', $gender );
 			}
 
-			//$this->data['interval'] = MediaWikiChat::getInterval();
 			$result->addValue( $mName, 'now', MediaWikiChat::now() );
 
 			if ( !$wgUser->isAllowed( 'chat' ) ) {
