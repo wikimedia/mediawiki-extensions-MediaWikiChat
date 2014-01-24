@@ -1013,9 +1013,20 @@ $messages['uk'] = array(
 	'chat-desc' => 'Забезпечує легкий клієнт чату і сервер',
 	'chat-type-your-message' => 'Введіть ваше повідомлення',
 	'chat-type-your-private-message' => 'Введіть ваше особисте повідомлення',
+	'chat-no-other-users' => 'Немає інших користувачів у чаті',
+	'chat-blocked-from-chat' => 'Ви були заблоковані у цьому чаті.',
+	'chat-not-allowed' => 'Вам не дозволено спілкуватися, спробуйте спершу увійти.',
 	'chat-just-now' => 'щойно',
 	'chat-a-minute-ago' => 'хвилину тому',
+	'chat-minutes-ago' => '{{PLURAL:$1|хвилину|$1 хвилини|$1 хвилин}} тому',
 	'chat-yesterday' => 'вчора',
+	'chat-youve-been-kicked' => 'Ви були {{GENDER:$2|викинути}} учасником $1. Оновіть сторінку чату.',
+	'chat-you-kicked' => 'Ви {{GENDER:$2|викинули}} $1.',
+	'chat-kicked' => '$1 {{GENDER:$3|викинув|викинула}} $2',
+	'chat-kick' => 'викинути',
+	'chat-youve-been-blocked' => 'Ви вже були {{GENDER:$2|заблоковані}} учасником $1.',
+	'chat-you-blocked' => 'Ви {{GENDER:$2|заблокували}} $1.',
+	'chat-blocked' => '$1 {{GENDER:$3|заблокував|заблокувала}}  $2.',
 	'chat-block' => 'заблокувати',
 	'chat-you-unblocked' => 'Ви {{GENDER:$2|розблокували}} $1.',
 	'chat-unblocked' => '$1 {{GENDER:$3|розблокував|розблокувала}}  $2.',
@@ -1024,6 +1035,7 @@ $messages['uk'] = array(
 	'chat-you-are-moderator' => 'Ви — {{GENDER:$1|модератор|модераторка}}.',
 	'chat-joined' => '$1 {{GENDER:$2|приєднався|приєдналася}} до чату.',
 	'chat-left' => '$1 {{GENDER:$2|залишив|залишила}} чат.',
+	'chat-topic' => 'Ласкаво просимо до чату сайту {{SITENAME}}. ([[Special:Log/chat|журнал чату]])',
 	'chat-sidebar-online' => 'Онлайн-користувачів у чаті:',
 	'chat-sidebar-join' => 'Приєднатися до чату',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -1122,7 +1134,7 @@ $messages['zh-hans'] = array(
 	'group-chatmod-member' => '{{GENDER:$1|聊天版主}}',
 	'grouppage-chatmod' => '{{ns:project}}:聊天版主',
 	'group-blockedfromchat' => '被阻止聊天的用户',
-	'group-blockedfromchat-member' => '{{GENDER:$1|阻止聊天}}',
+	'group-blockedfromchat-member' => '{{GENDER:$1|从聊天被封禁者}}',
 	'grouppage-blockedfromchat' => '{{ns:project}}:从聊天中被封禁的用户',
 	'right-mediawikichat-chat' => '使用Special:Chat',
 	'right-mediawikichat-modchat' => '从Special:Chat将用户封禁和踢人（如果可用）',
@@ -1130,6 +1142,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author EagerLin
+ * @author Liuxinyu970226
  */
 $messages['zh-hant'] = array(
 	'chat' => '聊天',
@@ -1170,7 +1183,7 @@ $messages['zh-hant'] = array(
 	'group-chatmod-member' => '{{GENDER:$1|聊天版主}}',
 	'grouppage-chatmod' => '{{ns:project}}：聊天版主', # Fuzzy
 	'group-blockedfromchat' => '被阻止聊天的用户',
-	'group-blockedfromchat-member' => '{{GENDER:$1|阻止聊天}}',
-	'grouppage-blockedfromchat' => '{{ns:project}}： 從聊天中被查封的使用者', # Fuzzy
+	'group-blockedfromchat-member' => '{{GENDER:$1|於聊天中封禁者}}',
+	'grouppage-blockedfromchat' => '{{ns:project}}:從聊天中被封禁的用戶',
 	'right-mediawikichat-chat' => '使用Special:Chat',
 );
