@@ -36,7 +36,7 @@ class ChatSendAPI extends ApiBase {
 					'4::message' => $message,
 				) );
 
-				$logid = $logEntry->insert();
+				$logEntry->insert();
 
 				MediaWikiChat::deleteEntryIfNeeded();
 

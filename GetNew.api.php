@@ -1,6 +1,12 @@
 <?php
 
+
 class ChatGetNewAPI extends ApiBase {
+
+	/**
+	 * @var array
+	 */
+	private $data;
 
 	public function execute() {
 		global $wgUser, $wgChatSocialAvatars;

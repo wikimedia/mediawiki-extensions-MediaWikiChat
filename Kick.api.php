@@ -39,7 +39,7 @@ class ChatKickAPI extends ApiBase {
 			$logEntry->setParameters( array(
 				'4::kick' => $toName,
 			) );
-			$logId = $logEntry->insert();
+			$logEntry->insert();
 
 			$result->addValue( $this->getModuleName(), 'timestamp', $timestamp );
 
