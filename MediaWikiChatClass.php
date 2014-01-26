@@ -51,18 +51,14 @@ class MediaWikiChat {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$toid = $user->getId();
-		$toname = $user->getName();
 		$fromid = $wgUser->getId();
-		$fromname = $wgUser->getName();
 		$timestamp = MediaWikiChat::now();
 
 		$dbw->insert(
 			'chat',
 			array(
 				'chat_to_id' => $toid,
-				'chat_to_name' => $toname,
 				'chat_user_id' => $fromid,
-				'chat_user_name' => $fromname,
 				'chat_timestamp' => $timestamp,
 				'chat_type' => $type
 			)
@@ -85,7 +81,7 @@ class MediaWikiChat {
 
 			$res = $dbr->select(
 				'chat_users',
-				array( 'cu_user_name', 'cu_user_id' ),
+				'cu_user_id',
 				array(
 					"cu_timestamp > $timestamp",
 					"cu_user_id != {$wgUser->getId()}"
@@ -97,9 +93,8 @@ class MediaWikiChat {
 
 			foreach ( $res as $row ) {
 				$id = $row->cu_user_id;
-				$name = $row->cu_user_name;
 
-				$data[$id] = $name;
+				$data[] = $id;
 			}
 			return $data;
 		} else {
@@ -121,7 +116,7 @@ class MediaWikiChat {
 
 		$res = $dbr->select(
 			'chat_users',
-			array( 'cu_user_name', 'cu_user_id' ),
+			'cu_user_id',
 			array(
 				"cu_timestamp > $timestamp",
 				"cu_user_id = {$wgUser->getId()}"
@@ -143,7 +138,7 @@ class MediaWikiChat {
 		$res = $dbr->select(
 			'chat',
 			'chat_timestamp',
-			array( 'chat_type' => 'message' ),
+			array( 'chat_type' => MediaWikiChat::TYPE_MESSAGE ),
 			__METHOD__,
 			array(
 				'LIMIT' => 5,

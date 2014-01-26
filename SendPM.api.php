@@ -13,18 +13,14 @@ class ChatSendPMAPI extends ApiBase {
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_MASTER );
 
-				$toName = User::newFromId( $toId )->getName();
 				$fromId = $wgUser->getID();
-				$fromName = $wgUser->getName();
 				$timestamp = MediaWikiChat::now();
 
 				$dbw->insert(
 					'chat',
 					array(
 						'chat_to_id' => $toId,
-						'chat_to_name' => $toName,
 						'chat_user_id' => $fromId,
-						'chat_user_name' => $fromName,
 						'chat_timestamp' => $timestamp,
 						'chat_message' => $message,
 						'chat_type' => MediaWikiChat::TYPE_PM

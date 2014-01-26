@@ -19,7 +19,7 @@ class ChatGetNewAPI extends ApiBase {
 			$res = $dbr->selectField(
 					'chat_users',
 					array( 'cu_timestamp' ),
-					array( "cu_user_id = {$wgUser->getId()}" ),
+					array( 'cu_user_id' => $wgUser->getId() ),
 					__METHOD__
 			);
 
@@ -37,7 +37,6 @@ class ChatGetNewAPI extends ApiBase {
 					'chat_users',
 					array(
 						'cu_user_id' => $wgUser->getId(),
-						'cu_user_name' => $wgUser->getName(),
 						'cu_timestamp' => $thisCheck,
 					),
 					__METHOD__
@@ -46,10 +45,7 @@ class ChatGetNewAPI extends ApiBase {
 
 			$res = $dbr->select(
 				'chat',
-				array(
-					'chat_user_name', 'chat_user_id', 'chat_message',
-					'chat_timestamp', 'chat_type', 'chat_to_name', 'chat_to_id'
-				),
+				array( 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_type', 'chat_to_id' ),
 				array( "chat_timestamp > $lastCheck" ),
 				'',
 				__METHOD__,
@@ -65,7 +61,6 @@ class ChatGetNewAPI extends ApiBase {
 				if ( $row->chat_type == MediaWikiChat::TYPE_MESSAGE ) {
 
 					$id = $row->chat_user_id;
-					$name = $row->chat_user_name;
 					$message = $row->chat_message;
 					$timestamp = $row->chat_timestamp;
 
@@ -74,26 +69,24 @@ class ChatGetNewAPI extends ApiBase {
 					$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
 					$result->addValue( array( $mName, 'messages', $timestamp ), '*', $message );
 
-					$users[$id] = $name; // ensure message sender is in users list
+					$users[$id] = true; // ensure message sender is in users list
 
 				} elseif ( $row->chat_type == MediaWikiChat::TYPE_PM
 						&& (
-							$row->chat_user_name == $wgUser->getName()
-							|| $row->chat_to_name == $wgUser->getName()
+							$row->chat_user_id == $wgUser->getId()
+							|| $row->chat_to_id == $wgUser->getId()
 						) ) {
 
 					$message = $row->chat_message;
 					$timestamp = $row->chat_timestamp;
 
 					$fromid = $row->chat_user_id;
-					$fromname = $row->chat_user_name;
 					$toid = $row->chat_to_id;
-					$toname = $row->chat_to_name;
 
-					if ( $fromname == $wgUser->getName() ) {
-						$convwith = $toname;
+					if ( $fromid == $wgUser->getId() ) {
+						$convwith = User::newFromId($toid)->getName();
 					} else {
-						$convwith = $fromname;
+						$convwith = User::newFromId($fromid)->getName();
 					}
 
 					$message = MediaWikiChat::parseMessage( $message );
@@ -102,8 +95,8 @@ class ChatGetNewAPI extends ApiBase {
 					$result->addValue( array( $mName, 'pms', $timestamp ), 'from', $fromid );
 					$result->addValue( array( $mName, 'pms', $timestamp ), 'conv', $convwith );
 
-					$users[$fromid] = $fromname; // ensure pm sender is in users list
-					$users[$toid] = $toname; // ensure pm receiver is in users list
+					$users[$fromid] = true; // ensure pm sender is in users list
+					$users[$toid] = true; // ensure pm receiver is in users list
 
 				} elseif ( $row->chat_type == MediaWikiChat::TYPE_KICK ) {
 					if ( $row->chat_to_name == $wgUser->getName() ) {
@@ -125,22 +118,22 @@ class ChatGetNewAPI extends ApiBase {
 				}
 			}
 
-			$users[$wgUser->getId()] = $wgUser->getName(); // ensure current user is in the users list
+			$users[$wgUser->getId()] = true; // ensure current user is in the users list
 
 			$onlineUsers = MediaWikiChat::getOnline();
-			foreach ( $onlineUsers as $id => $name ) {
-				$users[$id] = $name; // ensure all online users are present in the users list
+			foreach ( $onlineUsers as $id ) {
+				$users[$id] = true; // ensure all online users are present in the users list
 			}
 			$genderCache = GenderCache::singleton();
-			foreach ( $users as $id => $name ) {
+			foreach ( $users as $id => $tr ) {
 				$userObject = User::newFromId( $id );
 				$idString = strval( $id );
 
-				$result->addValue( array( $mName, 'users', $idString ), 'name', $name );
+				$result->addValue( array( $mName, 'users', $idString ), 'name', $userObject->getName() );
 				if ( $wgChatSocialAvatars ) {
 					$result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );
 				}
-				if ( array_key_exists( $id, $onlineUsers ) ) {
+				if ( in_array( $id, $onlineUsers ) ) {
 					$result->addValue( array( $mName, 'users', $idString ), 'online', true );
 				}
 				$groups = $userObject->getGroups();

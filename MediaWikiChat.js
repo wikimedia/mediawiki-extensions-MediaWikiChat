@@ -316,7 +316,6 @@ var MediaWikiChat = {
 	},
 
 	doUsers: function( newusers ) {
-		MediaWikiChat.newusers = newusers;
 		var allusers = MediaWikiChat.users.concat( newusers );
 		allusers = MediaWikiChat.unique( allusers );
 

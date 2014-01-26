@@ -15,16 +15,13 @@ class ChatKickAPI extends ApiBase {
 			$dbw = wfGetDB( DB_MASTER );
 
 			$fromId = $wgUser->getId();
-			$fromName = $wgUser->getName();
 			$timestamp = MediaWikiChat::now();
 
 			$dbw->insert(
 				'chat',
 				array(
 					'chat_to_id' => $toId,
-					'chat_to_name' => $toName,
 					'chat_user_id' => $fromId,
-					'chat_user_name' => $fromName,
 					'chat_timestamp' => $timestamp,
 					'chat_type' => MediaWikiChat::TYPE_KICK
 				),
