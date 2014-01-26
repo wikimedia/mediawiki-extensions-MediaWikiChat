@@ -105,4 +105,20 @@ class MediaWikiChatHooks {
 
 		return true;
 	}
+
+	/**
+	 * Hook to rename users' db entries when they are renamed.
+	 */
+	public static function onRenameUserComplete( $uid, $oldName, $newName ) {
+		$dbw = wfGetDB( DB_MASTER );
+
+		$dbw->update(
+			'chat',
+			array( 'chat_user_name' => $newName ),
+			array( 'chat_user_id' => $uid ),
+			__METHOD__
+		);
+
+		return true;
+	}
 }

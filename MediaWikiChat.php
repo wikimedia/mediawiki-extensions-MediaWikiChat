@@ -71,6 +71,7 @@ $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInt
 $wgHooks['UserRights'][] = 'MediaWikiChatHooks::onUserRights';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MediaWikiChatHooks::onLoadExtensionSchemaUpdates';
 $wgHooks['SkinBuildSidebar'][] = 'MediaWikiChatHooks::fnNewSidebarItem';
+$wgHooks['RenameUserComplete'][] = 'MediaWikiChatHooks::onRenameUserComplete';
 
 //API
 $wgAutoloadClasses['ChatGetNewAPI'] = $dir . 'GetNew.api.php';
