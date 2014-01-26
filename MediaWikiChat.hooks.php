@@ -79,11 +79,12 @@ class MediaWikiChatHooks {
 			if ( count( $users ) ) {
 				$arr = array();
 
-				foreach ( $users as $id => $name ) {
+				foreach ( $users as $id ) {
+					$user = User::newFromId( $id );
 					$avatar = MediaWikiChat::getAvatar( $id );
-					$page = str_replace( '$1', 'User:' . rawurlencode( $name ), $wgArticlePath );
+					$page = str_replace( '$1', 'User:' . rawurlencode( $user->getName() ), $wgArticlePath );
 					$arr[$id] = array(
-						'text' => $name,
+						'text' => $user->getName(),
 						'href' => $page,
 						'style' => "display: block;
 							background-position: right 1em center;
