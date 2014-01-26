@@ -239,6 +239,15 @@ $messages['ca'] = array(
 	'log-name-chat' => 'Registre de xat',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'chat-you-kicked' => 'Ахьа {{GENDER:$2|кхоьссина}} $1.',
+	'chat-you-blocked' => 'Ахьа {{GENDER:$2|блоктоьхна}} $1.',
+	'chat-blocked' => '$1 {{GENDER:$3|блоктоьхна}} $2.',
+);
+
 /** German (Deutsch)
  * @author George Barnick
  * @author GeorgeBarnick
