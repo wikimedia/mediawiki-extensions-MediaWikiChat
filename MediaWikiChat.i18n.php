@@ -313,6 +313,7 @@ $messages['en-gb'] = array(
 /** Spanish (español)
  * @author Fitoschido
  * @author GeorgeBarnick
+ * @author Sethladan
  */
 $messages['es'] = array(
 	'chat' => 'Charla',
@@ -327,7 +328,7 @@ $messages['es'] = array(
 	'chat-minutes-ago' => 'hace {{PLURAL:$1|un minuto|$1 minutos}}',
 	'chat-yesterday' => 'ayer',
 	'chat-youve-been-kicked' => '$1 te ha expulsado. Actualiza la página para charlar.', # Fuzzy
-	'chat-you-kicked' => 'Has expulsado a $1.', # Fuzzy
+	'chat-you-kicked' => 'Has {{GENDER:$2|expulsado}} a $1.',
 	'chat-kicked' => '$1 expulsó a $2.', # Fuzzy
 	'chat-kick' => 'expulsar',
 	'chat-youve-been-blocked' => '$1 te ha bloqueado.', # Fuzzy
