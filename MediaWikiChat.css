@@ -79,7 +79,7 @@
 .mwchat-useritem[data-read="true"] {
 	background-color: #FDD;
 }
-.mwchat-useritem.noshow {
+.mwchat-useritem-header {
 	cursor: pointer;
 }
 .mwchat-item-avatar {
@@ -93,18 +93,10 @@
 .mwchat-item-message * {
 	display: inline;
 }
-.mwchat-useritem-blocklink {
+.mwchat-useritem-header-right {
 	float: right;
-	padding-left: 0.5em;
-	color: #000 !important;
 }
-.mwchat-useritem-kicklink {
-	float: right;
-	padding-right: 0.5em;
-	color: #000 !important;
-}
-.mwchat-useritem-pmlink {
-	padding-left: 0.5em;
+.mwchat-useritem-blocklink, .mwchat-useritem-kicklink {
 	color: #000 !important;
 }
 .mwchat-message.system .mwchat-item-message {

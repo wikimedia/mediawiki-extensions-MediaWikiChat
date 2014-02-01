@@ -27,24 +27,23 @@ $messages['en'] = array(
 
 	'chat-yesterday' => 'yesterday',
 
+	'chat-kick' => 'kick',
+	'chat-block' => 'block',
+
 	'chat-youve-been-kicked' => 'You have been {{GENDER:$2|kicked}} by $1. Refresh the page to chat.',
 	'chat-you-kicked' => 'You {{GENDER:$2|kicked}} $1.',
 	'chat-kicked' => '$1 {{GENDER:$3|kicked}} $2.',
-	'chat-kick' => 'kick',
-
 	'chat-youve-been-blocked' => 'You have been {{GENDER:$2|blocked}} by $1.',
 	'chat-you-blocked' => 'You {{GENDER:$2|blocked}} $1.',
 	'chat-blocked' => '$1 {{GENDER:$3|blocked}} $2.',
-	'chat-block' => 'block',
-
 	'chat-you-unblocked' => 'You {{GENDER:$2|unblocked}} $1.',
 	'chat-unblocked' => '$1 {{GENDER:$3|unblocked}} $2.',
-
-	'chat-private-message' => '(private message)',
-	'chat-user-is-moderator' => 'This user {{GENDER:$1|is}} a moderator.',
-	'chat-you-are-moderator' => 'You {{GENDER:$1|are}} a moderator.',
 	'chat-joined' => '$1 has {{GENDER:$2|joined}} the chat.',
 	'chat-left' => '$1 has {{GENDER:$2|left}} chat.',
+
+	'chat-private-message' => 'click to private message',
+	'chat-user-is-moderator' => 'This user {{GENDER:$1|is}} a moderator',
+	'chat-you-are-moderator' => 'You {{GENDER:$1|are}} a moderator',
 
 	'chat-topic' => 'Welcome to {{SITENAME}} chat. ([[Special:Log/chat|chat log]])',
 

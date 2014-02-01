@@ -347,28 +347,32 @@ var MediaWikiChat = {
 		var add = true;
 
 		var html = '<div class="mwchat-useritem noshow" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
+		html += '<div class="mwchat-useritem-header">';
+		html += '<span class="mwchat-useritem-header-left" title="' + mw.message( 'chat-private-message' ).text() + '">';
+
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
 			html += '<img src="' + user.avatar + '" />';
 		}
 		html += '<span class="mwchat-useritem-user">';
 		html += user.name;
 		html += '</span>';
+		if ( user.mod ) {
+			html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
+			html += mw.message( 'chat-user-is-moderator' ).text() + '" />';
+		}
+		html += '</span><span class="mwchat-useritem-header-right">';
+
 		if ( MediaWikiChat.amIMod && ( !user.mod ) ) {
 			html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user.name );
 			html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
-		}
-		if ( user.mod ) {
-			html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
-			html += mw.message( 'user-is-moderator' ).text() + '" />';
+
+			if ( mw.config.get( 'wgChatKicks' ) ) {
+				html += '&ensp;<a class="mwchat-useritem-kicklink" href="javascript:;">';
+				html += mw.message( 'chat-kick' ).text() + '</a>';
+			}
 		}
 
-		html += ' <span class="mwchat-useritem-pmlink" style="display:none">';
-		html += mw.message( 'chat-private-message' ).text() + '</span>';
-
-		if ( ( !user.mod ) && mw.config.get( 'wgChatKicks' ) && MediaWikiChat.amIMod ) {
-			html += '<a class="mwchat-useritem-kicklink" href="javascript:;">';
-			html += mw.message( 'chat-kick' ).text() + '</a>';
-		}
+		html += '</span></div>';
 		html += '<div class="mwchat-useritem-window" style="display:none;">';
 		html += '<div class="mwchat-useritem-content"></div>';
 		html += '<input type="text" placeholder="' + mw.message( 'chat-type-your-private-message' ).text() + '" />';
@@ -377,16 +381,34 @@ var MediaWikiChat = {
 
 		$( '#mwchat-users' ).append( html );
 		$( '#mwchat-users #' + userE ).fadeIn();
-		$( '#mwchat-users #' + userE ).click( MediaWikiChat.clickUser );
 
-		$( '#mwchat-users #' + userE + ' input' ).keypress( MediaWikiChat.userKeypress );
-
-		MediaWikiChat.setupUserLinks();
+		$( '.mwchat-useritem' ).hover( function() {
+			$( this ).find( '.mwchat-useritem-pmlink' ).fadeIn( 100 );
+		}, function() {
+			$( this ).find( '.mwchat-useritem-pmlink' ).fadeOut( 100 );
+		} );
 
 		if ( !firstTime ) {
 			MediaWikiChat.addSystemMessage( mw.message( 'chat-joined', user.name, user.gender ).text(), MediaWikiChat.now() );
 			MediaWikiChat.scrollToBottom();
 		}
+
+		// Setup user actions
+		$( '#mwchat-users #' + userE + ' .mwchat-useritem-header' ).click( MediaWikiChat.clickUser );
+
+		$( '#mwchat-users #' + userE + ' input' ).keypress( MediaWikiChat.userKeypress );
+
+		$( '.mwchat-useritem-kicklink' ).click( function() {
+			var parent = $( this ).parent();
+
+			$.ajax({
+				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
+				data: { 'action': 'chatkick', 'id': parent.attr( 'data-id' ), 'format': 'json' },
+			})
+			.done( function() {
+				MediaWikiChat.getNew( 'kick' );
+			});
+		} );
 	},
 
 	removeUser: function( userId ) {
@@ -400,16 +422,18 @@ var MediaWikiChat = {
 	},
 
 	clickUser: function( e ) {
-		$( this ).attr( 'data-read', '' );
+		var parent = $( this ).parent();
 
-		if ( $( this ).hasClass( 'noshow' ) ) {
-			$( this ).children( '.mwchat-useritem-window' ).slideDown();
+		parent.attr( 'data-read', '' );
+		parent.children( '.mwchat-useritem-window' ).slideToggle();
 
+		if ( parent.hasClass( 'noshow' ) ) {
 			$( '.mwchat-useritem.show .mwchat-useritem-window' ).slideUp();
 			$( '.mwchat-useritem.show' ).toggleClass( 'show noshow' );
 
-			$( this ).toggleClass( 'show noshow' );
+			parent.toggleClass( 'show noshow' );
 		}
+		$( '.mwchat-useritem.show' ).toggleClass( 'show noshow' );
 	},
 
 	userKeypress: function( e ) {
@@ -430,26 +454,6 @@ var MediaWikiChat = {
 
 			$( this ).val( '' );
 		}
-	},
-
-	setupUserLinks: function() {
-		$( '.mwchat-useritem-kicklink' ).click( function() {
-			var parent = $( this ).parent();
-
-			$.ajax({
-				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-				data: { 'action': 'chatkick', 'id': parent.attr( 'data-id' ), 'format': 'json' },
-			})
-			.done( function() {
-				MediaWikiChat.getNew( 'kick' );
-			});
-		} );
-
-		$( '.mwchat-useritem' ).hover( function() {
-			$( this ).find( '.mwchat-useritem-pmlink' ).fadeIn( 100 );
-		}, function() {
-			$( this ).find( '.mwchat-useritem-pmlink' ).fadeOut( 100 );
-		} );
 	},
 
 	addMe: function() {
