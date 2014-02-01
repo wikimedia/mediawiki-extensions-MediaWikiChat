@@ -20,7 +20,13 @@ class SpecialChatTemplate extends QuickTemplate {
 		<div id="mwchat-container">
 			<div id="mwchat-main">
 				<div id="mwchat-content">
-					<table id="mwchat-table"></table>
+					<table id="mwchat-table">
+						<tr class="mwchat-message"> <?php //ensures columns are appropriately wide ?>
+							<td class="mwchat-item-user"></td>
+							<td class="mwchat-item-avatar"></td>
+							<td class="mwchat-item-messagecell"></td>
+						</tr>
+					</table>
 				</div>
 				<div id="mwchat-type">
 					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
