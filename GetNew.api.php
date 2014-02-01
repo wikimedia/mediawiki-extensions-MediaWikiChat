@@ -41,6 +41,7 @@ class ChatGetNewAPI extends ApiBase {
 					),
 					__METHOD__
 				);
+				$lastCheck = 0;
 			}
 
 			$res = $dbr->select(
