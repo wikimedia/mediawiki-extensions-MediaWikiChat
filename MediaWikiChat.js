@@ -396,6 +396,10 @@ var MediaWikiChat = {
 		// Setup user actions
 		$( '#mwchat-users #' + userE + ' .mwchat-useritem-header' ).click( MediaWikiChat.clickUser );
 
+		$( '#mwchat-users #' + userE  ).click( function() {
+			$( this ).attr( 'data-read', '' );
+		} );
+
 		$( '#mwchat-users #' + userE + ' input' ).keypress( MediaWikiChat.userKeypress );
 
 		$( '.mwchat-useritem-kicklink' ).click( function() {
@@ -424,7 +428,6 @@ var MediaWikiChat = {
 	clickUser: function( e ) {
 		var parent = $( this ).parent();
 
-		parent.attr( 'data-read', '' );
 		parent.children( '.mwchat-useritem-window' ).slideToggle();
 
 		if ( parent.hasClass( 'noshow' ) ) {
