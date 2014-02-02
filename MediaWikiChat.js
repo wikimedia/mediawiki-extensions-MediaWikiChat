@@ -231,8 +231,6 @@ var MediaWikiChat = {
 			var message = mw.message( 'chat-unblocked', from.name, to.name, from.gender );
 		}
 		MediaWikiChat.addSystemMessage( message, timestamp );
-		$( '#mwchat-type input' ).attr( 'disabled', '' );
-		$( '#mwchat-users div input' ).attr( 'disabled', '' );
 	},
 
 	addSystemMessage: function( text, timestamp ) {
