@@ -404,6 +404,7 @@ var MediaWikiChat = {
 			var parent = $( this ).parent();
 
 			$.ajax({
+				type: 'POST',
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 				data: { 'action': 'chatkick', 'id': parent.attr( 'data-id' ), 'format': 'json' },
 			})
@@ -444,6 +445,7 @@ var MediaWikiChat = {
 			var toid = $( this ).parents( '.mwchat-useritem' ).attr( 'data-id' );
 
 			$.ajax({
+				type: 'POST',
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 				data: { 'action': 'chatsendpm', 'message': $( this )[0].value, 'id': toid, 'format': 'json' },
 			})
@@ -490,6 +492,7 @@ $( document ).ready( function() {
 			return false;
 		} else if ( e.which == 13 ) {
 			$.ajax({
+				type: 'POST',
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 				data: { 'action': 'chatsend', 'message': $( '#mwchat-type input' )[0].value, 'format': 'json' },
 			}).done( function( response ) {

@@ -80,4 +80,8 @@ class ChatKickAPI extends ApiBase {
 				=> 'Kick the user with ID of 1'
 		);
 	}
+
+	public function mustBePosted() {
+		return true;
+	}
 }

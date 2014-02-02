@@ -75,4 +75,8 @@ class ChatSendAPI extends ApiBase {
 				=> 'Send "Hello World!" to the chat'
 		);
 	}
+
+	public function mustBePosted() {
+		return true;
+	}
 }
