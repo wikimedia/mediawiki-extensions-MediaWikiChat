@@ -73,7 +73,7 @@ var MediaWikiChat = {
 		} else if ( diff < 2 * 60 ) {
 			return mw.message( 'chat-a-minute-ago' ).text();
 		} else if ( diff < 60 * 60 ) {
-			return mw.message( 'chat-minutes-ago', Math.floor( diff / 60 ) ).text();
+			return mw.message( 'minutes-ago', Math.floor( diff / 60 ) ).text();
 		} else {
 			if ( dayNow == dayThen ) {
 				return MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );

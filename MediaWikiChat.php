@@ -17,7 +17,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.5.0',
+	'version' => '2.5.1',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -39,7 +39,7 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 		'sunday', 'chat-type-your-private-message', 'chat-no-other-users',
 		'chat-blocked-from-chat', 'chat-just-now', 'chat-a-minute-ago',
 		'chat-quarter-of-an-hour-ago', 'chat-half-an-hour-ago',
-		'chat-an-hour-ago', 'chat-minutes-ago', 'chat-youve-been-kicked',
+		'chat-an-hour-ago', 'minutes-ago', 'chat-youve-been-kicked',
 		'chat-you-kicked', 'chat-kicked', 'chat-kick',
 		'chat-youve-been-blocked', 'chat-you-blocked', 'chat-blocked',
 		'chat-block', 'chat-private-message', 'chat-user-is-moderator',
