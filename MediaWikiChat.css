@@ -24,6 +24,7 @@
 	top: 0;
 	height: 450px;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 #mwchat-me {
 	width: 33%;
