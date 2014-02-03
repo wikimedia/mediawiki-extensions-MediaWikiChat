@@ -16,6 +16,24 @@
       "revId": "8a185f1abbabbf7e4caa42f46e80a4b79837c8e0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef7ef47_8dfe6834",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 410
+      },
+      "writtenOn": "2014-02-03T17:27:59Z",
+      "side": 0,
+      "message": "Ah, ok, thanks, will do this next time!",
+      "parentUuid": "6ef7ef47_562116f5",
+      "revId": "8a185f1abbabbf7e4caa42f46e80a4b79837c8e0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
