@@ -76,6 +76,7 @@
 	background-color: #FFF;
 	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
+	position: relative;
 }
 .mwchat-useritem[data-read="true"] {
 	background-color: #FDD;
@@ -94,8 +95,10 @@
 .mwchat-item-message * {
 	display: inline;
 }
-.mwchat-useritem-header-right {
-	float: right;
+.mwchat-useritem-header-links {
+	top: 5px;
+	right: 5px;
+	position: absolute;
 }
 .mwchat-useritem-blocklink, .mwchat-useritem-kicklink {
 	color: #000 !important;

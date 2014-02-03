@@ -100,7 +100,7 @@ class ChatGetNewAPI extends ApiBase {
 					$users[$toid] = true; // ensure pm receiver is in users list
 
 				} elseif ( $row->chat_type == MediaWikiChat::TYPE_KICK ) {
-					if ( $row->chat_to_name == $wgUser->getName() ) {
+					if ( $row->chat_to_id == $wgUser->getId() ) {
 						$result->addValue( $mName, 'kick', true );
 					}
 					$timestamp = $row->chat_timestamp;

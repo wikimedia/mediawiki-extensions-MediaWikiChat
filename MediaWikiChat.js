@@ -345,8 +345,7 @@ var MediaWikiChat = {
 		var add = true;
 
 		var html = '<div class="mwchat-useritem noshow" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
-		html += '<div class="mwchat-useritem-header">';
-		html += '<span class="mwchat-useritem-header-left" title="' + mw.message( 'chat-private-message' ).text() + '">';
+		html += '<div class="mwchat-useritem-header" title="' + mw.message( 'chat-private-message' ).text() + '">';
 
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
 			html += '<img src="' + user.avatar + '" />';
@@ -358,7 +357,7 @@ var MediaWikiChat = {
 			html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
 			html += mw.message( 'chat-user-is-moderator' ).text() + '" />';
 		}
-		html += '</span><span class="mwchat-useritem-header-right">';
+		html += '</div><span class="mwchat-useritem-header-links">';
 
 		if ( MediaWikiChat.amIMod && ( !user.mod ) ) {
 			html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user.name );
@@ -370,7 +369,7 @@ var MediaWikiChat = {
 			}
 		}
 
-		html += '</span></div>';
+		html += '</span>';
 		html += '<div class="mwchat-useritem-window" style="display:none;">';
 		html += '<div class="mwchat-useritem-content"></div>';
 		html += '<input type="text" placeholder="' + mw.message( 'chat-type-your-private-message' ).text() + '" />';
@@ -401,7 +400,7 @@ var MediaWikiChat = {
 		$( '#mwchat-users #' + userE + ' input' ).keypress( MediaWikiChat.userKeypress );
 
 		$( '.mwchat-useritem-kicklink' ).click( function() {
-			var parent = $( this ).parent();
+			var parent = $( this ).parent().parent();
 
 			$.ajax({
 				type: 'POST',
