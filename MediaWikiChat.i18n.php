@@ -233,12 +233,32 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'chat' => 'Чат',
+	'chat-type-your-message' => 'Язбе хьай хаам',
+	'chat-type-your-private-message' => 'Язбе хьай хаам',
+	'chat-no-other-users' => 'Чата чохь кхин декъашхой бац',
+	'chat-blocked-from-chat' => 'Хьона хӀокху чата чохь блоктоьхна',
+	'chat-just-now' => 'хӀинца',
+	'chat-kick' => 'кхосса',
+	'chat-block' => 'блоктоха',
 	'chat-you-kicked' => 'Ахьа {{GENDER:$2|кхоьссина}} $1.',
+	'chat-kicked' => '$1 {{GENDER:$3||кхоьссина}} $2.',
 	'chat-you-blocked' => 'Ахьа {{GENDER:$2|блоктоьхна}} $1.',
 	'chat-blocked' => '$1 {{GENDER:$3|блоктоьхна}} $2.',
+	'chat-you-unblocked' => 'Ахьа {{GENDER:$2|блоктоьхна}} $1.',
+	'chat-unblocked' => '$1 {{GENDER:$3||блокдӀаяьккхина}} $2.',
+	'chat-left' => '$1 {{GENDER:$2|араваьлла|араяьлла}} чат чура.',
 	'chat-private-message' => 'тӀетаӀ йе хьай хаам дӀабахьийта',
 	'chat-user-is-moderator' => 'ХӀара декъашхо — {{GENDER:$1|модератор ву|модератор ю}}.',
 	'chat-you-are-moderator' => 'Хьо — {{GENDER:$1|модератор ву|модератор ю}}.',
+	'chat-topic' => 'Марша догӀийла чата чу {{SITENAME}}. ([[Special:Log/chat|чатан тептар]])',
+	'chat-sidebar-online' => 'Чат лелораг',
+	'chat-sidebar-join' => 'Чатах кхета',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'log-name-chat' => 'Чатан лог',
+	'log-show-hide-chat' => '$1 чатан тептар',
+	'group-chatmod-member' => '{{GENDER:$1|чатан модератор}}',
+	'right-mediawikichat-chat' => 'Лела йе Special:Chat',
 );
 
 /** German (Deutsch)
@@ -350,6 +370,7 @@ $messages['es'] = array(
  */
 $messages['fa'] = array(
 	'chat' => 'گفتگو',
+	'chat-desc' => 'ارائهٔ یک مشتری گفتگوی سبک وزن و سرور',
 	'chat-type-your-message' => 'پیام خود را تایپ کنید',
 	'chat-type-your-private-message' => 'پیام خصوصی خود را تایپ کنید',
 	'chat-no-other-users' => 'کاربران دیگری در گفتگو نیستند',
@@ -370,7 +391,7 @@ $messages['fa'] = array(
 	'chat-unblocked' => '$1 {{GENDER:$3|مسدود نشده}} $2',
 	'chat-joined' => '$1 به گفتگو {{GENDER:$2|پیوسته شده‌است}}',
 	'chat-left' => '$1 گفتگو {{GENDER:$2|ترک کرده‌است}}',
-	'chat-private-message' => '(پیام خصوصی)', # Fuzzy
+	'chat-private-message' => 'برای پیغام خصوصی کلیک کنید',
 	'chat-user-is-moderator' => 'این کاربر یک مدیر {{GENDER:$1|هست}}',
 	'chat-you-are-moderator' => 'شما یک مدیر {{GENDER:$1|هستید}}',
 	'chat-topic' => 'خوش آمدید به {{SITENAME}} گفتگوی. ([[Special:Log/chat|ورود به گفتگو]])',
@@ -378,6 +399,7 @@ $messages['fa'] = array(
 	'chat-sidebar-join' => 'پیوستن به گفتگو',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'ورود به گفتگو',
+	'log-description-chat' => 'پیغام‌ها توسط گفتگوی مدیاویکی، به خوبی ضربات کاربران فرستاده شده',
 	'logentry-chat-kick' => '$1 {{GENDER:$1|ضربه زده}} $4',
 	'log-show-hide-chat' => '$1 ورود به گفتگو',
 	'group-chatmod' => 'مدیران گفتگو',
@@ -387,6 +409,7 @@ $messages['fa'] = array(
 	'group-blockedfromchat-member' => '{{GENDER:$1|از گفتگو مسدود شده}}',
 	'grouppage-blockedfromchat' => '{{ns:project}}:کاربران مسدود شده از گفتگو',
 	'right-mediawikichat-chat' => 'استفادهٔ‌خاص:‌ گفتگو',
+	'right-mediawikichat-modchat' => 'مسدود و ضربهٔ (اگر فعال باشد) کاربران از ویژه: گفتگو',
 );
 
 /** Finnish (suomi)
