@@ -424,6 +424,7 @@ $messages['fi'] = array(
 
 /** French (français)
  * @author Gomoko
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'chat' => 'Discussion',
@@ -457,6 +458,7 @@ $messages['fr'] = array(
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'Journal de discussion',
 	'log-description-chat' => 'Messages envoyés par MediaWikiChat, ainsi que les éjections d’utilisateur',
+	'logentry-chat-send' => '$1 : $4',
 	'logentry-chat-kick' => '$1 {{GENDER:$1|a éjecté}} $4',
 	'log-show-hide-chat' => '$1 journal de discussion',
 	'group-chatmod' => 'Modérateurs de discussion',
@@ -865,6 +867,13 @@ $messages['pt-br'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Usuarios bloqueados no chat',
 	'right-mediawikichat-chat' => 'Use Special:Chat',
 	'right-mediawikichat-modchat' => 'Bloquea e quica (se autorizado) usuarios do Special:Chat',
+);
+
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'chat-a-minute-ago' => 'huk minutu ñaqha',
 );
 
 /** tarandíne (tarandíne)
