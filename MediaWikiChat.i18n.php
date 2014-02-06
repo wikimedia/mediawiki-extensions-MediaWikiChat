@@ -738,6 +738,25 @@ $messages['mr'] = array(
 	'right-mediawikichat-modchat' => 'Special:चॅट मधून सदस्यास प्रतिबंध करा व लाथाडा.',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'chat-not-allowed' => 'Anda tidak dibenarkan untuk bersembang. Cuba log masuk dahulu.',
+	'chat-youve-been-kicked' => 'Anda telah {{GENDER:$2|dihalau}} oleh $1. Muat semula halaman untuk bersembang.',
+	'chat-you-kicked' => 'Anda telah {{GENDER:$2|menghalau}} $1.',
+	'chat-kicked' => '$1 telah {{GENDER:$3|menghalau}} $2.',
+	'chat-you-blocked' => 'Anda telah {{GENDER:$2|menyekat}} $1.',
+	'chat-blocked' => '$1 telah {{GENDER:$3|menyekat}} $2.',
+	'chat-you-unblocked' => 'Anda telah {{GENDER:$2|menyahsekat}} $1.',
+	'chat-unblocked' => '$1 telah {{GENDER:$3|menyahsekat}} $2.',
+	'chat-joined' => '$1 telah {{GENDER:$2|menyertai}} ruang sembang.',
+	'chat-left' => '$1 telah {{GENDER:$2|keluar}} dari ruang sembang.',
+	'chat-private-message' => 'klik untuk pesanan peribadi',
+	'chat-user-is-moderator' => 'Pengguna ini {{GENDER:$1|ialah}} seorang moderator',
+	'chat-you-are-moderator' => 'Anda {{GENDER:$1|adalah}} seorang moderator',
+);
+
 /** Polish (polski)
  * @author Chrumps
  * @author Vuh
@@ -941,6 +960,7 @@ $messages['si'] = array(
 
 /** Swedish (svenska)
  * @author Jopparn
+ * @author Lokal Profil
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
@@ -954,21 +974,21 @@ $messages['sv'] = array(
 	'chat-just-now' => 'just nu',
 	'chat-a-minute-ago' => 'en minut sedan',
 	'chat-yesterday' => 'i går',
+	'chat-kick' => 'sparka',
+	'chat-block' => 'blockera',
 	'chat-youve-been-kicked' => 'Du har {{GENDER:$2|sparkats ut}} av $1. Uppdatera sidan för att chatta.',
 	'chat-you-kicked' => 'Du {{GENDER:$2|sparkade ut}} $1.',
 	'chat-kicked' => '$1 {{GENDER:$3|sparkade ut}} $2.',
-	'chat-kick' => 'sparka',
 	'chat-youve-been-blocked' => 'Du har {{GENDER:$2|blockerats}} av $1.',
 	'chat-you-blocked' => 'Du {{GENDER:$2|blockerade}} $1.',
 	'chat-blocked' => '$1 {{GENDER:$3|blockerade}} $2.',
-	'chat-block' => 'blockera',
 	'chat-you-unblocked' => 'Du {{GENDER:$2|avblockerade}} $1.',
 	'chat-unblocked' => '$1 {{GENDER:$3|avblockerade}} $2.',
-	'chat-private-message' => '(privat meddelande)',
-	'chat-user-is-moderator' => '{{GENDER:$1|Denna användare}} är en moderator.',
-	'chat-you-are-moderator' => '{{GENDER:$1|Du är}} en moderator.',
 	'chat-joined' => '$1 {{GENDER:$2|anslöt sig}} till chatten.',
 	'chat-left' => '$1 {{GENDER:$2|lämnade}} chatten.',
+	'chat-private-message' => 'klicka för privat meddelande',
+	'chat-user-is-moderator' => '{{GENDER:$1|Denna användare}} är en moderator.',
+	'chat-you-are-moderator' => '{{GENDER:$1|Du är}} en moderator.',
 	'chat-topic' => 'Välkommen till {{SITENAME}}s chatt. ([[Special:Log/chat|chattlogg]])',
 	'chat-sidebar-online' => 'Anslutna användare i chatten:',
 	'chat-sidebar-join' => 'Delta i chatten',
