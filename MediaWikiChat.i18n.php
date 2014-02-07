@@ -757,6 +757,13 @@ $messages['ms'] = array(
 	'chat-you-are-moderator' => 'Anda {{GENDER:$1|adalah}} seorang moderator',
 );
 
+/** Dutch (Nederlands)
+ * @author SPQRobin
+ */
+$messages['nl'] = array(
+	'chat-yesterday' => 'gisteren',
+);
+
 /** Polish (polski)
  * @author Chrumps
  * @author Vuh
@@ -839,6 +846,13 @@ $messages['ps'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:په بانډار کې بنديز لگېدلي کارنان',
 	'right-mediawikichat-chat' => 'ځانگړې کارېدنه:بانډار',
 	'right-mediawikichat-modchat' => 'له ځانگړي:بانډار څخه کارنان شړي او بنديز پرې لگوي (که چارن شي)',
+);
+
+/** Portuguese (português)
+ * @author Imperadeiro98
+ */
+$messages['pt'] = array(
+	'chat-user-is-moderator' => 'Este utilizador {{GENDER:$1|é}} um moderador',
 );
 
 /** Brazilian Portuguese (português do Brasil)
