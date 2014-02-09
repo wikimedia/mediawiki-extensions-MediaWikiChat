@@ -120,7 +120,8 @@ var MediaWikiChat = {
 	getNew: function() {
 		$.ajax( {
 			url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-			data: { 'action': 'chatgetnew', 'format': 'json' }
+			data: { 'action': 'chatgetnew', 'format': 'json' },
+			cache: false
 		} ).done( function( response ) {
 			var data = response.chatgetnew;
 
