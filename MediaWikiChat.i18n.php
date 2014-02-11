@@ -38,7 +38,6 @@ $messages['en'] = array(
 	'chat-joined' => '$1 has {{GENDER:$2|joined}} the chat.',
 	'chat-left' => '$1 has {{GENDER:$2|left}} chat.',
 
-	'chat-private-message' => 'click to private message',
 	'chat-user-is-moderator' => 'This user {{GENDER:$1|is}} a moderator',
 	'chat-you-are-moderator' => 'You {{GENDER:$1|are}} a moderator',
 
