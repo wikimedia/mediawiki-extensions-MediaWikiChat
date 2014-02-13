@@ -15,9 +15,10 @@ class SpecialChat extends SpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $wgChatSocialAvatars, $wgChatKicks;
+		global $wgChatSocialAvatars, $wgChatKicks, $wgChatLinkUsernames;
 
 		$out = $this->getOutput();
+		$user = $this->getUser();
 
 		// Set the page title, robot policies, etc.
 		$this->setHeaders();
@@ -38,10 +39,18 @@ class SpecialChat extends SpecialPage {
 			);
 			$out->addModules( $modules );
 
+			$mention = $user->getOption( 'chat-ping-mention' );
+			$pm = $user->getOption( 'chat-ping-pm' );
+			$message = $user->getOption( 'chat-ping-message' );
+
 			$out->addJsConfigVars(
 				array(
 					'wgChatKicks' => $wgChatKicks,
-					'wgChatSocialAvatars' => $wgChatSocialAvatars
+					'wgChatSocialAvatars' => $wgChatSocialAvatars,
+					'wgChatLinkUsernames' => $wgChatLinkUsernames,
+					'wgChatPingMentions' => $mention,
+					'wgChatPingPMs' => $pm,
+					'wgChatPingMessages' => $message,
 				)
 			);
 

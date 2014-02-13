@@ -18,7 +18,7 @@ class SpecialChatTemplate extends QuickTemplate {
 			<?php echo wfMessage( 'chat-topic' )->parse(); ?>
 		</div>
 		<div id="mwchat-container">
-			<div id="mwchat-main">
+			<div id="mwchat-main" >
 				<div id="mwchat-content">
 					<table id="mwchat-table">
 						<tr class="mwchat-message"> <?php //ensures columns are appropriately wide ?>
@@ -30,6 +30,9 @@ class SpecialChatTemplate extends QuickTemplate {
 				</div>
 				<div id="mwchat-type">
 					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
+				</div>
+				<div id="mwchat-options">
+					<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
 				</div>
 			</div>
 			<div id="mwchat-users">
