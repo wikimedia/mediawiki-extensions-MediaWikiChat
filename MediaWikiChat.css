@@ -16,6 +16,7 @@
 .mwchat-useritem-content {
 	height: 200px;
 	overflow-y: scroll;
+	border: 1px #eee solid;
 }
 #mwchat-users {
 	width: 33%;
@@ -38,6 +39,9 @@
 }
 .mwchat-item-message {
 }
+.mwchat-item-message-mention {
+	background-color: #fcc;
+}
 .mwchat-item-messagecell {
 	width: 77%;
 }
@@ -46,10 +50,12 @@
 	margin-left: 6px;
 	margin-right: 3px;
 	position: relative;
+	width: 150px;
 }
 .mwchat-item-timestamp {
 	color: #CCC;
 	text-transform: lowercase;
+	width: 150px;
 }
 .mwchat-item-timestamp.real {
 	text-align: right;
@@ -59,6 +65,7 @@
 	top: 0;
 	background-color: #FFF;
 	padding-bottom: 5px;
+	width: 150px;
 }
 .mwchat-item-user {
 	margin: 5px;
@@ -82,6 +89,7 @@
 	background-color: #FDD;
 }
 .mwchat-useritem-header {
+	background-color: #eee;
 	cursor: pointer;
 }
 .mwchat-item-avatar {

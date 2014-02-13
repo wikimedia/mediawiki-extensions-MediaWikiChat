@@ -19,8 +19,6 @@ $messages['en'] = array(
 	'chat-no-other-users' => 'No other users on chat',
 	'chat-blocked-from-chat' => 'You have been blocked from this chat.',
 	'chat-not-allowed' => 'You are not allowed to chat, try logging in first.',
-	'chat-sound' => 'Play sounds',
-	'chat-flood' => 'You cannot speak that fast, cowboy.',
 
 	'chat-just-now' => 'just now',
 	'chat-a-minute-ago' => 'a minute ago',
@@ -337,8 +335,6 @@ $messages['es'] = array(
 	'chat-no-other-users' => 'No hay más usuarios en el chat',
 	'chat-blocked-from-chat' => 'Estás bloqueado en este chat.',
 	'chat-not-allowed' => 'Intenta iniciar sesión primero antes de charlar.',
-	'chat-sounds' => 'Activar sonidos',
-	'chat-flood' => 'No puedes enviar mensajes tan rápido, vaquero.',
 	'chat-just-now' => 'ahora mismo',
 	'chat-a-minute-ago' => 'hace un minuto',
 	'chat-yesterday' => 'ayer',

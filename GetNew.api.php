@@ -4,7 +4,7 @@
 class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser, $wgChatSocialAvatars;
+		global $wgUser, $wgChatSocialAvatars, $wgChatParseMessages;
 
 		$result = $this->getResult();
 		$mName = $this->getModuleName();
@@ -65,7 +65,11 @@ class ChatGetNewAPI extends ApiBase {
 					$message = $row->chat_message;
 					$timestamp = $row->chat_timestamp;
 
-					$message = MediaWikiChat::parseMessage( $message );
+					if ( $wgChatParseMessages) {
+						$message = MediaWikiChat::parseMessage( $message );
+					} else {
+						$message = htmlentities($message);
+					}
 
 					$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
 					$result->addValue( array( $mName, 'messages', $timestamp ), '*', $message );
@@ -90,7 +94,11 @@ class ChatGetNewAPI extends ApiBase {
 						$convwith = User::newFromId($fromid)->getName();
 					}
 
-					$message = MediaWikiChat::parseMessage( $message );
+					if ( $wgChatParseMessages) {
+						$message = MediaWikiChat::parseMessage( $message );
+					} else {
+						$message = htmlentities($message);
+					}
 
 					$result->addValue( array( $mName, 'pms', $timestamp ), '*', $message );
 					$result->addValue( array( $mName, 'pms', $timestamp ), 'from', $fromid );
