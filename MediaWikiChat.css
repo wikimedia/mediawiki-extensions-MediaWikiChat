@@ -16,6 +16,7 @@
 .mwchat-useritem-content {
 	height: 200px;
 	overflow-y: scroll;
+	border-left: 1px #eee solid; /* only left, bottom is input, right scrollbar, and top header */
 }
 #mwchat-users {
 	width: 33%;
@@ -36,7 +37,12 @@
 #mwchat-type input, .mwchat-useritem input {
 	width: 100%;
 }
-.mwchat-item-message {
+.mwchat-useritem input {
+	margin-top: 0;
+	width: 99%; /* keeps input in line, otherwise it sticks out */
+}
+.mwchat-item-message-mention {
+	background-color: #fcc;
 }
 .mwchat-item-messagecell {
 	width: 77%;
@@ -46,19 +52,20 @@
 	margin-left: 6px;
 	margin-right: 3px;
 	position: relative;
+	text-align: right;
 }
 .mwchat-item-timestamp {
 	color: #CCC;
 	text-transform: lowercase;
 }
 .mwchat-item-timestamp.real {
-	text-align: right;
 	width: 8em;
 	position: absolute;
 	right: 0;
 	top: 0;
 	background-color: #FFF;
 	padding-bottom: 5px;
+	white-space: nowrap;
 }
 .mwchat-item-user {
 	margin: 5px;
@@ -72,17 +79,20 @@
 	width: 90px;
 }
 .mwchat-useritem {
-	padding: 5px;
+	/*padding: 3px 0 3px 3px;*/
+	padding: 3px;
 	background-color: #FFF;
 	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
 	position: relative;
 }
-.mwchat-useritem[data-read="true"] {
-	background-color: #FDD;
+.mwchat-useritem[data-read="true"], .mwchat-useritem[data-read="true"] .mwchat-useritem-header {
+	background-color: #FDD !important;
 }
 .mwchat-useritem-header {
+	background-color: #eee;
 	cursor: pointer;
+	padding: 2px;
 }
 .mwchat-item-avatar {
 	width: 26px;
