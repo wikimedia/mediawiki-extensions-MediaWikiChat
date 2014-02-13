@@ -3,17 +3,31 @@
 class ChatSendAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser;
+		global $wgUser, $wgChatFloodMessages, $wgChatFloodSeconds;
 
 		$result = $this->getResult();
 		$message = $this->getMain()->getVal( 'message' );
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
-			if ( $message != '' ) {
+			if ( trim($message) != '' ) {
 				$dbw = wfGetDB( DB_MASTER );
 
 				$id = $wgUser->getId();
 				$timestamp = MediaWikiChat::now();
+
+				// Flood check
+				$res = $dbw->selectField(
+					'chat',
+					array( 'count(1)' ),
+					array( "chat_timestamp > " . ($timestamp - ($wgChatFloodSeconds * 100)), " chat_user_id = " . $id ),
+					'',
+					__METHOD__,
+					array()
+				);
+				if ( $res > $wgChatFloodMessages ) {
+					$result->addValue( $this->getModuleName(), 'error', 'flood' );
+					return true;
+				}
 
 				$dbw->insert(
 					'chat',

@@ -233,6 +233,8 @@ class MediaWikiChat {
 			$message = $parseOut->getText();
 			$message = str_replace( 'MWCHAT', '', $message );
 			$message = ltrim( $message );
+		} else {
+			$message = htmlentities($message);
 		}
 
 		return $message;

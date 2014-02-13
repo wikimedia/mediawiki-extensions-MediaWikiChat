@@ -17,7 +17,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.5.3',
+	'version' => '2.6.0',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -65,12 +65,16 @@ $wgChatSocialAvatars = true; // use SocialProfile avatars?
 $wgChatRichMessages = true; // allow the use of wikitext and smileys in chat?
 $wgChatSidebarPortlet = true; // show the online users module in the sidebar?
 $wgChatOnlineTimeout = 1 * 60 * 100; // how long to wait before a user is considered ofline? (in 100ths of a second)
+$wgChatFloodMessages = 3; // Messages per...
+$wgChatFloodSeconds = 5; // ...seconds.
+$wgChatLinkUsernames = false; // link to user pages?
 
 // Hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';
 $wgHooks['UserRights'][] = 'MediaWikiChatHooks::onUserRights';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'MediaWikiChatHooks::onLoadExtensionSchemaUpdates';
 $wgHooks['SkinBuildSidebar'][] = 'MediaWikiChatHooks::fnNewSidebarItem';
+$wgHooks['GetPreferences'][] = 'MediaWikiChatHooks::wfPrefHook';
 
 //API
 $wgAutoloadClasses['ChatGetNewAPI'] = $dir . 'GetNew.api.php';
