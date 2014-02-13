@@ -19,6 +19,8 @@ $messages['en'] = array(
 	'chat-no-other-users' => 'No other users on chat',
 	'chat-blocked-from-chat' => 'You have been blocked from this chat.',
 	'chat-not-allowed' => 'You are not allowed to chat, try logging in first.',
+	'chat-sounds' => 'Play sounds',
+	'chat-flood' => 'You can\'t send messages that fast, please wait before sending more.',
 
 	'chat-just-now' => 'just now',
 	'chat-a-minute-ago' => 'a minute ago',
@@ -43,6 +45,7 @@ $messages['en'] = array(
 	'chat-you-are-moderator' => 'You {{GENDER:$1|are}} a moderator',
 
 	'chat-topic' => 'Welcome to {{SITENAME}} chat. ([[Special:Log/chat|chat log]])',
+	'chat-change-preferences' => 'Change your chat preferences',
 
 	'chat-sidebar-online' => 'Online users in chat:',
 	'chat-sidebar-join' => 'Join the chat',
@@ -66,6 +69,11 @@ $messages['en'] = array(
 
 	'right-mediawikichat-chat' => 'Use Special:Chat',
 	'right-mediawikichat-modchat' => 'Block and kick (if enabled) users from Special:Chat',
+
+	'tog-chat-ping-mention' => 'Play a sound on recieving mentions',
+	'tog-chat-ping-pm' => 'Play a sound on recieving private messages',
+	'tog-chat-ping-message' => 'Play a sound on recieving normal messages',
+	'prefs-chat' => 'Chat'
 );
 
 /** Message documentation (Message documentation)
@@ -187,6 +195,11 @@ See also:
 	'grouppage-blockedfromchat' => '{{doc-group|blockedfromchat|page}}',
 	'right-mediawikichat-chat' => '{{doc-right|mediawikichat-chat}}',
 	'right-mediawikichat-modchat' => '{{doc-right|mediawikichat-modchat}}',
+	'tog-chat-ping-mention' => 'Label for checkbox for whether to play a sound on recieving mentions',
+	'tog-chat-ping-pm' => 'Label for checkbox for whether to play a sound on recieving private messages',
+	'tog-chat-ping-message' => 'Label for checkbox for whether to play a sound on recieving normal messages',
+	'prefs-chat' => 'Header for the chat preferences at Special:Preferences',
+	'chat-change-preferences' => 'The title of the link taking users to Special:Preferences to change their chat preferences',
 );
 
 /** Bengali (বাংলা)
@@ -335,6 +348,8 @@ $messages['es'] = array(
 	'chat-no-other-users' => 'No hay más usuarios en el chat',
 	'chat-blocked-from-chat' => 'Estás bloqueado en este chat.',
 	'chat-not-allowed' => 'Intenta iniciar sesión primero antes de charlar.',
+	'chat-sounds' => 'Activar sonidos',
+	'chat-flood' => 'No puedes enviar mensajes tan rápido, vaquero.',
 	'chat-just-now' => 'ahora mismo',
 	'chat-a-minute-ago' => 'hace un minuto',
 	'chat-yesterday' => 'ayer',

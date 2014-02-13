@@ -23,6 +23,10 @@ var MediaWikiChat = {
 		return string.replace( /[^\w\s]|/g, '' ).replace( / /g, '' );
 	},
 
+	ie: function() {
+		return navigator.appVersion.indexOf( "MSIE" ) != -1;
+	},
+
 	unique: function( array ) {
 		var a = array.concat();
 
@@ -248,22 +252,37 @@ var MediaWikiChat = {
 	addMessage: function( userId, message, timestamp ) {
 		var user = MediaWikiChat.userData[userId];
 		var html = '<tr class="mwchat-message">';
+		var mention = false;
+
+		if ( message.toLowerCase().indexOf( mw.config.get( 'wgUserName' ).toLowerCase() ) != -1 ) {
+			mention = true;
+			MediaWikiChat.mention();
+		} else {
+			MediaWikiChat.flash();
+		}
+
 		html += '<td class="mwchat-item-user">';
-		html += user.name;
+		if ( mw.config.get( 'wgChatLinkUsernames' ) ) {
+			html += '<a href="' + mw.config.get( 'wgScriptPath' ) + '/index.php?title=user:' + user.name + '" target="_blank">' + user.name + '</a>';
+		} else {
+			html += user.name;
+		}
 		html += '</td>';
 		html += '<td class="mwchat-item-avatar">';
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
 			html += '<img src="' + user.avatar + '" /></td>';
 		}
-		html += '<td class="mwchat-item-messagecell"><span class="mwchat-item-message">';
+		html += '<td class="mwchat-item-messagecell"><span class="mwchat-item-message"';
+		if ( mention ) {
+			html += ' data-read="true"';
+		}
+		html += '">';
 		html += message;
 		html += '</span>';
 		html += MediaWikiChat.htmlTimestamp( timestamp );
 		html += '</td></tr>';
 
 		MediaWikiChat.addGeneralMessage( html, timestamp );
-
-		MediaWikiChat.flash();
 	},
 
 	addGeneralMessage: function( html, timestamp ) {
@@ -273,7 +292,7 @@ var MediaWikiChat = {
 			if ( $( value ).attr( 'data-timestamp' ) == timestamp ) {
 				post = false;
 			}
-		});
+		} );
 
 		if ( post ) {
 			var elem = $( html ).appendTo( $( '#mwchat-table' ) );
@@ -284,7 +303,7 @@ var MediaWikiChat = {
 			}, function() {
 				elem.find( '.real' ).hide();
 				elem.find( '.pretty' ).css( 'visibility', 'visible' );
-			});
+			} );
 
 			elem.find( 'a' ).attr( 'target', '_blank' );
 		}
@@ -310,7 +329,7 @@ var MediaWikiChat = {
 			$( '#' + convwithE ).attr( 'data-read', 'true' );
 		}
 
-		MediaWikiChat.flash();
+		MediaWikiChat.flashPrivate();
 	},
 
 	doUsers: function( newusers ) {
@@ -431,8 +450,9 @@ var MediaWikiChat = {
 	userKeypress: function( e ) {
 		$( this ).parents( '.mwchat-useritem' ).attr( 'data-read', '' );
 
+		var toid = $( this ).parents( '.mwchat-useritem' ).attr( 'data-id' );
+
 		if ( e.which == 13 ) {
-			var toid = $( this ).parents( '.mwchat-useritem' ).attr( 'data-id' );
 
 			$.ajax( {
 				type: 'POST',
@@ -458,7 +478,7 @@ var MediaWikiChat = {
 
 			if ( me.mod ) {
 				$( '#mwchat-me' ).append(
-					'<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="20px" alt="" title="' +
+					'<img src="' + mw.message( 'chat-mod-image' ).escaped() + '" height="20px" alt="" title="' +
 						mw.message( 'chat-you-are-moderator', mw.user ).text() + '" />'
 				);
 			}
@@ -468,29 +488,93 @@ var MediaWikiChat = {
 
 	flash: function() {
 		if ( !MediaWikiChat.focussed ) {
-			//var ping = new Audio('srcfile.wav');
-			//ping.play();
+			if ( mw.config.get( 'wgChatPingMessages' ) ) {
+				MediaWikiChat.audio( 'message' );
+			}
 			document.title = "* " + MediaWikiChat.title;
 		}
-	}
+	},
+
+	flashPrivate: function() {
+		if ( !MediaWikiChat.focussed ) {
+			if ( mw.config.get( 'wgChatPingPMs' ) ) {
+				MediaWikiChat.audio( 'pm' );
+			}
+			document.title = "> " + MediaWikiChat.title;
+		}
+	},
+
+	mention: function() {
+		if ( !MediaWikiChat.focussed ) {
+			if ( mw.config.get( 'wgChatPingMentions' ) ) {
+				MediaWikiChat.audio( 'mention' );
+			} else if ( mw.config.get( 'wgChatPingMessages' ) ) { // user may want pinging on all msgs, but not mentions
+				MediaWikiChat.audio( 'message' );
+			}
+			document.title = "! " + MediaWikiChat.title;
+		}
+	},
+
+	clearMentions: function() {
+		$( '.mwchat-item-message[data-read="true"]' ).attr( 'data-read', '' );
+	},
+
+	audio: function( filename ) {
+		//var audio = new Audio( mw.config.get( 'wgScriptPath') + '/extensions/MediaWikiChat/burp.ogg' );
+		var audio = document.createElement( 'audio' );
+		var path = mw.config.get( 'wgScriptPath') + '/extensions/MediaWikiChat/audio/' + filename;
+
+		var source = document.createElement( 'source' );
+		source.type = 'audio/ogg';
+		source.src = path + '.ogg';
+		audio.appendChild( source );
+
+		source = document.createElement( 'source' );
+		source.type = 'audio/mpeg';
+		source.src = path + '.mp3';
+		audio.appendChild( source );
+
+		audio.play();
+	},
 };
 
 $( document ).ready( function() {
-	$( $( '#mwchat-type input' )[0] ).keypress( function( e ) {
+	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) { // Send text
+		MediaWikiChat.clearMentions();
+
+		var userInput = $( '#mwchat-type input' )[0].value;
+
 		if ( e.which == 13 && e.shiftKey ) {
 			return false;
-		} else if ( e.which == 13 ) {
+		} else if ( e.which == 13 ) { // Enter
 			$.ajax( {
 				type: 'POST',
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 				data: { 'action': 'chatsend', 'message': $( '#mwchat-type input' )[0].value, 'format': 'json' }
-			} ).done( function() {
+			} ).done( function( msg ) {
 				MediaWikiChat.getNew();
 				window.clearInterval( MediaWikiChat.newInterval );
 				MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
+
+				// Error: flood
+				if ( msg.chatsend.error == 'flood' ) {
+					$( '#mwchat-type input' )[0].value = userInput;
+					alert( mw.message( 'chat-flood' ).text() );
+				}
+
 			} );
 
 			$( '#mwchat-type input' ).val( '' );
+		} else if ( e.which == 9 ) { // Tab - autocompletion
+			for ( var userId in MediaWikiChat.userData ) {
+				if ( userId != mw.config.get( 'wgUserId' ) ) {
+					if ( MediaWikiChat.userData[userId].name.toLowerCase().indexOf( $( '#mwchat-type input' )[0].value.toLowerCase() ) === 0 ) {
+						$( '#mwchat-type input' )[0].value = MediaWikiChat.userData[userId].name + ': ';
+						return false;
+					}
+				}
+			}
+			return false;
 		}
 	} );
 
@@ -500,6 +584,14 @@ $( document ).ready( function() {
 
 	MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
 	MediaWikiChat.redoInterval = setInterval( MediaWikiChat.redoTimestamps, MediaWikiChat.interval / 2 );
+
+	$( '#mwchat-content' ).click( MediaWikiChat.clearMentions );
+
+	$( '#mwchat-container' ).mouseup( function() { // resize user area on content resize
+		var height = $( '#mwchat-content' ).height();
+		$( '#mwchat-users' ).animate( { 'height': height }, 'fast' );
+		$( '#mwchat-me' ).animate( { 'top': height }, 'fast' );
+	} );
 } );
 
 $( window ).blur( function() {

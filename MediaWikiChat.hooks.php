@@ -107,4 +107,25 @@ class MediaWikiChatHooks {
 
 		return true;
 	}
+
+	static function wfPrefHook( $user, &$preferences ) {
+		$preferences['chat-ping-mention'] = array(
+				'type' => 'toggle',
+				'label-message' => 'tog-chat-ping-mention', // a system message
+				'section' => 'misc/chat',
+		);
+		$preferences['chat-ping-pm'] = array(
+				'type' => 'toggle',
+				'label-message' => 'tog-chat-ping-pm', // a system message
+				'section' => 'misc/chat',
+		);
+		$preferences['chat-ping-message'] = array(
+				'type' => 'toggle',
+				'label-message' => 'tog-chat-ping-message', // a system message
+				'section' => 'misc/chat',
+		);
+
+		return true;
+	}
+
 }
