@@ -15,7 +15,7 @@ class SpecialChat extends SpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $wgChatSocialAvatars, $wgChatKicks;
+		global $wgChatSocialAvatars, $wgChatKicks, $wgChatLinkUsernames;
 
 		$out = $this->getOutput();
 
@@ -41,7 +41,8 @@ class SpecialChat extends SpecialPage {
 			$out->addJsConfigVars(
 				array(
 					'wgChatKicks' => $wgChatKicks,
-					'wgChatSocialAvatars' => $wgChatSocialAvatars
+					'wgChatSocialAvatars' => $wgChatSocialAvatars,
+					'wgChatLinkUsernames' => $wgChatLinkUsernames
 				)
 			);
 

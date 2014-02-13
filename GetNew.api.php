@@ -4,7 +4,7 @@
 class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser, $wgChatSocialAvatars;
+		global $wgUser, $wgChatSocialAvatars, $wgChatParseMessages;
 
 		$result = $this->getResult();
 		$mName = $this->getModuleName();
