@@ -18,9 +18,9 @@ class SpecialChatTemplate extends QuickTemplate {
 			<?php echo wfMessage( 'chat-topic' )->parse(); ?>
 		</div>
 		<div id="mwchat-container">
-			<div id="mwchat-main">
-				<div id="mwchat-content">
-					<table id="mwchat-table">
+			<div id="mwchat-main" >
+				<div id="mwchat-content" style="resize: vertical;">
+					<table id="mwchat-table" style="resize: none;">
 						<tr class="mwchat-message"> <?php //ensures columns are appropriately wide ?>
 							<td class="mwchat-item-user"></td>
 							<td class="mwchat-item-avatar"></td>
@@ -30,6 +30,9 @@ class SpecialChatTemplate extends QuickTemplate {
 				</div>
 				<div id="mwchat-type">
 					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
+				</div>
+				<div id="mwchat-options">
+					<input type="checkbox" id="mwchat-sounds" checked="checked"><label for="mwchat-sounds"><?php echo wfMessage( 'chat-sounds' )->plain() ?></label>
 				</div>
 			</div>
 			<div id="mwchat-users">
