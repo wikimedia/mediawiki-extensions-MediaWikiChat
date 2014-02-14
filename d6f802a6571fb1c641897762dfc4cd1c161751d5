@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e04eb01_0efca2b0",
+        "filename": "MediaWikiChat.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1480
+      },
+      "writtenOn": "2014-02-14T19:02:05Z",
+      "side": 1,
+      "message": "I wonder if my name would look nice here",
+      "revId": "d6f802a6571fb1c641897762dfc4cd1c161751d5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
