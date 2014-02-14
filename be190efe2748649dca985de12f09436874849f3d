@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4e04eb01_2bc0702e",
+        "filename": "MediaWikiChat.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1480
+      },
+      "writtenOn": "2014-02-14T17:24:30Z",
+      "side": 1,
+      "message": "In spanish translation it fixes overflowing text. It might need some adjusts...",
+      "parentUuid": "4e04eb01_cbaa2c82",
+      "revId": "be190efe2748649dca985de12f09436874849f3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e04eb01_0ba6d4a7",
         "filename": "MediaWikiChat.php",
         "patchSetId": 1
@@ -30,6 +48,41 @@
       "writtenOn": "2014-02-14T17:10:58Z",
       "side": 1,
       "message": "But $wgChatRichMessages above...?",
+      "revId": "be190efe2748649dca985de12f09436874849f3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e04eb01_cb346c49",
+        "filename": "MediaWikiChat.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1480
+      },
+      "writtenOn": "2014-02-14T17:24:30Z",
+      "side": 1,
+      "message": "It disables messages to be parsed by mediawiki and prevents html injection. I made this before realizing there was $wgChatRichMessages ... sorry.",
+      "parentUuid": "4e04eb01_0ba6d4a7",
+      "revId": "be190efe2748649dca985de12f09436874849f3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e04eb01_8be8a4b0",
+        "filename": "Send.api.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1480
+      },
+      "writtenOn": "2014-02-14T17:24:30Z",
+      "side": 1,
+      "message": "Unnecessary with today\u0027s version",
       "revId": "be190efe2748649dca985de12f09436874849f3d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
