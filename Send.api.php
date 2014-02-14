@@ -9,6 +9,8 @@ class ChatSendAPI extends ApiBase {
 		$message = $this->getMain()->getVal( 'message' );
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
+			$message = trim( $message );
+
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_MASTER );
 
