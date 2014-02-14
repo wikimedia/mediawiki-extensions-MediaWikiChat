@@ -16,6 +16,23 @@
       "revId": "be190efe2748649dca985de12f09436874849f3d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e04eb01_0ba6d4a7",
+        "filename": "MediaWikiChat.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 410
+      },
+      "writtenOn": "2014-02-14T17:10:58Z",
+      "side": 1,
+      "message": "But $wgChatRichMessages above...?",
+      "revId": "be190efe2748649dca985de12f09436874849f3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
