@@ -55,6 +55,41 @@
     },
     {
       "key": {
+        "uuid": "4e04eb01_4ede2a72",
+        "filename": "MediaWikiChat.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1480
+      },
+      "writtenOn": "2014-02-14T18:36:21Z",
+      "side": 1,
+      "message": "We could just align the text to the right.",
+      "parentUuid": "4e04eb01_ab7120df",
+      "revId": "be190efe2748649dca985de12f09436874849f3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e04eb01_aececeb7",
+        "filename": "MediaWikiChat.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1480
+      },
+      "writtenOn": "2014-02-14T18:36:21Z",
+      "side": 1,
+      "message": "Not used yet. Will be needed in the future, because IE doesn\u0027t support OGG files and Firefox doesn\u0027t support MP3 files. Sometimes web development sucks.",
+      "revId": "be190efe2748649dca985de12f09436874849f3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e04eb01_0ba6d4a7",
         "filename": "MediaWikiChat.php",
         "patchSetId": 1
