@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "4e04eb01_8e42f211",
+        "filename": "MediaWikiChat.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 410
+      },
+      "writtenOn": "2014-02-14T18:53:23Z",
+      "side": 1,
+      "message": "Is it not already? Oh, maybe it\u0027s not, that\u0027s the obvious fix.",
+      "parentUuid": "4e04eb01_4ede2a72",
+      "revId": "be190efe2748649dca985de12f09436874849f3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e04eb01_aececeb7",
         "filename": "MediaWikiChat.js",
         "patchSetId": 1
