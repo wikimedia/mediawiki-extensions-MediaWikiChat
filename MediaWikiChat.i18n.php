@@ -759,9 +759,28 @@ $messages['ms'] = array(
 
 /** Dutch (Nederlands)
  * @author SPQRobin
+ * @author Sjoerddebruin
  */
 $messages['nl'] = array(
+	'chat' => 'Chat',
+	'chat-just-now' => 'zojuist',
+	'chat-a-minute-ago' => 'een minuut geleden',
 	'chat-yesterday' => 'gisteren',
+	'chat-kick' => 'kick',
+	'chat-block' => 'blokkeren',
+	'chat-you-are-moderator' => 'Jij {{GENDER:$1|bent}} een moderator',
+	'chat-topic' => 'Welkom op de chat van {{SITENAME}}. ([[Special:Log/chat|logboek]])',
+	'chat-sidebar-online' => 'Online gebruikers in de chat:',
+	'chat-sidebar-join' => 'Chat mee',
+	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
+	'log-name-chat' => 'Chatlogboek',
+	'log-show-hide-chat' => 'chatlogboek van $1',
+	'group-chatmod' => 'Chatmoderators',
+	'group-chatmod-member' => '{{GENDER:$1|chatmoderator}}',
+	'grouppage-chatmod' => '{{ns:project}}:Chatmoderators',
+	'group-blockedfromchat' => 'Gebruikers geblokkeerd van de chat',
+	'group-blockedfromchat-member' => '{{GENDER:$1|geblokkeerd van de chat}}',
+	'right-mediawikichat-chat' => 'Gebruik Speciaal:Chat',
 );
 
 /** Polish (polski)
