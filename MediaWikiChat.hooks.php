@@ -89,7 +89,8 @@ class MediaWikiChatHooks {
 						'style' => "display: block;
 							background-position: right 1em center;
 							background-repeat: no-repeat;
-							background-image: url($avatar);"
+							background-image: url($avatar);",
+						'class' => 'mwchat-sidebar-user'
 					);
 				}
 
