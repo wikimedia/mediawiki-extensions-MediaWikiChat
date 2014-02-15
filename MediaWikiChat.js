@@ -200,7 +200,7 @@ var MediaWikiChat = {
 
 	showKickMessage: function( from, to, timestamp ) {
 		var message;
-		if ( to.name == mw.config.get( mw.config.get( 'wgUserName' ) ) ) {
+		if ( to.name == mw.config.get( 'wgUserName' ) ) {
 			message = mw.message( 'chat-youve-been-kicked', from.name, mw.user ).text();
 		} else if ( from.name == mw.config.get( 'wgUserName' ) ) {
 			message = mw.message( 'chat-you-kicked', to.name, mw.user ).text();
