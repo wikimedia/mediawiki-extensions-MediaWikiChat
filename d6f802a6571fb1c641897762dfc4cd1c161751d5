@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4e04eb01_20a086f0",
+        "filename": "MediaWikiChat.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 410
+      },
+      "writtenOn": "2014-02-15T14:00:43Z",
+      "side": 1,
+      "message": "Why is this needed? You can just use alert.",
+      "revId": "d6f802a6571fb1c641897762dfc4cd1c161751d5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e04eb01_0efca2b0",
         "filename": "MediaWikiChat.php",
         "patchSetId": 2
