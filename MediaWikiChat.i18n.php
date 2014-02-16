@@ -694,7 +694,7 @@ $messages['mk'] = array(
  * @author V.narsikar
  */
 $messages['mr'] = array(
-	'chat' => 'गपागोष्टी',
+	'chat' => 'गप्पागोष्टी',
 	'chat-desc' => 'कमी क्षमतेचा चॅट क्लायंट व सर्व्हर उपलब्ध करतो',
 	'chat-type-your-message' => 'आपला संदेश टंका',
 	'chat-type-your-private-message' => 'आपला खाजगी संदेश टंका',
@@ -704,22 +704,22 @@ $messages['mr'] = array(
 	'chat-just-now' => 'आत्ताच',
 	'chat-a-minute-ago' => 'एका मिनीटापूर्वी',
 	'chat-yesterday' => 'काल',
+	'chat-kick' => 'लाथाडा',
+	'chat-block' => 'प्रतिबंधित करा',
 	'chat-youve-been-kicked' => '$1 द्वारे आपण {{GENDER:$2|लाथाडल्या गेले आहात}}.
 चॅट करण्यास या पानास तरोताजे करा',
 	'chat-you-kicked' => 'आपण $1 ला {{GENDER:$2|लाथाडले आहे}}.',
 	'chat-kicked' => '$1 ने $2 ला {{GENDER:$3|लाथाडले}}',
-	'chat-kick' => 'लाथाडा',
 	'chat-youve-been-blocked' => 'आपण $1 द्वारे{{GENDER:$2|प्रतिबंधित आहात}}.',
 	'chat-you-blocked' => 'आपण $1 ला {{GENDER:$2|प्रतिबंधित केले आहे}}',
 	'chat-blocked' => '$1 ने $2 ला {{GENDER:$3|प्रतिबंधित केले आहे}}',
-	'chat-block' => 'प्रतिबंधित करा',
 	'chat-you-unblocked' => 'आपण $1 ला {{GENDER:$2|अप्रतिबंधित केले आहे}}',
 	'chat-unblocked' => '$1 ने $2 ला {{GENDER:$3|अप्रतिबंधित केले आहे}}',
-	'chat-private-message' => '(खाजगी संदेश)',
-	'chat-user-is-moderator' => 'हा सदस्य नियामक (मॉडरेटर) {{GENDER:$1|आहे}}',
-	'chat-you-are-moderator' => 'आपण नियामक {{GENDER:$1|आहात}}',
 	'chat-joined' => '$1 हा चॅटशी {{GENDER:$2|जुळला आहे}}',
 	'chat-left' => '$1 चॅटच्या {{GENDER:$2|बाहेर गेला आहे}}',
+	'chat-private-message' => '(खाजगी संदेश)', # Fuzzy
+	'chat-user-is-moderator' => 'हा सदस्य नियामक (मॉडरेटर) {{GENDER:$1|आहे}}',
+	'chat-you-are-moderator' => 'आपण नियामक {{GENDER:$1|आहात}}',
 	'chat-topic' => '{{SITENAME}}च्या चॅट वर आपले स्वागत आहे.([[Special:Log/chat|चॅट नोंदी]])',
 	'chat-sidebar-online' => 'चॅट करीत असलेले ऑनलाईन सदस्य',
 	'chat-sidebar-join' => 'चॅटला जुळा',
