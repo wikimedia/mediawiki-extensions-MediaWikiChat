@@ -95,6 +95,8 @@ $messages['qqq'] = array(
 	'chat-yesterday' => 'Timestamps: the message was sent yesterday.
 {{Related|Chat-ago}}
 {{Identical|Yesterday}}',
+	'chat-block' => 'The link shown to chatmods to block a user.
+{{Identical|Block}}',
 	'chat-youve-been-kicked' => 'Shown to users who have been kicked from the chat. Parameters:
 * $1 - the user who kicked from the chat
 * $2 - GENDER of the user who kicked
@@ -131,8 +133,6 @@ See also:
 See also:
 * {{msg-mw|Chat-kicked}}
 * {{msg-mw|Chat-unblocked}}',
-	'chat-block' => 'The link shown to chatmods to block a user.
-{{Identical|Block}}',
 	'chat-you-unblocked' => 'Shown when the current user unblocked the user $1. Parameters:
 * $1 - username
 * $2 - GENDER
@@ -146,16 +146,6 @@ See also:
 See also:
 * {{msg-mw|Chat-kicked}}
 * {{msg-mw|Chat-blocked}}',
-	'chat-private-message' => 'The link shown to users to private message another user.
-{{Identical|Private message}}',
-	'chat-user-is-moderator' => 'Parameters:
-* $1 - GENDER of the user
-See also:
-* {{msg-mw|Chat-you-are-moderator}}',
-	'chat-you-are-moderator' => 'Shown when the current user is a moderator. Parameters:
-* $1 - GENDER of the current user
-See also:
-* {{msg-mw|Chat-user-is-moderator}}',
 	'chat-joined' => 'Shown when the user $1 joined the chat. Parameters:
 * $1 - the username
 * $2 - GENDER of the user
@@ -166,7 +156,18 @@ See also:
 * $2 - GENDER of the user
 See also:
 * {{msg-mw|Chat-joined}}',
+	'chat-private-message' => 'The link shown to users to private message another user.
+{{Identical|Private message}}',
+	'chat-user-is-moderator' => 'Parameters:
+* $1 - GENDER of the user
+See also:
+* {{msg-mw|Chat-you-are-moderator}}',
+	'chat-you-are-moderator' => 'Shown when the current user is a moderator. Parameters:
+* $1 - GENDER of the current user
+See also:
+* {{msg-mw|Chat-user-is-moderator}}',
 	'chat-topic' => 'Header shown at the top of [[Special:Chat]], to allow links and policies to be displayed, like you find on many IRC clients',
+	'chat-change-preferences' => 'The title of the link taking users to Special:Preferences to change their chat preferences',
 	'chat-sidebar-online' => 'The header for the chat unit on the sidebar that shows online users on chat.
 
 Used if there are one or more online users, and followed by usernames.',
@@ -199,7 +200,6 @@ See also:
 	'tog-chat-ping-pm' => 'Label for checkbox for whether to play a sound on recieving private messages',
 	'tog-chat-ping-message' => 'Label for checkbox for whether to play a sound on recieving normal messages',
 	'prefs-chat' => 'Header for the chat preferences at Special:Preferences',
-	'chat-change-preferences' => 'The title of the link taking users to Special:Preferences to change their chat preferences',
 );
 
 /** Bengali (বাংলা)
@@ -287,6 +287,8 @@ $messages['de'] = array(
 	'chat-no-other-users' => 'Keine anderen Benutzer im Chat',
 	'chat-blocked-from-chat' => 'Du wurdest für diesen Chat gesperrt.',
 	'chat-not-allowed' => 'Du bist nicht berechtigt zu chatten. Versuche zuerst, dich anzumelden.',
+	'chat-sounds' => 'Sounds abspielen',
+	'chat-flood' => 'Du kannst so schnell keine Nachrichten versenden. Bitte warte, bevor du weitere Nachrichten versendest.',
 	'chat-just-now' => 'gerade eben',
 	'chat-a-minute-ago' => 'vor einer Minute',
 	'chat-yesterday' => 'gestern',
@@ -306,6 +308,7 @@ $messages['de'] = array(
 	'chat-user-is-moderator' => '{{GENDER:$1|Dieser Benutzer ist ein Moderator|Diese Benutzerin ist eine Moderatorin}}',
 	'chat-you-are-moderator' => 'Du bist {{GENDER:$1|ein Moderator|eine Moderatorin}}',
 	'chat-topic' => 'Willkommen im {{SITENAME}}-Chat. ([[Special:Log/chat|Chat-Logbuch]])',
+	'chat-change-preferences' => 'Chat-Einstellungen ändern',
 	'chat-sidebar-online' => 'Onlinebenutzer im Chat:',
 	'chat-sidebar-join' => 'Dem Chat beitreten',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -322,6 +325,10 @@ $messages['de'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Gesperrte Chat-Benutzer',
 	'right-mediawikichat-chat' => 'Special:Chat verwenden',
 	'right-mediawikichat-modchat' => 'Benutzer in Special:Chat sperren und hinauswerfen (falls aktiviert)',
+	'tog-chat-ping-mention' => 'Einen Sound beim Erhalt von Erwähnungen abspielen',
+	'tog-chat-ping-pm' => 'Einen Sound beim Erhalt privater Nachrichten abspielen',
+	'tog-chat-ping-message' => 'Einen Sound beim Erhalt normaler Nachrichten abspielen',
+	'prefs-chat' => 'Chat',
 );
 
 /** British English (British English)
@@ -963,6 +970,8 @@ $messages['ru'] = array(
 	'chat-no-other-users' => 'Других пользователей в чате нет',
 	'chat-blocked-from-chat' => 'Вы были заблокированы в этом чате.',
 	'chat-not-allowed' => 'Вы не можете общаться, попробуйте сначала войти в чат',
+	'chat-sounds' => 'Проигрывать звуки',
+	'chat-flood' => 'Нельзя отправлять сообщения так быстро. Пожалуйста, подождите, прежде чем отправить что-то ещё.',
 	'chat-just-now' => 'только что',
 	'chat-a-minute-ago' => 'минуту назад',
 	'chat-yesterday' => 'вчера',
@@ -982,6 +991,7 @@ $messages['ru'] = array(
 	'chat-user-is-moderator' => 'Этот пользователь — {{GENDER:$1|модератор}}.',
 	'chat-you-are-moderator' => 'Вы — {{GENDER:$1|модератор}}.',
 	'chat-topic' => 'Добро пожаловать в чат сайта {{SITENAME}}. ([[Special:Log/chat|журнал чата]])',
+	'chat-change-preferences' => 'Изменить настройки чата',
 	'chat-sidebar-online' => 'Пользователи в чатеː',
 	'chat-sidebar-join' => 'Присоединиться к чату',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -997,6 +1007,10 @@ $messages['ru'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Участники, заблокированные в чате',
 	'right-mediawikichat-chat' => 'Использовать Special:Chat',
 	'right-mediawikichat-modchat' => 'Блокировать и выкидывать (если включено) участников из Special:Chat',
+	'tog-chat-ping-mention' => 'Проигрывать звук при появлении упоминаний',
+	'tog-chat-ping-pm' => 'Проигрывать звук при получении личных сообщений',
+	'tog-chat-ping-message' => 'Проигрывать звук при получении обычных сообщений',
+	'prefs-chat' => 'Чат',
 );
 
 /** Sinhala (සිංහල)
