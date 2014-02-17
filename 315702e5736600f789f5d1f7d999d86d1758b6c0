@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e04eb01_b4cdf464",
+        "filename": "MediaWikiChatClass.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1480
+      },
+      "writtenOn": "2014-02-17T10:35:12Z",
+      "side": 1,
+      "message": "Problem with this is it doesn\u0027t take into account localized namespaces (f.e., \"Archivo:\", \"Imagen:\"), or the \"Image:\" synonym. So I can just write [[Image:myImage.png|4000px]].\n\nAlso this [[!File thing is a risk, smileys should be inserted later. Or rather, just add a fixed size for images in the chat. (Maybe by using regular expressions).",
+      "revId": "315702e5736600f789f5d1f7d999d86d1758b6c0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
