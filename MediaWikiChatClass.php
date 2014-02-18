@@ -173,47 +173,10 @@ class MediaWikiChat {
 	 * @return String: parsed message
 	 */
 	static function parseMessage( $message ) {
-		global $wgChatRichMessages;
+		global $wgChatRichMessages, $wgUploadPath;
 
 		if ( $wgChatRichMessages ) {
-
-			$rawSmileyData = wfMessage( 'smileys' )->plain();
-			$smileyData = explode( '* ', $rawSmileyData );
-
-			$smileys = array();
-
-			if ( is_array( $smileyData ) ) {
-				foreach ( $smileyData as $line ) {
-					$bits = explode( ' ', $line );
-
-					if ( count( $bits ) > 1 ) {
-						$chars = trim( $bits[0] );
-						$charsSafe = htmlspecialchars( $chars );
-						$filename = trim( $bits[1] );
-
-						$image = "[[!File:$filename|x20px|alt=$charsSafe|link=|$charsSafe]]";
-
-						$smileys[$chars] = $image; // given chars give given image
-						$smileys[strtolower( $chars )] = $image; // given chars in upper or
-						$smileys[strtoupper( $chars )] = $image; // lower case give given image
-					}
-				}
-			}
-
-			$message = ' ' . $message . ' ';
-
-			if ( is_array( $smileys ) ) {
-				foreach ( $smileys as $chars => $image ) {
-					$chars = preg_quote( $chars );
-
-					$message = preg_replace( '` ' . $chars . ' `', ' ' . $image . ' ', $message );
-				}
-			}
-
-			$message = trim( $message );
-
 			$message = str_ireplace( '[[File:', '[[:File:', $message ); // prevent users showing huge local images in chat
-			$message = str_ireplace( '[[!File:', '[[File:', $message );
 
 			$message = "MWCHAT $message"; // flag to show the parser this is a chat message
 
@@ -232,9 +195,7 @@ class MediaWikiChat {
 			);
 
 			$message = $parseOut->getText();
-			$message = str_replace( 'MWCHAT', '', $message );
-
-			$message = trim( $message );
+			$message = str_replace( 'MWCHAT', '', $message ); // remove flag for parser
 
 			$message = str_replace( '<p>', '', $message ); // remove MW's automatical p,
 			$message = str_replace( '</p>', '', $message ); // it's pointless
@@ -246,7 +207,30 @@ class MediaWikiChat {
 			$message = htmlentities($message);
 		}
 
-		return $message;
+		$rawSmileyData = wfMessage( 'smileys' )->plain();
+		$smileyData = explode( '*', $rawSmileyData );
+
+		if ( is_array( $smileyData ) ) {
+			foreach ( $smileyData as $line ) {
+				$line = trim( $line );
+				$bits = explode( ' ', $line );
+
+				if ( count( $bits ) > 1 ) {
+					$chars = $bits[0];
+					$charsSafe = htmlspecialchars( $chars );
+
+					$filename = $bits[1];
+					$file = wfFindFile( $filename );
+					$url = $file->getFullUrl();
+
+					$image = "<img src='$url' alt='$charsSafe' title='$charsSafe' />";
+
+					$message = str_ireplace( $chars, $image, $message );
+				}
+			}
+		}
+
+		return trim( $message );
 	}
 
 	/**

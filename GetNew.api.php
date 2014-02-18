@@ -65,8 +65,6 @@ class ChatGetNewAPI extends ApiBase {
 					$message = $row->chat_message;
 					$timestamp = $row->chat_timestamp;
 
-					$message = MediaWikiChat::parseMessage( $message );
-
 					$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
 					$result->addValue( array( $mName, 'messages', $timestamp ), '*', $message );
 
