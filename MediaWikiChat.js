@@ -276,7 +276,7 @@ var MediaWikiChat = {
 		if ( mention ) {
 			html += ' data-read="true"';
 		}
-		html += '">';
+		html += '>';
 		html += message;
 		html += '</span>';
 		html += MediaWikiChat.htmlTimestamp( timestamp );

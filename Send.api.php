@@ -6,10 +6,10 @@ class ChatSendAPI extends ApiBase {
 		global $wgUser, $wgChatFloodMessages, $wgChatFloodSeconds;
 
 		$result = $this->getResult();
-		$message = $this->getMain()->getVal( 'message' );
+		$originalMessage = $this->getMain()->getVal( 'message' );
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
-			$message = trim( $message );
+			$message = MediaWikiChat::parseMessage( $originalMessage );
 
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_MASTER );
@@ -43,9 +43,8 @@ class ChatSendAPI extends ApiBase {
 				$logEntry->setPerformer( $wgUser ); // User object, the user who did this action
 				$page = SpecialPage::getTitleFor( 'Chat' );
 				$logEntry->setTarget( $page ); // The page that this log entry affects
-				//$logEntry->setComment( $reason ); // User provided comment, optional
 				$logEntry->setParameters( array(
-					'4::message' => $message,
+					'4::message' => $originalMessage, // we want the logs to show the source message, not the parsed one
 				) );
 
 				$logEntry->insert();

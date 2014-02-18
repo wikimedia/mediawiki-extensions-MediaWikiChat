@@ -222,6 +222,7 @@ class MediaWikiChat {
 			$opts->setExternalLinkTarget( '_blank' );
 			$opts->setAllowSpecialInclusion( false );
 			$opts->setAllowExternalImages( false );
+			$opts->setRemoveComments( true );
 
 			$parser = new Parser();
 			$parseOut = $parser->parse(
@@ -232,7 +233,15 @@ class MediaWikiChat {
 
 			$message = $parseOut->getText();
 			$message = str_replace( 'MWCHAT', '', $message );
-			$message = ltrim( $message );
+
+			$message = trim( $message );
+
+			$message = str_replace( '<p>', '', $message ); // remove MW's automatical p,
+			$message = str_replace( '</p>', '', $message ); // it's pointless
+
+			$message = trim( $message );
+
+			$message = html_entity_decode( $message ); // otherwise the HTML is printed as text
 		} else {
 			$message = htmlentities($message);
 		}

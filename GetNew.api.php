@@ -85,12 +85,10 @@ class ChatGetNewAPI extends ApiBase {
 					$toid = $row->chat_to_id;
 
 					if ( $fromid == $wgUser->getId() ) {
-						$convwith = User::newFromId($toid)->getName();
+						$convwith = User::newFromId( $toid )->getName();
 					} else {
-						$convwith = User::newFromId($fromid)->getName();
+						$convwith = User::newFromId( $fromid )->getName();
 					}
-
-					$message = MediaWikiChat::parseMessage( $message );
 
 					$result->addValue( array( $mName, 'pms', $timestamp ), '*', $message );
 					$result->addValue( array( $mName, 'pms', $timestamp ), 'from', $fromid );
