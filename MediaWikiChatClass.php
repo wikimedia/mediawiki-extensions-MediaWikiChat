@@ -201,8 +201,6 @@ class MediaWikiChat {
 			$message = str_replace( '</p>', '', $message ); // it's pointless
 
 			$message = trim( $message );
-
-			$message = html_entity_decode( $message ); // otherwise the HTML is printed as text
 		} else {
 			$message = htmlentities($message);
 		}
