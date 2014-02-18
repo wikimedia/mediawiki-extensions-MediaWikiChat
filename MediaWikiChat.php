@@ -68,6 +68,7 @@ $wgChatOnlineTimeout = 1 * 60 * 100; // how long to wait before a user is consid
 $wgChatFloodMessages = 3; // maximum messages per...
 $wgChatFloodSeconds = 5; // ...seconds.
 $wgChatLinkUsernames = false; // link to user pages?
+$wgChatMeCommand = false; // enable "/me <text>" command?
 
 // Hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';
