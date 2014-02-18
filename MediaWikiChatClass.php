@@ -230,6 +230,8 @@ class MediaWikiChat {
 			}
 		}
 
+		$message = str_replace( '&nbsp;', ' ', str_replace( '&#160;', ' ', $message ) );
+
 		return trim( $message );
 	}
 
