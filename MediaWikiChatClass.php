@@ -205,8 +205,12 @@ class MediaWikiChat {
 			$message = htmlentities($message);
 		}
 
+		$message = str_replace( '&nbsp;', ' ', str_replace( '&#160;', ' ', $message ) );
+
 		$rawSmileyData = wfMessage( 'smileys' )->plain();
 		$smileyData = explode( '*', $rawSmileyData );
+
+		$message = ' ' . $message . ' '; // to allow smileys at beginning/end of message
 
 		if ( is_array( $smileyData ) ) {
 			foreach ( $smileyData as $line ) {
@@ -224,13 +228,11 @@ class MediaWikiChat {
 
 						$image = "<img src='$url' alt='$charsSafe' title='$charsSafe' />";
 
-						$message = str_ireplace( $chars, $image, $message );
+						$message = str_ireplace( ' ' . $chars . ' ', $image, $message ); // ' 's prevent converting smileys in the middle of word
 					}
 				}
 			}
 		}
-
-		$message = str_replace( '&nbsp;', ' ', str_replace( '&#160;', ' ', $message ) );
 
 		return trim( $message );
 	}
