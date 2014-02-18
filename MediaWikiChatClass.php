@@ -221,11 +221,13 @@ class MediaWikiChat {
 
 					$filename = $bits[1];
 					$file = wfFindFile( $filename );
-					$url = $file->getFullUrl();
+					if ( $file ) {
+						$url = $file->getFullUrl();
 
-					$image = "<img src='$url' alt='$charsSafe' title='$charsSafe' />";
+						$image = "<img src='$url' alt='$charsSafe' title='$charsSafe' />";
 
-					$message = str_ireplace( $chars, $image, $message );
+						$message = str_ireplace( $chars, $image, $message );
+					}
 				}
 			}
 		}
