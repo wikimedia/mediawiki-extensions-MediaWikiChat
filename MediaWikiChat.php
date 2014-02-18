@@ -17,7 +17,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.6.1',
+	'version' => '2.6.2',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -68,6 +68,7 @@ $wgChatOnlineTimeout = 1 * 60 * 100; // how long to wait before a user is consid
 $wgChatFloodMessages = 3; // maximum messages per...
 $wgChatFloodSeconds = 5; // ...seconds.
 $wgChatLinkUsernames = false; // link to user pages?
+$wgChatMeCommand = false; // enable "/me <text>" command?
 
 // Hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';
