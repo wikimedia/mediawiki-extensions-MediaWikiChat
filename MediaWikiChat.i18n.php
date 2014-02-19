@@ -90,6 +90,7 @@ $messages['qqq'] = array(
 	'chat-no-other-users' => 'Shown in the user list when there are no other users on chat',
 	'chat-blocked-from-chat' => 'Shown to users who have been blocked from chat',
 	'chat-not-allowed' => 'Shown to users who do not have sufficient permissions to chat (normally users who are not logged in)',
+	'chat-sounds' => 'Unused at this time.',
 	'chat-just-now' => 'Timestamps: shown when a message was sent in the last 30 seconds.
 {{Related|Chat-ago}}',
 	'chat-yesterday' => 'Timestamps: the message was sent yesterday.
@@ -167,7 +168,7 @@ See also:
 See also:
 * {{msg-mw|Chat-user-is-moderator}}',
 	'chat-topic' => 'Header shown at the top of [[Special:Chat]], to allow links and policies to be displayed, like you find on many IRC clients',
-	'chat-change-preferences' => 'The title of the link taking users to Special:Preferences to change their chat preferences',
+	'chat-change-preferences' => 'The title of the link taking users to [[Special:Preferences]] to change their chat preferences.',
 	'chat-sidebar-online' => 'The header for the chat unit on the sidebar that shows online users on chat.
 
 Used if there are one or more online users, and followed by usernames.',
@@ -196,10 +197,14 @@ See also:
 	'grouppage-blockedfromchat' => '{{doc-group|blockedfromchat|page}}',
 	'right-mediawikichat-chat' => '{{doc-right|mediawikichat-chat}}',
 	'right-mediawikichat-modchat' => '{{doc-right|mediawikichat-modchat}}',
-	'tog-chat-ping-mention' => 'Label for checkbox for whether to play a sound on recieving mentions',
-	'tog-chat-ping-pm' => 'Label for checkbox for whether to play a sound on recieving private messages',
-	'tog-chat-ping-message' => 'Label for checkbox for whether to play a sound on recieving normal messages',
-	'prefs-chat' => 'Header for the chat preferences at Special:Preferences',
+	'tog-chat-ping-mention' => 'Label for checkbox for whether to play a sound on receiving mentions.
+{{Related|Tog-chat-ping}}',
+	'tog-chat-ping-pm' => 'Label for checkbox for whether to play a sound on receiving private messages.
+{{Related|Tog-chat-ping}}',
+	'tog-chat-ping-message' => 'Label for checkbox for whether to play a sound on receiving normal messages.
+{{Related|Tog-chat-ping}}',
+	'prefs-chat' => 'Header for the chat preferences at [[Special:Preferences]].
+{{Identical|Chat}}',
 );
 
 /** Bengali (বাংলা)
@@ -233,6 +238,7 @@ $messages['bn'] = array(
 	'group-chatmod' => 'আড্ডা নিয়ামকসমূহ',
 	'group-blockedfromchat' => 'ব্যবহারকারী আড্ডা থেকে অবরুদ্ধ',
 	'group-blockedfromchat-member' => '{{GENDER:$1|আড্ডা থেকে অবরুদ্ধ}}',
+	'prefs-chat' => 'আড্ডা',
 );
 
 /** Catalan (català)
@@ -251,6 +257,7 @@ $messages['ce'] = array(
 	'chat-type-your-private-message' => 'Язбе хьай хаам',
 	'chat-no-other-users' => 'Чата чохь кхин декъашхой бац',
 	'chat-blocked-from-chat' => 'Хьона хӀокху чата чохь блоктоьхна',
+	'chat-sounds' => 'Лакхийта аз',
 	'chat-just-now' => 'хӀинца',
 	'chat-kick' => 'кхосса',
 	'chat-block' => 'блоктоха',
@@ -265,6 +272,7 @@ $messages['ce'] = array(
 	'chat-user-is-moderator' => 'ХӀара декъашхо — {{GENDER:$1|модератор ву|модератор ю}}.',
 	'chat-you-are-moderator' => 'Хьо — {{GENDER:$1|модератор ву|модератор ю}}.',
 	'chat-topic' => 'Марша догӀийла чата чу {{SITENAME}}. ([[Special:Log/chat|чатан тептар]])',
+	'chat-change-preferences' => 'Чатан гӀирс хийца',
 	'chat-sidebar-online' => 'Чат лелораг',
 	'chat-sidebar-join' => 'Чатах кхета',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -272,6 +280,7 @@ $messages['ce'] = array(
 	'log-show-hide-chat' => '$1 чатан тептар',
 	'group-chatmod-member' => '{{GENDER:$1|чатан модератор}}',
 	'right-mediawikichat-chat' => 'Лела йе Special:Chat',
+	'prefs-chat' => 'Чат',
 );
 
 /** German (Deutsch)
@@ -456,6 +465,8 @@ $messages['fr'] = array(
 	'chat-no-other-users' => 'Aucun autre utilisateur sur la discussion',
 	'chat-blocked-from-chat' => 'Vous avez été bloqué depuis cette discussion.',
 	'chat-not-allowed' => 'Vous n’êtes pas autorisé à discuter, essayez d’abord de vous connecter',
+	'chat-sounds' => 'Jouer des sons',
+	'chat-flood' => 'Vous ne pouvez pas envoyer de messages aussi rapidement, veuillez attendre avant d’en envoyer davantage.',
 	'chat-just-now' => 'à l’instant',
 	'chat-a-minute-ago' => 'il y a une minute',
 	'chat-yesterday' => 'hier',
@@ -475,6 +486,7 @@ $messages['fr'] = array(
 	'chat-user-is-moderator' => 'Cet utilisateur {{GENDER:$1|est}} un modérateur',
 	'chat-you-are-moderator' => 'Vous {{GENDER:$1|êtes}} un modérateur',
 	'chat-topic' => 'Bienvenue sur la discussion de {{SITENAME}}. ([[Special:Log/chat|journal de discussion]])',
+	'chat-change-preferences' => 'Modifier vos préférences de discussion',
 	'chat-sidebar-online' => 'Utilisateurs connectés sur la discussion :',
 	'chat-sidebar-join' => 'Rejoindre la discussion',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -491,6 +503,10 @@ $messages['fr'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Users blocked from chat',
 	'right-mediawikichat-chat' => 'Utiliser Special:Chat',
 	'right-mediawikichat-modchat' => 'Bloquer et éjecter (si activé) des utilisateurs depuis Special:Chat',
+	'tog-chat-ping-mention' => 'Jouer un son lors de la réception de mentions',
+	'tog-chat-ping-pm' => 'Jouer un son lors de la réception de messages privés',
+	'tog-chat-ping-message' => 'Jouer un son lors de la réception de messages normaux',
+	'prefs-chat' => 'Discussion',
 );
 
 /** Hebrew (עברית)
@@ -552,6 +568,7 @@ $messages['ja'] = array(
 	'chat-user-is-moderator' => 'この利用者はモデレーター{{GENDER:$1|です}}',
 	'chat-you-are-moderator' => 'あなたはモデレーター{{GENDER:$1|です}}',
 	'chat-topic' => '{{SITENAME}}のチャットへようこそ。([[Special:Log/chat|チャット記録]])',
+	'chat-change-preferences' => 'チャットの個人設定を変更',
 	'chat-sidebar-online' => 'チャットでオンラインの利用者:',
 	'chat-sidebar-join' => 'チャットに入室',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -561,6 +578,10 @@ $messages['ja'] = array(
 	'group-chatmod-member' => '{{GENDER:$1|チャット モデレーター}}',
 	'grouppage-chatmod' => '{{ns:project}}:チャット モデレーター',
 	'right-mediawikichat-chat' => 'Special:Chat を使用',
+	'tog-chat-ping-mention' => '言及された際にサウンドを再生',
+	'tog-chat-ping-pm' => '非公開メッセージが届いた際にサウンドを再生',
+	'tog-chat-ping-message' => '通常のメッセージが届いた際にサウンドを再生',
+	'prefs-chat' => 'チャット',
 );
 
 /** Georgian (ქართული)
@@ -628,6 +649,7 @@ $messages['lb'] = array(
 	'chat-no-other-users' => 'Keng aner Benotzer am Chat',
 	'chat-blocked-from-chat' => 'Dir gouft an dësem Chat gespaart.',
 	'chat-not-allowed' => "Dir däerft net chatten, probéiert Iech d'éischt anzeloggen.",
+	'chat-flood' => 'Dir däerft Messagen net esou séier schécken, waart w.e.g. e bësse bis Dir der méi schéckt.',
 	'chat-just-now' => 'grad elo',
 	'chat-a-minute-ago' => 'virun enger Minutt',
 	'chat-yesterday' => 'gëschter',
@@ -638,9 +660,11 @@ $messages['lb'] = array(
 	'chat-you-unblocked' => 'Dir hutt dem {{GENDER:$2|seng}}$1 Spär opgehuewen.',
 	'chat-private-message' => 'klickt fir privat Messagen',
 	'chat-user-is-moderator' => 'Dëse Benotzer {{GENDER:$1|ass}} e Moderateur.',
+	'chat-change-preferences' => 'Ännert Är Chat-Astellungen',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'group-blockedfromchat' => 'Benotzer déi fir den Chat gespaart sinn',
 	'right-mediawikichat-chat' => 'Special:Chat benotzen',
+	'prefs-chat' => 'Chat',
 );
 
 /** Latvian (latviešu)
@@ -676,6 +700,8 @@ $messages['mk'] = array(
 	'chat-no-other-users' => 'Нема други корисници во разговорот',
 	'chat-blocked-from-chat' => 'Блокирани сте од овој разговор во живо.',
 	'chat-not-allowed' => 'Немате пристап во разговорот. Прво најавете се',
+	'chat-sounds' => 'Пуштај звуци',
+	'chat-flood' => 'Не можете да праќате пораки толку бргу. Почекајте, па испратете други.',
 	'chat-just-now' => 'штотуку',
 	'chat-a-minute-ago' => 'пред една минута',
 	'chat-yesterday' => 'вчера',
@@ -695,6 +721,7 @@ $messages['mk'] = array(
 	'chat-user-is-moderator' => 'Корисников {{GENDER:$1|е}} модератор',
 	'chat-you-are-moderator' => 'Вие {{GENDER:$1|сте}} модератор',
 	'chat-topic' => 'Добредојдовте на разговорот во живо на {{SITENAME}}. ([[Special:Log/chat|записник на разговорот]])',
+	'chat-change-preferences' => 'Измени нагодувања на разговорот',
 	'chat-sidebar-online' => 'Корисници на линија во разговорот:',
 	'chat-sidebar-join' => 'Приклучи се на разговорот',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -710,6 +737,10 @@ $messages['mk'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Корисници блокирани од разговор',
 	'right-mediawikichat-chat' => 'Користи Специјална:Разговори во живо',
 	'right-mediawikichat-modchat' => 'Блокирање и исфрлање (ако е овозможено) на корисници од Специјална:Разговори во живо',
+	'tog-chat-ping-mention' => 'Пуштај звуци кога ќе се појават споменувања',
+	'tog-chat-ping-pm' => 'Пуштај звуци кога ќе добивам лични пораки',
+	'tog-chat-ping-message' => 'Пуштај звуци кога ќе се појават нормални пораки',
+	'prefs-chat' => 'Разговор',
 );
 
 /** Marathi (मराठी)
@@ -723,6 +754,8 @@ $messages['mr'] = array(
 	'chat-no-other-users' => 'चॅटसाठी इतर कोणी सदस्य नाही',
 	'chat-blocked-from-chat' => 'आपण या चॅट करण्यापासून रोखल्या गेले आहात.',
 	'chat-not-allowed' => 'आपणास चॅट करण्याची परवानगी नाही,सनोंद प्रवेशाचा प्रयत्न करा',
+	'chat-sounds' => 'ध्वनी चालू',
+	'chat-flood' => 'इतक्या जलद रितीने आपण संदेश पाठवू शकत नाही,अधिक पाठविण्याआधी कृपया थोडे थांबा.',
 	'chat-just-now' => 'आत्ताच',
 	'chat-a-minute-ago' => 'एका मिनीटापूर्वी',
 	'chat-yesterday' => 'काल',
@@ -739,10 +772,11 @@ $messages['mr'] = array(
 	'chat-unblocked' => '$1 ने $2 ला {{GENDER:$3|अप्रतिबंधित केले आहे}}',
 	'chat-joined' => '$1 हा चॅटशी {{GENDER:$2|जुळला आहे}}',
 	'chat-left' => '$1 चॅटच्या {{GENDER:$2|बाहेर गेला आहे}}',
-	'chat-private-message' => '(खाजगी संदेश)', # Fuzzy
+	'chat-private-message' => 'खाजगी संदेशासाठी टिचका',
 	'chat-user-is-moderator' => 'हा सदस्य नियामक (मॉडरेटर) {{GENDER:$1|आहे}}',
 	'chat-you-are-moderator' => 'आपण नियामक {{GENDER:$1|आहात}}',
 	'chat-topic' => '{{SITENAME}}च्या चॅट वर आपले स्वागत आहे.([[Special:Log/chat|चॅट नोंदी]])',
+	'chat-change-preferences' => 'आपल्या गप्पागोष्टींचा पसंतीक्रम बदला',
 	'chat-sidebar-online' => 'चॅट करीत असलेले ऑनलाईन सदस्य',
 	'chat-sidebar-join' => 'चॅटला जुळा',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -758,6 +792,10 @@ $messages['mr'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:सदस्यांना चॅटपासून प्रतिबंधित केले आहे',
 	'right-mediawikichat-chat' => 'Special:चॅट चा वापर करा',
 	'right-mediawikichat-modchat' => 'Special:चॅट मधून सदस्यास प्रतिबंध करा व लाथाडा.',
+	'tog-chat-ping-mention' => 'दखलसंदेश मिळाल्यावर ध्वनीसंकेत द्या',
+	'tog-chat-ping-pm' => 'खाजगी संदेश मिळाल्यावर ध्वनीसंकेत द्या',
+	'tog-chat-ping-message' => 'साधारण संदेश मिळाल्यावर ध्वनीसंकेत द्या',
+	'prefs-chat' => 'गप्पागोष्टी',
 );
 
 /** Malay (Bahasa Melayu)
@@ -1069,14 +1107,17 @@ $messages['sv'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Ashokjayanti
  * @author Veeven
  */
 $messages['te'] = array(
+	'chat-flood' => 'అంత వేగంగా సందేశాలు పంపడం కుదరదు. దయచేసి మరోటి పంపేముందు వేచిఉండండి.',
 	'chat-just-now' => 'ఇప్పుడే',
 	'chat-a-minute-ago' => 'ఒక నిమిషం క్రితం',
-	'chat-minutes-ago' => '{{PLURAL:$1|ఒక నిమిషం|$1 నిమిషాల}} క్రితం',
 	'chat-yesterday' => 'నిన్న',
-	'chat-private-message' => '(అంతరంగిక సందేశం)',
+	'chat-private-message' => '(అంతరంగిక సందేశం)', # Fuzzy
+	'chat-change-preferences' => 'మీ కబుర్ల ప్రాధాన్యతలని మార్చండి',
+	'tog-chat-ping-message' => 'సాధారణ సందేశాలు వచ్చినప్పుడు శబ్దం వినిపించండి.',
 );
 
 /** Turkish (Türkçe)
@@ -1264,6 +1305,7 @@ $messages['zh-hans'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:从聊天中被封禁的用户',
 	'right-mediawikichat-chat' => '使用Special:Chat',
 	'right-mediawikichat-modchat' => '从Special:Chat将用户封禁和踢人（如果可用）',
+	'prefs-chat' => '聊天',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
