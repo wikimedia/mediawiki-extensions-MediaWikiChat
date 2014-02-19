@@ -250,6 +250,11 @@ var MediaWikiChat = {
 	},
 
 	addMessage: function( userId, message, timestamp ) {
+
+		if ( message.substring( 0, 4 ) == '/me ' && mw.config.get( 'wgChatMeCommand' ) ) {
+			return MediaWikiChat.addSystemMessage ( '* ' . MediaWikiChat.userData[userId].name + message.substring( 3 ), timestamp );
+		}
+
 		var user = MediaWikiChat.userData[userId];
 		var html = '<tr class="mwchat-message">';
 		var mention = false;
