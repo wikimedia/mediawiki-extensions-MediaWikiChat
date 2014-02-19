@@ -226,7 +226,7 @@ class MediaWikiChat {
 					if ( $file ) {
 						$url = $file->getFullUrl();
 
-						$image = "<img src='$url' alt='$charsSafe' title='$charsSafe' />";
+						$image = " <img src='$url' alt='$charsSafe' title='$charsSafe' /> ";
 
 						$message = str_ireplace( ' ' . $chars . ' ', $image, $message ); // ' 's prevent converting smileys in the middle of word
 					}
