@@ -69,6 +69,7 @@ $wgChatFloodMessages = 3; // maximum messages per...
 $wgChatFloodSeconds = 5; // ...seconds.
 $wgChatLinkUsernames = false; // link to user pages?
 $wgChatMeCommand = false; // enable "/me <text>" command?
+$wgChatUseStyleAttribute = true; // allow use of the style attribute on html tags?
 
 // Hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';

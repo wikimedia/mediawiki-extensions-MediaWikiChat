@@ -173,10 +173,14 @@ class MediaWikiChat {
 	 * @return String: parsed message
 	 */
 	static function parseMessage( $message ) {
-		global $wgChatRichMessages, $wgUploadPath;
+		global $wgChatRichMessages, $wgUploadPath, $wgChatUseStyleAttribute;
 
 		if ( $wgChatRichMessages ) {
 			$message = str_ireplace( '[[File:', '[[:File:', $message ); // prevent users showing huge local images in chat
+
+			if ( !$wgChatUseStyleAttribute ) {
+				$message = preg_replace( '#<([a-zA-z].+?) (.?)style=["\'].+?["\'](.?)>#', '<$1 $2$3>', $message ); // remove style attribute of html elements
+			}
 
 			$message = "MWCHAT $message"; // flag to show the parser this is a chat message
 
