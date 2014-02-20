@@ -4,7 +4,7 @@
 class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser, $wgChatSocialAvatars, $wgChatParseMessages;
+		global $wgUser, $wgChatSocialAvatars, $wgChatRichMessages;
 
 		$result = $this->getResult();
 		$mName = $this->getModuleName();
@@ -63,7 +63,9 @@ class ChatGetNewAPI extends ApiBase {
 
 					$id = $row->chat_user_id;
 					$message = $row->chat_message;
-					$message = html_entity_decode( $message ); // otherwise the HTML is printed as text
+					if ( $wgChatRichMessages ) {
+						$message = html_entity_decode( $message ); // otherwise the HTML is printed as text
+					}
 					$timestamp = $row->chat_timestamp;
 
 					$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
