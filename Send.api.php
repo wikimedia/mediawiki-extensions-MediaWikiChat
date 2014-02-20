@@ -3,7 +3,7 @@
 class ChatSendAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser, $wgChatFloodMessages, $wgChatFloodSeconds;
+		global $wgUser, $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
 
 		$result = $this->getResult();
 		$originalMessage = $this->getMain()->getVal( 'message' );
@@ -16,6 +16,11 @@ class ChatSendAPI extends ApiBase {
 
 				$id = $wgUser->getId();
 				$timestamp = MediaWikiChat::now();
+
+				if ( strlen( $message ) > $wgChatMaxMessageLength ) {
+					$result->addValue( $this->getModuleName(), 'error', 'length' );
+					return true;
+				}
 
 				// Flood check
 				$res = $dbw->selectField(

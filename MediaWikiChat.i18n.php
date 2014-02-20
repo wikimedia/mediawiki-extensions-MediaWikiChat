@@ -21,6 +21,7 @@ $messages['en'] = array(
 	'chat-not-allowed' => 'You are not allowed to chat, try logging in first.',
 	'chat-sounds' => 'Play sounds',
 	'chat-flood' => 'You can\'t send messages that fast, please wait before sending more.',
+	'chat-too-long' => 'That message was too long, please send a shorter message.',
 
 	'chat-just-now' => 'just now',
 	'chat-a-minute-ago' => 'a minute ago',
@@ -205,6 +206,7 @@ See also:
 {{Related|Tog-chat-ping}}',
 	'prefs-chat' => 'Header for the chat preferences at [[Special:Preferences]].
 {{Identical|Chat}}',
+	'chat-too-long' => 'Shown to users when their message was too long to send.',
 );
 
 /** Bengali (বাংলা)

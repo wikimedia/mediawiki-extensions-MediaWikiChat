@@ -17,7 +17,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.6.3',
+	'version' => '2.6.4',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -44,7 +44,7 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 		'chat-youve-been-blocked', 'chat-you-blocked', 'chat-blocked',
 		'chat-block', 'chat-private-message', 'chat-user-is-moderator',
 		'chat-you-are-moderator', 'chat-joined', 'chat-left',
-		'chat-mod-image', 'chat-yesterday', 'chat-flood',
+		'chat-mod-image', 'chat-yesterday', 'chat-flood', 'chat-too-long',
 	),
 	'dependencies' => 'mediawiki.jqueryMsg',
 	'localBasePath' => dirname( __FILE__ ),
@@ -70,6 +70,7 @@ $wgChatFloodSeconds = 5; // ...seconds.
 $wgChatLinkUsernames = false; // link to user pages?
 $wgChatMeCommand = false; // enable "/me <text>" command?
 $wgChatUseStyleAttribute = true; // allow use of the style attribute on html tags?
+$wgChatMaxMessageLength = 1000; // maximum length (characters) of messages
 
 // Hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'MediaWikiChatHooks::onParserBeforeInternalParse';
