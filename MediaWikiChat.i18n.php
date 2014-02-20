@@ -92,6 +92,7 @@ $messages['qqq'] = array(
 	'chat-blocked-from-chat' => 'Shown to users who have been blocked from chat',
 	'chat-not-allowed' => 'Shown to users who do not have sufficient permissions to chat (normally users who are not logged in)',
 	'chat-sounds' => 'Unused at this time.',
+	'chat-too-long' => 'Shown to users when their message was too long to send.',
 	'chat-just-now' => 'Timestamps: shown when a message was sent in the last 30 seconds.
 {{Related|Chat-ago}}',
 	'chat-yesterday' => 'Timestamps: the message was sent yesterday.
@@ -206,7 +207,6 @@ See also:
 {{Related|Tog-chat-ping}}',
 	'prefs-chat' => 'Header for the chat preferences at [[Special:Preferences]].
 {{Identical|Chat}}',
-	'chat-too-long' => 'Shown to users when their message was too long to send.',
 );
 
 /** Bengali (বাংলা)
@@ -300,6 +300,7 @@ $messages['de'] = array(
 	'chat-not-allowed' => 'Du bist nicht berechtigt zu chatten. Versuche zuerst, dich anzumelden.',
 	'chat-sounds' => 'Sounds abspielen',
 	'chat-flood' => 'Du kannst so schnell keine Nachrichten versenden. Bitte warte, bevor du weitere Nachrichten versendest.',
+	'chat-too-long' => 'Diese Nachricht war zu lang. Bitte sende eine kürzere Nachricht.',
 	'chat-just-now' => 'gerade eben',
 	'chat-a-minute-ago' => 'vor einer Minute',
 	'chat-yesterday' => 'gestern',
@@ -409,6 +410,9 @@ $messages['fa'] = array(
 	'chat-no-other-users' => 'کاربران دیگری در گفتگو نیستند',
 	'chat-blocked-from-chat' => 'شما از این گفتگو مسدود شده‌اید.',
 	'chat-not-allowed' => 'شما مجاز به گفتگو نیستید، ابتدا سعی کنید وارد شوید',
+	'chat-sounds' => 'پخش صداها',
+	'chat-flood' => 'شما نمی‌توانید به آن سریعی پیام‌ها را ارسال کنید، لطفاً قبل از ارسال بیشتر صبر کنید.',
+	'chat-too-long' => 'آن پیام بسیار طولانی بود، لطفاً پیام کوتاه‌تری ارسال کنید.',
 	'chat-just-now' => 'هم‌اکنون',
 	'chat-a-minute-ago' => 'یک دقیقه پیش',
 	'chat-yesterday' => 'دیروز',
@@ -428,6 +432,7 @@ $messages['fa'] = array(
 	'chat-user-is-moderator' => 'این کاربر یک مدیر {{GENDER:$1|هست}}',
 	'chat-you-are-moderator' => 'شما یک مدیر {{GENDER:$1|هستید}}',
 	'chat-topic' => 'خوش آمدید به {{SITENAME}} گفتگوی. ([[Special:Log/chat|ورود به گفتگو]])',
+	'chat-change-preferences' => 'ترجیحات گفتگوی خود را تغییر دهید',
 	'chat-sidebar-online' => 'کاربران آنلاین در گفتگو:',
 	'chat-sidebar-join' => 'پیوستن به گفتگو',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -443,6 +448,10 @@ $messages['fa'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:کاربران مسدود شده از گفتگو',
 	'right-mediawikichat-chat' => 'استفادهٔ‌خاص:‌ گفتگو',
 	'right-mediawikichat-modchat' => 'مسدود و ضربهٔ (اگر فعال باشد) کاربران از ویژه: گفتگو',
+	'tog-chat-ping-mention' => 'پخش صدا در اشارات دریافتی',
+	'tog-chat-ping-pm' => 'پخش صدا در پیام‌های خصوصی دریافتی',
+	'tog-chat-ping-message' => 'پخش صدا در پیام‌های عادی دریافتی',
+	'prefs-chat' => 'گفتگو',
 );
 
 /** Finnish (suomi)
@@ -469,6 +478,7 @@ $messages['fr'] = array(
 	'chat-not-allowed' => 'Vous n’êtes pas autorisé à discuter, essayez d’abord de vous connecter',
 	'chat-sounds' => 'Jouer des sons',
 	'chat-flood' => 'Vous ne pouvez pas envoyer de messages aussi rapidement, veuillez attendre avant d’en envoyer davantage.',
+	'chat-too-long' => 'Ce message était trop long, veuillez en envoyer un plus court.',
 	'chat-just-now' => 'à l’instant',
 	'chat-a-minute-ago' => 'il y a une minute',
 	'chat-yesterday' => 'hier',
@@ -1012,6 +1022,7 @@ $messages['ru'] = array(
 	'chat-not-allowed' => 'Вы не можете общаться, попробуйте сначала войти в чат',
 	'chat-sounds' => 'Проигрывать звуки',
 	'chat-flood' => 'Нельзя отправлять сообщения так быстро. Пожалуйста, подождите, прежде чем отправить что-то ещё.',
+	'chat-too-long' => 'Это сообщение было слишком длинным, отправьте более короткое сообщение.',
 	'chat-just-now' => 'только что',
 	'chat-a-minute-ago' => 'минуту назад',
 	'chat-yesterday' => 'вчера',
@@ -1051,6 +1062,22 @@ $messages['ru'] = array(
 	'tog-chat-ping-pm' => 'Проигрывать звук при получении личных сообщений',
 	'tog-chat-ping-message' => 'Проигрывать звук при получении обычных сообщений',
 	'prefs-chat' => 'Чат',
+);
+
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'chat-sounds' => 'Pley soonds',
+	'chat-flood' => 'Ye canna send messages that fast, please wait a while afore sendin oni mair.',
+	'chat-private-message' => 'clap tae private message',
+	'chat-user-is-moderator' => 'This uiser {{GENDER:$1|is}} ae moderator',
+	'chat-you-are-moderator' => 'Ye {{GENDER:$1|are}} ae moderator',
+	'chat-change-preferences' => 'Chynge yer chat preferences',
+	'tog-chat-ping-mention' => 'Pley ae soond on recieving mentions',
+	'tog-chat-ping-pm' => 'Pley ae soond on recieving private messages',
+	'tog-chat-ping-message' => 'Pley ae soond on recieving ordinair messages',
+	'prefs-chat' => 'Chat',
 );
 
 /** Sinhala (සිංහල)
@@ -1110,16 +1137,22 @@ $messages['sv'] = array(
 
 /** Telugu (తెలుగు)
  * @author Ashokjayanti
+ * @author Ravichandra
  * @author Veeven
  */
 $messages['te'] = array(
+	'chat-sounds' => 'శబ్ధాన్ని వినిపించు',
 	'chat-flood' => 'అంత వేగంగా సందేశాలు పంపడం కుదరదు. దయచేసి మరోటి పంపేముందు వేచిఉండండి.',
 	'chat-just-now' => 'ఇప్పుడే',
 	'chat-a-minute-ago' => 'ఒక నిమిషం క్రితం',
 	'chat-yesterday' => 'నిన్న',
-	'chat-private-message' => '(అంతరంగిక సందేశం)', # Fuzzy
+	'chat-private-message' => 'అంతరంగిక సందేశం పంపడానికి నొక్కండి',
+	'chat-user-is-moderator' => 'ఈ వాడుకరు పరిశీలకులు', # Fuzzy
+	'chat-you-are-moderator' => 'మీరు పరిశీలకులు', # Fuzzy
 	'chat-change-preferences' => 'మీ కబుర్ల ప్రాధాన్యతలని మార్చండి',
+	'tog-chat-ping-pm' => 'వ్యక్తిగత సందేశాలు వచ్చినప్పుడు శబ్దం వినిపించండి.',
 	'tog-chat-ping-message' => 'సాధారణ సందేశాలు వచ్చినప్పుడు శబ్దం వినిపించండి.',
+	'prefs-chat' => 'మాటామంతి',
 );
 
 /** Turkish (Türkçe)
@@ -1178,6 +1211,9 @@ $messages['uk'] = array(
 	'chat-no-other-users' => 'Немає інших користувачів у чаті',
 	'chat-blocked-from-chat' => 'Ви були заблоковані у цьому чаті.',
 	'chat-not-allowed' => 'Вам не дозволено спілкуватися, спробуйте спершу увійти.',
+	'chat-sounds' => 'Відтворити звуки',
+	'chat-flood' => 'Не вдалося надіслати повідомлення так швидко. Будь ласка, почекайте, перш ніж надсилати більше.',
+	'chat-too-long' => 'Це повідомлення було занадто довгим, будь ласка, надішліть короткі повідомлення.',
 	'chat-just-now' => 'щойно',
 	'chat-a-minute-ago' => 'хвилину тому',
 	'chat-yesterday' => 'вчора',
@@ -1197,6 +1233,7 @@ $messages['uk'] = array(
 	'chat-user-is-moderator' => '{{GENDER:$1|Цей користувач - модератор|Ця користувачка - модераторка}}.',
 	'chat-you-are-moderator' => 'Ви — {{GENDER:$1|модератор|модераторка}}.',
 	'chat-topic' => 'Ласкаво просимо до чату сайту {{SITENAME}}. ([[Special:Log/chat|журнал чату]])',
+	'chat-change-preferences' => 'Змінити налаштування чату',
 	'chat-sidebar-online' => 'Онлайн-користувачів у чаті:',
 	'chat-sidebar-join' => 'Приєднатися до чату',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -1212,6 +1249,10 @@ $messages['uk'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}: заблоковані у чаті користувачі',
 	'right-mediawikichat-chat' => 'Використовувати Special:Chat',
 	'right-mediawikichat-modchat' => 'Блокувати та усувати (коли увімкнено) користувачів із Special:Chat',
+	'tog-chat-ping-mention' => 'Подавати звуковий сигнал при одержанні згадки',
+	'tog-chat-ping-pm' => 'Подавати звуковий сигнал при одержанні приватних повідомлень',
+	'tog-chat-ping-message' => 'Подавати звуковий сигнал при отриманні нормальних повідомлень',
+	'prefs-chat' => 'Чат',
 );
 
 /** Vietnamese (Tiếng Việt)
