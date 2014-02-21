@@ -260,6 +260,7 @@ $messages['ce'] = array(
 	'chat-no-other-users' => 'Чата чохь кхин декъашхой бац',
 	'chat-blocked-from-chat' => 'Хьона хӀокху чата чохь блоктоьхна',
 	'chat-sounds' => 'Лакхийта аз',
+	'chat-too-long' => 'Иза хаам тӀех беха бара, бахьийта жимо хаам.',
 	'chat-just-now' => 'хӀинца',
 	'chat-kick' => 'кхосса',
 	'chat-block' => 'блоктоха',
@@ -615,6 +616,9 @@ $messages['ko'] = array(
 	'chat-no-other-users' => '채팅 중인 사용자가 없음',
 	'chat-blocked-from-chat' => '이 채팅에서 차단되었습니다.',
 	'chat-not-allowed' => '채팅을 할 수 없습니다. 먼저 로그인해 보세요.',
+	'chat-sounds' => '소리 재생',
+	'chat-flood' => '메시지를 보내는 속도가 너무 빠릅니다. 메시지를 보내려면 잠시 기다려주세요.',
+	'chat-too-long' => '메시지가 너무 깁니다. 더 짧은 메시지를 보내주세요.',
 	'chat-just-now' => '바로 조금 전',
 	'chat-a-minute-ago' => '1분 전',
 	'chat-yesterday' => '어제',
@@ -634,6 +638,7 @@ $messages['ko'] = array(
 	'chat-user-is-moderator' => '이 사용자는 관리자{{GENDER:$1|입니다}}.',
 	'chat-you-are-moderator' => '당신은 관리자{{GENDER:$1|입니다}}.',
 	'chat-topic' => '{{SITENAME}} 채팅에에 오신 것을 환영합니다. ([[Special:Log/chat|채팅 기록]])',
+	'chat-change-preferences' => '채팅 설정 바꾸기',
 	'chat-sidebar-online' => '채팅에 참여한 사용자:',
 	'chat-sidebar-join' => '채팅에 참여',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -649,6 +654,10 @@ $messages['ko'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:채팅이 차단된 사용자',
 	'right-mediawikichat-chat' => 'Special:Chat 사용',
 	'right-mediawikichat-modchat' => 'Special:Chat에서 사용자를 차단하고 추방(활성화되어 있을 경우에만)',
+	'tog-chat-ping-mention' => '멘션을 받았을 때 소리를 재생',
+	'tog-chat-ping-pm' => '개인 메시지를 받았을 때 소리를 재생',
+	'tog-chat-ping-message' => '보통 메시지를 받았을 때 소리를 재생',
+	'prefs-chat' => '대화',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -662,6 +671,7 @@ $messages['lb'] = array(
 	'chat-blocked-from-chat' => 'Dir gouft an dësem Chat gespaart.',
 	'chat-not-allowed' => "Dir däerft net chatten, probéiert Iech d'éischt anzeloggen.",
 	'chat-flood' => 'Dir däerft Messagen net esou séier schécken, waart w.e.g. e bësse bis Dir der méi schéckt.',
+	'chat-too-long' => 'Dëse Message war ze laang, schéckt w.e.g. méi e kuerze Message.',
 	'chat-just-now' => 'grad elo',
 	'chat-a-minute-ago' => 'virun enger Minutt',
 	'chat-yesterday' => 'gëschter',
@@ -714,6 +724,7 @@ $messages['mk'] = array(
 	'chat-not-allowed' => 'Немате пристап во разговорот. Прво најавете се',
 	'chat-sounds' => 'Пуштај звуци',
 	'chat-flood' => 'Не можете да праќате пораки толку бргу. Почекајте, па испратете други.',
+	'chat-too-long' => 'Пораката беше предолга. Испратете покуса порака.',
 	'chat-just-now' => 'штотуку',
 	'chat-a-minute-ago' => 'пред една минута',
 	'chat-yesterday' => 'вчера',
@@ -832,16 +843,25 @@ $messages['ms'] = array(
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Sjoerddebruin
+ * @author Southparkfan
  */
 $messages['nl'] = array(
 	'chat' => 'Chat',
+	'chat-not-allowed' => 'U heeft niet de benodigde rechten om te chatten, probeer eerst in te loggen.',
+	'chat-sounds' => 'Geluiden afspelen',
 	'chat-just-now' => 'zojuist',
 	'chat-a-minute-ago' => 'een minuut geleden',
 	'chat-yesterday' => 'gisteren',
 	'chat-kick' => 'kick',
 	'chat-block' => 'blokkeren',
+	'chat-you-blocked' => 'U heeft $1 {{GENDER:$2|geblokkeerd}}.',
+	'chat-blocked' => '$1 heeft $2 {{GENDER:$3|geblokkeerd}}.',
+	'chat-you-unblocked' => 'U heeft $1 {{GENDER:$2|gedeblokkeerd}}.',
+	'chat-unblocked' => '$1 heeft $2 {{GENDER:$3|gedeblokkeerd}}.',
+	'chat-user-is-moderator' => 'Deze gebruiker {{GENDER:$1|is}} een moderator',
 	'chat-you-are-moderator' => 'Jij {{GENDER:$1|bent}} een moderator',
 	'chat-topic' => 'Welkom op de chat van {{SITENAME}}. ([[Special:Log/chat|logboek]])',
+	'chat-change-preferences' => 'Wijzig uw chatinstellingen',
 	'chat-sidebar-online' => 'Online gebruikers in de chat:',
 	'chat-sidebar-join' => 'Chat mee',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -852,7 +872,9 @@ $messages['nl'] = array(
 	'grouppage-chatmod' => '{{ns:project}}:Chatmoderators',
 	'group-blockedfromchat' => 'Gebruikers geblokkeerd van de chat',
 	'group-blockedfromchat-member' => '{{GENDER:$1|geblokkeerd van de chat}}',
+	'grouppage-blockedfromchat' => '{{ns:project}}:Gebruikers geblokkeerd van de chat',
 	'right-mediawikichat-chat' => 'Gebruik Speciaal:Chat',
+	'prefs-chat' => 'Chat',
 );
 
 /** Polish (polski)
@@ -1070,6 +1092,7 @@ $messages['ru'] = array(
 $messages['sco'] = array(
 	'chat-sounds' => 'Pley soonds',
 	'chat-flood' => 'Ye canna send messages that fast, please wait a while afore sendin oni mair.',
+	'chat-too-long' => "That message wis o'er lang, please send ae shorter message. (Or twa).",
 	'chat-private-message' => 'clap tae private message',
 	'chat-user-is-moderator' => 'This uiser {{GENDER:$1|is}} ae moderator',
 	'chat-you-are-moderator' => 'Ye {{GENDER:$1|are}} ae moderator',
