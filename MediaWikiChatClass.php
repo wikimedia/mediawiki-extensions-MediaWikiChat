@@ -207,6 +207,8 @@ class MediaWikiChat {
 			$message = trim( $message );
 		} else {
 			$message = htmlentities($message);
+
+			$message = preg_replace( '#(http[s]?\:\/\/[^ \n]+)#', '<a target="_blank" href="$1">$1</a>', $message );
 		}
 
 		$message = str_replace( '&nbsp;', ' ', str_replace( '&#160;', ' ', $message ) );
