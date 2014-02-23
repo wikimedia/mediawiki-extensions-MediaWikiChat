@@ -525,6 +525,7 @@ $messages['fr'] = array(
 /** Hebrew (עברית)
  * @author Danny-w
  * @author Mbkv717
+ * @author איתן96
  * @author תומר ט
  */
 $messages['he'] = array(
@@ -533,10 +534,13 @@ $messages['he'] = array(
 	'chat-type-your-private-message' => 'הקלידו את הודעתכם הפרטית',
 	'chat-no-other-users' => "אין משתמשים אחרים בצ'אט",
 	'chat-not-allowed' => "אין לך הרשאות לשוחח בצ'אט. יש לנסות להתחבר לחשבון.",
+	'chat-sounds' => 'נגן שמע',
+	'chat-flood' => 'אינך יכול לשלוח הודעות במהירות כזאת, נא המתן לפני שליחת ההודעה הבאה.',
 	'chat-just-now' => 'לפני זמן קצר',
 	'chat-a-minute-ago' => 'לפני דקה',
 	'chat-yesterday' => 'אתמול',
 	'chat-block' => 'חסום',
+	'chat-change-preferences' => "שנה את העדפות הצ'אט שלך",
 	'chat-sidebar-online' => "משתמשים מחוברים בצ'אט:",
 	'chat-sidebar-join' => "הצטרפות לצ'אט",
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -545,6 +549,10 @@ $messages['he'] = array(
 	'grouppage-chatmod' => "{{ns:project}}:מנהלי הצ'אט",
 	'group-blockedfromchat' => "המשתמשים נחסמו לצ'אט",
 	'grouppage-blockedfromchat' => "{{ns:project}}:המשתמשים נחסמו לצ'אט",
+	'tog-chat-ping-mention' => 'השמע צליל בעת קבלת תזכיר',
+	'tog-chat-ping-pm' => 'השמע צליל בעת קבלת הודעה פרטית',
+	'tog-chat-ping-message' => 'השמע צליל בעת קבלת הודעה רגילה',
+	'prefs-chat' => "צ'אט",
 );
 
 /** Armenian (Հայերեն)
@@ -670,6 +678,7 @@ $messages['lb'] = array(
 	'chat-no-other-users' => 'Keng aner Benotzer am Chat',
 	'chat-blocked-from-chat' => 'Dir gouft an dësem Chat gespaart.',
 	'chat-not-allowed' => "Dir däerft net chatten, probéiert Iech d'éischt anzeloggen.",
+	'chat-sounds' => 'Geräischer ofspillen',
 	'chat-flood' => 'Dir däerft Messagen net esou séier schécken, waart w.e.g. e bësse bis Dir der méi schéckt.',
 	'chat-too-long' => 'Dëse Message war ze laang, schéckt w.e.g. méi e kuerze Message.',
 	'chat-just-now' => 'grad elo',
@@ -709,6 +718,18 @@ $messages['map-bms'] = array(
 	'chat-user-is-moderator' => 'Pangganggo kiye {{GENDER:$1|kuwe}} moderator',
 	'chat-topic' => 'Sugeng rawuh nang dopokan {{SITENAME}}. ([[Special:Log/chat|log dopokan]])',
 	'log-name-chat' => 'Log dopokan',
+);
+
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'chat-sounds' => 'Hamoaka feo',
+	'chat-flood' => "Tsy afaka mandefa hafatra haingana hoatr'izany ianao, andraso kely alohan'ny mandefa hafa.",
+	'chat-too-long' => 'Lava loatra ilay hafatra, mandefasa hafatra fohifohy kokoa azafady.',
+	'chat-change-preferences' => "Hanova ny safidin'ny resaka mifantana",
+	'tog-chat-ping-message' => 'Hamoaka feo rehefa mahazo hafatra tsotra',
+	'prefs-chat' => 'Resaka',
 );
 
 /** Macedonian (македонски)
@@ -841,6 +862,7 @@ $messages['ms'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Arent
  * @author SPQRobin
  * @author Sjoerddebruin
  * @author Southparkfan
@@ -850,15 +872,15 @@ $messages['nl'] = array(
 	'chat-not-allowed' => 'U heeft niet de benodigde rechten om te chatten, probeer eerst in te loggen.',
 	'chat-sounds' => 'Geluiden afspelen',
 	'chat-just-now' => 'zojuist',
-	'chat-a-minute-ago' => 'een minuut geleden',
+	'chat-a-minute-ago' => 'even geleden',
 	'chat-yesterday' => 'gisteren',
 	'chat-kick' => 'kick',
 	'chat-block' => 'blokkeren',
 	'chat-you-blocked' => 'U heeft $1 {{GENDER:$2|geblokkeerd}}.',
 	'chat-blocked' => '$1 heeft $2 {{GENDER:$3|geblokkeerd}}.',
-	'chat-you-unblocked' => 'U heeft $1 {{GENDER:$2|gedeblokkeerd}}.',
-	'chat-unblocked' => '$1 heeft $2 {{GENDER:$3|gedeblokkeerd}}.',
-	'chat-user-is-moderator' => 'Deze gebruiker {{GENDER:$1|is}} een moderator',
+	'chat-you-unblocked' => 'U heeft $1 gedeblokkeerd.', # Fuzzy
+	'chat-unblocked' => '$1 heeft $2 gedeblokkeerd.', # Fuzzy
+	'chat-user-is-moderator' => 'Deze gebruiker is moderator', # Fuzzy
 	'chat-you-are-moderator' => 'Jij {{GENDER:$1|bent}} een moderator',
 	'chat-topic' => 'Welkom op de chat van {{SITENAME}}. ([[Special:Log/chat|logboek]])',
 	'chat-change-preferences' => 'Wijzig uw chatinstellingen',
@@ -904,6 +926,7 @@ $messages['pl'] = array(
 	'chat-user-is-moderator' => 'Ten użytkownik {{GENDER:$1|jest}} moderatorem.',
 	'chat-you-are-moderator' => 'Ty {{GENDER:$1|jesteś}} moderatorem.',
 	'chat-topic' => 'Witamy na czacie {{SITENAME}}. ([[Special:Log/chat|rejestr czatu]])',
+	'chat-change-preferences' => 'Zmień ustawienia czatu',
 	'chat-sidebar-online' => 'Użytkowników online na czacie:',
 	'chat-sidebar-join' => 'Dołącz do czatu',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -912,6 +935,7 @@ $messages['pl'] = array(
 	'group-chatmod-member' => '{{GENDER:$1|moderator czatu|moderatorka czatu}}',
 	'grouppage-chatmod' => '{{ns:project}}:Moderatorzy czatu',
 	'right-mediawikichat-chat' => 'Użyj Specjalna:Chat',
+	'prefs-chat' => 'Czat',
 );
 
 /** Pashto (پښتو)
@@ -1280,6 +1304,7 @@ $messages['uk'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Skye Darcy
  * @author Withoutaname
  */
 $messages['vi'] = array(
@@ -1287,6 +1312,8 @@ $messages['vi'] = array(
 	'chat-type-your-private-message' => 'Nhập tin nhắn riêng của bạn',
 	'chat-no-other-users' => 'Không có người dùng khác trong phòng trò chuyện',
 	'chat-blocked-from-chat' => 'Bạn đã bị cấm không được vào phòng trò chuyện này.',
+	'chat-flood' => 'Bạn không thể gửi tin nhắn quá nhanh, xin vui lòng đợi trước khi gửi thêm.',
+	'chat-too-long' => 'Tin nhắn đó là quá dài, xin vui lòng gửi một tin nhắn ngắn hơn.',
 	'chat-just-now' => 'mới bây giờ',
 	'chat-a-minute-ago' => 'cách đây một phút',
 	'chat-yesterday' => 'hôm qua',
