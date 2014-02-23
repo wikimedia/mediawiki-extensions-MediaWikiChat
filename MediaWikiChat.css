@@ -129,6 +129,14 @@
 	margin-left: 3px;
 	margin-right: 2px;
 }
+.mwchat-fullscreen {
+	position: fixed;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: white;
+	z-index: 200;
+}
 #mwchat-no-other-users {
 	padding: 1em;
 }

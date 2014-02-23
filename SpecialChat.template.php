@@ -32,7 +32,7 @@ class SpecialChatTemplate extends QuickTemplate {
 					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
 				</div>
 				<div id="mwchat-options">
-					<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
+					<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a> <input type="button" id="fullScreenChat" value="&#10138;" />
 				</div>
 			</div>
 			<div id="mwchat-users">

@@ -508,6 +508,14 @@ var MediaWikiChat = {
 			document.title = "> " + MediaWikiChat.title;
 		}
 	},
+	
+	toggleFullScreen: function() {
+		if ( $( "#mw-content-text" ).hasClass( 'mwchat-fullscreen' ) ) {
+			$( "#mw-content-text" ).removeClass( "mwchat-fullscreen" );
+		} else {
+			$( "#mw-content-text" ).addClass( "mwchat-fullscreen" );
+		}
+	},
 
 	mention: function() {
 		if ( !MediaWikiChat.focussed ) {
@@ -596,6 +604,8 @@ $( document ).ready( function() {
 	MediaWikiChat.redoInterval = setInterval( MediaWikiChat.redoTimestamps, MediaWikiChat.interval / 2 );
 
 	$( '#mwchat-content' ).click( MediaWikiChat.clearMentions );
+	
+	$( '#fullScreenChat' ).click ( MediaWikiChat.toggleFullScreen );
 
 	$( '#mwchat-container' ).mouseup( function() { // resize user area on content resize
 		var height = $( '#mwchat-content' ).height();
