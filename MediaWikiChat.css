@@ -117,6 +117,7 @@
 	color: #000 !important;
 }
 .mwchat-message.system .mwchat-item-message {
+	word-break: break-all;
 	color: #888;
 }
 .mwchat-message.system td {
