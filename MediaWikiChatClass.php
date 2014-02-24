@@ -206,15 +206,17 @@ class MediaWikiChat {
 
 			$message = trim( $message );
 		} else {
-			$message = htmlentities($message);
+			$message = htmlentities( $message );
 
 			$message = preg_replace( '#(http[s]?\:\/\/[^ \n]+)#', '<a target="_blank" href="$1">$1</a>', $message );
 		}
 
 		$message = str_replace( '&nbsp;', ' ', str_replace( '&#160;', ' ', $message ) );
 
-		$rawSmileyData = wfMessage( 'smileys' )->plain();
-		$smileyData = explode( '*', $rawSmileyData );
+		$smileyString = wfMessage( 'smileys' )->plain();
+		$smileyString = str_replace( '<', '&lt;', $smileyString ); // these make smileys with them in work,
+		$smileyString = str_replace( '>', '&gt;', $smileyString ); // as otherwise '>' and '&lt;' are compared
+		$smileyData = explode( '*', $smileyString );
 
 		$message = ' ' . $message . ' '; // to allow smileys at beginning/end of message
 
