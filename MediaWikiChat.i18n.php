@@ -1147,6 +1147,8 @@ $messages['sv'] = array(
 	'chat-no-other-users' => 'Inga andra användare i chatten',
 	'chat-blocked-from-chat' => 'Du har blockerats från denna chatt.',
 	'chat-not-allowed' => 'Du är inte tillåten att chatta, försök logga in först.',
+	'chat-sounds' => 'Spela upp ljud',
+	'chat-too-long' => 'Meddelandet var för lång, skicka ett kortare meddelande.',
 	'chat-just-now' => 'just nu',
 	'chat-a-minute-ago' => 'en minut sedan',
 	'chat-yesterday' => 'i går',
@@ -1180,6 +1182,8 @@ $messages['sv'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Användare blockerade från chatten',
 	'right-mediawikichat-chat' => 'Använd Special:Chat',
 	'right-mediawikichat-modchat' => 'Blockera och sparka ut (om det är aktiverat) användare från Special:Chat',
+	'tog-chat-ping-pm' => 'Spela upp ett ljud när privata meddelanden tas emot',
+	'tog-chat-ping-message' => 'Spela upp ett ljud när normala meddelanden tas emot',
 );
 
 /** Telugu (తెలుగు)
