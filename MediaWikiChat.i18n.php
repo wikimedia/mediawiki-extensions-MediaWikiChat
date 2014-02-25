@@ -209,6 +209,19 @@ See also:
 {{Identical|Chat}}',
 );
 
+/** Arabic (العربية)
+ * @author Tarawneh
+ */
+$messages['ar'] = array(
+	'chat-sounds' => 'شغّل الاصوات',
+	'chat-flood' => 'لا يمكن إرسال الرسائل بهذه السرعة، الرجاء التريث قبل إرسال المزيد.',
+	'chat-change-preferences' => 'تعديل تفضيلاتك الخاصة بالدردشة',
+	'tog-chat-ping-mention' => 'أصدر صوت عند ذكرك من قبل شخص ما',
+	'tog-chat-ping-pm' => 'أصدر صوت عند تلقي الرسائل الخاصة',
+	'tog-chat-ping-message' => 'أصدر صوت عند تلقي الرسائل العادية',
+	'prefs-chat' => 'دردشة',
+);
+
 /** Bengali (বাংলা)
  * @author Aftab1995
  * @author Tauhid16
