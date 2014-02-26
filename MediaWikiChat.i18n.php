@@ -222,6 +222,13 @@ $messages['ar'] = array(
 	'prefs-chat' => 'دردشة',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'prefs-chat' => 'Makisatsatan',
+);
+
 /** Bengali (বাংলা)
  * @author Aftab1995
  * @author Tauhid16
@@ -566,6 +573,20 @@ $messages['he'] = array(
 	'tog-chat-ping-pm' => 'השמע צליל בעת קבלת הודעה פרטית',
 	'tog-chat-ping-message' => 'השמע צליל בעת קבלת הודעה רגילה',
 	'prefs-chat' => "צ'אט",
+);
+
+/** Hindi (हिन्दी)
+ * @author Vivek Rai
+ */
+$messages['hi'] = array(
+	'chat-sounds' => 'ध्वनियाँ चलाएँ',
+	'chat-flood' => 'आप इतनी तेजी से सन्देश नहीं भेज सकते। कृपया प्रतीक्षा करें।',
+	'chat-too-long' => 'वह संदेश बहुत लंबा था, कृपया एक छोटा संदेश भेजें।',
+	'chat-change-preferences' => 'अपनी चैट वरीयताएँ बदलें',
+	'tog-chat-ping-mention' => 'उल्लेख प्राप्त करने पर कोई ध्वनि चलाएँ',
+	'tog-chat-ping-pm' => 'निजी संदेश प्राप्त करने पर कोई ध्वनि चलाएँ',
+	'tog-chat-ping-message' => 'सामान्य संदेश प्राप्त करने पर कोई ध्वनि चलाएँ',
+	'prefs-chat' => 'चैट',
 );
 
 /** Armenian (Հայերեն)
@@ -1145,6 +1166,19 @@ $messages['sco'] = array(
  */
 $messages['si'] = array(
 	'chat-blocked-from-chat' => 'ඔබ මෙම කතිකාවට සහහාගී වීම වලක්වා ඇත.',
+);
+
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Rancher
+ */
+$messages['sr-ec'] = array(
+	'chat-sounds' => 'Репродукуј звукове',
+	'chat-flood' => 'Не можете да шаљете поруке толико брзо. Сачекајте па пошаљите другу.',
+	'chat-change-preferences' => 'Промени поставке ћаскања',
+	'tog-chat-ping-mention' => 'Репродукуј звук када вас неко помене',
+	'tog-chat-ping-pm' => 'Репродукуј звук по доспећу приватних порука',
+	'tog-chat-ping-message' => 'Репродукуј звук по доспећу нормалних порука',
+	'prefs-chat' => 'Ћаскање',
 );
 
 /** Swedish (svenska)
