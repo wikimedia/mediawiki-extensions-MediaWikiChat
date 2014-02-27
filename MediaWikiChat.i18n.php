@@ -20,6 +20,7 @@ $messages['en'] = array(
 	'chat-blocked-from-chat' => 'You have been blocked from this chat.',
 	'chat-not-allowed' => 'You are not allowed to chat, try logging in first.',
 	'chat-sounds' => 'Play sounds',
+
 	'chat-flood' => 'You can\'t send messages that fast, please wait before sending more.',
 	'chat-too-long' => 'That message was too long, please send a shorter message.',
 
@@ -46,7 +47,7 @@ $messages['en'] = array(
 	'chat-you-are-moderator' => 'You {{GENDER:$1|are}} a moderator',
 
 	'chat-topic' => 'Welcome to {{SITENAME}} chat. ([[Special:Log/chat|chat log]])',
-	'chat-change-preferences' => 'Change your chat preferences',
+	'chat-change-preferences' => 'Change your chat preferences (fullscreen and sounds)',
 
 	'chat-sidebar-online' => 'Online users in chat:',
 	'chat-sidebar-join' => 'Join the chat',
@@ -71,6 +72,7 @@ $messages['en'] = array(
 	'right-mediawikichat-chat' => 'Use Special:Chat',
 	'right-mediawikichat-modchat' => 'Block and kick (if enabled) users from Special:Chat',
 
+	'tog-chat-fullscreen' => 'Use chat in fullscreen mode (experimental)',
 	'tog-chat-ping-mention' => 'Play a sound on receiving mentions',
 	'tog-chat-ping-pm' => 'Play a sound on receiving private messages',
 	'tog-chat-ping-message' => 'Play a sound on receiving normal messages',
@@ -205,6 +207,7 @@ See also:
 {{Related|Tog-chat-ping}}',
 	'tog-chat-ping-message' => 'Label for checkbox for whether to play a sound on receiving normal messages.
 {{Related|Tog-chat-ping}}',
+	'tog-chat-ping-message' => 'Label for checkbox for whether to use chat in fullscreen.',
 	'prefs-chat' => 'Header for the chat preferences at [[Special:Preferences]].
 {{Identical|Chat}}',
 );

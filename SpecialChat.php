@@ -32,36 +32,49 @@ class SpecialChat extends SpecialPage {
 			}
 
 		} else {
-			// Load modules via ResourceLoader
-			$modules = array(
-				'ext.mediawikichat.css',
-				'ext.mediawikichat.js',
-			);
-			$out->addModules( $modules );
+			// Load the GUI (from its own, separate file)
+			include( 'SpecialChat.template.php' );
+			$template = new SpecialChatTemplate;
 
 			$mention = $user->getOption( 'chat-ping-mention' );
 			$pm = $user->getOption( 'chat-ping-pm' );
 			$message = $user->getOption( 'chat-ping-message' );
 
+			// Load modules via ResourceLoader
+			$modules = array(
+					'ext.mediawikichat.css',
+					'ext.mediawikichat.js',
+			);
+			$out->addModules( $modules );
+
 			$out->addJsConfigVars(
-				array(
-					'wgChatKicks' => $wgChatKicks,
-					'wgChatSocialAvatars' => $wgChatSocialAvatars,
-					'wgChatLinkUsernames' => $wgChatLinkUsernames,
-					'wgChatPingMentions' => $mention,
-					'wgChatPingPMs' => $pm,
-					'wgChatPingMessages' => $message,
-					'wgChatMeCommand' => $wgChatMeCommand,
-					'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
-				)
+					array(
+							'wgChatKicks' => $wgChatKicks,
+							'wgChatSocialAvatars' => $wgChatSocialAvatars,
+							'wgChatLinkUsernames' => $wgChatLinkUsernames,
+							'wgChatPingMentions' => $mention,
+							'wgChatPingPMs' => $pm,
+							'wgChatPingMessages' => $message,
+							'wgChatMeCommand' => $wgChatMeCommand,
+							'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
+					)
 			);
 
-			// Load the GUI (from its own, separate file)
-			include( 'SpecialChat.template.php' );
-			$template = new SpecialChatTemplate;
+			if ( !$user->getOption( 'chat-fullscreen' ) ) {
+				$out->addTemplate( $template ); // Output the GUI HTML
 
-			// Output the GUI HTML
-			$out->addTemplate( $template );
+			} else {
+				$out->disable();
+
+				echo $out->headElement( $this->getSkin() );
+
+				echo "<div id='wrapper' style='background-color: white; margin: 2em; padding: 1em; border:1px solid #ccc;'>";
+				$template->execute(); // print template
+				echo "</div>";
+
+				echo $this->getSkin()->bottomScripts();
+				echo "</body></html>";
+			}
 		}
 	}
 }

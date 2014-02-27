@@ -109,19 +109,25 @@ class MediaWikiChatHooks {
 	}
 
 	static function wfPrefHook( $user, &$preferences ) {
+		$preferences['chat-fullscreen'] = array(
+				'type' => 'toggle',
+				'label-message' => 'tog-chat-fullscreen',
+				'section' => 'misc/chat',
+		);
+
 		$preferences['chat-ping-mention'] = array(
 				'type' => 'toggle',
-				'label-message' => 'tog-chat-ping-mention', // a system message
+				'label-message' => 'tog-chat-ping-mention',
 				'section' => 'misc/chat',
 		);
 		$preferences['chat-ping-pm'] = array(
 				'type' => 'toggle',
-				'label-message' => 'tog-chat-ping-pm', // a system message
+				'label-message' => 'tog-chat-ping-pm',
 				'section' => 'misc/chat',
 		);
 		$preferences['chat-ping-message'] = array(
 				'type' => 'toggle',
-				'label-message' => 'tog-chat-ping-message', // a system message
+				'label-message' => 'tog-chat-ping-message',
 				'section' => 'misc/chat',
 		);
 
