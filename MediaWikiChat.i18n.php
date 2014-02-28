@@ -71,9 +71,9 @@ $messages['en'] = array(
 	'right-mediawikichat-chat' => 'Use Special:Chat',
 	'right-mediawikichat-modchat' => 'Block and kick (if enabled) users from Special:Chat',
 
-	'tog-chat-ping-mention' => 'Play a sound on recieving mentions',
-	'tog-chat-ping-pm' => 'Play a sound on recieving private messages',
-	'tog-chat-ping-message' => 'Play a sound on recieving normal messages',
+	'tog-chat-ping-mention' => 'Play a sound on receiving mentions',
+	'tog-chat-ping-pm' => 'Play a sound on receiving private messages',
+	'tog-chat-ping-message' => 'Play a sound on receiving normal messages',
 	'prefs-chat' => 'Chat'
 );
 
