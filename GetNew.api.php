@@ -63,9 +63,7 @@ class ChatGetNewAPI extends ApiBase {
 
 					$id = $row->chat_user_id;
 					$message = $row->chat_message;
-					if ( $wgChatRichMessages ) {
-						$message = html_entity_decode( $message ); // otherwise the HTML is printed as text
-					}
+
 					$timestamp = $row->chat_timestamp;
 
 					$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
