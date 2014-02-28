@@ -415,7 +415,7 @@ var MediaWikiChat = {
 
 		$( '#mwchat-users #' + userE + ' input' ).keypress( MediaWikiChat.userKeypress );
 
-		$( '.mwchat-useritem-kicklink' ).click( function() {
+		$( '#mwchat-users #' + userE + ' .mwchat-useritem-kicklink' ).click( function() {
 			var parent = $( this ).parent().parent();
 
 			$.ajax( {
