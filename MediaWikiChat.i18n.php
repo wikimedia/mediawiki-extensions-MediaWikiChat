@@ -61,6 +61,11 @@ $messages['en'] = array(
 	'logentry-chat-kick' => '$1 {{GENDER:$1|kicked}} $4',
 	'log-show-hide-chat' => '$1 chat log',
 
+	'log-name-privatechat' => 'Private chat log',
+	'log-description-privatechat' => 'Private messages sent by MediaWikiChat',
+	'logentry-privatechat-send' => '$1 to $5: $4', // Optional for translation
+	'log-show-hide-chat' => '$1 private chat log',
+
 	'group-chatmod' => 'Chat moderators',
 	'group-chatmod-member' => '{{GENDER:$1|chat moderator}}',
 	'grouppage-chatmod' => '{{ns:project}}:Chat moderators',
@@ -193,6 +198,13 @@ See also:
 	'log-show-hide-chat' => 'For [[Special:Log]]. Parameters:
 * $1 - {{msg-mw|Show}} or {{msg-mw|Hide}}
 {{Related|Log-show-hide}}',
+
+'log-description-privatechat' => 'Used as description for log in [[Special:Log/privatechat]].',
+'logentry-privatechat-send' => 'The user $1 sent the private message $4, to the user $5',
+'log-show-hide-privatechat' => 'For [[Special:Log]]. Parameters:
+* $1 - {{msg-mw|Show}} or {{msg-mw|Hide}}
+{{Related|Log-show-hide}}',
+
 	'group-chatmod' => '{{doc-group|chatmod}}',
 	'group-chatmod-member' => '{{doc-group|forumadmin|member}}',
 	'grouppage-chatmod' => '{{doc-group|forumadmin|page}}',

@@ -6,9 +6,9 @@ class ChatSendAPI extends ApiBase {
 		global $wgUser, $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
 
 		$result = $this->getResult();
-		$originalMessage = $this->getMain()->getVal( 'message' );
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
+			$originalMessage = $this->getMain()->getVal( 'message' );
 			$message = MediaWikiChat::parseMessage( $originalMessage );
 
 			if ( $message != '' ) {

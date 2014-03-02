@@ -6,11 +6,12 @@ class ChatSendPMAPI extends ApiBase {
 		global $wgUser;
 
 		$result = $this->getResult();
-		$message = $this->getMain()->getVal( 'message' );
-		$toId = intval( $this->getMain()->getVal( 'id' ) );
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
-			$message = MediaWikiChat::parseMessage( $message );
+			$toId = intval( $this->getMain()->getVal( 'id' ) );
+
+			$originalMessage = $this->getMain()->getVal( 'message' );
+			$message = MediaWikiChat::parseMessage( $originalMessage );
 
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_MASTER );
@@ -29,6 +30,17 @@ class ChatSendPMAPI extends ApiBase {
 					),
 					__METHOD__
 				);
+
+				$logEntry = new ManualLogEntry( 'privatechat', 'send' ); // Action bar in log foo
+				$logEntry->setPerformer( $wgUser ); // User object, the user who did this action
+				$page = SpecialPage::getTitleFor( 'Chat' );
+				$logEntry->setTarget( $page ); // The page that this log entry affects
+				$logEntry->setParameters( array(
+					'4::message' => $originalMessage, // we want the logs to show the source message, not the parsed one
+					'5::to' => User::newFromId( $toId )->getName()
+				) );
+
+				$logEntry->insert();
 
 				MediaWikiChat::deleteEntryIfNeeded();
 

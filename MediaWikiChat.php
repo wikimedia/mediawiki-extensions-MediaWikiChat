@@ -17,7 +17,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.7.1',
+	'version' => '2.8.0',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -93,6 +93,10 @@ $wgAPIModules['chatkick'] = 'ChatKickAPI';
 $wgLogTypes[] = 'chat';
 $wgLogActionsHandlers['chat/*'] = 'LogFormatter';
 $wgFilterLogTypes['chat'] = true;
+$wgLogTypes[] = 'privatechat';
+$wgLogActionsHandlers['privatechat/*'] = 'LogFormatter';
+$wgFilterLogTypes['privatechat'] = true;
+$wgLogRestrictions['privatechat'] = 'viewpmlog';
 
 // Permissions
 $wgGroupPermissions['user']['chat'] = true;
