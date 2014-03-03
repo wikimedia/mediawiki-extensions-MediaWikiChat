@@ -64,7 +64,7 @@ $messages['en'] = array(
 	'log-name-privatechat' => 'Private chat log',
 	'log-description-privatechat' => 'Private messages sent by MediaWikiChat',
 	'logentry-privatechat-send' => '$1 to $5: $4', // Optional for translation
-	'log-show-hide-chat' => '$1 private chat log',
+	'log-show-hide-privatechat' => '$1 private chat log',
 
 	'group-chatmod' => 'Chat moderators',
 	'group-chatmod-member' => '{{GENDER:$1|chat moderator}}',
