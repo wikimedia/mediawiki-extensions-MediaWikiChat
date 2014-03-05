@@ -862,6 +862,16 @@ $messages['lb'] = array(
 	'prefs-chat' => 'Chat',
 );
 
+/** Lithuanian (lietuvių)
+ * @author Mantak111
+ */
+$messages['lt'] = array(
+	'chat-sounds' => 'Groti garsus',
+	'log-name-privatechat' => 'Privačių pokalbių žurnalas',
+	'log-description-privatechat' => 'Asmenines žinutes siuntė MediaWikiChat',
+	'prefs-chat' => 'Pokalbiai',
+);
+
 /** Latvian (latviešu)
  * @author Papuass
  */
@@ -936,10 +946,11 @@ $messages['mk'] = array(
 	'log-name-chat' => 'Записник на разговорот',
 	'log-description-chat' => 'Пораки испратени од МедијаВикиРазговори, како и исфрлања на корисници',
 	'logentry-chat-kick' => '$1 го {{GENDER:$1|исфрли}} учесникот $4',
+	'log-show-hide-chat' => '$1 записник за разговори',
 	'log-name-privatechat' => 'Записник за лични разговори',
 	'log-description-privatechat' => 'Лична порака испратена од „MediaWikiChat“',
 	'logentry-privatechat-send' => 'Од $1 за $5: $4',
-	'log-show-hide-privatechat' => '$1 записник за лични разговори', # Fuzzy
+	'log-show-hide-privatechat' => '$1 записник за лични разговори',
 	'group-chatmod' => 'Модератори на разговори',
 	'group-chatmod-member' => '{{GENDER:$1|модератор на разговори}}',
 	'grouppage-chatmod' => '{{ns:project}}:Модератори на разговори',
