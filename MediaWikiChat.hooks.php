@@ -84,13 +84,23 @@ class MediaWikiChatHooks {
 					$user = User::newFromId( $id );
 					$avatar = MediaWikiChat::getAvatar( $id );
 					$page = str_replace( '$1', 'User:' . rawurlencode( $user->getName() ), $wgArticlePath );
+					$style = "display: block;
+						background-position: right 1em center;
+						background-repeat: no-repeat;
+						background-image: url($avatar);";
+					if ( $away ) {
+						$style .= "-webkit-filter: grayscale(1); /* old webkit */
+							-webkit-filter: grayscale(100%); /* new webkit */
+							-moz-filter: grayscale(100%); /* safari */
+							-ms-filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /* maybe ie */
+							filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /* maybe ie */
+							filter: gray; /* maybe ie */
+							filter: grayscale(100%); /* future */";
+					}
 					$arr[$id] = array(
 						'text' => $user->getName(),
 						'href' => $page,
-						'style' => "display: block;
-							background-position: right 1em center;
-							background-repeat: no-repeat;
-							background-image: url($avatar);",
+						'style' => $style,
 						'class' => 'mwchat-sidebar-user'
 					);
 				}
