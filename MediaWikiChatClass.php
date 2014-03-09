@@ -81,7 +81,7 @@ class MediaWikiChat {
 
 			$res = $dbr->select(
 				'chat_users',
-				'cu_user_id',
+				array( 'cu_user_id', 'cu_away' ),
 				array(
 					"cu_timestamp > $timestamp",
 					"cu_user_id != {$wgUser->getId()}"
@@ -92,9 +92,7 @@ class MediaWikiChat {
 			$data = array();
 
 			foreach ( $res as $row ) {
-				$id = $row->cu_user_id;
-
-				$data[] = $id;
+				$data[$row->cu_user_id] = $row->cu_away == true;
 			}
 			return $data;
 		} else {

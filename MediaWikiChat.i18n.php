@@ -81,7 +81,11 @@ $messages['en'] = array(
 	'tog-chat-ping-mention' => 'Play a sound on receiving mentions',
 	'tog-chat-ping-pm' => 'Play a sound on receiving private messages',
 	'tog-chat-ping-message' => 'Play a sound on receiving normal messages',
-	'prefs-chat' => 'Chat'
+	'prefs-chat' => 'Chat',
+
+	'chat-away-link' => 'online',
+	'chat-back-link' => 'away',
+	'chat-user-is-away' => 'this user is away'
 );
 
 /** Message documentation (Message documentation)

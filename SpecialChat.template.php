@@ -30,7 +30,7 @@ class SpecialChatTemplate extends QuickTemplate {
 				</div>
 				<div id="mwchat-type">
 					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
-				</div>
+					</div>
 				<div id="mwchat-options">
 					<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
 				</div>
@@ -43,6 +43,7 @@ class SpecialChatTemplate extends QuickTemplate {
 			<div id="mwchat-me">
 				<img src="" alt="" />
 				<span class="mwchat-useritem-user"></span>
+				<a href="javascript:;" id="mwchat-away-link"><?php echo wfMessage( 'chat-away-link' )->plain() ?></a>
 			</div>
 		</div>
 <?php
