@@ -59,6 +59,7 @@ class MediaWikiChatHooks {
 
 		$updater->addExtensionTable( 'chat', $dir . 'chat.sql', true );
 		$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );
+		$updater->addExtensionField( 'chat_users', 'cu_away', $dir . 'cu_away.sql' );
 
 		return true;
 	}
@@ -79,7 +80,7 @@ class MediaWikiChatHooks {
 			if ( count( $users ) ) {
 				$arr = array();
 
-				foreach ( $users as $id ) {
+				foreach ( $users as $id => $away ) {
 					$user = User::newFromId( $id );
 					$avatar = MediaWikiChat::getAvatar( $id );
 					$page = str_replace( '$1', 'User:' . rawurlencode( $user->getName() ), $wgArticlePath );

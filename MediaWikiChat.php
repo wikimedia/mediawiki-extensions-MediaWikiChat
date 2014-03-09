@@ -17,7 +17,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.8.0',
+	'version' => '2.9.0',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -45,6 +45,7 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 		'chat-block', 'chat-private-message', 'chat-user-is-moderator',
 		'chat-you-are-moderator', 'chat-joined', 'chat-left',
 		'chat-mod-image', 'chat-yesterday', 'chat-flood', 'chat-too-long',
+		'chat-away-link', 'chat-back-link', 'chat-user-is-away'
 	),
 	'dependencies' => 'mediawiki.jqueryMsg',
 	'localBasePath' => dirname( __FILE__ ),
@@ -84,10 +85,12 @@ $wgAutoloadClasses['ChatGetNewAPI'] = $dir . 'GetNew.api.php';
 $wgAutoloadClasses['ChatSendAPI'] = $dir . 'Send.api.php';
 $wgAutoloadClasses['ChatSendPMAPI'] = $dir . 'SendPM.api.php';
 $wgAutoloadClasses['ChatKickAPI'] = $dir . 'Kick.api.php';
+$wgAutoloadClasses['ChatAwayAPI'] = $dir . 'Away.api.php';
 $wgAPIModules['chatgetnew'] = 'ChatGetNewAPI';
 $wgAPIModules['chatsend'] = 'ChatSendAPI';
 $wgAPIModules['chatsendpm'] = 'ChatSendPMAPI';
 $wgAPIModules['chatkick'] = 'ChatKickAPI';
+$wgAPIModules['chataway'] = 'ChatAwayAPI';
 
 // Logs
 $wgLogTypes[] = 'chat';

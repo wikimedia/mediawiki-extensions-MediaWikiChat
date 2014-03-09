@@ -10,6 +10,7 @@ var MediaWikiChat = {
 	userData: [],
 	focussed: true,
 	title: document.title,
+	away: false,
 
 	pad: function( num, size ) {
 		var s = num + '';
@@ -145,6 +146,18 @@ var MediaWikiChat = {
 			MediaWikiChat.amIMod = data.users[mw.config.get( 'wgUserId' )].mod;
 
 			MediaWikiChat.doUsers( onlineUsers );
+
+			for ( var userId in data.users ) { // has to be done after doUsers
+				user = MediaWikiChat.userData[userId];
+				userE = MediaWikiChat.safe( user.name );
+				if ( data.users[userId].away ) {
+					$( '#mwchat-users #' + userE ).addClass( 'mwchat-grey' );
+					$( '#mwchat-users #' + userE + ' .mwchat-useritem-header' ).attr( 'title', mw.message( 'chat-user-is-away' ).text() );
+				} else {
+					$( '#mwchat-users #' + userE ).removeClass( 'mwchat-grey' );
+					$( '#mwchat-users #' + userE + ' .mwchat-useritem-header' ).attr( 'title', mw.message( 'chat-private-message' ).text() );
+				}
+			}
 
 			for ( var messageTimestamp in data.messages ) {
 				var message = data.messages[messageTimestamp];
@@ -601,6 +614,33 @@ $( document ).ready( function() {
 		var height = $( '#mwchat-content' ).height();
 		$( '#mwchat-users' ).animate( { 'height': height }, 'fast' );
 		$( '#mwchat-me' ).animate( { 'top': height }, 'fast' );
+	} );
+
+	$( '#mwchat-away-link' ).click( function() {
+		if ( MediaWikiChat.away ) {
+			$.ajax( {
+				type: 'POST',
+				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
+				data: { 'action': 'chataway', 'format': 'json' }
+			} ).done( function( msg ) {
+				$( '#mwchat-me' ).removeClass( 'mwchat-grey' );
+				$( '#mwchat-away-link' ).html( mw.message( 'chat-away-link' ).text() );
+				MediaWikiChat.away = false;
+				console.log( msg );
+			} );
+		} else {
+			$.ajax( {
+				type: 'POST',
+				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
+				data: { 'action': 'chataway', 'away': 'away', 'format': 'json' }
+			} ).done( function( msg ) {
+				$( '#mwchat-me' ).addClass( 'mwchat-grey' );
+				$( '#mwchat-away-link' ).html( mw.message( 'chat-back-link' ).text() );
+				MediaWikiChat.away = true;
+				console.log( msg );
+			} );
+		}
+
 	} );
 } );
 

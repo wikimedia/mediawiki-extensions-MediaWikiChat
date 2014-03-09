@@ -17,10 +17,10 @@ class ChatGetNewAPI extends ApiBase {
 			$thisCheck = MediaWikiChat::now();
 
 			$res = $dbr->selectField(
-					'chat_users',
-					array( 'cu_timestamp' ),
-					array( 'cu_user_id' => $wgUser->getId() ),
-					__METHOD__
+				'chat_users',
+				'cu_timestamp',
+				array( 'cu_user_id' => $wgUser->getId() ),
+				__METHOD__
 			);
 
 			$lastCheck = strval( $res );
@@ -120,7 +120,7 @@ class ChatGetNewAPI extends ApiBase {
 			$users[$wgUser->getId()] = true; // ensure current user is in the users list
 
 			$onlineUsers = MediaWikiChat::getOnline();
-			foreach ( $onlineUsers as $id ) {
+			foreach ( $onlineUsers as $id => $away ) {
 				$users[$id] = true; // ensure all online users are present in the users list
 			}
 			$genderCache = GenderCache::singleton();
@@ -132,8 +132,11 @@ class ChatGetNewAPI extends ApiBase {
 				if ( $wgChatSocialAvatars ) {
 					$result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );
 				}
-				if ( in_array( $id, $onlineUsers ) ) {
+				if ( array_key_exists( $id, $onlineUsers ) ) {
 					$result->addValue( array( $mName, 'users', $idString ), 'online', true );
+				}
+				if ( $onlineUsers[$id] ) {
+					$result->addValue( array( $mName, 'users', $idString ), 'away', true );
 				}
 				$groups = $userObject->getGroups();
 				if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {

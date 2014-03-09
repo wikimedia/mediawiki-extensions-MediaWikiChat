@@ -43,6 +43,7 @@ class SpecialChatTemplate extends QuickTemplate {
 			<div id="mwchat-me">
 				<img src="" alt="" />
 				<span class="mwchat-useritem-user"></span>
+				<a href="javascript:;" id="mwchat-away-link"><?php echo wfMessage( 'chat-away-link' )->plain() ?></a>
 			</div>
 		</div>
 <?php
