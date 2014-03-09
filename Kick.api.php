@@ -3,18 +3,19 @@
 class ChatKickAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser, $wgChatKicks;
+		global $wgChatKicks;
 
+		$user = $this->getUser();
 		$result = $this->getResult();
 		$toId = $this->getMain()->getVal( 'id' );
 
 		$toUser = User::newFromId( $toId );
 		$toName = $toUser->getName();
 
-		if ( $wgUser->isAllowed( 'modchat' ) && !$toUser->isAllowed( 'modchat' ) && $wgChatKicks ) {
+		if ( $user->isAllowed( 'modchat' ) && !$toUser->isAllowed( 'modchat' ) && $wgChatKicks ) {
 			$dbw = wfGetDB( DB_MASTER );
 
-			$fromId = $wgUser->getId();
+			$fromId = $user->getId();
 			$timestamp = MediaWikiChat::now();
 
 			$dbw->insert(
@@ -30,7 +31,7 @@ class ChatKickAPI extends ApiBase {
 
 			// Log the kick to Special:Log/chat
 			$logEntry = new ManualLogEntry( 'chat', 'kick' );
-			$logEntry->setPerformer( $wgUser );
+			$logEntry->setPerformer( $user );
 			$page = SpecialPage::getTitleFor( 'Chat' );
 			$logEntry->setTarget( $page );
 			$logEntry->setParameters( array(
@@ -41,7 +42,7 @@ class ChatKickAPI extends ApiBase {
 			$result->addValue( $this->getModuleName(), 'timestamp', $timestamp );
 
 		} else {
-			if ( !$wgUser->isAllowed( 'modchat' ) ) {
+			if ( !$user->isAllowed( 'modchat' ) ) {
 				$result->addValue( $this->getModuleName(), 'error', 'you are not allowed to kick people' );
 			}
 			if ( $toUser->isAllowed( 'modchat' ) ) {

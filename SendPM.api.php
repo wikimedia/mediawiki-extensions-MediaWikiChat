@@ -3,11 +3,10 @@
 class ChatSendPMAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser;
-
 		$result = $this->getResult();
+		$user = $this->getUser();
 
-		if ( $wgUser->isAllowed( 'chat' ) ) {
+		if ( $user->isAllowed( 'chat' ) ) {
 			$toId = intval( $this->getMain()->getVal( 'id' ) );
 
 			$originalMessage = $this->getMain()->getVal( 'message' );
@@ -16,7 +15,7 @@ class ChatSendPMAPI extends ApiBase {
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_MASTER );
 
-				$fromId = $wgUser->getID();
+				$fromId = $user->getID();
 				$timestamp = MediaWikiChat::now();
 
 				$dbw->insert(
@@ -32,7 +31,7 @@ class ChatSendPMAPI extends ApiBase {
 				);
 
 				$logEntry = new ManualLogEntry( 'privatechat', 'send' ); // Action bar in log foo
-				$logEntry->setPerformer( $wgUser ); // User object, the user who did this action
+				$logEntry->setPerformer( $user ); // User object, the user who did this action
 				$page = SpecialPage::getTitleFor( 'Chat' );
 				$logEntry->setTarget( $page ); // The page that this log entry affects
 				$logEntry->setParameters( array(

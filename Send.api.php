@@ -3,18 +3,19 @@
 class ChatSendAPI extends ApiBase {
 
 	public function execute() {
-		global $wgUser, $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
+		global $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
 
 		$result = $this->getResult();
+		$user = $this->getUser();
 
-		if ( $wgUser->isAllowed( 'chat' ) ) {
+		if ( $user->isAllowed( 'chat' ) ) {
 			$originalMessage = $this->getMain()->getVal( 'message' );
 			$message = MediaWikiChat::parseMessage( $originalMessage );
 
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_MASTER );
 
-				$id = $wgUser->getId();
+				$id = $user->getId();
 				$timestamp = MediaWikiChat::now();
 
 				if ( strlen( $message ) > $wgChatMaxMessageLength ) {
@@ -45,7 +46,7 @@ class ChatSendAPI extends ApiBase {
 				);
 
 				$logEntry = new ManualLogEntry( 'chat', 'send' ); // Action bar in log foo
-				$logEntry->setPerformer( $wgUser ); // User object, the user who did this action
+				$logEntry->setPerformer( $user ); // User object, the user who did this action
 				$page = SpecialPage::getTitleFor( 'Chat' );
 				$logEntry->setTarget( $page ); // The page that this log entry affects
 				$logEntry->setParameters( array(
