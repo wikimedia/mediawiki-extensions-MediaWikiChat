@@ -1190,9 +1190,16 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Imperadeiro98
+ * @author SandroHc
  */
 $messages['pt'] = array(
 	'chat-user-is-moderator' => 'Este utilizador {{GENDER:$1|é}} um moderador',
+	'chat-change-preferences' => 'Alterar as preferências de chat (ecrã inteiro e sons)',
+	'logentry-privatechat-send' => '$1 para $5: $4',
+	'tog-chat-fullscreen' => 'Usar chat no modo ecrã inteiro (experimental)',
+	'tog-chat-ping-mention' => 'Tocar um som ao receber menções',
+	'tog-chat-ping-pm' => 'Tocar um som ao receber mensagens privadas',
+	'tog-chat-ping-message' => 'Tocar um som ao receber mensagens normais',
 );
 
 /** Brazilian Portuguese (português do Brasil)
@@ -1516,14 +1523,18 @@ $messages['uk'] = array(
 	'chat-user-is-moderator' => '{{GENDER:$1|Цей користувач - модератор|Ця користувачка - модераторка}}.',
 	'chat-you-are-moderator' => 'Ви — {{GENDER:$1|модератор|модераторка}}.',
 	'chat-topic' => 'Ласкаво просимо до чату сайту {{SITENAME}}. ([[Special:Log/chat|журнал чату]])',
-	'chat-change-preferences' => 'Змінити налаштування чату', # Fuzzy
+	'chat-change-preferences' => 'Змінити налаштування чату (повноекранний режим та звуки)',
 	'chat-sidebar-online' => 'Онлайн-користувачів у чаті:',
 	'chat-sidebar-join' => 'Приєднатися до чату',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'Журнал чату',
 	'log-description-chat' => 'Повідомлення від MediaWikiChat, коли користувач усуває іншого',
 	'logentry-chat-kick' => '$1 {{GENDER:$1|усунув|усунула}} $4',
-	'log-show-hide-privatechat' => '$1 журнал чату', # Fuzzy
+	'log-show-hide-chat' => '$1 журнал чату',
+	'log-name-privatechat' => 'Журнал приватного чату',
+	'log-description-privatechat' => 'Приватні повідомлення від MediaWikiChat',
+	'logentry-privatechat-send' => '$1 до $5: $4',
+	'log-show-hide-privatechat' => '$1 журнал приватного чату',
 	'group-chatmod' => 'Модератори чату',
 	'group-chatmod-member' => '{{GENDER:$1|модератор чату|модераторка чату}}',
 	'grouppage-chatmod' => '{{ns:project}}:модератори чату',
@@ -1532,6 +1543,7 @@ $messages['uk'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}: заблоковані у чаті користувачі',
 	'right-mediawikichat-chat' => 'Використовувати Special:Chat',
 	'right-mediawikichat-modchat' => 'Блокувати та усувати (коли увімкнено) користувачів із Special:Chat',
+	'tog-chat-fullscreen' => 'Використовувати чат в повноекранному режимі (експериментальна функція)',
 	'tog-chat-ping-mention' => 'Подавати звуковий сигнал при одержанні згадки',
 	'tog-chat-ping-pm' => 'Подавати звуковий сигнал при одержанні приватних повідомлень',
 	'tog-chat-ping-message' => 'Подавати звуковий сигнал при отриманні нормальних повідомлень',
