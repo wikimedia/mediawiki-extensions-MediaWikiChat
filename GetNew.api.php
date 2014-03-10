@@ -135,9 +135,9 @@ class ChatGetNewAPI extends ApiBase {
 				}
 				if ( array_key_exists( $id, $onlineUsers ) ) {
 					$result->addValue( array( $mName, 'users', $idString ), 'online', true );
-				}
-				if ( $onlineUsers[$id] ) {
-					$result->addValue( array( $mName, 'users', $idString ), 'away', true );
+					if ( $onlineUsers[$id] ) {
+						$result->addValue( array( $mName, 'users', $idString ), 'away', true );
+					}
 				}
 				$groups = $userObject->getGroups();
 				if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
