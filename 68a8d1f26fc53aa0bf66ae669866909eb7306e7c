@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e04eb01_3313beba",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2014-03-10T09:10:38Z",
+      "side": 1,
+      "message": "This needs explicit GENDER support on $1 and $5.",
+      "revId": "68a8d1f26fc53aa0bf66ae669866909eb7306e7c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
