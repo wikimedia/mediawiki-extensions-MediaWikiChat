@@ -240,6 +240,7 @@ Parameters:
 	'tog-chat-ping-message' => 'Label for checkbox for whether to use chat in fullscreen.',
 	'prefs-chat' => 'Header for the chat preferences at [[Special:Preferences]].
 {{Identical|Chat}}',
+	'chat-away-link' => '{{Identical|Online}}',
 );
 
 /** Arabic (العربية)
@@ -348,6 +349,9 @@ $messages['ce'] = array(
 	'group-chatmod-member' => '{{GENDER:$1|чатан модератор}}',
 	'right-mediawikichat-chat' => 'Лела йе Special:Chat',
 	'prefs-chat' => 'Чат',
+	'chat-away-link' => 'онлайнехь',
+	'chat-back-link' => 'араваьлла',
+	'chat-user-is-away' => 'ХӀара декъашхо араваьлла',
 );
 
 /** German (Deutsch)
@@ -411,6 +415,9 @@ $messages['de'] = array(
 	'tog-chat-ping-pm' => 'Einen Sound beim Erhalt privater Nachrichten abspielen',
 	'tog-chat-ping-message' => 'Einen Sound beim Erhalt normaler Nachrichten abspielen',
 	'prefs-chat' => 'Chat',
+	'chat-away-link' => 'Online',
+	'chat-back-link' => 'Abwesend',
+	'chat-user-is-away' => 'Dieser Benutzer ist abwesend',
 );
 
 /** British English (British English)
@@ -478,6 +485,7 @@ $messages['es'] = array(
 
 /** Persian (فارسی)
  * @author Armin1392
+ * @author Reza1615
  */
 $messages['fa'] = array(
 	'chat' => 'گفتگو',
@@ -534,6 +542,9 @@ $messages['fa'] = array(
 	'tog-chat-ping-pm' => 'پخش صدا در پیام‌های خصوصی دریافتی',
 	'tog-chat-ping-message' => 'پخش صدا در پیام‌های عادی دریافتی',
 	'prefs-chat' => 'گفتگو',
+	'chat-away-link' => 'برخط',
+	'chat-back-link' => 'دور',
+	'chat-user-is-away' => 'این کاربر دور است',
 );
 
 /** Finnish (suomi)
@@ -606,10 +617,14 @@ $messages['fr'] = array(
 	'tog-chat-ping-pm' => 'Jouer un son lors de la réception de messages privés',
 	'tog-chat-ping-message' => 'Jouer un son lors de la réception de messages normaux',
 	'prefs-chat' => 'Discussion',
+	'chat-away-link' => 'en ligne',
+	'chat-back-link' => 'absent',
+	'chat-user-is-away' => 'Cet utilisateur est absent',
 );
 
 /** Hebrew (עברית)
  * @author Danny-w
+ * @author Inkbug
  * @author Mbkv717
  * @author איתן96
  * @author תומר ט
@@ -626,7 +641,7 @@ $messages['he'] = array(
 	'chat-a-minute-ago' => 'לפני דקה',
 	'chat-yesterday' => 'אתמול',
 	'chat-block' => 'חסום',
-	'chat-change-preferences' => "שנה את העדפות הצ'אט שלך", # Fuzzy
+	'chat-change-preferences' => "שנה את העדפות הצ'אט שלך (מסך מלא וצלילים)",
 	'chat-sidebar-online' => "משתמשים מחוברים בצ'אט:",
 	'chat-sidebar-join' => "הצטרפות לצ'אט",
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
@@ -642,6 +657,7 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Adithyavr
  * @author Siddhartha Ghai
  * @author Vivek Rai
  */
@@ -654,6 +670,9 @@ $messages['hi'] = array(
 	'tog-chat-ping-pm' => 'निजी संदेश प्राप्त करने पर कोई ध्वनि चलाएँ',
 	'tog-chat-ping-message' => 'सामान्य संदेश प्राप्त करने पर कोई ध्वनि चलाएँ',
 	'prefs-chat' => 'चैट',
+	'chat-away-link' => 'ऑनलाइन',
+	'chat-back-link' => 'दूर',
+	'chat-user-is-away' => 'यह उपयोग्कर्ता दूर है',
 );
 
 /** Armenian (Հայերեն)
@@ -728,6 +747,7 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Hiro884
  * @author Shirayuki
  */
 $messages['ja'] = array(
@@ -770,6 +790,9 @@ $messages['ja'] = array(
 	'tog-chat-ping-pm' => '非公開メッセージが届いた際にサウンドを再生',
 	'tog-chat-ping-message' => '通常のメッセージが届いた際にサウンドを再生',
 	'prefs-chat' => 'チャット',
+	'chat-away-link' => 'オンライン',
+	'chat-back-link' => '退席中',
+	'chat-user-is-away' => 'このユーザーは退席中です',
 );
 
 /** Georgian (ქართული)
@@ -865,6 +888,9 @@ $messages['lb'] = array(
 	'group-blockedfromchat' => 'Benotzer déi fir den Chat gespaart sinn',
 	'right-mediawikichat-chat' => 'Special:Chat benotzen',
 	'prefs-chat' => 'Chat',
+	'chat-away-link' => 'online',
+	'chat-back-link' => 'net do',
+	'chat-user-is-away' => 'Dëse Benotzer ass net do.',
 );
 
 /** Lithuanian (lietuvių)
@@ -969,6 +995,18 @@ $messages['mk'] = array(
 	'tog-chat-ping-pm' => 'Пуштај звуци кога ќе добивам лични пораки',
 	'tog-chat-ping-message' => 'Пуштај звуци кога ќе се појават нормални пораки',
 	'prefs-chat' => 'Разговор',
+	'chat-away-link' => 'на линија',
+	'chat-back-link' => 'отсутен',
+	'chat-user-is-away' => 'Корисников е отсутен',
+);
+
+/** Mongolian (монгол)
+ * @author Mongol
+ */
+$messages['mn'] = array(
+	'chat-away-link' => 'онлайн',
+	'chat-back-link' => 'хол',
+	'chat-user-is-away' => 'Энэ хэрэглэгч хол байна',
 );
 
 /** Marathi (मराठी)
@@ -1200,6 +1238,8 @@ $messages['pt'] = array(
 	'tog-chat-ping-mention' => 'Tocar um som ao receber menções',
 	'tog-chat-ping-pm' => 'Tocar um som ao receber mensagens privadas',
 	'tog-chat-ping-message' => 'Tocar um som ao receber mensagens normais',
+	'chat-away-link' => 'online',
+	'chat-user-is-away' => 'Este utilizador está ausente',
 );
 
 /** Brazilian Portuguese (português do Brasil)
@@ -1323,6 +1363,9 @@ $messages['ru'] = array(
 	'tog-chat-ping-pm' => 'Проигрывать звук при получении личных сообщений',
 	'tog-chat-ping-message' => 'Проигрывать звук при получении обычных сообщений',
 	'prefs-chat' => 'Чат',
+	'chat-away-link' => 'в сети',
+	'chat-back-link' => 'отошёл',
+	'chat-user-is-away' => 'Этот участник отошёл',
 );
 
 /** Scots (Scots)
@@ -1345,6 +1388,9 @@ $messages['sco'] = array(
 	'tog-chat-ping-pm' => 'Pley ae soond oan receevin private messages',
 	'tog-chat-ping-message' => 'Pley ae soond oan receevin ordinair messages',
 	'prefs-chat' => 'Chat',
+	'chat-away-link' => 'online',
+	'chat-back-link' => 'awa',
+	'chat-user-is-away' => "This uiser's awa",
 );
 
 /** Sinhala (සිංහල)
@@ -1447,6 +1493,7 @@ $messages['te'] = array(
 
 /** Turkish (Türkçe)
  * @author Joseph
+ * @author Mustavanilya
  */
 $messages['tr'] = array(
 	'chat' => 'Sohbet',
@@ -1488,10 +1535,14 @@ $messages['tr'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Sohbette engellenen kullanıcılar',
 	'right-mediawikichat-chat' => 'Special:Chat kullan',
 	'right-mediawikichat-modchat' => "Special:Chat'te kullanıcıları engelle ve at (etkinleştirildiyse)",
+	'chat-away-link' => 'Çevrimiçi',
+	'chat-back-link' => 'Uzakta',
+	'chat-user-is-away' => 'Bu kullanıcı uzakta',
 );
 
 /** Ukrainian (українська)
  * @author Andriykopanytsia
+ * @author Максим Підліснюк
  */
 $messages['uk'] = array(
 	'chat' => 'Чат',
@@ -1548,6 +1599,9 @@ $messages['uk'] = array(
 	'tog-chat-ping-pm' => 'Подавати звуковий сигнал при одержанні приватних повідомлень',
 	'tog-chat-ping-message' => 'Подавати звуковий сигнал при отриманні нормальних повідомлень',
 	'prefs-chat' => 'Чат',
+	'chat-away-link' => 'в мережі',
+	'chat-back-link' => 'тимчасово відсутній',
+	'chat-user-is-away' => 'Цей користувач тимчасово відсутній',
 );
 
 /** Vietnamese (Tiếng Việt)
