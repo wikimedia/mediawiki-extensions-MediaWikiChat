@@ -244,6 +244,7 @@ Parameters:
 );
 
 /** Arabic (العربية)
+ * @author Gagnabil
  * @author Tarawneh
  */
 $messages['ar'] = array(
@@ -254,6 +255,7 @@ $messages['ar'] = array(
 	'tog-chat-ping-pm' => 'أصدر صوت عند تلقي الرسائل الخاصة',
 	'tog-chat-ping-message' => 'أصدر صوت عند تلقي الرسائل العادية',
 	'prefs-chat' => 'دردشة',
+	'chat-away-link' => 'متّصل',
 );
 
 /** Bikol Central (Bikol Central)
@@ -345,9 +347,16 @@ $messages['ce'] = array(
 	'chat-sidebar-join' => 'Чатах кхета',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'Чатан лог',
+	'log-show-hide-chat' => '$1 чатан тептар',
+	'log-name-privatechat' => 'Чатан чура долара дийцарш',
+	'log-description-privatechat' => 'MediaWikiChat тӀера бахийтина долор хаамаш',
+	'logentry-privatechat-send' => '$1 яхьийтина $5: $4',
 	'log-show-hide-privatechat' => '$1 чатан тептар', # Fuzzy
 	'group-chatmod-member' => '{{GENDER:$1|чатан модератор}}',
 	'right-mediawikichat-chat' => 'Лела йе Special:Chat',
+	'tog-chat-ping-mention' => 'Хаам беача аз хилийта',
+	'tog-chat-ping-pm' => 'Хаам беача аз хилийта',
+	'tog-chat-ping-message' => 'Хаам беача аз хилийта',
 	'prefs-chat' => 'Чат',
 	'chat-away-link' => 'онлайнехь',
 	'chat-back-link' => 'араваьлла',
@@ -1666,6 +1675,9 @@ $messages['zh-hans'] = array(
 	'chat-no-other-users' => '没有其他用户在线',
 	'chat-blocked-from-chat' => '您已经被此聊天封禁。',
 	'chat-not-allowed' => '您不被允许聊天，请先尝试登录。',
+	'chat-sounds' => '播放声音',
+	'chat-flood' => '您不能发送信息太快，请在下次发送前等待几秒。',
+	'chat-too-long' => '那个信息太长，请发送一个简短信息。',
 	'chat-just-now' => '刚刚',
 	'chat-a-minute-ago' => '一分钟前',
 	'chat-yesterday' => '昨天',
@@ -1685,13 +1697,18 @@ $messages['zh-hans'] = array(
 	'chat-user-is-moderator' => '此用户{{GENDER:$1|是}}一位版主',
 	'chat-you-are-moderator' => '您{{GENDER:$1|是}}一位版主',
 	'chat-topic' => '欢迎来到{{SITENAME}}聊天。（[[Special:Log/chat|聊天日志]]）',
+	'chat-change-preferences' => '更改您的聊天设置（全屏带声音）',
 	'chat-sidebar-online' => '聊天中的在线用户：',
 	'chat-sidebar-join' => '加入聊天',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => '聊天记录',
 	'log-description-chat' => '信息由MediaWikiChat发送，当然用户可以踢人',
 	'logentry-chat-kick' => '$1踢出了$4',
-	'log-show-hide-privatechat' => '$1聊天记录', # Fuzzy
+	'log-show-hide-chat' => '$1聊天日志',
+	'log-name-privatechat' => '私人聊天日志',
+	'log-description-privatechat' => '通过MediaWikiChat发送的私人信息',
+	'logentry-privatechat-send' => '$1至$5：$4',
+	'log-show-hide-privatechat' => '$1私人聊天日志',
 	'group-chatmod' => '聊天版主',
 	'group-chatmod-member' => '{{GENDER:$1|聊天版主}}',
 	'grouppage-chatmod' => '{{ns:project}}:聊天版主',
@@ -1700,10 +1717,14 @@ $messages['zh-hans'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:从聊天中被封禁的用户',
 	'right-mediawikichat-chat' => '使用Special:Chat',
 	'right-mediawikichat-modchat' => '从Special:Chat将用户封禁和踢人（如果可用）',
+	'tog-chat-fullscreen' => '全屏模式使用聊天（试验中）',
 	'tog-chat-ping-mention' => '接收提醒时播放一段声音',
 	'tog-chat-ping-pm' => '接收私有信息时播放一段声音',
 	'tog-chat-ping-message' => '接收正常信息时播放一段声音',
 	'prefs-chat' => '聊天',
+	'chat-away-link' => '在线',
+	'chat-back-link' => '离开',
+	'chat-user-is-away' => '此用户不在线',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
