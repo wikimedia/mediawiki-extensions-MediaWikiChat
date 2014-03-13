@@ -1094,14 +1094,16 @@ $messages['ms'] = array(
 
 /** Dutch (Nederlands)
  * @author Arent
+ * @author JurgenNL
  * @author SPQRobin
+ * @author Siebrand
  * @author Sjoerddebruin
  * @author Southparkfan
  */
 $messages['nl'] = array(
 	'chat' => 'Chat',
-	'chat-type-your-message' => 'Typ uw bericht',
-	'chat-type-your-private-message' => 'Typ uw persoonlijk bericht',
+	'chat-type-your-message' => 'Schrijf uw bericht',
+	'chat-type-your-private-message' => 'Schrijf uw persoonlijk bericht',
 	'chat-no-other-users' => 'Geen andere gebruikers op de chat',
 	'chat-not-allowed' => 'U heeft niet de benodigde rechten om te chatten, probeer eerst in te loggen.',
 	'chat-sounds' => 'Geluiden afspelen',
@@ -1116,7 +1118,7 @@ $messages['nl'] = array(
 	'chat-unblocked' => '$1 heeft $2 gedeblokkeerd.', # Fuzzy
 	'chat-left' => '$1 heeft de chat {GENDER:$2|verlaten}}.', # Fuzzy
 	'chat-private-message' => 'klik om een persoonlijk bericht te sturen',
-	'chat-user-is-moderator' => 'Deze gebruiker {{GENDER:$1|is}} een moderator',
+	'chat-user-is-moderator' => 'Deze gebruiker {{GENDER:$1|is}} moderator',
 	'chat-you-are-moderator' => 'Jij {{GENDER:$1|bent}} een moderator',
 	'chat-topic' => 'Welkom op de chat van {{SITENAME}}. ([[Special:Log/chat|logboek]])',
 	'chat-change-preferences' => 'Wijzig uw chatinstellingen', # Fuzzy
@@ -1124,7 +1126,7 @@ $messages['nl'] = array(
 	'chat-sidebar-join' => 'Chat mee',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'Chatlogboek',
-	'log-show-hide-chat' => 'chatlogboek van $1',
+	'log-show-hide-chat' => 'chatlogboek $1',
 	'log-name-privatechat' => 'Persoonlijk chatlogboek',
 	'logentry-privatechat-send' => '$1 aan $5: $4',
 	'log-show-hide-privatechat' => 'chatlogboek van $1', # Fuzzy
