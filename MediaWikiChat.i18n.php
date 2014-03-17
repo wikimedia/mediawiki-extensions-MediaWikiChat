@@ -814,6 +814,7 @@ $messages['ka'] = array(
 
 /** Korean (한국어)
  * @author Freebiekr
+ * @author Infinity
  * @author Priviet
  */
 $messages['ko'] = array(
@@ -866,6 +867,8 @@ $messages['ko'] = array(
 	'tog-chat-ping-pm' => '개인 메시지를 받았을 때 소리를 재생',
 	'tog-chat-ping-message' => '보통 메시지를 받았을 때 소리를 재생',
 	'prefs-chat' => '대화',
+	'chat-away-link' => '온라인',
+	'chat-back-link' => '자리 비움',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1236,6 +1239,7 @@ $messages['ps'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:په بانډار کې بنديز لگېدلي کارنان',
 	'right-mediawikichat-chat' => 'ځانگړې کارېدنه:بانډار',
 	'right-mediawikichat-modchat' => 'له ځانگړي:بانډار څخه کارنان شړي او بنديز پرې لگوي (که چارن شي)',
+	'chat-away-link' => 'پر ليکه',
 );
 
 /** Portuguese (português)
