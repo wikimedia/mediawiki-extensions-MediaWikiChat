@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee14bf34_f3227da1",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2014-03-18T13:33:18Z",
+      "side": 1,
+      "message": "qqq missing.",
+      "revId": "19e5ff7cd186347f39858ec227077f19bb5dbab4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee14bf34_103047fb",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2014-03-18T13:33:18Z",
+      "side": 1,
+      "message": "* Should be two sentences.\n* qqq missing.",
+      "revId": "19e5ff7cd186347f39858ec227077f19bb5dbab4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee14bf34_3319157f",
+        "filename": "MediaWikiChat.i18n.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2014-03-18T13:33:18Z",
+      "side": 1,
+      "message": "Please do not add features and translations in the same commit. Either add them in a separate commit or use translatewiki.net.",
+      "revId": "19e5ff7cd186347f39858ec227077f19bb5dbab4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
