@@ -485,12 +485,16 @@ $messages['es'] = array(
 	'chat-sidebar-online' => 'Usuarios conectados al chat:',
 	'chat-sidebar-join' => 'Únete a la charla',
 	'log-name-chat' => 'Registro de la charla',
+	'logentry-privatechat-send' => '$1 a $5: $4',
 	'log-show-hide-privatechat' => '$1 registro de chat', # Fuzzy
 	'group-chatmod' => 'Moderadores del chat',
 	'group-chatmod-member' => '{{GENDER:$1|moderador|moderadora}} del chat',
 	'grouppage-chatmod' => '{{ns:project}}:Moderadores del chat',
 	'group-blockedfromchat' => 'Usuarios bloqueados del chat',
 	'right-mediawikichat-chat' => 'Uso Special:Chat',
+	'chat-away-link' => 'conectado',
+	'chat-back-link' => 'ausente',
+	'chat-user-is-away' => 'Este usuario está ausente',
 );
 
 /** Persian (فارسی)
