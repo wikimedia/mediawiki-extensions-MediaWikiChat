@@ -355,7 +355,7 @@ var MediaWikiChat = {
 
 		if ( hours > 1 ) {
 			tooltip = mw.message( 'chat-idle-hours', Math.round( hours ) );
-			decimal = 1;
+			hours = 1;
 		} else {
 			var minutes = microseconds / 6000;
 			if ( minutes > 10 ) {
