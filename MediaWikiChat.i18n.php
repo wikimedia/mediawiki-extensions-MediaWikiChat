@@ -85,6 +85,7 @@ $messages['en'] = array(
 
 	'chat-idle-minutes' => 'This user has been idle for {{PLURAL:$1|a minute|$1 minutes}}',
 	'chat-idle-hours' => 'This user has been idle for {{PLURAL:$1|an hour|$1 hours}}',
+	'chat-idle-more' => 'This user has been idle for over 24 hours',
 );
 
 /** Message documentation (Message documentation)
@@ -241,6 +242,7 @@ Parameters:
 {{Identical|Chat}}',
 	'chat-idle-minutes' => 'Tooltip for users who have been away for over 10 minutes. The number of minutes is $1. {{Related|Chat-idle-hours}}',
 	'chat-idle-hours' => 'Tooltip for users who have been away for over 1 hour. The number of hours is $1. {{Related|Chat-idle-minutes}}',
+	'chat-idle-more' => 'Tooltip for users who have been away for over 24 hours.'
 );
 
 /** Arabic (العربية)
