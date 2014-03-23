@@ -242,7 +242,7 @@ Parameters:
 {{Identical|Chat}}',
 	'chat-idle-minutes' => 'Tooltip for users who have been away for over 10 minutes. The number of minutes is $1. {{Related|Chat-idle-hours}}',
 	'chat-idle-hours' => 'Tooltip for users who have been away for over 1 hour. The number of hours is $1. {{Related|Chat-idle-minutes}}',
-	'chat-idle-more' => 'Tooltip for users who have been away for over 24 hours.'
+	'chat-idle-more' => 'Tooltip for users who have been away for over 24 hours.',
 );
 
 /** Arabic (العربية)
@@ -426,9 +426,9 @@ $messages['de'] = array(
 	'tog-chat-ping-pm' => 'Einen Sound beim Erhalt privater Nachrichten abspielen',
 	'tog-chat-ping-message' => 'Einen Sound beim Erhalt normaler Nachrichten abspielen',
 	'prefs-chat' => 'Chat',
-	'chat-away-link' => 'Online',
-	'chat-back-link' => 'Abwesend',
-	'chat-user-is-away' => 'Dieser Benutzer ist abwesend',
+	'chat-idle-minutes' => 'Dieser Benutzer ist seit mehr als {{PLURAL:$1|einer Minute|$1 Minuten}} inaktiv',
+	'chat-idle-hours' => 'Dieser Benutzer ist seit mehr als {{PLURAL:$1|einer Stunde|$1 Stunden}} inaktiv',
+	'chat-idle-more' => 'Dieser Benutzer ist seit mehr als 24 Stunden inaktiv',
 );
 
 /** British English (British English)
@@ -493,9 +493,6 @@ $messages['es'] = array(
 	'grouppage-chatmod' => '{{ns:project}}:Moderadores del chat',
 	'group-blockedfromchat' => 'Usuarios bloqueados del chat',
 	'right-mediawikichat-chat' => 'Uso Special:Chat',
-	'chat-away-link' => 'conectado',
-	'chat-back-link' => 'ausente',
-	'chat-user-is-away' => 'Este usuario está ausente',
 );
 
 /** Persian (فارسی)
@@ -821,12 +818,13 @@ $messages['ka'] = array(
  * @author Freebiekr
  * @author Infinity
  * @author Priviet
+ * @author 아라
  */
 $messages['ko'] = array(
 	'chat' => '채팅',
 	'chat-desc' => '가벼운 채팅 클라이언트 및 서버',
 	'chat-type-your-message' => '메시지 입력',
-	'chat-type-your-private-message' => '비공개 메시지 입력�',
+	'chat-type-your-private-message' => '비공개 메시지를 입력하세요',
 	'chat-no-other-users' => '채팅 중인 사용자가 없음',
 	'chat-blocked-from-chat' => '이 채팅에서 차단되었습니다.',
 	'chat-not-allowed' => '채팅을 할 수 없습니다. 먼저 로그인해 보세요.',
@@ -859,7 +857,7 @@ $messages['ko'] = array(
 	'log-name-chat' => '채팅 기록',
 	'log-description-chat' => '미디어위키 채팅에서 보낸 메시지와 사용자 추방',
 	'logentry-chat-kick' => '$1 사용자가 $4 사용자를 {{GENDER:$1|추방했습니다}}.',
-	'log-name-privatechat' => '비공개 메시지 기록',
+	'log-name-privatechat' => '비공개 채팅 기록',
 	'log-show-hide-privatechat' => '채팅 기록 $1', # Fuzzy
 	'group-chatmod' => '채팅 관리자',
 	'group-chatmod-member' => '{{GENDER:$1|채팅 관리자}}',
@@ -869,14 +867,11 @@ $messages['ko'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:채팅이 차단된 사용자',
 	'right-mediawikichat-chat' => 'Special:Chat 사용',
 	'right-mediawikichat-modchat' => 'Special:Chat에서 사용자를 차단하고 추방(활성화되어 있을 경우에만)',
-	'tog-chat-fullscreen' => '전체 화면에서 채팅 사용 (시험중인 기능)',
+	'tog-chat-fullscreen' => '전체 화면 모드에서 채팅 사용 (실험 기능)',
 	'tog-chat-ping-mention' => '멘션을 받았을 때 소리를 재생',
 	'tog-chat-ping-pm' => '개인 메시지를 받았을 때 소리를 재생',
 	'tog-chat-ping-message' => '보통 메시지를 받았을 때 소리를 재생',
 	'prefs-chat' => '대화',
-	'chat-away-link' => '온라인',
-	'chat-back-link' => '자리 비움',
-	'chat-user-is-away' => '이 사용자는 자리 비움 상태입니다.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -909,9 +904,7 @@ $messages['lb'] = array(
 	'group-blockedfromchat' => 'Benotzer déi fir den Chat gespaart sinn',
 	'right-mediawikichat-chat' => 'Special:Chat benotzen',
 	'prefs-chat' => 'Chat',
-	'chat-away-link' => 'online',
-	'chat-back-link' => 'net do',
-	'chat-user-is-away' => 'Dëse Benotzer ass net do.',
+	'chat-idle-hours' => 'Dëse Benotzer ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv',
 );
 
 /** Lithuanian (lietuvių)
@@ -1387,9 +1380,9 @@ $messages['ru'] = array(
 	'tog-chat-ping-pm' => 'Проигрывать звук при получении личных сообщений',
 	'tog-chat-ping-message' => 'Проигрывать звук при получении обычных сообщений',
 	'prefs-chat' => 'Чат',
-	'chat-away-link' => 'в сети',
-	'chat-back-link' => 'отошёл',
-	'chat-user-is-away' => 'Этот участник отошёл',
+	'chat-idle-minutes' => 'Этот пользователь неактивен {{PLURAL:$1|минуту|$1 минут|$1 минуты}}',
+	'chat-idle-hours' => 'Этот пользователь неактивен {{PLURAL:$1|час|$1 часов|$1 часа}}',
+	'chat-idle-more' => 'Этот пользователь неактивен более 24 часов',
 );
 
 /** Scots (Scots)
@@ -1500,9 +1493,6 @@ $messages['sv'] = array(
 	'tog-chat-ping-pm' => 'Spela upp ett ljud när privata meddelanden tas emot',
 	'tog-chat-ping-message' => 'Spela upp ett ljud när normala meddelanden tas emot',
 	'prefs-chat' => 'Chatt',
-	'chat-away-link' => 'ansluten',
-	'chat-back-link' => 'borta',
-	'chat-user-is-away' => 'Den här användaren är borta',
 );
 
 /** Telugu (తెలుగు)
@@ -1748,9 +1738,6 @@ $messages['zh-hans'] = array(
 	'tog-chat-ping-pm' => '接收私有信息时播放一段声音',
 	'tog-chat-ping-message' => '接收正常信息时播放一段声音',
 	'prefs-chat' => '聊天',
-	'chat-away-link' => '在线',
-	'chat-back-link' => '离开',
-	'chat-user-is-away' => '此用户不在线',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
