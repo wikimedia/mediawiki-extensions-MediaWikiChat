@@ -354,14 +354,18 @@ var MediaWikiChat = {
 		var tooltip = '';
 
 		if ( hours > 1 ) {
-			tooltip = mw.message( 'chat-idle-hours', Math.round( hours ) );
+			if ( hours > 24 ) {
+				tooltip = mw.message( 'chat-idle-more' ).text();
+			} else {
+				tooltip = mw.message( 'chat-idle-hours', Math.round( hours ) ).text();
+			}
 			hours = 1;
 		} else {
 			var minutes = microseconds / 6000;
 			if ( minutes > 10 ) {
-				tooltip = mw.message( 'chat-idle-minutes', Math.round( minutes ) );
+				tooltip = mw.message( 'chat-idle-minutes', Math.round( minutes ) ).text();
 			} else {
-				tooltip = mw.message( 'chat-private-message' );
+				tooltip = mw.message( 'chat-private-message' ).text();
 			}
 		}
 
