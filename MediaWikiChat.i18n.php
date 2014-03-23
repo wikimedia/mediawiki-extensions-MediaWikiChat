@@ -83,9 +83,8 @@ $messages['en'] = array(
 	'tog-chat-ping-message' => 'Play a sound on receiving normal messages',
 	'prefs-chat' => 'Chat',
 
-	'chat-away-link' => 'online',
-	'chat-back-link' => 'away',
-	'chat-user-is-away' => 'This user is away'
+	'chat-idle-minutes' => 'This user has been idle for {{PLURAL:$1|a minute|$1 minutes}}',
+	'chat-idle-hours' => 'This user has been idle for {{PLURAL:$1|an hour|$1 hours}}',
 );
 
 /** Message documentation (Message documentation)
@@ -240,8 +239,8 @@ Parameters:
 	'tog-chat-ping-message' => 'Label for checkbox for whether to use chat in fullscreen.',
 	'prefs-chat' => 'Header for the chat preferences at [[Special:Preferences]].
 {{Identical|Chat}}',
-	'chat-away-link' => '{{Identical|Online}}',
-	'chat-back-link' => '{{Identical|Away}}',
+	'chat-idle-minutes' => 'Tooltip for users who have been away for over 10 minutes. The number of minutes is $1. {{Related|Chat-idle-hours}}',
+	'chat-idle-hours' => 'Tooltip for users who have been away for over 1 hour. The number of hours is $1. {{Related|Chat-idle-minutes}}',
 );
 
 /** Arabic (العربية)

@@ -138,8 +138,9 @@ var MediaWikiChat = {
 				if ( user.mod ) {
 					MediaWikiChat.userData[userId].mod = true;
 				}
-				if ( user.online ) {
+				if ( user.online && user.id != mw.config.get( 'wgUserId' ) ) {
 					onlineUsers[onlineUsers.length] = userId;
+					MediaWikiChat.userData[userId].away = user.away;
 				}
 			}
 
@@ -149,13 +150,9 @@ var MediaWikiChat = {
 
 			for ( var userId in data.users ) { // has to be done after doUsers
 				user = MediaWikiChat.userData[userId];
-				userE = MediaWikiChat.safe( user.name );
-				if ( data.users[userId].away ) {
-					$( '#mwchat-users #' + userE ).addClass( 'mwchat-grey' );
-					$( '#mwchat-users #' + userE + ' .mwchat-useritem-header' ).attr( 'title', mw.message( 'chat-user-is-away' ).text() );
-				} else {
-					$( '#mwchat-users #' + userE ).removeClass( 'mwchat-grey' );
-					$( '#mwchat-users #' + userE + ' .mwchat-useritem-header' ).attr( 'title', mw.message( 'chat-private-message' ).text() );
+				if ( user.id != mw.config.get( 'wgUserId' ) ) {
+					userE = MediaWikiChat.safe( user.name );
+					MediaWikiChat.greyscale( $( '#mwchat-users #' + userE ), user.away );
 				}
 			}
 
@@ -350,6 +347,50 @@ var MediaWikiChat = {
 		MediaWikiChat.flashPrivate();
 	},
 
+	greyscale: function( element, microseconds ) {
+		element = element.children( '.mwchat-useritem-header' );
+
+		var hours = microseconds / 360000.0; // 360000 = 1 hour.
+		var tooltip = '';
+
+		if ( hours > 1 ) {
+			tooltip = mw.message( 'chat-idle-hours', Math.round( hours ) );
+			decimal = 1;
+		} else {
+			var minutes = microseconds / 6000;
+			if ( minutes > 10 ) {
+				tooltip = mw.message( 'chat-idle-minutes', Math.round( minutes ) );
+			} else {
+				tooltip = mw.message( 'chat-private-message' );
+			}
+		}
+
+		$( element ).attr( 'title', tooltip );
+
+		// Make it so anything under 10 mins will give 0, and then the colouring happens between 10 and 60 mins
+		hours = ( hours * 1.1 ) - 0.1;
+		if ( hours < 0 ) {
+			hours = 0;
+		}
+
+		var percent = Math.round( hours * 100 );
+
+		$( element ).children( 'img' ).css( {
+			'-webkit-filter': 'grayscale(' + hours + ')', /* old webkit */
+			'-webkit-filter': 'grayscale(' + percent + '%)', /* new webkit */
+			'-moz-filter': 'grayscale(' + percent + '%)', /* mozilla */
+			'-ms-filter': 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=' + hours + ')', /* maybe ie */
+			'filter': 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=' + hours + ')', /* maybe ie */
+			'filter': 'grayscale(' + percent + '%)' /* future */
+		} );
+
+		var b = Math.round( hours * 10 + 238 ); // 238 > 248 Useritem header background gets lighter
+		$( element ).css( 'background-color', 'rgb(' + b + ', ' + b + ', ' + b + ')' );
+
+		var c = Math.round( hours * 85 ); // 0 > 85 User name text gets lighter
+		$( element ).children( 'span' ).css( 'color', 'rgb(' + c + ', ' + c + ', ' + c + ')' );
+	},
+
 	doUsers: function( newusers ) {
 		var allusers = MediaWikiChat.users.concat( newusers );
 		allusers = MediaWikiChat.unique( allusers );
@@ -380,7 +421,7 @@ var MediaWikiChat = {
 		var userE = MediaWikiChat.safe( user.name );
 
 		var html = '<div class="mwchat-useritem noshow" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
-		html += '<div class="mwchat-useritem-header" title="' + mw.message( 'chat-private-message' ).text() + '">';
+		html += '<div class="mwchat-useritem-header">';
 
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
 			html += '<img src="' + user.avatar + '" />';
@@ -538,7 +579,6 @@ var MediaWikiChat = {
 	},
 
 	audio: function( filename ) {
-		//var audio = new Audio( mw.config.get( 'wgScriptPath') + '/extensions/MediaWikiChat/burp.ogg' );
 		var audio = document.createElement( 'audio' );
 		var path = mw.config.get( 'wgScriptPath') + '/extensions/MediaWikiChat/audio/' + filename;
 
@@ -614,33 +654,6 @@ $( document ).ready( function() {
 		var height = $( '#mwchat-content' ).height();
 		$( '#mwchat-users' ).animate( { 'height': height }, 'fast' );
 		$( '#mwchat-me' ).animate( { 'top': height }, 'fast' );
-	} );
-
-	$( '#mwchat-away-link' ).click( function() {
-		if ( MediaWikiChat.away ) {
-			$.ajax( {
-				type: 'POST',
-				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-				data: { 'action': 'chataway', 'format': 'json' }
-			} ).done( function( msg ) {
-				$( '#mwchat-me' ).removeClass( 'mwchat-grey' );
-				$( '#mwchat-away-link' ).html( mw.message( 'chat-away-link' ).text() );
-				MediaWikiChat.away = false;
-				console.log( msg );
-			} );
-		} else {
-			$.ajax( {
-				type: 'POST',
-				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-				data: { 'action': 'chataway', 'away': 'away', 'format': 'json' }
-			} ).done( function( msg ) {
-				$( '#mwchat-me' ).addClass( 'mwchat-grey' );
-				$( '#mwchat-away-link' ).html( mw.message( 'chat-back-link' ).text() );
-				MediaWikiChat.away = true;
-				console.log( msg );
-			} );
-		}
-
 	} );
 } );
 

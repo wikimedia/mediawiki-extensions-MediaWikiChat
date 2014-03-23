@@ -142,22 +142,3 @@
 #mwchat-type {
 	position: relative;
 }
-#mwchat-away-link {
-	float: right;
-	margin-right: 5px;
-}
-.mwchat-grey img {
-	-webkit-filter: grayscale(1); /* old webkit */
-	-webkit-filter: grayscale(100%); /* new webkit */
-	-moz-filter: grayscale(100%); /* safari */
-	-ms-filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /* maybe ie */
-	filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /* maybe ie */
-	filter: gray; /* maybe ie */
-	filter: grayscale(100%); /* future */
-}
-.mwchat-grey span, .mwchat-grey a {
-	color: #555 !important;
-}
-.mwchat-grey .mwchat-useritem-header {
-	background-color: #f8f8f8;
-}

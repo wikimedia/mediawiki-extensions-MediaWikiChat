@@ -1,1 +1,1 @@
-ALTER TABLE `chat_users` ADD cu_away boolean
+ALTER TABLE `chat_users` ADD cu_away binary(12)
