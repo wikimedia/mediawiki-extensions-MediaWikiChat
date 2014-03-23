@@ -77,7 +77,8 @@ class MediaWikiChat {
 		if ( $wgUser->isAllowed( 'chat' ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 
-			$timestamp = MediaWikiChat::now() - $wgChatOnlineTimeout;
+			$now = MediaWikiChat::now();
+			$timestamp = $now - $wgChatOnlineTimeout;
 
 			$res = $dbr->select(
 				'chat_users',
@@ -92,7 +93,11 @@ class MediaWikiChat {
 			$data = array();
 
 			foreach ( $res as $row ) {
-				$data[$row->cu_user_id] = $row->cu_away == true;
+				$away = $row->cu_away;
+
+				$data[$row->cu_user_id] = $now - $away; // number of microseconds since user was last seen
+
+				file_put_contents( 'c:/temp/now.log', "$now - $away" );
 			}
 			return $data;
 		} else {
@@ -270,5 +275,20 @@ class MediaWikiChat {
 				__METHOD__
 			);
 		}
+	}
+
+	/**
+	 * Update the away timestamp (last time user sent message) for the given user to now
+	 *
+	 * @param User $user
+	 */
+	static function updateAway( User $user ) {
+		$dbw = wfGetDB( DB_MASTER );
+
+		$dbw->update(
+			'chat_users',
+			array( 'cu_away' => MediaWikiChat::now() ),
+			array( 'cu_user_id' => $user->getId() )
+		);
 	}
 }

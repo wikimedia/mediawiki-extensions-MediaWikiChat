@@ -4,7 +4,7 @@
 class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
-		global $wgChatSocialAvatars;
+		global $wgChatSocialAvatars, $wgChatOnlineTimeout;
 
 		$result = $this->getResult();
 		$mName = $this->getModuleName();
@@ -17,14 +17,12 @@ class ChatGetNewAPI extends ApiBase {
 
 			$thisCheck = MediaWikiChat::now();
 
-			$res = $dbr->selectField(
+			$lastCheck = $dbr->selectField(
 				'chat_users',
 				'cu_timestamp',
 				array( 'cu_user_id' => $user->getId() ),
 				__METHOD__
 			);
-
-			$lastCheck = strval( $res );
 
 			if ( $lastCheck ) {
 				$dbw->update(
@@ -33,6 +31,11 @@ class ChatGetNewAPI extends ApiBase {
 					array( 'cu_user_id' => $user->getId() ),
 					__METHOD__
 				);
+
+				if ( $lastCheck < $thisCheck - $wgChatOnlineTimeout ) {
+					MediaWikiChat::updateAway( $user ); // user is returning from offline, so say they're not away
+				}
+
 			} else {
 				$dbw->insert(
 					'chat_users',
@@ -135,9 +138,7 @@ class ChatGetNewAPI extends ApiBase {
 				}
 				if ( array_key_exists( $id, $onlineUsers ) ) {
 					$result->addValue( array( $mName, 'users', $idString ), 'online', true );
-					if ( $onlineUsers[$id] ) {
-						$result->addValue( array( $mName, 'users', $idString ), 'away', true );
-					}
+					$result->addValue( array( $mName, 'users', $idString ), 'away', $onlineUsers[$id] );
 				}
 				$groups = $userObject->getGroups();
 				if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {

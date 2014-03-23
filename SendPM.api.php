@@ -42,6 +42,7 @@ class ChatSendPMAPI extends ApiBase {
 				$logEntry->insert();
 
 				MediaWikiChat::deleteEntryIfNeeded();
+				MediaWikiChat::updateAway( $user );
 
 				$result->addValue( $this->getModuleName(), 'timestamp', $timestamp );
 
