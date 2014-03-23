@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 2.10.2
+ * @version 2.10
  * @author Adam Carter
  * @copyright Copyright 2013, Adam Carter
  */
@@ -17,7 +17,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.10.2',
+	'version' => '2.10.3',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
