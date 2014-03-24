@@ -629,9 +629,9 @@ $messages['fr'] = array(
 	'tog-chat-ping-pm' => 'Jouer un son lors de la réception de messages privés',
 	'tog-chat-ping-message' => 'Jouer un son lors de la réception de messages normaux',
 	'prefs-chat' => 'Discussion',
-	'chat-away-link' => 'en ligne',
-	'chat-back-link' => 'absent',
-	'chat-user-is-away' => 'Cet utilisateur est absent',
+	'chat-idle-minutes' => 'Cet utilisateur est inactif depuis {{PLURAL:$1|a minute|$1 minutes}}',
+	'chat-idle-hours' => 'Cet utilisateur est inactif depuis {{PLURAL:$1|une heure|$1 heures}}',
+	'chat-idle-more' => 'Cet utilisateur est inactif depuis plus de 24 heures',
 );
 
 /** Hebrew (עברית)
@@ -1009,9 +1009,9 @@ $messages['mk'] = array(
 	'tog-chat-ping-pm' => 'Пуштај звуци кога ќе добивам лични пораки',
 	'tog-chat-ping-message' => 'Пуштај звуци кога ќе се појават нормални пораки',
 	'prefs-chat' => 'Разговор',
-	'chat-away-link' => 'на линија',
-	'chat-back-link' => 'отсутен',
-	'chat-user-is-away' => 'Корисников е отсутен',
+	'chat-idle-minutes' => 'Корисников е неактивен веќе {{PLURAL:$1|една минута|$1 минути}}',
+	'chat-idle-hours' => 'Корисников е неактивен веќе {{PLURAL:$1|еден час|$1 часа}}',
+	'chat-idle-more' => 'Корисников е неактивен повеќе од 24 часа.',
 );
 
 /** Mongolian (монгол)
@@ -1624,9 +1624,9 @@ $messages['uk'] = array(
 	'tog-chat-ping-pm' => 'Подавати звуковий сигнал при одержанні приватних повідомлень',
 	'tog-chat-ping-message' => 'Подавати звуковий сигнал при отриманні нормальних повідомлень',
 	'prefs-chat' => 'Чат',
-	'chat-away-link' => 'в мережі',
-	'chat-back-link' => 'тимчасово відсутній',
-	'chat-user-is-away' => 'Цей користувач тимчасово відсутній',
+	'chat-idle-minutes' => 'Це користувач не діяв {{PLURAL:$1|хвилину|$1 хвилин|$1 хвилини}}',
+	'chat-idle-hours' => 'Це користувач не діяв {{PLURAL:$1|годину|$1 годин|$1 години}}',
+	'chat-idle-more' => 'Цей користувач простоює протягом 24 годин',
 );
 
 /** Vietnamese (Tiếng Việt)
