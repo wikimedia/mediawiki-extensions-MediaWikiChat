@@ -240,9 +240,14 @@ Parameters:
 	'tog-chat-ping-message' => 'Label for checkbox for whether to use chat in fullscreen.',
 	'prefs-chat' => 'Header for the chat preferences at [[Special:Preferences]].
 {{Identical|Chat}}',
-	'chat-idle-minutes' => 'Tooltip for users who have been away for over 10 minutes. The number of minutes is $1. {{Related|Chat-idle-hours}}',
-	'chat-idle-hours' => 'Tooltip for users who have been away for over 1 hour. The number of hours is $1. {{Related|Chat-idle-minutes}}',
-	'chat-idle-more' => 'Tooltip for users who have been away for over 24 hours.',
+	'chat-idle-minutes' => 'Tooltip for users who have been away for over 10 minutes. Parameters:
+* $1 - the number of minutes
+{{Related|Chat-idle}}',
+	'chat-idle-hours' => 'Tooltip for users who have been away for over 1 hour. Parameters:
+* $1 - the number of hours
+{{Related|Chat-idle}}',
+	'chat-idle-more' => 'Tooltip for users who have been away for over 24 hours.
+{{Related|Chat-idle}}',
 );
 
 /** Arabic (العربية)
