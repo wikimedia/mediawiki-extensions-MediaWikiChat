@@ -32,10 +32,6 @@ class ChatGetNewAPI extends ApiBase {
 					__METHOD__
 				);
 
-				if ( $lastCheck < $thisCheck - $wgChatOnlineTimeout ) {
-					MediaWikiChat::updateAway( $user ); // user is returning from offline, so say they're not away
-				}
-
 			} else {
 				$dbw->insert(
 					'chat_users',
@@ -46,6 +42,10 @@ class ChatGetNewAPI extends ApiBase {
 					__METHOD__
 				);
 				$lastCheck = 0;
+			}
+
+			if ( $lastCheck < $thisCheck - $wgChatOnlineTimeout || $this->getMain()->getVal( 'focussed' ) ) {
+				MediaWikiChat::updateAway( $user ); // user is returning from offline, so say they're not away, or their window is marked as focussed.
 			}
 
 			$res = $dbr->select(
@@ -166,11 +166,16 @@ class ChatGetNewAPI extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return parent::getAllowedParams();
+		return array(
+			'focussed' => array(
+				ApiBase::PARAM_REQUIRED => false,
+				ApiBase::PARAM_TYPE => 'boolean'
+			)
+		);
 	}
 
 	public function getParamDescription() {
-		return parent::getParamDescription();
+		return array( 'focussed' => 'is the user looking at the chat right now. Ie, is it focussed?' );
 	}
 
 	public function getExamples() {

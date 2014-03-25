@@ -123,9 +123,13 @@ var MediaWikiChat = {
 	},
 
 	getNew: function() {
+		var focussed = '';
+		if ( MediaWikiChat.focussed ) {
+			focussed = 'true';
+		}
 		$.ajax( {
 			url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-			data: { 'action': 'chatgetnew', 'format': 'json' },
+			data: { 'action': 'chatgetnew', 'format': 'json', 'focussed': focussed },
 			cache: false
 		} ).done( function( response ) {
 			var data = response.chatgetnew;
