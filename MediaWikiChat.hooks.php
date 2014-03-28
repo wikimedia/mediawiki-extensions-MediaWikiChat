@@ -89,7 +89,7 @@ class MediaWikiChatHooks {
 						background-position: right 1em center;
 						background-repeat: no-repeat;
 						background-image: url($avatar);";
-					if ( $away < MediaWikiChat::now() - 10 ) {
+					if ( $away < MediaWikiChat::now() - 120000 ) {
 						$style .= "-webkit-filter: grayscale(1); /* old webkit */
 							-webkit-filter: grayscale(100%); /* new webkit */
 							-moz-filter: grayscale(100%); /* safari */
