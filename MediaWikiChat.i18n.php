@@ -262,7 +262,6 @@ $messages['ar'] = array(
 	'tog-chat-ping-pm' => 'أصدر صوت عند تلقي الرسائل الخاصة',
 	'tog-chat-ping-message' => 'أصدر صوت عند تلقي الرسائل العادية',
 	'prefs-chat' => 'دردشة',
-	'chat-away-link' => 'متّصل',
 );
 
 /** Bikol Central (Bikol Central)
@@ -365,9 +364,6 @@ $messages['ce'] = array(
 	'tog-chat-ping-pm' => 'Хаам беача аз хилийта',
 	'tog-chat-ping-message' => 'Хаам беача аз хилийта',
 	'prefs-chat' => 'Чат',
-	'chat-away-link' => 'онлайнехь',
-	'chat-back-link' => 'араваьлла',
-	'chat-user-is-away' => 'ХӀара декъашхо араваьлла',
 );
 
 /** German (Deutsch)
@@ -559,9 +555,6 @@ $messages['fa'] = array(
 	'tog-chat-ping-pm' => 'پخش صدا در پیام‌های خصوصی دریافتی',
 	'tog-chat-ping-message' => 'پخش صدا در پیام‌های عادی دریافتی',
 	'prefs-chat' => 'گفتگو',
-	'chat-away-link' => 'برخط',
-	'chat-back-link' => 'دور',
-	'chat-user-is-away' => 'این کاربر دور است',
 );
 
 /** Finnish (suomi)
@@ -687,9 +680,6 @@ $messages['hi'] = array(
 	'tog-chat-ping-pm' => 'निजी संदेश प्राप्त करने पर कोई ध्वनि चलाएँ',
 	'tog-chat-ping-message' => 'सामान्य संदेश प्राप्त करने पर कोई ध्वनि चलाएँ',
 	'prefs-chat' => 'चैट',
-	'chat-away-link' => 'ऑनलाइन',
-	'chat-back-link' => 'दूर',
-	'chat-user-is-away' => 'यह उपयोग्कर्ता दूर है',
 );
 
 /** Armenian (Հայերեն)
@@ -699,7 +689,6 @@ $messages['hy'] = array(
 	'chat' => 'Վիճակագրություն',
 	'chat-type-your-message' => 'Մուտքագրեք ձեր հաղորդագրությունը',
 	'chat-a-minute-ago' => 'մի քանի րոպե առաջ',
-	'chat-minutes-ago' => '{{PLURAL:$1|$1 րոպե|$1 րոպե}} առաջ', # Fuzzy
 );
 
 /** Italian (italiano)
@@ -807,9 +796,6 @@ $messages['ja'] = array(
 	'tog-chat-ping-pm' => '非公開メッセージが届いた際にサウンドを再生',
 	'tog-chat-ping-message' => '通常のメッセージが届いた際にサウンドを再生',
 	'prefs-chat' => 'チャット',
-	'chat-away-link' => 'オンライン',
-	'chat-back-link' => '退席中',
-	'chat-user-is-away' => 'このユーザーは退席中です',
 );
 
 /** Georgian (ქართული)
@@ -937,8 +923,8 @@ $messages['map-bms'] = array(
 	'chat' => 'Dopokan',
 	'chat-blocked-from-chat' => 'Rika wis diblokir sekang dopokan kiye.',
 	'chat-a-minute-ago' => 'semenit kepungkur',
-	'chat-kicked' => '$1 {{GENDER:$3|ditendang}} $2',
 	'chat-kick' => 'tendang',
+	'chat-kicked' => '$1 {{GENDER:$3|ditendang}} $2',
 	'chat-user-is-moderator' => 'Pangganggo kiye {{GENDER:$1|kuwe}} moderator',
 	'chat-topic' => 'Sugeng rawuh nang dopokan {{SITENAME}}. ([[Special:Log/chat|log dopokan]])',
 	'log-name-chat' => 'Log dopokan',
@@ -1245,7 +1231,6 @@ $messages['ps'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:په بانډار کې بنديز لگېدلي کارنان',
 	'right-mediawikichat-chat' => 'ځانگړې کارېدنه:بانډار',
 	'right-mediawikichat-modchat' => 'له ځانگړي:بانډار څخه کارنان شړي او بنديز پرې لگوي (که چارن شي)',
-	'chat-away-link' => 'پر ليکه',
 );
 
 /** Portuguese (português)
@@ -1260,11 +1245,10 @@ $messages['pt'] = array(
 	'tog-chat-ping-mention' => 'Tocar um som ao receber menções',
 	'tog-chat-ping-pm' => 'Tocar um som ao receber mensagens privadas',
 	'tog-chat-ping-message' => 'Tocar um som ao receber mensagens normais',
-	'chat-away-link' => 'online',
-	'chat-user-is-away' => 'Este utilizador está ausente',
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
  * @author Rodrigo codignoli
  */
 $messages['pt-br'] = array(
@@ -1282,7 +1266,7 @@ $messages['pt-br'] = array(
 	'chat-block' => 'bloquear',
 	'chat-youve-been-kicked' => 'Você foi {{GENDER:$2|quicado}} por $1. Recarrege a pagina para voltar ao chat',
 	'chat-you-kicked' => 'Você {{GENDER:$2|quicou}} $1',
-	'chat-kicked' => '$1{{{GENDER:$3|chutou}}', # Fuzzy
+	'chat-kicked' => '$1 {{GENDER:$3|chutou}} $2.',
 	'chat-youve-been-blocked' => 'Você foi {{GENDER:$2|bloqueado}} por $1',
 	'chat-you-blocked' => 'Você {{GENDER:$2|bloqueou}}$1',
 	'chat-blocked' => '$1 {{GENDER:$3|bloqueou}} $2',
@@ -1290,17 +1274,18 @@ $messages['pt-br'] = array(
 	'chat-unblocked' => '$1{{GENDER:$3|desbloqueou}}$2',
 	'chat-joined' => '$1 {{GENDER:$2|entrou}} no bate-papo',
 	'chat-left' => '$1 {{GENDER:$2|deixou}} o bate-papo',
-	'chat-private-message' => '(mensagen privada)', # Fuzzy
+	'chat-private-message' => 'clique para enviar uma mensagem privada',
 	'chat-user-is-moderator' => 'Esse usuario {{GENDER:$1|is}} é um moderador',
 	'chat-you-are-moderator' => 'Você {{GENDER:$1|é}}um moderador',
-	'chat-topic' => 'Bem vindo ao {{SITENAME}} bate-papo. ([[Special:Log/chat log]])', # Fuzzy
+	'chat-topic' => 'Bem-vindo ao bate-papo {{SITENAME}}. ([[Special:Log/chat|chat log]])',
 	'chat-sidebar-online' => 'Usuarios do chat que estão online:',
 	'chat-sidebar-join' => 'Entrar no site',
 	'chat-mod-image' => 'http://images.brickimedia.org/c/cb/Golden-minifigure.png',
 	'log-name-chat' => 'log do chat',
 	'log-description-chat' => 'Mensagens enviadas por MediaWikiChat, bem como usuarios quicados',
 	'logentry-chat-kick' => '$1{{GENDER:$1|quicou}} $4',
-	'log-show-hide-privatechat' => '$1 chat log', # Fuzzy
+	'log-name-privatechat' => 'Registro do chat privado',
+	'log-show-hide-privatechat' => '$1 registro do chat privado',
 	'group-chatmod' => 'Moderadores do bate-papo',
 	'group-chatmod-member' => '{{GENDER:$1|moderador do chat}}',
 	'grouppage-chatmod' => '{{ns:project}}: Moderadores de chat',
@@ -1410,9 +1395,6 @@ $messages['sco'] = array(
 	'tog-chat-ping-pm' => 'Pley ae soond oan receevin private messages',
 	'tog-chat-ping-message' => 'Pley ae soond oan receevin ordinair messages',
 	'prefs-chat' => 'Chat',
-	'chat-away-link' => 'online',
-	'chat-back-link' => 'awa',
-	'chat-user-is-away' => "This uiser's awa",
 );
 
 /** Sinhala (සිංහල)
@@ -1565,9 +1547,6 @@ $messages['tr'] = array(
 	'grouppage-blockedfromchat' => '{{ns:project}}:Sohbette engellenen kullanıcılar',
 	'right-mediawikichat-chat' => 'Special:Chat kullan',
 	'right-mediawikichat-modchat' => "Special:Chat'te kullanıcıları engelle ve at (etkinleştirildiyse)",
-	'chat-away-link' => 'Çevrimiçi',
-	'chat-back-link' => 'Uzakta',
-	'chat-user-is-away' => 'Bu kullanıcı uzakta',
 );
 
 /** Ukrainian (українська)
@@ -1800,7 +1779,4 @@ $messages['zh-hant'] = array(
 	'tog-chat-ping-pm' => '接收私人資訊時播放一部分聲音',
 	'tog-chat-ping-message' => '接收一般資訊時播放一部分聲音',
 	'prefs-chat' => '聊天',
-	'chat-away-link' => '線上',
-	'chat-back-link' => '離開',
-	'chat-user-is-away' => '此用戶離開中',
 );
