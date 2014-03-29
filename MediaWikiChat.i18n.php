@@ -272,14 +272,15 @@ $messages['bcl'] = array(
 );
 
 /** Bulgarian (български)
+ * @author DCLXVI
  * @author Mitzev
  */
 $messages['bg'] = array(
 	'chat-change-preferences' => 'Промяна на предпочитанията за чат (цял екран и звуци)',
-	'tog-chat-fullscreen' => 'Използвайте чат в режим на цял екран (експериментално)',
+	'tog-chat-fullscreen' => 'Използване на чата на цял екран (експериментално)',
 	'tog-chat-ping-mention' => 'Звуков сигнал при споменаване',
 	'tog-chat-ping-pm' => 'Звуков сигнал при получаване на лични съобщения',
-	'tog-chat-ping-message' => 'Звуков сигнал при получаване на нормални съобщения',
+	'tog-chat-ping-message' => 'Звуков сигнал при получаване на съобщения',
 );
 
 /** Bengali (বাংলা)
@@ -1395,6 +1396,9 @@ $messages['sco'] = array(
 	'tog-chat-ping-pm' => 'Pley ae soond oan receevin private messages',
 	'tog-chat-ping-message' => 'Pley ae soond oan receevin ordinair messages',
 	'prefs-chat' => 'Chat',
+	'chat-idle-minutes' => 'This uiser haes been idle fer {{PLURAL:$1|ae minute|$1 minutes}}',
+	'chat-idle-hours' => 'This uiser haes been idle fer {{PLURAL:$1|aen hoor|$1 hoors}}',
+	'chat-idle-more' => 'This uiser haes been idle fer ower 24 hoors',
 );
 
 /** Sinhala (සිංහල)
@@ -1722,6 +1726,9 @@ $messages['zh-hans'] = array(
 	'tog-chat-ping-pm' => '接收私有信息时播放一段声音',
 	'tog-chat-ping-message' => '接收正常信息时播放一段声音',
 	'prefs-chat' => '聊天',
+	'chat-idle-minutes' => '此用户已闲置$1分钟',
+	'chat-idle-hours' => '此用户已闲置$1小时',
+	'chat-idle-more' => '此用户已闲置超过24小时',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
