@@ -39,6 +39,7 @@ class SpecialChat extends SpecialPage {
 			$mention = $user->getOption( 'chat-ping-mention' );
 			$pm = $user->getOption( 'chat-ping-pm' );
 			$message = $user->getOption( 'chat-ping-message' );
+			$joinleave = $user->getOption( 'chat-ping-joinleave' );
 
 			// Load modules via ResourceLoader
 			$modules = array(
@@ -48,16 +49,17 @@ class SpecialChat extends SpecialPage {
 			$out->addModules( $modules );
 
 			$out->addJsConfigVars(
-					array(
-							'wgChatKicks' => $wgChatKicks,
-							'wgChatSocialAvatars' => $wgChatSocialAvatars,
-							'wgChatLinkUsernames' => $wgChatLinkUsernames,
-							'wgChatPingMentions' => $mention,
-							'wgChatPingPMs' => $pm,
-							'wgChatPingMessages' => $message,
-							'wgChatMeCommand' => $wgChatMeCommand,
-							'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
-					)
+				array(
+					'wgChatKicks' => $wgChatKicks,
+					'wgChatSocialAvatars' => $wgChatSocialAvatars,
+					'wgChatLinkUsernames' => $wgChatLinkUsernames,
+					'wgChatPingMentions' => $mention,
+					'wgChatPingPMs' => $pm,
+					'wgChatPingMessages' => $message,
+					'wgChatPingJoinLeaves' => $joinleave,
+					'wgChatMeCommand' => $wgChatMeCommand,
+					'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
+				)
 			);
 
 			if ( !$user->getOption( 'chat-fullscreen' ) ) {

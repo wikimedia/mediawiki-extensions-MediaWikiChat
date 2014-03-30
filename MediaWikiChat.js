@@ -275,7 +275,7 @@ var MediaWikiChat = {
 
 		if ( message.toLowerCase().indexOf( mw.config.get( 'wgUserName' ).toLowerCase() ) != -1 ) {
 			mention = true;
-			MediaWikiChat.mention();
+			MediaWikiChat.flashMention();
 		} else {
 			MediaWikiChat.flash();
 		}
@@ -488,6 +488,8 @@ var MediaWikiChat = {
 				MediaWikiChat.getNew();
 			} );
 		} );
+
+		MediaWikiChat.flashJoinLeave();
 	},
 
 	removeUser: function( userId ) {
@@ -498,6 +500,7 @@ var MediaWikiChat = {
 
 		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name, user.gender ).text(), MediaWikiChat.now() );
 		MediaWikiChat.scrollToBottom();
+		MediaWikiChat.flashJoinLeave();
 	},
 
 	clickUser: function() {
@@ -571,7 +574,7 @@ var MediaWikiChat = {
 		}
 	},
 
-	mention: function() {
+	flashMention: function() {
 		if ( !MediaWikiChat.focussed ) {
 			if ( mw.config.get( 'wgChatPingMentions' ) ) {
 				MediaWikiChat.audio( 'mention' );
@@ -579,6 +582,15 @@ var MediaWikiChat = {
 				MediaWikiChat.audio( 'message' );
 			}
 			document.title = "! " + MediaWikiChat.title;
+		}
+	},
+
+	flashJoinLeave: function() {
+		if ( !MediaWikiChat.focussed ) {
+			if ( mw.config.get( 'wgChatPingJoinLeaves' ) ) {
+				MediaWikiChat.audio( 'message' );
+			}
+			document.title = "+ " + MediaWikiChat.title;
 		}
 	},
 

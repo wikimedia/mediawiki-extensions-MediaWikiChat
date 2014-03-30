@@ -142,6 +142,11 @@ class MediaWikiChatHooks {
 				'label-message' => 'tog-chat-ping-message',
 				'section' => 'misc/chat',
 		);
+		$preferences['chat-ping-joinleave'] = array(
+				'type' => 'toggle',
+				'label-message' => 'tog-chat-ping-joinleave',
+				'section' => 'misc/chat',
+		);
 
 		return true;
 	}

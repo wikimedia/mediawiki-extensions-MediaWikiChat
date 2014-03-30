@@ -81,6 +81,7 @@ $messages['en'] = array(
 	'tog-chat-ping-mention' => 'Play a sound on receiving mentions',
 	'tog-chat-ping-pm' => 'Play a sound on receiving private messages',
 	'tog-chat-ping-message' => 'Play a sound on receiving normal messages',
+	'tog-chat-ping-joinleave' => 'Play a sound when users join or leave the chat',
 	'prefs-chat' => 'Chat',
 
 	'chat-idle-minutes' => 'This user has been idle for {{PLURAL:$1|a minute|$1 minutes}}',
@@ -232,12 +233,15 @@ Parameters:
 	'grouppage-blockedfromchat' => '{{doc-group|blockedfromchat|page}}',
 	'right-mediawikichat-chat' => '{{doc-right|mediawikichat-chat}}',
 	'right-mediawikichat-modchat' => '{{doc-right|mediawikichat-modchat}}',
-	'tog-chat-fullscreen' => 'Used as checkbox label in [[Special:Preferences]].',
+	'tog-chat-fullscreen' => 'Used as checkbox label in [[Special:Preferences]], for whether to use chat in fullscreen.',
 	'tog-chat-ping-mention' => 'Label for checkbox for whether to play a sound on receiving mentions.
 {{Related|Tog-chat-ping}}',
 	'tog-chat-ping-pm' => 'Label for checkbox for whether to play a sound on receiving private messages.
 {{Related|Tog-chat-ping}}',
-	'tog-chat-ping-message' => 'Label for checkbox for whether to use chat in fullscreen.',
+	'tog-chat-ping-message' => 'Label for checkbox for whether to play a sound on recieving messages.
+{{Related|Tog-chat-ping}}',
+	'tog-chat-ping-joinleave' => 'Label for checkbox for whether to play a sound when users join or leave the chat.
+{{Related|Tog-chat-ping}}',
 	'prefs-chat' => 'Header for the chat preferences at [[Special:Preferences]].
 {{Identical|Chat}}',
 	'chat-idle-minutes' => 'Tooltip for users who have been away for over 10 minutes. Parameters:
