@@ -5,7 +5,8 @@
             "Beta16",
             "Liuxinyu970226",
             "Raymond",
-            "Shirayuki"
+            "Shirayuki",
+            "George Barnick"
         ]
     },
     "chat": "{{doc-special|Chat}}\n{{Identical|Chat}}",
@@ -62,5 +63,8 @@
     "prefs-chat": "Header for the chat preferences at [[Special:Preferences]].\n{{Identical|Chat}}",
     "chat-idle-minutes": "Tooltip for users who have been away for over 10 minutes. Parameters:\n* $1 - the number of minutes\n{{Related|Chat-idle}}",
     "chat-idle-hours": "Tooltip for users who have been away for over 1 hour. Parameters:\n* $1 - the number of hours\n{{Related|Chat-idle}}",
-    "chat-idle-more": "Tooltip for users who have been away for over 24 hours.\n{{Related|Chat-idle}}"
+    "chat-idle-more": "Tooltip for users who have been away for over 24 hours.\n{{Related|Chat-idle}}",
+    "action-chat": "Description of chat right",
+    "action-modchat": "Description of chatmod right",
+    "action-viewpmlog": "Description of right to view private chat messages"
 }
