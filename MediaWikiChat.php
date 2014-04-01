@@ -4,7 +4,6 @@
  *
  * @file
  * @ingroup Extensions
- * @version 2.10
  * @author Adam Carter
  * @copyright Copyright 2013, Adam Carter
  */
@@ -17,7 +16,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.10.7',
+	'version' => '2.11.0',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -58,6 +57,7 @@ $wgAutoloadClasses['SpecialChat'] = $dir . 'SpecialChat.php';
 $wgAutoloadClasses['MediaWikiChat'] = $dir. 'MediaWikiChatClass.php';
 $wgAutoloadClasses['MediaWikiChatHooks'] = $dir. 'MediaWikiChat.hooks.php';
 $wgSpecialPages['Chat'] = 'SpecialChat';
+$wgMessagesDirs['MediaWikiChat'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['MediaWikiChat'] = $dir . 'MediaWikiChat.i18n.php';
 
 // Config vars
