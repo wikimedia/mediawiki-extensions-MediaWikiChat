@@ -1,7 +1,8 @@
 {
     "@metadata": {
         "authors": [
-            "Adam Carter"
+            "Adam Carter",
+            "George Barnick"
         ]
     },
     "chat": "Chat",
@@ -63,5 +64,8 @@
     "prefs-chat": "Chat",
     "chat-idle-minutes": "This user has been idle for {{PLURAL:$1|a minute|$1 minutes}}",
     "chat-idle-hours": "This user has been idle for {{PLURAL:$1|an hour|$1 hours}}",
-    "chat-idle-more": "This user has been idle for over 24 hours"
+    "chat-idle-more": "This user has been idle for over 24 hours",
+    "action-chat": "chat with other users",
+    "action-modchat": "moderate chat",
+    "action-viewpmlog": "view the private chat messages log"
 }
