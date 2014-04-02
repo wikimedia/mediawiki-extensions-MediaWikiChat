@@ -600,7 +600,7 @@ var MediaWikiChat = {
 
 	audio: function( filename ) {
 		var audio = document.createElement( 'audio' );
-		var path = mw.config.get( 'wgScriptPath') + '/extensions/MediaWikiChat/audio/' + filename;
+		var path = mw.config.get( 'wgScriptPath') + '/extensions/MediaWikiChat/assets/' + filename;
 
 		var source = document.createElement( 'source' );
 		source.type = 'audio/ogg';
