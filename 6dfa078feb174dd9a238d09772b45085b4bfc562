@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_7f288332",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 121
+      },
+      "writtenOn": "2014-04-03T06:59:55Z",
+      "side": 1,
+      "message": "Are you sure this doesn\u0027t break if the extension code is in another directory?",
+      "revId": "6dfa078feb174dd9a238d09772b45085b4bfc562",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
