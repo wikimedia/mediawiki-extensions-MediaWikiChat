@@ -35,7 +35,6 @@
     "chat-change-preferences": "更新您的聊天設定（全屏與聲音）",
     "chat-sidebar-online": "在聊天中的線上使用者：",
     "chat-sidebar-join": "加入聊天",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "聊天記錄",
     "log-description-chat": "信息由MediaWikiChat發送，當然使用者可以將別人請出",
     "logentry-chat-kick": "$1請出了$4",

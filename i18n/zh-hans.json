@@ -38,7 +38,6 @@
     "chat-change-preferences": "更改您的聊天设置（全屏带声音）",
     "chat-sidebar-online": "聊天中的在线用户：",
     "chat-sidebar-join": "加入聊天",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "聊天记录",
     "log-description-chat": "信息由MediaWikiChat发送，当然用户可以踢人",
     "logentry-chat-kick": "$1踢出了$4",

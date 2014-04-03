@@ -37,7 +37,6 @@
     "chat-change-preferences": "اولویت‌های گفتگوی خود را تغییر دهید (تمام صفحه و صداها)",
     "chat-sidebar-online": "کاربران آنلاین در گفتگو:",
     "chat-sidebar-join": "پیوستن به گفتگو",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "ورود به گفتگو",
     "log-description-chat": "پیغام‌ها توسط گفتگوی مدیاویکی، به خوبی ضربات کاربران فرستاده شده",
     "logentry-chat-kick": "$1 {{GENDER:$1|ضربه زده}} $4",

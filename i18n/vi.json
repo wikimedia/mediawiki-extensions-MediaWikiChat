@@ -30,7 +30,6 @@
     "chat-user-is-moderator": "Thành viên này {{GENDER:$1}}là một quản trị viên.",
     "chat-you-are-moderator": "Bạn {{GENDER:$1}}là quản trị viên.",
     "chat-sidebar-join": "Vào phòng trò chuyện",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "logentry-chat-kick": "$1 {{GENDER:$1}}đá ra $4.",
     "group-chatmod": "Quản trị viên của phòng trò chuyện",
     "group-chatmod-member": "{{GENDER:$1}}quản trị viên của phòng trò chuyện",

@@ -35,7 +35,6 @@
     "chat-change-preferences": "आपल्या गप्पागोष्टींचा पसंतीक्रम बदला",
     "chat-sidebar-online": "चॅट करीत असलेले ऑनलाईन सदस्य",
     "chat-sidebar-join": "चॅटला जुळा",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "चॅटच्या नोंदी",
     "log-description-chat": "मिडियाविकी चॅट तसेच सदस्य किक्स द्वारे पाठविण्यात आलेला संदेश",
     "logentry-chat-kick": "$1 ने $4 ला {{GENDER:$1|लाथाडले}}",

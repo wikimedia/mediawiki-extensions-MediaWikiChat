@@ -37,7 +37,6 @@
     "chat-change-preferences": "The title of the link taking users to [[Special:Preferences]] to change their chat preferences.",
     "chat-sidebar-online": "The header for the chat unit on the sidebar that shows online users on chat.\n\nUsed if there are one or more online users, and followed by usernames.",
     "chat-sidebar-join": "A link in the sidebar, below the currently active users, linking to [[Special:Chat]].\n{{Identical|Join the chat}}",
-    "chat-mod-image": "The URL of the image to show a user is a moderator",
     "log-name-chat": "The name of the chat log.\n\nAlso used as page title in [[Special:Log/chat]].\n\nSee also:\n* {{msg-mw|Chat-topic}}",
     "log-description-chat": "Used as description for log in [[Special:Log/chat]].",
     "logentry-chat-send": "The user $1 sent the message $4",

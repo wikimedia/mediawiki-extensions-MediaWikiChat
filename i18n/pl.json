@@ -34,7 +34,6 @@
     "chat-change-preferences": "Zmień ustawienia czatu (pełny ekran oraz dźwięki)",
     "chat-sidebar-online": "Użytkowników online na czacie:",
     "chat-sidebar-join": "Dołącz do czatu",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "Rejestr czatu",
     "group-chatmod": "Moderatorzy czatu",
     "group-chatmod-member": "{{GENDER:$1|moderator czatu|moderatorka czatu}}",

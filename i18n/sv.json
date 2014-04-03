@@ -38,7 +38,6 @@
     "chat-change-preferences": "Ändra dina chattinställningar (helskärm och ljud)",
     "chat-sidebar-online": "Anslutna användare i chatten:",
     "chat-sidebar-join": "Delta i chatten",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "Chattlogg",
     "logentry-chat-kick": "$1 {{GENDER:$1|sparkade ut}} $4.",
     "log-show-hide-chat": "$1 chattlogg",

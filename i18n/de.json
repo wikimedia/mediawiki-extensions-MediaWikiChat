@@ -38,7 +38,6 @@
     "chat-change-preferences": "Chat-Einstellungen ändern (Vollbild und Sounds)",
     "chat-sidebar-online": "Onlinebenutzer im Chat:",
     "chat-sidebar-join": "Dem Chat beitreten",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "Chat-Logbuch",
     "log-description-chat": "Dieses Logbuch protokolliert von MediaWikiChat versandte Nachrichten und Hinauswerfungen von Benutzern.",
     "logentry-chat-send": "$1: $4",
@@ -64,5 +63,8 @@
     "prefs-chat": "Chat",
     "chat-idle-minutes": "Dieser Benutzer ist seit mehr als {{PLURAL:$1|einer Minute|$1 Minuten}} inaktiv",
     "chat-idle-hours": "Dieser Benutzer ist seit mehr als {{PLURAL:$1|einer Stunde|$1 Stunden}} inaktiv",
-    "chat-idle-more": "Dieser Benutzer ist seit mehr als 24 Stunden inaktiv"
+    "chat-idle-more": "Dieser Benutzer ist seit mehr als 24 Stunden inaktiv",
+    "action-chat": "Mit anderen Benutzern chatten",
+    "action-modchat": "Chat moderieren",
+    "action-viewpmlog": "Das private Chat-Nachrichten-Logbuch ansehen"
 }

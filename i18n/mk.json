@@ -36,7 +36,6 @@
     "chat-change-preferences": "Измени нагодувања на разговорот (цел екран и звуци)",
     "chat-sidebar-online": "Корисници на линија во разговорот:",
     "chat-sidebar-join": "Приклучи се на разговорот",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "Записник на разговорот",
     "log-description-chat": "Пораки испратени од МедијаВикиРазговори, како и исфрлања на корисници",
     "logentry-chat-kick": "$1 го {{GENDER:$1|исфрли}} учесникот $4",
@@ -61,5 +60,8 @@
     "prefs-chat": "Разговор",
     "chat-idle-minutes": "Корисников е неактивен веќе {{PLURAL:$1|една минута|$1 минути}}",
     "chat-idle-hours": "Корисников е неактивен веќе {{PLURAL:$1|еден час|$1 часа}}",
-    "chat-idle-more": "Корисников е неактивен повеќе од 24 часа."
+    "chat-idle-more": "Корисников е неактивен повеќе од 24 часа.",
+    "action-chat": "разговор со други корисници",
+    "action-modchat": "модерирај разговор",
+    "action-viewpmlog": "погл. записник на пораки во личните разговори"
 }

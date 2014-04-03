@@ -33,7 +33,6 @@
     "chat-topic": "Bem-vindo ao bate-papo {{SITENAME}}. ([[Special:Log/chat|chat log]])",
     "chat-sidebar-online": "Usuarios do chat que estão online:",
     "chat-sidebar-join": "Entrar no site",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "log do chat",
     "log-description-chat": "Mensagens enviadas por MediaWikiChat, bem como usuarios quicados",
     "logentry-chat-kick": "$1{{GENDER:$1|quicou}} $4",

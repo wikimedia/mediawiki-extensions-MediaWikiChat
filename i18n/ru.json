@@ -36,7 +36,6 @@
     "chat-change-preferences": "Изменить настройки чата (полноэкранный режим и звуки)",
     "chat-sidebar-online": "Пользователи в чатеː",
     "chat-sidebar-join": "Присоединиться к чату",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "Лог чата",
     "log-description-chat": "Сообщения, отправляемые MediaWikiChat, когда участник выкидывает другого",
     "logentry-chat-kick": "$1 выбросил{{GENDER:$1||а}} $4",
@@ -61,5 +60,8 @@
     "prefs-chat": "Чат",
     "chat-idle-minutes": "Этот пользователь неактивен {{PLURAL:$1|минуту|$1 минут|$1 минуты}}",
     "chat-idle-hours": "Этот пользователь неактивен {{PLURAL:$1|час|$1 часов|$1 часа}}",
-    "chat-idle-more": "Этот пользователь неактивен более 24 часов"
+    "chat-idle-more": "Этот пользователь неактивен более 24 часов",
+    "action-chat": "пообщаться с другими участниками",
+    "action-modchat": "модерировать чат",
+    "action-viewpmlog": "посмотреть журнал личных сообщений в чате"
 }

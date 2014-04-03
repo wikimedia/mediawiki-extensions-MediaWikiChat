@@ -37,7 +37,6 @@
     "chat-change-preferences": "Cambia le tue preferenze di chat (schermo intero e suoni)",
     "chat-sidebar-online": "Utenti online in chat:",
     "chat-sidebar-join": "Entra in chat",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "Chat",
     "log-description-chat": "Messaggi inviati da MediaWikiChat, così come espulsioni utente",
     "logentry-chat-kick": "$1 {{GENDER:$1|ha espulso}} $4",

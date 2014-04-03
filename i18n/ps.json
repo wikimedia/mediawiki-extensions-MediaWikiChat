@@ -32,7 +32,6 @@
     "chat-topic": "د {{SITENAME}} بانډار ته ښه راغلئ. ([[Special:Log/chat|بانډار ته ورننوتل]])",
     "chat-sidebar-online": "په بانډار کې پرليکه کارنان:",
     "chat-sidebar-join": "بانډار کې ورگډ شئ",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "بانډار يادښت",
     "log-description-chat": "پيغامونه د مېډياويکي بانډار لخوا ولېږل شول، همداراز کارن شړل شوی",
     "logentry-chat-kick": "$4 د $1 لخوا {{GENDER:$1|وشړل شو}}",

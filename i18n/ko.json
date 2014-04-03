@@ -39,7 +39,6 @@
     "chat-change-preferences": "채팅 설정 바꾸기",
     "chat-sidebar-online": "채팅에 참여한 사용자:",
     "chat-sidebar-join": "채팅에 참여",
-    "chat-mod-image": "http://images.brickimedia.org/c/cb/Golden-minifigure.png",
     "log-name-chat": "채팅 기록",
     "log-description-chat": "미디어위키 채팅에서 보낸 메시지와 사용자 추방",
     "logentry-chat-kick": "$1 사용자가 $4 사용자를 {{GENDER:$1|추방했습니다}}.",
