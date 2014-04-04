@@ -23,5 +23,8 @@
     "prefs-chat": "The Tauk",
     "chat-idle-minutes": "This uiser haes been idle fer {{PLURAL:$1|ae minute|$1 minutes}}",
     "chat-idle-hours": "This uiser haes been idle fer {{PLURAL:$1|aen hoor|$1 hoors}}",
-    "chat-idle-more": "This uiser haes been idle fer ower 24 hoors"
+    "chat-idle-more": "This uiser haes been idle fer ower 24 hoors",
+    "action-chat": "blether wi ither uisers",
+    "action-modchat": "moderate the blether",
+    "action-viewpmlog": "see the private blether messages log"
 }
