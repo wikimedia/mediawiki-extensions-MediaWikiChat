@@ -3,7 +3,8 @@
         "authors": [
             "Fitoschido",
             "GeorgeBarnick",
-            "Sethladan"
+            "Sethladan",
+            "Miguel2706"
         ]
     },
     "chat": "Charla",
@@ -15,6 +16,7 @@
     "chat-not-allowed": "Intenta iniciar sesión primero antes de charlar.",
     "chat-sounds": "Activar sonidos",
     "chat-flood": "No puedes enviar mensajes tan rápido, vaquero.",
+    "chat-too-long": "Ese mensaje es demasiado largo, por favor escribe un mensaje mas corto.",
     "chat-just-now": "ahora mismo",
     "chat-a-minute-ago": "hace un minuto",
     "chat-yesterday": "ayer",
@@ -30,13 +32,15 @@
     "chat-unblocked": "$1 {{GENDER:$3|desbloqueó}} a $2.",
     "chat-joined": "$1 se ha {{GENDER:$2|unido}} a la charla.",
     "chat-left": "$1 ha {{GENDER:$2|abandonado}} la charla.",
-    "chat-private-message": "(mensaje privado)",
+    "chat-private-message": "Has clic en mensaje privado",
     "chat-user-is-moderator": "Est{{GENDER:$1|e usuario|a usuaria}} modera el chat.",
     "chat-you-are-moderator": "Eres {{GENDER:$1|un moderador|una moderadora}}.",
     "chat-topic": "Te damos la bienvenida al chat de {{SITENAME}}. ([[Special:Log/chat|registro del chat]])",
+    "chat-change-preferences": "Cambia tus preferencias de conversación (pantalla completa y sonidos)",
     "chat-sidebar-online": "Usuarios conectados al chat:",
     "chat-sidebar-join": "Únete a la charla",
     "log-name-chat": "Registro de la charla",
+    "log-description-chat": "Mensajes enviados por MediaWikiChat, así como patear usuarios",
     "logentry-privatechat-send": "$1 a $5: $4",
     "log-show-hide-privatechat": "$1 registro de chat",
     "group-chatmod": "Moderadores del chat",
