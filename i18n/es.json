@@ -32,7 +32,7 @@
     "chat-unblocked": "$1 {{GENDER:$3|desbloqueó}} a $2.",
     "chat-joined": "$1 se ha {{GENDER:$2|unido}} a la charla.",
     "chat-left": "$1 ha {{GENDER:$2|abandonado}} la charla.",
-    "chat-private-message": "Has clic en mensaje privado",
+    "chat-private-message": "pulsa para enviar un mensaje privado",
     "chat-user-is-moderator": "Est{{GENDER:$1|e usuario|a usuaria}} modera el chat.",
     "chat-you-are-moderator": "Eres {{GENDER:$1|un moderador|una moderadora}}.",
     "chat-topic": "Te damos la bienvenida al chat de {{SITENAME}}. ([[Special:Log/chat|registro del chat]])",
@@ -41,11 +41,14 @@
     "chat-sidebar-join": "Únete a la charla",
     "log-name-chat": "Registro de la charla",
     "log-description-chat": "Mensajes enviados por MediaWikiChat, así como patear usuarios",
+    "log-name-privatechat": "Registro de chat privado",
+    "log-description-privatechat": "Mensajes privados enviados por MediaWikiChat",
     "logentry-privatechat-send": "$1 a $5: $4",
     "log-show-hide-privatechat": "$1 registro de chat",
     "group-chatmod": "Moderadores del chat",
     "group-chatmod-member": "{{GENDER:$1|moderador|moderadora}} del chat",
     "grouppage-chatmod": "{{ns:project}}:Moderadores del chat",
     "group-blockedfromchat": "Usuarios bloqueados del chat",
-    "right-mediawikichat-chat": "Uso Special:Chat"
+    "right-mediawikichat-chat": "Uso Special:Chat",
+    "prefs-chat": "Chat"
 }
