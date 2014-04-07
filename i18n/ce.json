@@ -39,5 +39,8 @@
     "tog-chat-ping-mention": "Хаам беача аз хилийта",
     "tog-chat-ping-pm": "Хаам беача аз хилийта",
     "tog-chat-ping-message": "Хаам беача аз хилийта",
-    "prefs-chat": "Чат"
+    "prefs-chat": "Чат",
+    "action-chat": "кхечу декъашхошца къамелде",
+    "action-modchat": "модераци йе чатан",
+    "action-viewpmlog": "хьажа чатера долара хаамийн могӀаме"
 }

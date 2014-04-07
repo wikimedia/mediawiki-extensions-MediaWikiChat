@@ -50,5 +50,13 @@
     "grouppage-chatmod": "{{ns:project}}:Moderadores del chat",
     "group-blockedfromchat": "Usuarios bloqueados del chat",
     "right-mediawikichat-chat": "Uso Special:Chat",
-    "prefs-chat": "Chat"
+    "tog-chat-ping-mention": "Reproducir sonido al recibir menciones",
+    "tog-chat-ping-pm": "Reproducir sonido al recibir mensajes privados",
+    "tog-chat-ping-message": "Reproducir sonido al recibir mensajes normales",
+    "tog-chat-ping-joinleave": "Reproducir sonido cuando los usuarios se unan o dejen el chat",
+    "prefs-chat": "Chat",
+    "chat-idle-minutes": "Este usuario ha estado inactivo por {{PLURAL:$1|un minuto|$1 minutos}}",
+    "chat-idle-hours": "Este usuario ha estado inactivo por {{PLURAL:$1|una hora|$1 horas}}",
+    "chat-idle-more": "Este usuario ha estado inactivo por más de 24 horas",
+    "action-chat": "charlar con otros usuarios"
 }

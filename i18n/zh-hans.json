@@ -58,6 +58,7 @@
     "tog-chat-ping-mention": "接收提醒时播放一段声音",
     "tog-chat-ping-pm": "接收私有信息时播放一段声音",
     "tog-chat-ping-message": "接收正常信息时播放一段声音",
+    "tog-chat-ping-joinleave": "当用户加入或离开聊天时播放声音",
     "prefs-chat": "聊天",
     "chat-idle-minutes": "此用户已闲置$1分钟",
     "chat-idle-hours": "此用户已闲置$1小时",
