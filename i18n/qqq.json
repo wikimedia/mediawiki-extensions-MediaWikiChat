@@ -64,7 +64,7 @@
     "chat-idle-minutes": "Tooltip for users who have been away for over 10 minutes. Parameters:\n* $1 - the number of minutes\n{{Related|Chat-idle}}",
     "chat-idle-hours": "Tooltip for users who have been away for over 1 hour. Parameters:\n* $1 - the number of hours\n{{Related|Chat-idle}}",
     "chat-idle-more": "Tooltip for users who have been away for over 24 hours.\n{{Related|Chat-idle}}",
-    "action-chat": "Description of chat right",
-    "action-modchat": "Description of chatmod right",
-    "action-viewpmlog": "Description of right to view private chat messages"
+    "action-chat": "Description of chat right.\n\n{{Doc-action|chat}}",
+    "action-modchat": "Description of chatmod right.\n\n{{Doc-action|modchat}}",
+    "action-viewpmlog": "Description of right to view private chat messages.\n\n{{Doc-action|viewpmlog}}"
 }
