@@ -43,5 +43,6 @@
     "tog-chat-ping-pm": "非公開メッセージが届いた際にサウンドを再生",
     "tog-chat-ping-message": "通常のメッセージが届いた際にサウンドを再生",
     "tog-chat-ping-joinleave": "利用者がチャットに入室または退室した際にサウンドを再生",
-    "prefs-chat": "チャット"
+    "prefs-chat": "チャット",
+    "action-chat": "他の利用者とのチャット"
 }
