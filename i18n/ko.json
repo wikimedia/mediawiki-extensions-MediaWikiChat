@@ -4,7 +4,8 @@
             "Freebiekr",
             "Infinity",
             "Priviet",
-            "아라"
+            "아라",
+            "Keysuck"
         ]
     },
     "chat": "채팅",
@@ -43,6 +44,7 @@
     "log-description-chat": "미디어위키 채팅에서 보낸 메시지와 사용자 추방",
     "logentry-chat-kick": "$1 사용자가 $4 사용자를 {{GENDER:$1|추방했습니다}}.",
     "log-name-privatechat": "비공개 채팅 기록",
+    "log-description-privatechat": "MediaWikiChat에서 보낸 개인 메시지",
     "log-show-hide-privatechat": "채팅 기록 $1",
     "group-chatmod": "채팅 관리자",
     "group-chatmod-member": "{{GENDER:$1|채팅 관리자}}",
@@ -56,5 +58,7 @@
     "tog-chat-ping-mention": "멘션을 받았을 때 소리를 재생",
     "tog-chat-ping-pm": "개인 메시지를 받았을 때 소리를 재생",
     "tog-chat-ping-message": "보통 메시지를 받았을 때 소리를 재생",
-    "prefs-chat": "대화"
+    "prefs-chat": "대화",
+    "action-chat": "다른 사용자와 대화하기",
+    "action-modchat": "대화 중재"
 }
