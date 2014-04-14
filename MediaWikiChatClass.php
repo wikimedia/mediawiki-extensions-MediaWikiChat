@@ -176,6 +176,24 @@ class MediaWikiChat {
 	static function parseMessage( $message ) {
 		global $wgChatRichMessages, $wgUploadPath, $wgChatUseStyleAttribute;
 
+		$smileyString = wfMessage( 'smileys' )->plain();
+		$smileyData = explode( '*', $smileyString );
+
+		$smileys = array();
+
+		if ( is_array( $smileyData ) ) {
+			foreach ( $smileyData as $line ) {
+				$line = trim( $line );
+				$bits = explode( ' ', $line );
+
+				if ( count( $bits ) > 1 ) {
+					$chars = $bits[0];
+					$filename = $bits[1];
+					$smileys[$chars] = $filename;
+				}
+			}
+		}
+
 		if ( $wgChatRichMessages ) {
 			$message = str_ireplace( '[[File:', '[[:File:', $message ); // prevent users showing huge local images in chat
 
@@ -183,7 +201,13 @@ class MediaWikiChat {
 				$message = preg_replace( '#<([a-zA-z].+?) (.?)style=["\'].+?["\'](.?)>#', '<$1 $2$3>', $message ); // remove style attribute of html elements
 			}
 
-			$message = "MWCHAT $message"; // flag to show the parser this is a chat message
+			foreach ( $smileys as $chars => $filename ) {
+				$replacement = mb_encode_numericentity( $chars, array( 0x0, 0xffff, 0, 0xffff ), 'UTF-8' ); // converts ALL characters to html entities
+
+				$message = str_ireplace( "<nowiki>$chars</nowiki>", $replacement, $message );
+			}
+
+			$message = "MWCHAT $message"; // flag to show the parser this is a chat message (for our hook)
 
 			$opts = new ParserOptions();
 			$opts->setEditSection( false );
@@ -214,32 +238,21 @@ class MediaWikiChat {
 
 		$message = str_replace( '&nbsp;', ' ', str_replace( '&#160;', ' ', $message ) );
 
-		$smileyString = wfMessage( 'smileys' )->plain();
-		$smileyString = str_replace( '<', '&lt;', $smileyString ); // these make smileys with them in work,
-		$smileyString = str_replace( '>', '&gt;', $smileyString ); // as otherwise '>' and '&lt;' are compared
-		$smileyData = explode( '*', $smileyString );
-
 		$message = ' ' . $message . ' '; // to allow smileys at beginning/end of message
 
-		if ( is_array( $smileyData ) ) {
-			foreach ( $smileyData as $line ) {
-				$line = trim( $line );
-				$bits = explode( ' ', $line );
+		foreach ( $smileys as $chars => $filename ) {
+			$charsSafe = htmlspecialchars( $chars );
 
-				if ( count( $bits ) > 1 ) {
-					$chars = $bits[0];
-					$charsSafe = htmlspecialchars( $chars );
+			$chars = str_replace( '<', '&lt;', $chars ); // these make smileys with them in work,
+			$chars = str_replace( '>', '&gt;', $chars ); // as otherwise '>' and '&lt;' are compared
 
-					$filename = $bits[1];
-					$file = wfFindFile( $filename );
-					if ( $file ) {
-						$url = $file->getFullUrl();
+			$file = wfFindFile( $filename );
+			if ( $file ) {
+				$url = $file->getFullUrl();
 
-						$image = " <img src='$url' alt='$charsSafe' title='$charsSafe' /> ";
+				$image = " <img src='$url' alt='$charsSafe' title='$charsSafe' /> ";
 
-						$message = str_ireplace( ' ' . $chars . ' ', $image, $message ); // ' 's prevent converting smileys in the middle of word
-					}
-				}
+				$message = str_ireplace( " $chars ", $image, $message ); // spaces prevent converting smileys in the middle of word
 			}
 		}
 
