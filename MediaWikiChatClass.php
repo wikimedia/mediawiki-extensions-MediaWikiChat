@@ -201,11 +201,19 @@ class MediaWikiChat {
 				$message = preg_replace( '#<([a-zA-z].+?) (.?)style=["\'].+?["\'](.?)>#', '<$1 $2$3>', $message ); // remove style attribute of html elements
 			}
 
-			foreach ( $smileys as $chars => $filename ) {
-				$replacement = mb_encode_numericentity( $chars, array( 0x0, 0xffff, 0, 0xffff ), 'UTF-8' ); // converts ALL characters to html entities
+			$message = preg_replace_callback(
+				"#<nowiki>(.+?)</nowiki>#i",
+				function ( $matches ) use ( $smileys ) { // loop through instances of <nowiki>
+					$s = "<nowiki>$matches[1]</nowiki>";
+					foreach ( $smileys as $chars => $filename ) {
+						$replacement = mb_encode_numericentity( $chars, array( 0x0, 0xffff, 0, 0xffff ), 'UTF-8' ); // converts ALL characters to html entities
 
-				$message = str_ireplace( "<nowiki>$chars</nowiki>", $replacement, $message );
-			}
+						$s = str_ireplace( $chars, $replacement, $s ); // for each instance, replace smiley chars with converted versions, so they don't render
+					}
+					return $s;
+				},
+				$message
+			);
 
 			$message = "MWCHAT $message"; // flag to show the parser this is a chat message (for our hook)
 
@@ -236,21 +244,20 @@ class MediaWikiChat {
 			$message = preg_replace( '#(http[s]?\:\/\/[^ \n]+)#', '<a target="_blank" href="$1">$1</a>', $message );
 		}
 
-		$message = str_replace( '&nbsp;', ' ', str_replace( '&#160;', ' ', $message ) );
+		$message = str_replace( array( '&nbsp;', '&#160;' ), ' ', $message );
 
 		$message = ' ' . $message . ' '; // to allow smileys at beginning/end of message
 
-		foreach ( $smileys as $chars => $filename ) {
-			$charsSafe = htmlspecialchars( $chars );
+		$s = '';
 
-			$chars = str_replace( '<', '&lt;', $chars ); // these make smileys with them in work,
-			$chars = str_replace( '>', '&gt;', $chars ); // as otherwise '>' and '&lt;' are compared
+		foreach ( $smileys as $chars => $filename ) {
+			$chars = htmlspecialchars( $chars ); // needed for replacements containing special HTML characters, and for HTML
 
 			$file = wfFindFile( $filename );
 			if ( $file ) {
 				$url = $file->getFullUrl();
 
-				$image = " <img src='$url' alt='$charsSafe' title='$charsSafe' /> ";
+				$image = " <img src='$url' alt='$chars' title='$chars' /> ";
 
 				$message = str_ireplace( " $chars ", $image, $message ); // spaces prevent converting smileys in the middle of word
 			}
