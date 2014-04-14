@@ -204,7 +204,7 @@ class MediaWikiChat {
 			$message = preg_replace_callback(
 				"#<nowiki>(.+?)</nowiki>#i",
 				function ( $matches ) use ( $smileys ) { // loop through instances of <nowiki>
-					$s = "<nowiki>$matches[1]</nowiki>";
+					$s = $matches[0];
 					foreach ( $smileys as $chars => $filename ) {
 						$replacement = mb_encode_numericentity( $chars, array( 0x0, 0xffff, 0, 0xffff ), 'UTF-8' ); // converts ALL characters to html entities
 
