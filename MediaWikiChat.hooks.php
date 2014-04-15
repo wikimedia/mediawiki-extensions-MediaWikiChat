@@ -88,7 +88,8 @@ class MediaWikiChatHooks {
 					$style = "display: block;
 						background-position: right 1em center;
 						background-repeat: no-repeat;
-						background-image: url($avatar);";
+						background-image: url($avatar);
+						word-wrap: break-word;";
 					if ( $away > 120000 ) {
 						$style .= "-webkit-filter: grayscale(1); /* old webkit */
 							-webkit-filter: grayscale(100%); /* new webkit */
