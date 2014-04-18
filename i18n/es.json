@@ -41,6 +41,7 @@
 	"chat-sidebar-join": "Únete a la charla",
 	"log-name-chat": "Registro de la charla",
 	"log-description-chat": "Mensajes enviados por MediaWikiChat, así como patear usuarios",
+	"log-show-hide-chat": "$1 registro de chat",
 	"log-name-privatechat": "Registro de chat privado",
 	"log-description-privatechat": "Mensajes privados enviados por MediaWikiChat",
 	"logentry-privatechat-send": "$1 a $5: $4",
