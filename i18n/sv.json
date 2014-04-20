@@ -54,7 +54,15 @@
 	"right-mediawikichat-chat": "Använd Special:Chat",
 	"right-mediawikichat-modchat": "Blockera och sparka ut (om det är aktiverat) användare från Special:Chat",
 	"tog-chat-fullscreen": "Använd chatt i helskärmsläge (experimentell)",
+	"tog-chat-ping-mention": "Spela upp ett ljud när omnämnanden tas emot",
 	"tog-chat-ping-pm": "Spela upp ett ljud när privata meddelanden tas emot",
 	"tog-chat-ping-message": "Spela upp ett ljud när normala meddelanden tas emot",
-	"prefs-chat": "Chatt"
+	"tog-chat-ping-joinleave": "Spela upp ett ljud när användare ansluter till eller lämnar chatten",
+	"prefs-chat": "Chatt",
+	"chat-idle-minutes": "Denna användare har varit inaktiv i {{PLURAL:$1|en minut|$1 minuter}}",
+	"chat-idle-hours": "Denna användare har varit inaktiv i {{PLURAL:$1|en timme|$1 timmar}}",
+	"chat-idle-more": "Denna användare har varit inaktiv i mer än 24 timmar",
+	"action-chat": "chatta med andra användare",
+	"action-modchat": "moderatorchatt",
+	"action-viewpmlog": "visa loggen för privata chattmeddelanden"
 }
