@@ -675,6 +675,9 @@ $( document ).ready( function() {
 		$( '#mwchat-users' ).animate( { 'height': height }, 'fast' );
 		$( '#mwchat-me' ).animate( { 'top': height }, 'fast' );
 	} );
+
+	// Open any link in chat-topic in a new tab
+	$( '#mwchat-topic a').attr( 'target', '_blank');
 } );
 
 $( window ).blur( function() {
