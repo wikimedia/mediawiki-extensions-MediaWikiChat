@@ -1,1 +1,1 @@
-ALTER TABLE `chat_users` MODIFY cu_away binary(12)
+ALTER TABLE /*_*/chat_users MODIFY cu_away binary(12)
