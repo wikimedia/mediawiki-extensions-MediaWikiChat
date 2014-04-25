@@ -348,6 +348,9 @@ var MediaWikiChat = {
 			$( '#' + convwithE ).attr( 'data-read', 'true' );
 		}
 
+		// Open any link in private messages in a new tab
+		elem.find( 'a' ).attr( 'target', '_blank' );
+
 		MediaWikiChat.flashPrivate();
 	},
 
