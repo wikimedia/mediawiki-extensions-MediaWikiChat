@@ -342,7 +342,9 @@ var MediaWikiChat = {
 		html += MediaWikiChat.htmlTimestamp( timestamp );
 		html += '</div>';
 
-		$( '#' + convwithE + ' .mwchat-useritem-content' ).append( html );
+                // Open any link in private messages in a new tab
+                var elem = $( html ).appendTo( $( '#' + convwithE + ' .mwchat-useritem-content' ) );
+                elem.find( 'a' ).attr( 'target', '_blank' );
 
 		if ( user.name != mw.config.get( 'wgUserName' ) ) {
 			$( '#' + convwithE ).attr( 'data-read', 'true' );
