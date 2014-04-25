@@ -678,6 +678,9 @@ $( document ).ready( function() {
 
 	// Open any link in chat-topic in a new tab
 	$( '#mwchat-topic a').attr( 'target', '_blank');
+
+	// Open any link in private messages in a new tab
+	$( '#mwchat-useritem-window a' ).attr( 'target', '_blank' );
 } );
 
 $( window ).blur( function() {
