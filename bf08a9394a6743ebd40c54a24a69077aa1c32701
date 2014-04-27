@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_b331fd58",
+        "filename": "MediaWikiChat.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 410
+      },
+      "writtenOn": "2014-04-27T20:24:46Z",
+      "side": 1,
+      "message": "With this line still here, the message is being appended twice.",
+      "revId": "bf08a9394a6743ebd40c54a24a69077aa1c32701",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e23439c_9336014e",
+        "filename": "MediaWikiChat.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 410
+      },
+      "writtenOn": "2014-04-27T20:24:46Z",
+      "side": 1,
+      "message": "$( \u0027#\u0027 + convwithE + \u0027 .mwchat-useritem-content\u0027 ) should be the selector, otherwise the message will be added to every PM window.",
+      "revId": "bf08a9394a6743ebd40c54a24a69077aa1c32701",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
