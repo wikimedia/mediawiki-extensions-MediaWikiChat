@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e23439c_53fd0968",
+        "filename": "MediaWikiChat.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 410
+      },
+      "writtenOn": "2014-04-27T19:44:25Z",
+      "side": 1,
+      "message": "This isn\u0027t going to work. elem is not defined.",
+      "revId": "1e95f02a7803cc4b91e90aed1166a261692e25ee",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
