@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"EagerLin",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Cwlin0416"
 		]
 	},
 	"chat": "聊天",
@@ -22,7 +23,7 @@
 	"chat-you-kicked": "您{{GENDER:$2|請出了}}$1",
 	"chat-kicked": "$1{{GENDER:$3|請出了}}$2",
 	"chat-youve-been-blocked": "你已經被$1{{GENDER:$2|查封}}聊天。",
-	"chat-you-blocked": "您{{GENDER:$2|封禁了}}$1",
+	"chat-you-blocked": "您{{GENDER:$2|封鎖了}} $1",
 	"chat-blocked": "$1{{GENDER:$3|封禁了}}$2",
 	"chat-you-unblocked": "您{{GENDER:$2|解禁}}了$1",
 	"chat-unblocked": "$1{{GENDER:$3|解禁}}了$2",
