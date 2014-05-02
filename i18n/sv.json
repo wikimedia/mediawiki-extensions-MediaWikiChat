@@ -39,6 +39,7 @@
 	"chat-sidebar-online": "Anslutna användare i chatten:",
 	"chat-sidebar-join": "Delta i chatten",
 	"log-name-chat": "Chattlogg",
+	"log-description-chat": "Meddelanden skickade av MediaWikiChat, samt påminnelser från användare",
 	"logentry-chat-kick": "$1 {{GENDER:$1|sparkade ut}} $4.",
 	"log-show-hide-chat": "$1 chattlogg",
 	"log-name-privatechat": "Privat chattlogg",
