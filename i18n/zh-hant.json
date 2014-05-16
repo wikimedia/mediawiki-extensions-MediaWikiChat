@@ -54,5 +54,12 @@
 	"tog-chat-ping-mention": "接收提及時播放一部分聲音",
 	"tog-chat-ping-pm": "接收私人資訊時播放一部分聲音",
 	"tog-chat-ping-message": "接收一般資訊時播放一部分聲音",
-	"prefs-chat": "聊天"
+	"tog-chat-ping-joinleave": "於使用者加入或離開聊天時播放聲音",
+	"prefs-chat": "聊天",
+	"chat-idle-minutes": "此使用者已離開$1分鐘",
+	"chat-idle-hours": "此使用者已離開$1小時",
+	"chat-idle-more": "此使用者已離開逾24小時",
+	"action-chat": "與其他用戶聊天",
+	"action-modchat": "管制聊天",
+	"action-viewpmlog": "查閱私人聊天訊息日誌"
 }
