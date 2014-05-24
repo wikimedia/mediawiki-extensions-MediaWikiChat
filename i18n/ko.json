@@ -5,7 +5,8 @@
 			"Infinity",
 			"Priviet",
 			"아라",
-			"Keysuck"
+			"Keysuck",
+			"Hym411"
 		]
 	},
 	"chat": "채트",
@@ -66,5 +67,6 @@
 	"chat-idle-hours": "이 사용자는 {{PLURAL:$1|한 시간|$1시간}} 동안 쉬고 있습니다",
 	"chat-idle-more": "이 사용자는 24시간 넘게 쉬고 있습니다",
 	"action-chat": "다른 사용자와 채트하기",
-	"action-modchat": "채트 중재"
+	"action-modchat": "채트 중재",
+	"action-viewpmlog": "개인 채팅 메시지 로그 보기"
 }
