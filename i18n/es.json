@@ -59,5 +59,7 @@
 	"chat-idle-minutes": "Este usuario ha estado inactivo por {{PLURAL:$1|un minuto|$1 minutos}}",
 	"chat-idle-hours": "Este usuario ha estado inactivo por {{PLURAL:$1|una hora|$1 horas}}",
 	"chat-idle-more": "Este usuario ha estado inactivo por más de 24 horas",
-	"action-chat": "charlar con otros usuarios"
+	"action-chat": "charlar con otros usuarios",
+	"action-modchat": "moderar chat",
+	"action-viewpmlog": "ver registro de mensajes privados del chat"
 }
