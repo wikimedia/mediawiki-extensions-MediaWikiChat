@@ -4,7 +4,8 @@
 			"Fitoschido",
 			"GeorgeBarnick",
 			"Sethladan",
-			"Miguel2706"
+			"Miguel2706",
+			"Macofe"
 		]
 	},
 	"chat": "Charla",
@@ -45,7 +46,7 @@
 	"log-name-privatechat": "Registro de chat privado",
 	"log-description-privatechat": "Mensajes privados enviados por MediaWikiChat",
 	"logentry-privatechat-send": "$1 a $5: $4",
-	"log-show-hide-privatechat": "$1 registro de chat",
+	"log-show-hide-privatechat": "$1 registro privado de chat",
 	"group-chatmod": "Moderadores del chat",
 	"group-chatmod-member": "{{GENDER:$1|moderador|moderadora}} del chat",
 	"grouppage-chatmod": "{{ns:project}}:Moderadores del chat",
