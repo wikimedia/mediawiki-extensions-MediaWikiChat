@@ -85,12 +85,10 @@ $wgAutoloadClasses['ChatGetNewAPI'] = $dir . 'GetNew.api.php';
 $wgAutoloadClasses['ChatSendAPI'] = $dir . 'Send.api.php';
 $wgAutoloadClasses['ChatSendPMAPI'] = $dir . 'SendPM.api.php';
 $wgAutoloadClasses['ChatKickAPI'] = $dir . 'Kick.api.php';
-$wgAutoloadClasses['ChatAwayAPI'] = $dir . 'Away.api.php';
 $wgAPIModules['chatgetnew'] = 'ChatGetNewAPI';
 $wgAPIModules['chatsend'] = 'ChatSendAPI';
 $wgAPIModules['chatsendpm'] = 'ChatSendPMAPI';
 $wgAPIModules['chatkick'] = 'ChatKickAPI';
-$wgAPIModules['chataway'] = 'ChatAwayAPI';
 
 // Logs
 $wgLogTypes[] = 'chat';
