@@ -129,12 +129,14 @@ class MediaWikiChat {
 	}
 
 	/**
-	 * Get average milliseconds beteen recent messages. Note: not currently in use
+	 * Get interval to poll the server from. Based on the average milliseconds beteen recent messages.
 	 *
 	 * @return Integer: average milliseconds between message sends
 	 */
 	static function getInterval() {
 		$dbr = wfGetDB( DB_SLAVE );
+		$maxInterval = 30 * 1000;
+		$minInterval = 5 * 1000;
 
 		$res = $dbr->select(
 			'chat',
@@ -161,7 +163,13 @@ class MediaWikiChat {
 		$latestTime = $latest->chat_timestamp;
 		$oldestTime = $oldest->chat_timestamp;
 
-		$av = ( $latestTime - $oldestTime ) / 5;
+		$av = ( $latestTime - $oldestTime ) / 10 ; // divide by 5 to find average, then half
+
+		if ( $av > $maxInterval ) {
+			$av = $maxInterval;
+		} elseif ( $minInterval ) {
+			$av = $minInterval;
+		}
 
 		return $av;
 	}

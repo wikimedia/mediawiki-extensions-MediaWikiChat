@@ -150,6 +150,8 @@ class ChatGetNewAPI extends ApiBase {
 
 			$result->addValue( $mName, 'now', MediaWikiChat::now() );
 
+			$result->addValue( $mName, 'interval', MediaWikiChat::getInterval() );
+
 			if ( !$user->isAllowed( 'chat' ) ) {
 				$result->addValue( $mName, 'kick', true ); // if user has since been blocked from chat, kick them now
 			}
