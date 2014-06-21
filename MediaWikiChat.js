@@ -5,7 +5,7 @@ var MediaWikiChat = {
 	amI: false,
 	firstTime: true,
 	interval: 7000,
-	newInterval: null,
+	pollInterval: null,
 	redoInterval: null,
 	userData: [],
 	focussed: true,
@@ -199,8 +199,13 @@ var MediaWikiChat = {
 			if ( data.kick ) {
 				$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
 				$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
-				clearInterval( MediaWikiChat.newInterval );
+				clearInterval( MediaWikiChat.pollInterval );
 				MediaWikiChat.getNew();
+			}
+
+			if ( data.interval ) {
+				MediaWikiChat.restartInterval( data.interval );
+				MediaWikiChat.interval = data.interval;
 			}
 
 			if ( data.messages || data.kicks || data.blocks || data.unblocks ) {
@@ -532,8 +537,7 @@ var MediaWikiChat = {
 				data: { 'action': 'chatsendpm', 'message': $( this )[0].value, 'id': toid, 'format': 'json' }
 			} ).done( function() {
 				MediaWikiChat.getNew();
-				window.clearInterval( MediaWikiChat.newInterval );
-				MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
+				MediaWikiChat.restartInterval();
 			} );
 
 			$( this ).val( '' );
@@ -616,6 +620,14 @@ var MediaWikiChat = {
 
 		audio.play();
 	},
+
+	restartInterval: function( interval ) {
+		if ( !interval ) {
+			interval = MediaWikiChat.interval;
+		}
+		window.clearInterval( MediaWikiChat.pollInterval );
+		MediaWikiChat.pollInterval = setInterval( MediaWikiChat.getNew, interval );
+	}
 };
 
 $( document ).ready( function() {
@@ -660,6 +672,11 @@ $( document ).ready( function() {
 				}
 			}
 			return false;
+		} else {
+			if ( message.length == 1 ) {
+				MediaWikiChat.getNew(); // if the user is typing a new message, load replies so they can see any
+				MediaWikiChat.restartInterval(); // before they press enter
+			}
 		}
 	} );
 
@@ -667,8 +684,8 @@ $( document ).ready( function() {
 
 	setTimeout( MediaWikiChat.getNew, 2500 );
 
-	MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
-	MediaWikiChat.redoInterval = setInterval( MediaWikiChat.redoTimestamps, MediaWikiChat.interval / 2 );
+	MediaWikiChat.pollInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
+	MediaWikiChat.redoInterval = setInterval( MediaWikiChat.redoTimestamps, 10000 );
 
 	$( '#mwchat-content' ).click( MediaWikiChat.clearMentions );
 
