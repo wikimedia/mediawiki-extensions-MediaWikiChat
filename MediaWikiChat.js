@@ -74,7 +74,7 @@ var MediaWikiChat = {
 		var diff = ( tsNow - timestamp ) / 100;
 
 		if ( diff < 30 ) {
-			return mw.message( 'chat-just-now' ).text();
+			return mw.message( 'just-now' ).text();
 		} else if ( diff < 2 * 60 ) {
 			return mw.message( 'chat-a-minute-ago' ).text();
 		} else if ( diff < 60 * 60 ) {
