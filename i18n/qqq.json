@@ -18,7 +18,7 @@
 	"chat-not-allowed": "Shown to users who do not have sufficient permissions to chat (normally users who are not logged in)",
 	"chat-sounds": "Unused at this time.",
 	"chat-too-long": "Shown to users when their message was too long to send.",
-	"chat-just-now": "Timestamps: shown when a message was sent in the last 30 seconds.\n{{Related|Chat-ago}}",
+	"chat-just-now": "Timestamps: shown when a message was sent in the last 30 seconds.\n{{Related|Chat-ago}}\n{{Identical|Just now}}",
 	"chat-yesterday": "Timestamps: the message was sent yesterday.\n{{Related|Chat-ago}}\n{{Identical|Yesterday}}",
 	"chat-block": "The link shown to chatmods to block a user.\n{{Identical|Block}}",
 	"chat-youve-been-kicked": "Shown to users who have been kicked from the chat. Parameters:\n* $1 - the user who kicked from the chat\n* $2 - GENDER of the user who kicked\nSee also:\n* {{msg-mw|Chat-youve-been-blocked}}",
