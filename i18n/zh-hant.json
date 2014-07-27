@@ -3,7 +3,8 @@
 		"authors": [
 			"EagerLin",
 			"Liuxinyu970226",
-			"Cwlin0416"
+			"Cwlin0416",
+			"LNDDYL"
 		]
 	},
 	"chat": "聊天",
@@ -14,7 +15,6 @@
 	"chat-blocked-from-chat": "您已被封禁，不能聊天。",
 	"chat-not-allowed": "您不允許在聊天、請優先嘗試登錄。",
 	"chat-sounds": "播放聲音",
-	"chat-just-now": "剛才",
 	"chat-a-minute-ago": "一分鐘前",
 	"chat-yesterday": "昨天",
 	"chat-kick": "踢",
@@ -37,11 +37,11 @@
 	"chat-sidebar-online": "在聊天中的線上使用者：",
 	"chat-sidebar-join": "加入聊天",
 	"log-name-chat": "聊天記錄",
-	"log-description-chat": "信息由MediaWikiChat發送，當然使用者可以將別人請出",
+	"log-description-chat": "訊息由MediaWikiChat發送，當然使用者可以將別人請出",
 	"logentry-chat-kick": "$1請出了$4",
 	"log-show-hide-chat": "$1聊天日誌",
 	"log-name-privatechat": "私人聊天日誌",
-	"log-description-privatechat": "私人資訊經由MediaWikiChat發送",
+	"log-description-privatechat": "私人資訊經由MediaWikiChat傳送",
 	"logentry-privatechat-send": "$1至$5：$4",
 	"log-show-hide-privatechat": "$1私人聊天日誌",
 	"group-chatmod": "聊天版主",
