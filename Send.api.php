@@ -14,6 +14,7 @@ class ChatSendAPI extends ApiBase {
 
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_MASTER );
+				$dbr = wfGetDB( DB_SLAVE );
 
 				$id = $user->getId();
 				$timestamp = MediaWikiChat::now();
@@ -24,7 +25,7 @@ class ChatSendAPI extends ApiBase {
 				}
 
 				// Flood check
-				$res = $dbw->selectField(
+				$res = $dbr->selectField(
 					'chat',
 					array( 'count(*)' ),
 					array( "chat_timestamp > " . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ), " chat_user_id = " . $id ),
@@ -33,6 +34,18 @@ class ChatSendAPI extends ApiBase {
 				if ( $res > $wgChatFloodMessages ) {
 					$result->addValue( $this->getModuleName(), 'error', 'flood' );
 					return true;
+				}
+
+				$lastTimestamp = $dbr->selectField(
+					'chat',
+					'chat_timestamp',
+					array(),
+					__METHOD__,
+					array( 'ORDER BY' => 'chat_timestamp DESC', 'LIMIT' => 1 )
+				);
+
+				if ( $timestamp == $lastTimestamp ) {
+					$timestamp += 1; // prevent two messages with the same timestamp
 				}
 
 				$dbw->insert(

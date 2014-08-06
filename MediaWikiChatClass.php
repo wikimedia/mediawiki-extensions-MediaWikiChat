@@ -13,10 +13,10 @@ class MediaWikiChat {
 	const TYPE_KICK = 4;
 
 	/**
-	 * Get the current UNIX time with microseconds (i.e. 138524180871).
+	 * Get the current UNIX time with 100th seconds (i.e. 138524180871).
 	 * Standard UNIX timestamp contains only 10 digits.
 	 *
-	 * @return Integer: current UNIX timestamp + microseconds
+	 * @return Integer: current UNIX timestamp + 100th seconds
 	 */
 	static function now() {
 		$m = explode( ' ', microtime() );
