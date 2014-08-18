@@ -62,13 +62,18 @@ class ChatGetNewAPI extends ApiBase {
 
 			$users = array();
 
+			$prevTimetsamp = 0;
+
 			foreach ( $res as $row ) {
+				$timestamp = $row->chat_timestamp;
+				if ( $timestamp == $prevTimestamp ) {
+					$timestamp += 1; // prevent dupe timestamps
+				}
+
 				if ( $row->chat_type == MediaWikiChat::TYPE_MESSAGE ) {
 
 					$id = $row->chat_user_id;
 					$message = $row->chat_message;
-
-					$timestamp = $row->chat_timestamp;
 
 					$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
 					$result->addValue( array( $mName, 'messages', $timestamp ), '*', $message );
@@ -83,7 +88,6 @@ class ChatGetNewAPI extends ApiBase {
 
 					$message = $row->chat_message;
 					$message = html_entity_decode( $message ); // otherwise the HTML is printed as text
-					$timestamp = $row->chat_timestamp;
 
 					$fromid = $row->chat_user_id;
 					$toid = $row->chat_to_id;
@@ -105,20 +109,19 @@ class ChatGetNewAPI extends ApiBase {
 					if ( $row->chat_to_id == $user->getId() ) {
 						$result->addValue( $mName, 'kick', true );
 					}
-					$timestamp = $row->chat_timestamp;
 					$result->addValue( array( $mName, 'kicks', $timestamp ), 'from', $row->chat_user_id );
 					$result->addValue( array( $mName, 'kicks', $timestamp ), 'to', $row->chat_to_id );
 
 				} elseif ( $row->chat_type == MediaWikiChat::TYPE_BLOCK ) {
-					$timestamp = $row->chat_timestamp;
 					$result->addValue( array( $mName, 'blocks', $timestamp ), 'from', $row->chat_user_id );
 					$result->addValue( array( $mName, 'blocks', $timestamp ), 'to', $row->chat_to_id );
 
 				} elseif ( $row->chat_type == MediaWikiChat::TYPE_UNBLOCK ) {
-					$timestamp = $row->chat_timestamp;
 					$result->addValue( array( $mName, 'unblocks', $timestamp ), 'from', $row->chat_user_id );
 					$result->addValue( array( $mName, 'unblocks', $timestamp ), 'to', $row->chat_to_id );
 				}
+
+				$prevTimestamp = $timestamp;
 			}
 
 			$users[$user->getId()] = true; // ensure current user is in the users list
