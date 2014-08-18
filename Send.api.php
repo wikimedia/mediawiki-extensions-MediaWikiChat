@@ -36,18 +36,6 @@ class ChatSendAPI extends ApiBase {
 					return true;
 				}
 
-				$lastTimestamp = $dbr->selectField(
-					'chat',
-					'chat_timestamp',
-					array(),
-					__METHOD__,
-					array( 'ORDER BY' => 'chat_timestamp DESC', 'LIMIT' => 1 )
-				);
-
-				if ( $timestamp == $lastTimestamp ) {
-					$timestamp += 1; // prevent two messages with the same timestamp
-				}
-
 				$dbw->insert(
 					'chat',
 					array(
