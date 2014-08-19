@@ -62,7 +62,7 @@ class ChatGetNewAPI extends ApiBase {
 
 			$users = array();
 
-			$prevTimetsamp = 0;
+			$prevTimestamp = 0;
 
 			foreach ( $res as $row ) {
 				$timestamp = $row->chat_timestamp;
