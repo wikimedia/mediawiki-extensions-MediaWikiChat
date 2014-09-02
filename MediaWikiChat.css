@@ -70,7 +70,7 @@
 }
 
 .mwchat-item-timestamp.real {
-	width: 8em;
+	padding-left: 0.5em;
 	position: absolute;
 	right: 0;
 	top: 0;
