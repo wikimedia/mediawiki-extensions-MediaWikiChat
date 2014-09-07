@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Imperadeiro98",
-			"SandroHc"
+			"SandroHc",
+			"Vitorvicentevalente"
 		]
 	},
+	"chat-today": "hoje",
 	"chat-user-is-moderator": "Este utilizador {{GENDER:$1|é}} um moderador",
 	"chat-change-preferences": "Alterar as preferências de chat (ecrã inteiro e sons)",
 	"logentry-privatechat-send": "$1 para $5: $4",
