@@ -25,7 +25,7 @@ var MediaWikiChat = {
 	},
 
 	ie: function() {
-		return navigator.appVersion.indexOf( "MSIE" ) != -1;
+		return navigator.appVersion.indexOf( 'MSIE' ) != -1;
 	},
 
 	unique: function( array ) {
@@ -158,9 +158,9 @@ var MediaWikiChat = {
 			MediaWikiChat.doUsers( onlineUsers );
 
 			for ( var userId in data.users ) { // has to be done after doUsers
-				user = MediaWikiChat.userData[userId];
+				var user = MediaWikiChat.userData[userId];
 				if ( user.id != mw.config.get( 'wgUserId' ) ) {
-					userE = MediaWikiChat.safe( user.name );
+					var userE = MediaWikiChat.safe( user.name );
 					MediaWikiChat.greyscale( $( '#mwchat-users #' + userE ), user.away );
 				}
 			}
@@ -427,9 +427,9 @@ var MediaWikiChat = {
 		});
 
 		if ( allusers.length ){
-			$( "#mwchat-no-other-users" ).hide();
+			$( '#mwchat-no-other-users' ).hide();
 		} else {
-			$( "#mwchat-no-other-users" ).show();
+			$( '#mwchat-no-other-users' ).show();
 		}
 
 		MediaWikiChat.users = newusers;
