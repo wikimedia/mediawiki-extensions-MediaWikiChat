@@ -16,6 +16,7 @@
     "chat-flood": "You can't send messages that fast, please wait before sending more.",
     "chat-too-long": "That message was too long, please send a shorter message.",
     "chat-a-minute-ago": "a minute ago",
+    "chat-today": "today",
     "chat-yesterday": "yesterday",
     "chat-kick": "kick",
     "chat-block": "block",

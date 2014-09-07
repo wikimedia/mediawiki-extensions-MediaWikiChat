@@ -47,19 +47,24 @@ var MediaWikiChat = {
 	},
 
 	realTimestamp: function( timestamp ) {
-		var d = new Date();
+		var messageDate = new Date();
+		messageDate.setTime( timestamp * 10 );
+		var nowDate = new Date();
 
-		d.setTime( timestamp * 10 );
+		var time = '';
 
-		var months = [ 'january', 'february', 'march', 'april', 'may', 'june',
-			'july', 'august', 'september', 'october', 'november', 'december' ];
-		var month = mw.message( months[d.getMonth()] ).text();
+		if ( nowDate.getDate() == messageDate.getDate() && nowDate.getMonth() == messageDate.getMonth() ) {
+			time += mw.message( 'chat-today' ).text();
+		} else {
+			var months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
+			time += mw.message( months[messageDate.getMonth()] ).text();
+			time += ' ' + messageDate.getDate();
+		}
 
-		var date = d.getDate();
-		var hours = MediaWikiChat.pad( d.getHours(), 2 );
-		var mins = MediaWikiChat.pad( d.getMinutes(), 2 );
+		time += ', ' + MediaWikiChat.pad( messageDate.getHours(), 2 );
+		time += ':' + MediaWikiChat.pad( messageDate.getMinutes(), 2 );
 
-		return month + ' ' + date + ', ' + hours + ':' + mins;
+		return time;
 	},
 
 	prettyTimestamp: function( timestamp ) {
