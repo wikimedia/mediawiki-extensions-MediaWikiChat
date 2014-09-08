@@ -15,6 +15,7 @@
 	"chat-flood": "Nie możesz wysyłać wiadomości tak szybko, poczekaj zanim wyślesz ich więcej.",
 	"chat-too-long": "Ta wiadomość była zbyt długa, wyślij krótszą.",
 	"chat-a-minute-ago": "minutę temu",
+	"chat-today": "dzisiaj",
 	"chat-yesterday": "wczoraj",
 	"chat-block": "zablokuj",
 	"chat-youve-been-kicked": "{{GENDER:$2|Zostałeś wyrzucony|Zostałaś wyrzucona}} przez $1. Odśwież stronę czatu.",

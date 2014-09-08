@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rancher"
+			"Rancher",
+			"Milicevic01"
 		]
 	},
 	"chat-sounds": "Репродукуј звукове",
 	"chat-flood": "Не можете да шаљете поруке толико брзо. Сачекајте па пошаљите другу.",
+	"chat-today": "данас",
 	"chat-change-preferences": "Промени поставке ћаскања",
 	"tog-chat-ping-mention": "Репродукуј звук када вас неко помене",
 	"tog-chat-ping-pm": "Репродукуј звук по доспећу приватних порука",

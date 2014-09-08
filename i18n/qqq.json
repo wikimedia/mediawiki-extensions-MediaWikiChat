@@ -6,7 +6,8 @@
 			"Liuxinyu970226",
 			"Raymond",
 			"Shirayuki",
-			"George Barnick"
+			"George Barnick",
+			"Robby"
 		]
 	},
 	"chat": "{{doc-special|Chat}}\n{{Identical|Chat}}",
@@ -18,6 +19,7 @@
 	"chat-not-allowed": "Shown to users who do not have sufficient permissions to chat (normally users who are not logged in)",
 	"chat-sounds": "Unused at this time.",
 	"chat-too-long": "Shown to users when their message was too long to send.",
+	"chat-today": "{{Identical|Today}}",
 	"chat-yesterday": "Timestamps: the message was sent yesterday.\n{{Related|Chat-ago}}\n{{Identical|Yesterday}}",
 	"chat-kick": "{{Identical|Kick}}",
 	"chat-block": "The link shown to chatmods to block a user.\n{{Identical|Block}}",
