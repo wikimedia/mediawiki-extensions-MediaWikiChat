@@ -12,6 +12,7 @@
 	"chat-blocked-from-chat": "あなたはこのチャットからブロックされています。",
 	"chat-not-allowed": "チャットの使用を許可されていません。ログインしてからお試しください。",
 	"chat-a-minute-ago": "1分前",
+	"chat-today": "今日",
 	"chat-yesterday": "昨日",
 	"chat-block": "ブロック",
 	"chat-youve-been-blocked": "$1 があなたを{{GENDER:$2|ブロックしました}}。",

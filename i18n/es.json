@@ -19,6 +19,7 @@
 	"chat-flood": "No puedes enviar mensajes tan rápido, vaquero.",
 	"chat-too-long": "Ese mensaje es demasiado largo, por favor escribe un mensaje mas corto.",
 	"chat-a-minute-ago": "hace un minuto",
+	"chat-today": "hoy",
 	"chat-yesterday": "ayer",
 	"chat-kick": "expulsar",
 	"chat-block": "bloquear",

@@ -17,6 +17,7 @@
 	"chat-flood": "您不能发送信息太快，请在下次发送前等待几秒。",
 	"chat-too-long": "那个信息太长，请发送一个简短信息。",
 	"chat-a-minute-ago": "一分钟前",
+	"chat-today": "今天",
 	"chat-yesterday": "昨天",
 	"chat-kick": "踢",
 	"chat-block": "封禁",

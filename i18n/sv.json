@@ -3,7 +3,8 @@
 		"authors": [
 			"Jopparn",
 			"Lokal Profil",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Platinawolf"
 		]
 	},
 	"chat": "Chatt",
@@ -16,8 +17,8 @@
 	"chat-sounds": "Spela upp ljud",
 	"chat-flood": "Du kan inte skicka meddelanden så snabbt, var god vänta innan du skickar fler.",
 	"chat-too-long": "Meddelandet var för lång, skicka ett kortare meddelande.",
-	"chat-just-now": "just nu",
 	"chat-a-minute-ago": "en minut sedan",
+	"chat-today": "idag",
 	"chat-yesterday": "i går",
 	"chat-kick": "sparka",
 	"chat-block": "blockera",
