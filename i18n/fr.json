@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Verdy p"
+			"Verdy p",
+			"Elodark"
 		]
 	},
 	"chat": "Discussion",
@@ -15,8 +16,8 @@
 	"chat-sounds": "Jouer des sons",
 	"chat-flood": "Vous ne pouvez pas envoyer de messages aussi rapidement, veuillez attendre avant d’en envoyer davantage.",
 	"chat-too-long": "Ce message était trop long, veuillez en envoyer un plus court.",
-	"chat-just-now": "à l’instant",
 	"chat-a-minute-ago": "il y a une minute",
+	"chat-today": "aujourd'hui",
 	"chat-yesterday": "hier",
 	"chat-kick": "éjecter",
 	"chat-block": "bloquer",
