@@ -32,7 +32,7 @@
 	"chat-private-message": "стиснете за да испратите лична порака",
 	"chat-user-is-moderator": "Корисников {{GENDER:$1|е}} модератор",
 	"chat-you-are-moderator": "Вие {{GENDER:$1|сте}} модератор",
-	"chat-topic": "Добредојдовте на разговорот во живо на {{SITENAME}}. ([[Special:Log/chat|записник на разговорот]])",
+	"chat-topic": "Добре дојдовте на разговорот во живо на {{SITENAME}}. ([[Special:Log/chat|записник на разговорот]])",
 	"chat-change-preferences": "Измени нагодувања на разговорот (цел екран и звуци)",
 	"chat-sidebar-online": "Корисници на линија во разговорот:",
 	"chat-sidebar-join": "Приклучи се на разговорот",
