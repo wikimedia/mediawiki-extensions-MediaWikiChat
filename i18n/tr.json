@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Joseph",
-			"Mustavanilya"
+			"Mustavanilya",
+			"Violetanka"
 		]
 	},
 	"chat": "Sohbet",
@@ -12,8 +13,8 @@
 	"chat-no-other-users": "Sohbette başka kullanıcı yok",
 	"chat-blocked-from-chat": "Bu sohbette engellendiniz.",
 	"chat-not-allowed": "Sohbete izniniz yok, önce giriş yapmayı deneyin",
-	"chat-just-now": "hemen şimdi",
 	"chat-a-minute-ago": "bir dakika önce",
+	"chat-today": "bugün",
 	"chat-yesterday": "dün",
 	"chat-kick": "at",
 	"chat-block": "engelle",
