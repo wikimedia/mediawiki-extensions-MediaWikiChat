@@ -6,7 +6,8 @@
 			"Priviet",
 			"아라",
 			"Keysuck",
-			"Hym411"
+			"Hym411",
+			"Revi"
 		]
 	},
 	"chat": "채트",
@@ -19,7 +20,6 @@
 	"chat-sounds": "소리 재생",
 	"chat-flood": "메시지를 보내는 속도가 너무 빠릅니다. 더 보내려면 기다려주세요.",
 	"chat-too-long": "메시지가 너무 깁니다. 더 짧은 메시지를 보내주세요.",
-	"chat-just-now": "방금",
 	"chat-a-minute-ago": "1분 전",
 	"chat-yesterday": "어제",
 	"chat-kick": "추방",
