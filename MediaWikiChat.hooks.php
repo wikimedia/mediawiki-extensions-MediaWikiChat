@@ -17,7 +17,12 @@ class MediaWikiChatHooks {
 		} else {
 			$text = $parser->replaceVariables( $text );
 
-			$text = Sanitizer::removeHTMLtags( $text, array( &$parser, 'attributeStripCallback' ), false, array_keys( $parser->mTransparentTagHooks ) );
+			$text = Sanitizer::removeHTMLtags(
+				$text,
+				array( &$parser, 'attributeStripCallback' ),
+				false,
+				array_keys( $parser->mTransparentTagHooks )
+			);
 
 			$text = preg_replace( '/(^|\n)-----*/', '\\1<hr />', $text );
 
@@ -55,12 +60,12 @@ class MediaWikiChatHooks {
 	 * Hook for update.php
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$dir = dirname( __FILE__ ) . '/sql/';
+		$dir = __DIR__ . '/sql/';
 
 		$updater->addExtensionTable( 'chat', $dir . 'chat.sql', true );
 		$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );
 		$updater->addExtensionField( 'chat_users', 'cu_away', $dir . 'cu_away.sql' );
-		$updater->modifyExtensionField( 'chat_users', 'cu_away', $dir . '/cu_away_new.sql' );
+		$updater->modifyExtensionField( 'chat_users', 'cu_away', $dir . 'cu_away_new.sql' );
 
 		return true;
 	}
@@ -69,11 +74,11 @@ class MediaWikiChatHooks {
 	 * Hook for adding a sidebar portlet ($wgChatSidebarPortlet)
 	 */
 	public static function fnNewSidebarItem( Skin $skin, &$bar ) {
-		global $wgArticlePath, $wgChatSidebarPortlet;
+		global $wgChatSidebarPortlet;
 
 		if (
 			$skin->getUser()->isAllowed( 'chat' ) &&
-			$skin->getTitle()->getBaseTitle() != 'Special:Chat' &&
+			!$skin->getTitle()->isSpecial( 'Chat' ) &&
 			$wgChatSidebarPortlet
 		) {
 			$users = MediaWikiChat::getOnline();
@@ -84,7 +89,6 @@ class MediaWikiChatHooks {
 				foreach ( $users as $id => $away ) {
 					$user = User::newFromId( $id );
 					$avatar = MediaWikiChat::getAvatar( $id );
-					$page = str_replace( '$1', 'User:' . rawurlencode( $user->getName() ), $wgArticlePath );
 					$style = "display: block;
 						background-position: right 1em center;
 						background-repeat: no-repeat;
@@ -101,20 +105,20 @@ class MediaWikiChatHooks {
 					}
 					$arr[$id] = array(
 						'text' => $user->getName(),
-						'href' => $page,
+						'href' => htmlspecialchars( $user->getUserPage()->getFullURL() ),
 						'style' => $style,
 						'class' => 'mwchat-sidebar-user'
 					);
 				}
 
-				if ( ! MediaWikiChat::amIOnline() ) {
+				if ( !MediaWikiChat::amIOnline() ) {
 					$arr['join'] = array(
-						'text' => wfMessage( 'chat-sidebar-join' )->text(),
-						'href' => str_replace( '$1', 'Special:Chat', $wgArticlePath )
+						'text' => $skin->msg( 'chat-sidebar-join' )->text(),
+						'href' => htmlspecialchars( SpecialPage::getTitleFor( 'Chat' )->getFullURL() )
 					);
 				}
 
-				$bar[wfMessage( 'chat-sidebar-online' )->text()] = $arr;
+				$bar[$skin->msg( 'chat-sidebar-online' )->text()] = $arr;
 			}
 		}
 
@@ -123,30 +127,30 @@ class MediaWikiChatHooks {
 
 	static function wfPrefHook( $user, &$preferences ) {
 		$preferences['chat-fullscreen'] = array(
-				'type' => 'toggle',
-				'label-message' => 'tog-chat-fullscreen',
-				'section' => 'misc/chat',
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-fullscreen',
+			'section' => 'misc/chat',
 		);
 
 		$preferences['chat-ping-mention'] = array(
-				'type' => 'toggle',
-				'label-message' => 'tog-chat-ping-mention',
-				'section' => 'misc/chat',
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-ping-mention',
+			'section' => 'misc/chat',
 		);
 		$preferences['chat-ping-pm'] = array(
-				'type' => 'toggle',
-				'label-message' => 'tog-chat-ping-pm',
-				'section' => 'misc/chat',
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-ping-pm',
+			'section' => 'misc/chat',
 		);
 		$preferences['chat-ping-message'] = array(
-				'type' => 'toggle',
-				'label-message' => 'tog-chat-ping-message',
-				'section' => 'misc/chat',
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-ping-message',
+			'section' => 'misc/chat',
 		);
 		$preferences['chat-ping-joinleave'] = array(
-				'type' => 'toggle',
-				'label-message' => 'tog-chat-ping-joinleave',
-				'section' => 'misc/chat',
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-ping-joinleave',
+			'section' => 'misc/chat',
 		);
 
 		return true;
