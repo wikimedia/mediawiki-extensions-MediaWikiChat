@@ -47,7 +47,7 @@
 	"group-chatmod": "聊天版主",
 	"group-chatmod-member": "{{GENDER:$1|聊天版主}}",
 	"grouppage-chatmod": "{{ns:project}}:聊天版主",
-	"group-blockedfromchat": "被阻止聊天的用户",
+	"group-blockedfromchat": "被封鎖聊天的使用者",
 	"group-blockedfromchat-member": "{{GENDER:$1|於聊天中封禁者}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:從聊天中被封禁的用戶",
 	"right-mediawikichat-chat": "使用Special:Chat",
