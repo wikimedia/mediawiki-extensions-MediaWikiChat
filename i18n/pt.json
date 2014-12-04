@@ -3,9 +3,11 @@
 		"authors": [
 			"Imperadeiro98",
 			"SandroHc",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Josep Maria 15."
 		]
 	},
+	"chat": "Chat",
 	"chat-today": "hoje",
 	"chat-user-is-moderator": "Este utilizador {{GENDER:$1|é}} um moderador",
 	"chat-change-preferences": "Alterar as preferências de chat (ecrã inteiro e sons)",

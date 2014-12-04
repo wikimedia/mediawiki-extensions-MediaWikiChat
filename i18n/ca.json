@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toniher"
+			"Toniher",
+			"Josep Maria 15."
 		]
 	},
+	"chat": "Xat",
 	"log-name-chat": "Registre de xat"
 }
