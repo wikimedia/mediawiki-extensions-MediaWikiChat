@@ -18,7 +18,7 @@
 	"chat-a-minute-ago": "一分鐘前",
 	"chat-yesterday": "昨天",
 	"chat-kick": "踢",
-	"chat-block": "查封",
+	"chat-block": "封鎖",
 	"chat-youve-been-kicked": "你已被$1{{GENDER:$2|請出}}。刷新頁面聊天。",
 	"chat-you-kicked": "您{{GENDER:$2|請出了}}$1",
 	"chat-kicked": "$1{{GENDER:$3|請出了}}$2",
