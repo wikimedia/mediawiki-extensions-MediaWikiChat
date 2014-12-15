@@ -71,10 +71,6 @@ class ChatSendAPI extends ApiBase {
 		return true;
 	}
 
-	public function getDescription() {
-		return 'Send a message to the chat.';
-	}
-
 	public function getAllowedParams() {
 		return array(
 			'message' => array (
@@ -84,16 +80,10 @@ class ChatSendAPI extends ApiBase {
 		);
 	}
 
-	public function getParamDescription() {
-		return array(
-			'message' => 'The message to send.'
-		);
-	}
-
-	public function getExamples() {
+	public function getExamplesMessages() {
 		return array(
 			'api.php?action=chatsend&message=Hello%20World!'
-				=> 'Send "Hello World!" to the chat'
+				=> 'apihelp-chatsend-example-1'
 		);
 	}
 

@@ -166,10 +166,6 @@ class ChatGetNewAPI extends ApiBase {
 		return true;
 	}
 
-	public function getDescription() {
-		return 'Get new messages in the chat.';
-	}
-
 	public function getAllowedParams() {
 		return array(
 			'focussed' => array(
@@ -179,14 +175,10 @@ class ChatGetNewAPI extends ApiBase {
 		);
 	}
 
-	public function getParamDescription() {
-		return array( 'focussed' => 'is the user looking at the chat right now. Ie, is it focussed?' );
-	}
-
-	public function getExamples() {
+	public function getExamplesMessages() {
 		return array(
 				'api.php?action=chatgetnew'
-				=> 'Get new messages in the chat'
+				=> 'apihelp-chatgetnew-example-1'
 		);
 	}
 }
