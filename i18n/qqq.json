@@ -68,5 +68,14 @@
 	"chat-idle-more": "Tooltip for users who have been away for over 24 hours.\n{{Related|Chat-idle}}",
 	"action-chat": "Description of chat right.\n\n{{Doc-action|chat}}",
 	"action-modchat": "Description of chatmod right.\n\n{{Doc-action|modchat}}",
-	"action-viewpmlog": "Description of right to view private chat messages.\n\n{{Doc-action|viewpmlog}}"
+	"action-viewpmlog": "Description of right to view private chat messages.\n\n{{Doc-action|viewpmlog}}",
+	"apihelp-chatgetnew-description": "{{doc-apihelp-description|chatgetnew}}",
+	"apihelp-chatgetnew-param-focussed": "{{doc-apihelp-param|chatgetnew|focussed}}",
+	"apihelp-chatkick-description": "{{doc-apihelp-description|chatkick}}",
+	"apihelp-chatkick-param-id": "{{doc-apihelp-param|chatkick|id}}",
+	"apihelp-chatsend-description": "{{doc-apihelp-description|chatsend}}",
+	"apihelp-chatsend-param-message": "{{doc-apihelp-param|chatsend|message}}",
+	"apihelp-chatsendpm-description": "{{doc-apihelp-description|chatsendpm}}",
+	"apihelp-chatsendpm-param-id": "{{doc-apihelp-param|chatsendpm|id}}",
+	"apihelp-chatsendpm-param-message": "{{doc-apihelp-param|chatsendpm|message}}"
 }

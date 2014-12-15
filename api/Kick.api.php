@@ -58,22 +58,12 @@ class ChatKickAPI extends ApiBase {
 		return true;
 	}
 
-	public function getDescription() {
-		return 'Send a message to the chat.';
-	}
-
 	public function getAllowedParams() {
 		return array(
 			'id' => array (
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true
 			)
-		);
-	}
-
-	public function getParamDescription() {
-		return array(
-			'id' => 'The user ID to kick.'
 		);
 	}
 

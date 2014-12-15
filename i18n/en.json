@@ -67,5 +67,14 @@
     "chat-idle-more": "This user has been idle for over 24 hours",
     "action-chat": "chat with other users",
     "action-modchat": "moderate chat",
-    "action-viewpmlog": "view the private chat messages log"
+    "action-viewpmlog": "view the private chat messages log",
+    "apihelp-chatgetnew-description": "Get new messages in the chat.",
+    "apihelp-chatgetnew-param-focussed": "is the chat tab open/focused right now?",
+    "apihelp-chatkick-description": "Kick a user from the chat",
+    "apihelp-chatkick-param-id": "The user ID to kick",
+    "apihelp-chatsend-description": "Send a public message to the chat",
+    "apihelp-chatsend-param-message": "The message to send",
+    "apihelp-chatsendpm-description": "Send a private message to a user",
+    "apihelp-chatsendpm-param-id": "The user ID to send a PM to",
+    "apihelp-chatsendpm-param-message": "The message to send"
 }

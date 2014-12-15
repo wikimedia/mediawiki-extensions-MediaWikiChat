@@ -71,22 +71,12 @@ class ChatSendAPI extends ApiBase {
 		return true;
 	}
 
-	public function getDescription() {
-		return 'Send a message to the chat.';
-	}
-
 	public function getAllowedParams() {
 		return array(
 			'message' => array (
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true
 			)
-		);
-	}
-
-	public function getParamDescription() {
-		return array(
-			'message' => 'The message to send.'
 		);
 	}
 
