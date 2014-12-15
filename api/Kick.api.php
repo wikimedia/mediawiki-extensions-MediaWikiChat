@@ -58,10 +58,6 @@ class ChatKickAPI extends ApiBase {
 		return true;
 	}
 
-	public function getDescription() {
-		return 'Send a message to the chat.';
-	}
-
 	public function getAllowedParams() {
 		return array(
 			'id' => array (
@@ -71,16 +67,10 @@ class ChatKickAPI extends ApiBase {
 		);
 	}
 
-	public function getParamDescription() {
-		return array(
-			'id' => 'The user ID to kick.'
-		);
-	}
-
-	public function getExamples() {
+	public function getExamplesMessages() {
 		return array(
 			'api.php?action=chatkick&id=1'
-				=> 'Kick the user with ID of 1'
+				=> 'apihelp-chatkick-example-1'
 		);
 	}
 
