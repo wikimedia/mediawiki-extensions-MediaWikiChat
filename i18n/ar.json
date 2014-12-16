@@ -2,14 +2,32 @@
 	"@metadata": {
 		"authors": [
 			"Gagnabil",
-			"Tarawneh"
+			"Tarawneh",
+			"Khaled"
 		]
 	},
+	"chat": "دردشة",
+	"chat-type-your-message": "أكتب رسالتك",
+	"chat-type-your-private-message": "أكتب رسالتك الخاصة",
+	"chat-no-other-users": "لا يوجد مستخدمين اخرين على الدردشة",
+	"chat-blocked-from-chat": "تم حظرك من هذه المحادثة",
+	"chat-not-allowed": "غير مسموح لك باجراء محادثة قم بتسجيل الدخول اولا",
 	"chat-sounds": "شغّل الاصوات",
 	"chat-flood": "لا يمكن إرسال الرسائل بهذه السرعة، الرجاء التريث قبل إرسال المزيد.",
-	"chat-change-preferences": "تعديل تفضيلاتك الخاصة بالدردشة",
+	"chat-too-long": "تلك رسالة طويلة جدا، الرجاء ارسل رسالة اقصر.",
+	"chat-a-minute-ago": "قبل دقيقة",
+	"chat-today": "اليوم",
+	"chat-yesterday": "أمس",
+	"chat-kick": "طرد",
+	"chat-block": "منع",
+	"chat-change-preferences": "تعديل تفضيلاتك الخاصة بالدردشة (شاشة كاملة والاصوات)",
+	"chat-sidebar-join": "الانضمام للدردشة",
+	"log-name-chat": "سجل الدردشة",
+	"log-show-hide-chat": "$1 سجل محادثة",
+	"log-name-privatechat": "سجل محادثة خاصة",
 	"tog-chat-ping-mention": "أصدر صوت عند ذكرك من قبل شخص ما",
 	"tog-chat-ping-pm": "أصدر صوت عند تلقي الرسائل الخاصة",
 	"tog-chat-ping-message": "أصدر صوت عند تلقي الرسائل العادية",
-	"prefs-chat": "دردشة"
+	"prefs-chat": "دردشة",
+	"action-chat": "محادثة مع مستخدمين اخرين"
 }
