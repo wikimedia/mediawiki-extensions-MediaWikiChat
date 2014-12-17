@@ -7,7 +7,8 @@
 			"아라",
 			"Keysuck",
 			"Hym411",
-			"Revi"
+			"Revi",
+			"Jdpark7"
 		]
 	},
 	"chat": "채트",
@@ -68,5 +69,10 @@
 	"chat-idle-more": "이 사용자는 24시간 넘게 쉬고 있습니다",
 	"action-chat": "다른 사용자와 채트하기",
 	"action-modchat": "채트 중재",
-	"action-viewpmlog": "개인 채팅 메시지 로그 보기"
+	"action-viewpmlog": "개인 채팅 메시지 로그 보기",
+	"apihelp-chatkick-description": "대화방에서 사용자를 퇴장시킴",
+	"apihelp-chatkick-param-id": "퇴장시킬 사용자 ID",
+	"apihelp-chatkick-example-1": "ID 가 1인 사용자를 퇴장시킴",
+	"apihelp-chatsend-param-message": "보낼 메세지",
+	"apihelp-chatsend-example-1": "대화방에 \"안녕하세요\"를 보냄"
 }

@@ -65,5 +65,11 @@
 	"chat-idle-more": "此用户已闲置超过24小时",
 	"action-chat": "与其他用户聊天",
 	"action-modchat": "适当聊天",
-	"action-viewpmlog": "查看私人聊天消息日志"
+	"action-viewpmlog": "查看私人聊天消息日志",
+	"apihelp-chatgetnew-description": "在聊天中获取新消息。",
+	"apihelp-chatgetnew-example-1": "在聊天中获取新消息",
+	"apihelp-chatkick-description": "从聊天中踢出一位用户",
+	"apihelp-chatkick-param-id": "要踢出的用户ID",
+	"apihelp-chatkick-example-1": "踢出ID为1的用户",
+	"apihelp-chatsendpm-example-1": "发送“Hello World!”至ID为5的用户"
 }
