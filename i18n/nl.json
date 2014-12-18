@@ -7,7 +7,8 @@
 			"Siebrand",
 			"Sjoerddebruin",
 			"Southparkfan",
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Mirolith"
 		]
 	},
 	"chat": "Chat",
@@ -54,5 +55,11 @@
 	"prefs-chat": "Chat",
 	"action-chat": "chat met andere gebruikers",
 	"action-modchat": "modereer chat",
-	"action-viewpmlog": "het besloten chatlogboek te bekijken"
+	"action-viewpmlog": "het besloten chatlogboek te bekijken",
+	"apihelp-chatgetnew-description": "Krijg nieuwe berichten in de chat",
+	"apihelp-chatgetnew-example-1": "Krijg nieuwe berichten in de chat",
+	"apihelp-chatkick-description": "Verwijder een gebruiker van de chat",
+	"apihelp-chatsend-param-message": "Het bericht is verzonden.",
+	"apihelp-chatsend-example-1": "Stuur \"Hello World!\" de chat in",
+	"apihelp-chatsendpm-description": "Stuur een privé bericht naar de gebruiker"
 }

@@ -72,7 +72,7 @@
 	"action-viewpmlog": "개인 채팅 메시지 로그 보기",
 	"apihelp-chatkick-description": "대화방에서 사용자를 퇴장시킴",
 	"apihelp-chatkick-param-id": "퇴장시킬 사용자 ID",
-	"apihelp-chatkick-example-1": "ID 가 1인 사용자를 퇴장시킴",
-	"apihelp-chatsend-param-message": "보낼 메세지",
-	"apihelp-chatsend-example-1": "대화방에 \"안녕하세요\"를 보냄"
+	"apihelp-chatkick-example-1": "ID 1개를 사용하는 사용자 퇴장",
+	"apihelp-chatsend-param-message": "보낼 메시지",
+	"apihelp-chatsend-example-1": "대화방에 \"Hello World!\"를 보내기"
 }

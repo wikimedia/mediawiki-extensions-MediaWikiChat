@@ -66,5 +66,18 @@
 	"chat-idle-more": "Denna användare har varit inaktiv i mer än 24 timmar",
 	"action-chat": "chatta med andra användare",
 	"action-modchat": "moderatorchatt",
-	"action-viewpmlog": "visa loggen för privata chattmeddelanden"
+	"action-viewpmlog": "visa loggen för privata chattmeddelanden",
+	"apihelp-chatgetnew-description": "Få nya meddelanden i chatten.",
+	"apihelp-chatgetnew-param-focussed": "är chattfliken öppen/aktiv just nu?",
+	"apihelp-chatgetnew-example-1": "Få nya meddelanden i chatten",
+	"apihelp-chatkick-description": "Sparka en användare från chatten",
+	"apihelp-chatkick-param-id": "Användar-ID för att sparka ut",
+	"apihelp-chatkick-example-1": "Sparka ut användaren med ID 1",
+	"apihelp-chatsend-description": "Skicka ett publikt meddelande till chatten",
+	"apihelp-chatsend-param-message": "Meddelandet att skicka",
+	"apihelp-chatsend-example-1": "Skicka \"Hello World!\" till chatten",
+	"apihelp-chatsendpm-description": "Sänd ett privat meddelande till den här användaren",
+	"apihelp-chatsendpm-param-id": "Användar-ID för att skicka ett PM till",
+	"apihelp-chatsendpm-param-message": "Meddelande att skicka",
+	"apihelp-chatsendpm-example-1": "Skicka \"Hello World!\" till användaren med ID 5"
 }
