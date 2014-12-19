@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-chatgetnew-description": "Obtener nove messages in le chat.",
+	"apihelp-chatgetnew-param-focussed": "es le scheda de chat aperte/active justo ora?",
+	"apihelp-chatgetnew-example-1": "Obtener nove messages in le chat",
+	"apihelp-chatkick-description": "Ejectar un usator del chat",
+	"apihelp-chatkick-param-id": "Le ID del usator a ejectar",
+	"apihelp-chatkick-example-1": "Ejectar le usator con ID 1",
+	"apihelp-chatsend-description": "Inviar un message public al chat",
+	"apihelp-chatsend-param-message": "Le message a inviar",
+	"apihelp-chatsendpm-description": "Inviar un message private a un usator",
+	"apihelp-chatsendpm-param-id": "Le ID del usator a qui inviar un message private",
+	"apihelp-chatsendpm-param-message": "Le message a inviar"
+}
