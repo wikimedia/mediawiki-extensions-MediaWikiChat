@@ -65,5 +65,13 @@
 	"chat-idle-more": "Este usuario ha estado inactivo por más de 24 horas",
 	"action-chat": "charlar con otros usuarios",
 	"action-modchat": "moderar chat",
-	"action-viewpmlog": "ver registro de mensajes privados del chat"
+	"action-viewpmlog": "ver registro de mensajes privados del chat",
+	"apihelp-chatgetnew-description": "Recibir nuevos mensajes en el chat.",
+	"apihelp-chatgetnew-example-1": "Recibir nuevos mensajes en el chat",
+	"apihelp-chatsend-description": "Enviar un mensaje público al chat",
+	"apihelp-chatsend-param-message": "El mensaje a enviar",
+	"apihelp-chatsend-example-1": "Enviar \"¡Hola Mundo!\" al chat",
+	"apihelp-chatsendpm-description": "Enviar un mensaje privado a un usuario",
+	"apihelp-chatsendpm-param-message": "El mensaje a enviar",
+	"apihelp-chatsendpm-example-1": "Enviar \"¡Hola Mundo!\" al usuario con id 5"
 }

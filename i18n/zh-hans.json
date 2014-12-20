@@ -71,5 +71,10 @@
 	"apihelp-chatkick-description": "从聊天中踢出一位用户",
 	"apihelp-chatkick-param-id": "要踢出的用户ID",
 	"apihelp-chatkick-example-1": "踢出ID为1的用户",
+	"apihelp-chatsend-description": "发送公开消息至聊天",
+	"apihelp-chatsend-param-message": "要发送的消息",
+	"apihelp-chatsendpm-description": "发送一条私信至用户",
+	"apihelp-chatsendpm-param-id": "发送私信的目标用户ID",
+	"apihelp-chatsendpm-param-message": "要发送的消息",
 	"apihelp-chatsendpm-example-1": "发送“Hello World!”至ID为5的用户"
 }
