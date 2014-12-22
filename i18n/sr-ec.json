@@ -5,9 +5,13 @@
 			"Milicevic01"
 		]
 	},
+	"chat": "Ћаскање",
+	"chat-type-your-message": "Откуцајте вашу поруку",
 	"chat-sounds": "Репродукуј звукове",
 	"chat-flood": "Не можете да шаљете поруке толико брзо. Сачекајте па пошаљите другу.",
 	"chat-today": "данас",
+	"chat-yesterday": "јуче",
+	"chat-block": "блокирај",
 	"chat-change-preferences": "Промени поставке ћаскања",
 	"tog-chat-ping-mention": "Репродукуј звук када вас неко помене",
 	"tog-chat-ping-pm": "Репродукуј звук по доспећу приватних порука",
