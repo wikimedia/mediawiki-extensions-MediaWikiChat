@@ -136,7 +136,7 @@ class MediaWikiChat {
 	static function getInterval() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$maxInterval = 30 * 1000;
-		$minInterval = 5 * 1000;
+		$minInterval = 3 * 1000;
 
 		$res = $dbr->select(
 			'chat',
@@ -148,30 +148,34 @@ class MediaWikiChat {
 				'ORDER BY' => 'chat_timestamp DESC'
 			)
 		);
+		
+		if ( $res->numRows() > 3 ){     
+    		$i = 0;
 
-		$i = 0;
+    		foreach ( $res as $row ) {
+    			if ( $i == 0 ) {
+    				$latest = $row;
+    			} elseif ( $i == 4 ) {
+    				$oldest = $row;
+    			}
+    			$i++;
+    		}
 
-		foreach ( $res as $row ) {
-			if ( $i == 0 ) {
-				$latest = $row;
-			} elseif ( $i == 4 ) {
-				$oldest = $row;
-			}
-			$i++;
-		}
+    		$latestTime = $latest->chat_timestamp;
+    		$oldestTime = $oldest->chat_timestamp;
 
-		$latestTime = $latest->chat_timestamp;
-		$oldestTime = $oldest->chat_timestamp;
+    		$av = ( $latestTime - $oldestTime ) / 10 ; // divide by 5 to find average, then half
 
-		$av = ( $latestTime - $oldestTime ) / 10 ; // divide by 5 to find average, then half
+    		if ( $av > $maxInterval ) {
+    			$av = $maxInterval;
+    		} elseif ( $minInterval ) {
+    			$av = $minInterval;
+    		}
 
-		if ( $av > $maxInterval ) {
-			$av = $maxInterval;
-		} elseif ( $minInterval ) {
-			$av = $minInterval;
-		}
-
-		return $av;
+    		return $av;
+    	} else {
+         return 7 * 1000;
+    	}
 	}
 
 	/**
