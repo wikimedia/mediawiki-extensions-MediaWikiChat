@@ -4,7 +4,7 @@
 class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
-		global $wgChatSocialAvatars, $wgChatOnlineTimeout;
+		global $wgChatOnlineTimeout;
 
 		$result = $this->getResult();
 		$mName = $this->getModuleName();
@@ -136,7 +136,7 @@ class ChatGetNewAPI extends ApiBase {
 				$idString = strval( $id );
 
 				$result->addValue( array( $mName, 'users', $idString ), 'name', $userObject->getName() );
-				if ( $wgChatSocialAvatars ) {
+				if ( class_exists( 'SocialProfileHooks' ) ) { // is SocialProfile installed?
 					$result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );
 				}
 				if ( array_key_exists( $id, $onlineUsers ) ) {

@@ -15,7 +15,7 @@ class SpecialChat extends SpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $wgChatSocialAvatars, $wgChatKicks, $wgChatLinkUsernames, $wgChatMeCommand, $wgChatMaxMessageLength;
+		global $wgChatKicks, $wgChatLinkUsernames, $wgChatMeCommand, $wgChatMaxMessageLength;
 
 		$out = $this->getOutput();
 		$user = $this->getUser();
@@ -51,7 +51,7 @@ class SpecialChat extends SpecialPage {
 			$out->addJsConfigVars(
 				array(
 					'wgChatKicks' => $wgChatKicks,
-					'wgChatSocialAvatars' => $wgChatSocialAvatars,
+					'wgChatSocialAvatars' => class_exists( 'SocialProfileHooks' ), // has SocialProfile been installed?
 					'wgChatLinkUsernames' => $wgChatLinkUsernames,
 					'wgChatPingMentions' => $mention,
 					'wgChatPingPMs' => $pm,
