@@ -56,10 +56,10 @@
 	"action-chat": "chat met andere gebruikers",
 	"action-modchat": "modereer chat",
 	"action-viewpmlog": "het besloten chatlogboek te bekijken",
-	"apihelp-chatgetnew-description": "Krijg nieuwe berichten in de chat",
-	"apihelp-chatgetnew-example-1": "Krijg nieuwe berichten in de chat",
+	"apihelp-chatgetnew-description": "Nieuwe berichten in de chat opvragen.",
+	"apihelp-chatgetnew-example-1": "Nieuwe berichten in de chat opvragen",
 	"apihelp-chatkick-description": "Verwijder een gebruiker van de chat",
-	"apihelp-chatsend-param-message": "Het bericht is verzonden.",
-	"apihelp-chatsend-example-1": "Stuur \"Hello World!\" de chat in",
-	"apihelp-chatsendpm-description": "Stuur een privé bericht naar de gebruiker"
+	"apihelp-chatsend-param-message": "Het te verzenden bericht",
+	"apihelp-chatsend-example-1": "\"Hello World!\" naar de chat verzenden",
+	"apihelp-chatsendpm-description": "Privébericht naar een gebruiker verzenden"
 }

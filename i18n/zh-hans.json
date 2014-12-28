@@ -67,6 +67,7 @@
 	"action-modchat": "适当聊天",
 	"action-viewpmlog": "查看私人聊天消息日志",
 	"apihelp-chatgetnew-description": "在聊天中获取新消息。",
+	"apihelp-chatgetnew-param-focussed": "聊天标签现在是否开启/被聚焦？",
 	"apihelp-chatgetnew-example-1": "在聊天中获取新消息",
 	"apihelp-chatkick-description": "从聊天中踢出一位用户",
 	"apihelp-chatkick-param-id": "要踢出的用户ID",
