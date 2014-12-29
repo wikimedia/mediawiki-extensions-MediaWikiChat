@@ -129,9 +129,9 @@ class MediaWikiChat {
 	}
 
 	/**
-	 * Get interval to poll the server from. Based on the average milliseconds beteen recent messages.
+	 * Get interval to poll the server from. Based on the average milliseconds between recent messages.
 	 *
-	 * @return Integer: average milliseconds between message sends
+	 * @return Integer: polling interval to use (how long between each poll)
 	 */
 	static function getInterval() {
 		$dbr = wfGetDB( DB_SLAVE );
@@ -144,37 +144,28 @@ class MediaWikiChat {
 			array( 'chat_type' => MediaWikiChat::TYPE_MESSAGE ),
 			__METHOD__,
 			array(
-				'LIMIT' => 5,
+				'LIMIT' => 1,
+				'OFFSET' => 4,
 				'ORDER BY' => 'chat_timestamp DESC'
 			)
 		);
 		
-		if ( $res->numRows() > 4 ){     
-    		$i = 0;
+		if ( $res->numRows() ) {
+			$row = $res->fetchObject();
+			$oldest = $row->chat_timestamp;
+			$now = MediaWikiChat::now();
 
-    		foreach ( $res as $row ) {
-    			if ( $i == 0 ) {
-    				$latest = $row;
-    			} elseif ( $i == 4 ) {
-    				$oldest = $row;
-    			}
-    			$i++;
-    		}
-
-    		$latestTime = $latest->chat_timestamp;
-    		$oldestTime = $oldest->chat_timestamp;
-
-    		$av = ( $latestTime - $oldestTime ) / 10 ; // divide by 5 to find average, then half
+    		$av = ( $now - $oldest ); // / 5 to find average, then / 2, then * 10 as MWC timestamps are 100th seconds, JS intervals are 1000th seconds
 
     		if ( $av > $maxInterval ) {
     			$av = $maxInterval;
-    		} elseif ( $minInterval ) {
+    		} elseif ( $av < $minInterval ) {
     			$av = $minInterval;
     		}
 
     		return $av;
-    	} else {
-         return 7 * 1000;
+    	} else { // before there are any messages to consider
+        	return 7 * 1000; // use 7 secs
     	}
 	}
 
