@@ -3,7 +3,8 @@
 		"authors": [
 			"Gomoko",
 			"Verdy p",
-			"Elodark"
+			"Elodark",
+			"0x010C"
 		]
 	},
 	"chat": "Discussion",
@@ -66,5 +67,10 @@
 	"chat-idle-more": "Cet utilisateur est inactif depuis plus de 24 heures",
 	"action-chat": "discuter avec les autres utilisateurs",
 	"action-modchat": "modérer la discussion",
-	"action-viewpmlog": "afficher le journal des messages de la discussion privée"
+	"action-viewpmlog": "afficher le journal des messages de la discussion privée",
+	"apihelp-chatgetnew-description": "Recevez de nouveaux messages dans le chat.",
+	"apihelp-chatsend-param-message": "Le message à envoyer",
+	"apihelp-chatsend-example-1": "Envoyer \"Hello World!\" au chat",
+	"apihelp-chatsendpm-description": "Envoyer un message privé à un utilisateur",
+	"apihelp-chatsendpm-param-message": "Le message à envoyer"
 }
