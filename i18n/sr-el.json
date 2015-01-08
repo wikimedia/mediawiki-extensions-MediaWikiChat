@@ -6,5 +6,7 @@
 	},
 	"chat": "Ćaskanje",
 	"chat-type-your-message": "Otkucajte vašu poruku",
-	"chat-today": "danas"
+	"chat-today": "danas",
+	"chat-yesterday": "juče",
+	"chat-block": "blokiraj"
 }
