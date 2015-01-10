@@ -54,7 +54,13 @@ class ChatSendAPI extends ApiBase {
 					'4::message' => $originalMessage, // we want the logs to show the source message, not the parsed one
 				) );
 
-				$logEntry->insert();
+				$logID = $logEntry->insert();
+
+				if ( class_exists( 'CheckUserHooks' ) ) {
+					$rc = $logEntry->getRecentChange( $logID );
+
+					CheckUserHooks::updateCheckUserData( $rc );
+				}
 
 				MediaWikiChat::deleteEntryIfNeeded();
 				MediaWikiChat::updateAway( $user );
