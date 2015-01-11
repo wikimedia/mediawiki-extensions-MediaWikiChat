@@ -16,7 +16,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.12.10',
+	'version' => '2.13.0',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -39,7 +39,8 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 		'chat-kicked', 'chat-kick', 'chat-youve-been-blocked', 'chat-you-blocked', 'chat-blocked',
 		'chat-block', 'chat-private-message', 'chat-user-is-moderator', 'chat-you-are-moderator',
 		'chat-joined', 'chat-left', 'chat-mod-image', 'chat-yesterday', 'chat-flood', 'chat-too-long',
-		'chat-idle-minutes', 'chat-idle-hours', 'chat-idle-more', 'chat-today'
+		'chat-idle-minutes', 'chat-idle-hours', 'chat-idle-more', 'chat-today', 'chat-message-from',
+		'chat-private-message-from', 'chat-mentioned-by'
 	),
 	'dependencies' => 'mediawiki.jqueryMsg',
 	'localBasePath' => dirname( __FILE__ ),
@@ -106,3 +107,10 @@ $wgAddGroups['chatmod'][] = 'blockedfromchat';
 $wgRemoveGroups['chatmod'][] = 'blockedfromchat';
 $wgAddGroups['sysop'][] = 'blockedfromchat';
 $wgRemoveGroups['sysop'][] = 'blockedfromchat';
+
+// Add default preferences
+$wgDefaultUserOptions['chat-ping-mention'] = 1;
+$wgDefaultUserOptions['chat-ping-pm'] = 1;
+$wgDefaultUserOptions['chat-notify-mention'] = 1;
+$wgDefaultUserOptions['chat-notify-message'] = 1;
+$wgDefaultUserOptions['chat-notify-pm'] = 1;
