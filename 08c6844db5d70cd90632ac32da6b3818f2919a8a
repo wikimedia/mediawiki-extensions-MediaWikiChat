@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee703fc5_ad0b4cd8",
+        "filename": "MediaWikiChat.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2015-01-11T21:25:42Z",
+      "side": 1,
+      "message": "According to https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers.setTimeout this does not work in IE8 or IE9.\n\nThere is no need to pass the notification as parameter, you can just use the notification variable from the outer scope.",
+      "revId": "08c6844db5d70cd90632ac32da6b3818f2919a8a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
