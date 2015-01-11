@@ -35,7 +35,7 @@
 	"chat-user-is-moderator": "{{GENDER:$1|Dieser Benutzer ist ein Moderator|Diese Benutzerin ist eine Moderatorin}}",
 	"chat-you-are-moderator": "Du bist {{GENDER:$1|ein Moderator|eine Moderatorin}}",
 	"chat-topic": "Willkommen im {{SITENAME}}-Chat. ([[Special:Log/chat|Chat-Logbuch]])",
-	"chat-change-preferences": "Chat-Einstellungen ändern (Vollbild und Sounds)",
+	"chat-change-preferences": "Chat-Einstellungen ändern (Vollbild, Sounds, Benachrichtigungen)",
 	"chat-sidebar-online": "Onlinebenutzer im Chat:",
 	"chat-sidebar-join": "Dem Chat beitreten",
 	"log-name-chat": "Chat-Logbuch",
@@ -61,10 +61,17 @@
 	"tog-chat-ping-message": "Einen Sound beim Erhalt normaler Nachrichten abspielen",
 	"tog-chat-ping-joinleave": "Einen Sound abspielen, wenn Benutzer dem Chat beitreten oder es verlassen.",
 	"prefs-chat": "Chat",
+	"tog-chat-notify-mention": "Beim Erhalt von Erwähnungen eine Benachrichtigung anzeigen (nur Chrome und Firefox)",
+	"tog-chat-notify-pm": "Beim Erhalt privater Nachrichten eine Benachrichtigung anzeigen (nur Chrome und Firefox)",
+	"tog-chat-notify-message": "Beim Erhalt normaler Nachrichten eine Benachrichtigung anzeigen (nur Chrome und Firefox)",
+	"tog-chat-notify-joinleave": "Eine Benachrichtigung anzeigen, wenn Benutzer dem Chat beitreten oder es verlassen (nur Chrome und Firefox)",
 	"chat-idle-minutes": "Dieser Benutzer ist seit mehr als {{PLURAL:$1|einer Minute|$1 Minuten}} inaktiv",
 	"chat-idle-hours": "Dieser Benutzer ist seit mehr als {{PLURAL:$1|einer Stunde|$1 Stunden}} inaktiv",
 	"chat-idle-more": "Dieser Benutzer ist seit mehr als 24 Stunden inaktiv",
 	"action-chat": "Mit anderen Benutzern chatten",
 	"action-modchat": "Chat moderieren",
-	"action-viewpmlog": "Das private Chat-Nachrichten-Logbuch ansehen"
+	"action-viewpmlog": "Das private Chat-Nachrichten-Logbuch ansehen",
+	"chat-message-from": "Nachricht von $1",
+	"chat-private-message-from": "Private Nachricht von $1",
+	"chat-mentioned-by": "Erwähnt von $1"
 }
