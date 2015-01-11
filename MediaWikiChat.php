@@ -112,5 +112,4 @@ $wgRemoveGroups['sysop'][] = 'blockedfromchat';
 $wgDefaultUserOptions['chat-ping-mention'] = 1;
 $wgDefaultUserOptions['chat-ping-pm'] = 1;
 $wgDefaultUserOptions['chat-notify-mention'] = 1;
-$wgDefaultUserOptions['chat-notify-message'] = 1;
 $wgDefaultUserOptions['chat-notify-pm'] = 1;
