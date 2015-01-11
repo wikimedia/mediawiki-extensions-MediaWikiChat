@@ -575,7 +575,7 @@ var MediaWikiChat = {
 				MediaWikiChat.audio( 'message' );
 			}
 			document.title = "* " + MediaWikiChat.title;
-			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
+			if ( mw.user.options.get( 'chat-notify-message' ) ) {
 				MediaWikiChat.notify( title, message );
 			}
 		}
@@ -587,7 +587,7 @@ var MediaWikiChat = {
 				MediaWikiChat.audio( 'pm' );
 			}
 			document.title = "> " + MediaWikiChat.title;
-			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
+			if ( mw.user.options.get( 'chat-notify-pm' ) ) {
 				MediaWikiChat.notify( title, message );
 			}
 		}
@@ -601,7 +601,7 @@ var MediaWikiChat = {
 				MediaWikiChat.audio( 'message' );
 			}
 			document.title = "! " + MediaWikiChat.title;
-			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
+			if ( mw.user.options.get( 'chat-notify-mention' ) ) {
 				MediaWikiChat.notify( title, message );
 			}
 		}
@@ -613,7 +613,7 @@ var MediaWikiChat = {
 				MediaWikiChat.audio( 'message' );
 			}
 			document.title = "+ " + MediaWikiChat.title;
-			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
+			if ( mw.user.options.get( 'chat-notify-joinleave' ) ) {
 				MediaWikiChat.notify( title, '' );
 			}
 		}
