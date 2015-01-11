@@ -656,6 +656,10 @@ var MediaWikiChat = {
 		notification.onclick = function() {
 			window.focus();
 		};
+
+		setTimeout( function( notification ) {
+			notification.close();
+		}, 5000, notification );
 	},
 
 	restartInterval: function( interval ) {
