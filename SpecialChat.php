@@ -15,7 +15,7 @@ class SpecialChat extends SpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $wgChatKicks, $wgChatLinkUsernames, $wgChatMeCommand, $wgChatMaxMessageLength;
+		global $wgChatKicks, $wgChatLinkUsernames, $wgChatMeCommand, $wgChatMaxMessageLength, $wgCanonicalServer;
 
 		$out = $this->getOutput();
 		$user = $this->getUser();
@@ -36,11 +36,6 @@ class SpecialChat extends SpecialPage {
 			include( 'SpecialChat.template.php' );
 			$template = new SpecialChatTemplate;
 
-			$mention = $user->getOption( 'chat-ping-mention' );
-			$pm = $user->getOption( 'chat-ping-pm' );
-			$message = $user->getOption( 'chat-ping-message' );
-			$joinleave = $user->getOption( 'chat-ping-joinleave' );
-
 			// Load modules via ResourceLoader
 			$modules = array(
 					'ext.mediawikichat.css',
@@ -53,12 +48,9 @@ class SpecialChat extends SpecialPage {
 					'wgChatKicks' => $wgChatKicks,
 					'wgChatSocialAvatars' => class_exists( 'SocialProfileHooks' ), // has SocialProfile been installed?
 					'wgChatLinkUsernames' => $wgChatLinkUsernames,
-					'wgChatPingMentions' => $mention,
-					'wgChatPingPMs' => $pm,
-					'wgChatPingMessages' => $message,
-					'wgChatPingJoinLeaves' => $joinleave,
 					'wgChatMeCommand' => $wgChatMeCommand,
 					'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
+					'wgCanonicalServer' => $wgCanonicalServer,
 				)
 			);
 

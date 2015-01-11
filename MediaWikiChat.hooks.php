@@ -153,6 +153,27 @@ class MediaWikiChatHooks {
 			'section' => 'misc/chat',
 		);
 
+		$preferences['chat-notify-mention'] = array(
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-notify-mention',
+			'section' => 'misc/chat',
+		);
+		$preferences['chat-notify-pm'] = array(
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-notify-pm',
+			'section' => 'misc/chat',
+		);
+		$preferences['chat-notify-message'] = array(
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-notify-message',
+			'section' => 'misc/chat',
+		);
+		$preferences['chat-notify-joinleave'] = array(
+			'type' => 'toggle',
+			'label-message' => 'tog-chat-notify-joinleave',
+			'section' => 'misc/chat',
+		);
+
 		return true;
 	}
 

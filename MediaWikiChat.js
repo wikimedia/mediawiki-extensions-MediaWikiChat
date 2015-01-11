@@ -157,11 +157,11 @@ var MediaWikiChat = {
 
 			MediaWikiChat.doUsers( onlineUsers );
 
-			for ( var userId in data.users ) { // has to be done after doUsers
-				var user = MediaWikiChat.userData[userId];
-				if ( user.id != mw.config.get( 'wgUserId' ) ) {
-					var userE = MediaWikiChat.safe( user.name );
-					MediaWikiChat.greyscale( $( '#mwchat-users #' + userE ), user.away );
+			for ( var userId2 in data.users ) { // has to be done after doUsers
+				var user2 = MediaWikiChat.userData[userId2];
+				if ( user2.id != mw.config.get( 'wgUserId' ) ) {
+					var userEscaped = MediaWikiChat.safe( user2.name );
+					MediaWikiChat.greyscale( $( '#mwchat-users #' + userEscaped ), user2.away );
 				}
 			}
 
@@ -283,11 +283,13 @@ var MediaWikiChat = {
 		var html = '<tr class="mwchat-message">';
 		var mention = false;
 
-		if ( message.toLowerCase().indexOf( mw.config.get( 'wgUserName' ).toLowerCase() ) != -1 ) {
+		if ( message.toLowerCase().indexOf( mw.user.getName().toLowerCase() ) != -1 ) {
 			mention = true;
-			MediaWikiChat.flashMention();
+			MediaWikiChat.flashMention( mw.message( 'chat-mentioned-by', user.name).text(), message );
 		} else {
-			MediaWikiChat.flash();
+			if ( userId != mw.user.getId() ) { // don't flash if we sent the message
+				MediaWikiChat.flash( mw.message( 'chat-message-from', user.name).text(), message );
+			}
 		}
 
 		html += '<td class="mwchat-item-user">';
@@ -352,15 +354,15 @@ var MediaWikiChat = {
 		html += MediaWikiChat.htmlTimestamp( timestamp );
 		html += '</div>';
 
-                // Open any link in private messages in a new tab
-                var elem = $( html ).appendTo( $( '#' + convwithE + ' .mwchat-useritem-content' ) );
-                elem.find( 'a' ).attr( 'target', '_blank' );
+		// Open any link in private messages in a new tab
+		var elem = $( html ).appendTo( $( '#' + convwithE + ' .mwchat-useritem-content' ) );
+		elem.find( 'a' ).attr( 'target', '_blank' );
 
 		if ( user.name != mw.config.get( 'wgUserName' ) ) {
 			$( '#' + convwithE ).attr( 'data-read', 'true' );
 		}
 
-		MediaWikiChat.flashPrivate();
+		MediaWikiChat.flashPrivate( mw.message( 'chat-private-message-from', user.name).text(), message );
 	},
 
 	greyscale: function( element, microseconds ) {
@@ -512,7 +514,7 @@ var MediaWikiChat = {
 
 		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name, user.gender ).text(), MediaWikiChat.now() );
 		MediaWikiChat.scrollToBottom();
-		MediaWikiChat.flashJoinLeave();
+		MediaWikiChat.flashJoinLeave( mw.message( 'chat-left', user.name, user.gender ).text());
 	},
 
 	clickUser: function() {
@@ -567,41 +569,53 @@ var MediaWikiChat = {
 		}
 	},
 
-	flash: function() {
+	flash: function( title, message ) {
 		if ( !MediaWikiChat.focussed ) {
-			if ( mw.config.get( 'wgChatPingMessages' ) ) {
+			if ( mw.user.options.get( 'chat-ping-message' ) ) {
 				MediaWikiChat.audio( 'message' );
 			}
 			document.title = "* " + MediaWikiChat.title;
+			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
+				MediaWikiChat.notify( title, message );
+			}
 		}
 	},
 
-	flashPrivate: function() {
+	flashPrivate: function( title, message ) {
 		if ( !MediaWikiChat.focussed ) {
-			if ( mw.config.get( 'wgChatPingPMs' ) ) {
+			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
 				MediaWikiChat.audio( 'pm' );
 			}
 			document.title = "> " + MediaWikiChat.title;
+			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
+				MediaWikiChat.notify( title, message );
+			}
 		}
 	},
 
-	flashMention: function() {
+	flashMention: function( title, message ) {
 		if ( !MediaWikiChat.focussed ) {
-			if ( mw.config.get( 'wgChatPingMentions' ) ) {
+			if ( mw.user.options.get( 'chat-ping-mention' ) ) {
 				MediaWikiChat.audio( 'mention' );
-			} else if ( mw.config.get( 'wgChatPingMessages' ) ) { // user may want pinging on all msgs, but not mentions
+			} else if ( mw.user.options.get( 'chat-ping-message' ) ) { // user may want pinging on all msgs, but not mentions
 				MediaWikiChat.audio( 'message' );
 			}
 			document.title = "! " + MediaWikiChat.title;
+			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
+				MediaWikiChat.notify( title, message );
+			}
 		}
 	},
 
-	flashJoinLeave: function() {
+	flashJoinLeave: function( title ) {
 		if ( !MediaWikiChat.focussed ) {
-			if ( mw.config.get( 'wgChatPingJoinLeaves' ) ) {
+			if ( mw.user.options.get( 'chat-ping-joinleave' ) ) {
 				MediaWikiChat.audio( 'message' );
 			}
 			document.title = "+ " + MediaWikiChat.title;
+			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
+				MediaWikiChat.notify( title, '' );
+			}
 		}
 	},
 
@@ -624,6 +638,24 @@ var MediaWikiChat = {
 		audio.appendChild( source );
 
 		audio.play();
+	},
+
+	notify: function( title, message ) {
+		if (!Notification) {
+			return;
+		}
+
+		if (Notification.permission !== "granted")
+			Notification.requestPermission();
+
+		var notification = new Notification( title, {
+			icon: mw.config.get( 'wgCanonicalServer' ) + '/favicon.ico',
+			body: message
+		} );
+
+		notification.onclick = function() {
+			window.focus();
+		};
 	},
 
 	restartInterval: function( interval ) {
