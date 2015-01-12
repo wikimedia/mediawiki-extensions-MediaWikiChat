@@ -32,7 +32,7 @@
 	"chat-user-is-moderator": "Ten użytkownik {{GENDER:$1|jest}} moderatorem.",
 	"chat-you-are-moderator": "Ty {{GENDER:$1|jesteś}} moderatorem.",
 	"chat-topic": "Witamy na czacie {{SITENAME}}. ([[Special:Log/chat|rejestr czatu]])",
-	"chat-change-preferences": "Zmień ustawienia czatu (pełny ekran oraz dźwięki)",
+	"chat-change-preferences": "Zmień ustawienia czatu (pełny ekran, dźwięki, powiadomienia)",
 	"chat-sidebar-online": "Użytkowników online na czacie:",
 	"chat-sidebar-join": "Dołącz do czatu",
 	"log-name-chat": "Rejestr czatu",
@@ -44,5 +44,7 @@
 	"tog-chat-ping-mention": "Odtwórz dźwięk kiedy zostaniesz wspomniany",
 	"tog-chat-ping-pm": "Odtwórz dźwięk kiedy otrzymasz prywatną wiadomość",
 	"tog-chat-ping-message": "Odtwórz dźwięk kiedy otrzymasz wiadomość",
-	"prefs-chat": "Czat"
+	"prefs-chat": "Czat",
+	"chat-message-from": "Wiadomość od $1",
+	"chat-private-message-from": "Prywatna wiadomość od $1"
 }

@@ -4,16 +4,20 @@
 			"Imperadeiro98",
 			"SandroHc",
 			"Vitorvicentevalente",
-			"Josep Maria 15."
+			"Josep Maria 15.",
+			"Imperadeiro90"
 		]
 	},
 	"chat": "Chat",
 	"chat-today": "hoje",
 	"chat-user-is-moderator": "Este utilizador {{GENDER:$1|é}} um moderador",
-	"chat-change-preferences": "Alterar as preferências de chat (ecrã inteiro e sons)",
+	"chat-change-preferences": "Altera as tuas preferências de chat (ecrã inteiro, sons, notificações)",
 	"logentry-privatechat-send": "$1 para $5: $4",
 	"tog-chat-fullscreen": "Usar chat no modo ecrã inteiro (experimental)",
 	"tog-chat-ping-mention": "Tocar um som ao receber menções",
 	"tog-chat-ping-pm": "Tocar um som ao receber mensagens privadas",
-	"tog-chat-ping-message": "Tocar um som ao receber mensagens normais"
+	"tog-chat-ping-message": "Tocar um som ao receber mensagens normais",
+	"chat-message-from": "Mensagem de $1",
+	"chat-private-message-from": "Mensagem privada de $1",
+	"chat-mentioned-by": "Mencionado por $1"
 }

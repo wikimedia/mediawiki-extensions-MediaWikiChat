@@ -61,6 +61,7 @@
 	"tog-chat-notify-mention": "Прикажувај известување при споменуавања (само за Chrome и Firefox)",
 	"tog-chat-notify-pm": "Прикажувај известување при добивање на лични пораки (само за Chrome и Firefox)",
 	"tog-chat-notify-message": "Прикажувај известување при добивање на нормални пораки (само за Chrome и Firefox)",
+	"tog-chat-notify-joinleave": "Прикажувај известување кога некој ќе се приклучи на разговорот или ќе го напушти истиот (само за Chrome и Firefox)",
 	"chat-idle-minutes": "Корисников е неактивен веќе {{PLURAL:$1|една минута|$1 минути}}",
 	"chat-idle-hours": "Корисников е неактивен веќе {{PLURAL:$1|еден час|$1 часа}}",
 	"chat-idle-more": "Корисников е неактивен повеќе од 24 часа.",
@@ -79,5 +80,8 @@
 	"apihelp-chatsendpm-description": "Испрати му лична порака на корисникот",
 	"apihelp-chatsendpm-param-id": "Корисничката назнака кајшто ја праќате личната порака",
 	"apihelp-chatsendpm-param-message": "Пораката што треба да се испрати",
-	"apihelp-chatsendpm-example-1": "Испрати „Здраво на сите“ на корисник со назнака 5"
+	"apihelp-chatsendpm-example-1": "Испрати „Здраво на сите“ на корисник со назнака 5",
+	"chat-message-from": "Порака од $1",
+	"chat-private-message-from": "Лична порака од $1",
+	"chat-mentioned-by": "Споменат од $1"
 }

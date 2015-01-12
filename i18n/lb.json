@@ -23,12 +23,15 @@
 	"chat-you-unblocked": "Dir hutt dem {{GENDER:$2|seng}}$1 Spär opgehuewen.",
 	"chat-private-message": "klickt fir privat Messagen",
 	"chat-user-is-moderator": "Dëse Benotzer {{GENDER:$1|ass}} e Moderateur.",
-	"chat-change-preferences": "Ännert Är Chat-Astellungen (Fullscreen an Toun)",
+	"chat-change-preferences": "Ännert Är Chat-Astellungen (Fullscreen, Toun, Notifikatiounen)",
 	"log-description-privatechat": "Privat Messagen déi iwwer MediaWikiChat verschéckt goufen",
 	"logentry-privatechat-send": "$1 fir $5: $4",
 	"group-blockedfromchat": "Benotzer déi fir den Chat gespaart sinn",
 	"right-mediawikichat-chat": "Special:Chat benotzen",
 	"prefs-chat": "Chat",
 	"chat-idle-hours": "Dëse Benotzer ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
-	"apihelp-chatsendpm-description": "Engem Benotzer e private Message schécken"
+	"apihelp-chatsendpm-description": "Engem Benotzer e private Message schécken",
+	"chat-message-from": "Message vum $1",
+	"chat-private-message-from": "Private Message vum $1",
+	"chat-mentioned-by": "Ernimmt vum $1"
 }
