@@ -3,7 +3,8 @@
 		"authors": [
 			"Joseph",
 			"Mustavanilya",
-			"Violetanka"
+			"Violetanka",
+			"Sayginer"
 		]
 	},
 	"chat": "Sohbet",
@@ -32,6 +33,7 @@
 	"chat-user-is-moderator": "Bu kullanıcı {{GENDER:$1|bir}} moderatör",
 	"chat-you-are-moderator": "Siz {{GENDER:$1|bir}} moderatörsünüz",
 	"chat-topic": "{{SITENAME}} sohbete hoş geldiniz. ([[Special:Log/chat|sohbet günlüğü]])",
+	"chat-change-preferences": "Sohbet tercihlerinizi (tam ekran, sesler, bildirimler) değiştirin",
 	"chat-sidebar-online": "Sohbetteki çevrimiçi kullanıcılar:",
 	"chat-sidebar-join": "Sohbete katıl",
 	"log-name-chat": "Sohbet günlüğü",

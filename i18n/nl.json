@@ -61,5 +61,8 @@
 	"apihelp-chatkick-description": "Verwijder een gebruiker van de chat",
 	"apihelp-chatsend-param-message": "Het te verzenden bericht",
 	"apihelp-chatsend-example-1": "\"Hello World!\" naar de chat verzenden",
-	"apihelp-chatsendpm-description": "Privébericht naar een gebruiker verzenden"
+	"apihelp-chatsendpm-description": "Privébericht naar een gebruiker verzenden",
+	"chat-message-from": "Bericht van $1",
+	"chat-private-message-from": "Persoonlijk bericht van $1",
+	"chat-mentioned-by": "Genoemd door $1"
 }
