@@ -33,7 +33,7 @@
 	"chat-user-is-moderator": "Этот пользователь — {{GENDER:$1|модератор}}.",
 	"chat-you-are-moderator": "Вы — {{GENDER:$1|модератор}}.",
 	"chat-topic": "Добро пожаловать в чат сайта {{SITENAME}}. ([[Special:Log/chat|журнал чата]])",
-	"chat-change-preferences": "Изменить настройки чата (полноэкранный режим и звуки)",
+	"chat-change-preferences": "Изменить настройки чата (полноэкранный режим, звуки и уведомления)",
 	"chat-sidebar-online": "Пользователи в чатеː",
 	"chat-sidebar-join": "Присоединиться к чату",
 	"log-name-chat": "Лог чата",

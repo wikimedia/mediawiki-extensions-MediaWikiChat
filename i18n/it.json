@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"Gianfranco"
+			"Gianfranco",
+			"Ricordisamoa"
 		]
 	},
 	"chat": "Chat",
@@ -64,5 +65,7 @@
 	"chat-idle-more": "Questo utente è rimasto inattivo per più di 24 ore",
 	"action-chat": "chattare con altri utenti",
 	"action-modchat": "moderare la chat",
-	"action-viewpmlog": "vedere il registro dei messaggi delle chat private"
+	"action-viewpmlog": "vedere il registro dei messaggi delle chat private",
+	"chat-message-from": "Messaggio da $1",
+	"chat-private-message-from": "Messaggio privato da $1"
 }

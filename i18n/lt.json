@@ -1,11 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mantak111"
+			"Mantak111",
+			"Aswanas"
 		]
 	},
 	"chat-sounds": "Groti garsus",
+	"chat-change-preferences": "Pakeiskite jūsų pokalbių nuostatas (pilnas ekranas, garsai, pastabos)",
 	"log-name-privatechat": "Privačių pokalbių žurnalas",
 	"log-description-privatechat": "Asmenines žinutes siuntė MediaWikiChat",
-	"prefs-chat": "Pokalbiai"
+	"prefs-chat": "Pokalbiai",
+	"tog-chat-notify-mention": "Rodyti pranešimą gavus pastabas (tik \"Chrome\" ir \"Firefox\")",
+	"tog-chat-notify-pm": "Rodyti pranešimą gavus privačias žinutes (tik \"Chrome\" ir \"Firefox\")",
+	"tog-chat-notify-message": "Rodyti pranešimą gavus įprastas žinutes (tik \"Chrome\" ir \"Firefox\")",
+	"tog-chat-notify-joinleave": "Rodyti pranešimą, kai vartotojai prisijungia arba baigia pokalbį (tik \"Chrome\" ir \"Firefox\")",
+	"chat-message-from": "Žinutė nuo $1",
+	"chat-private-message-from": "Privati žinutė iš $1",
+	"chat-mentioned-by": "Paminėjo $1"
 }
