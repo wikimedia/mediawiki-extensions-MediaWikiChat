@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"عثمان خان شاہ"
+		]
+	},
+	"chat-message-from": "$1 کے جانب سے پیغام",
+	"chat-private-message-from": "$1 کے جانب سے مخصوص پیغام",
+	"chat-mentioned-by": "$1 نے درج کیا"
+}
