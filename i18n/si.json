@@ -2,12 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Sahan.ssw",
-			"Thushara"
+			"Thushara",
+			"Thirsty"
 		]
 	},
 	"chat-blocked-from-chat": "ඔබ මෙම කතිකාවට සහහාගී වීම වලක්වා ඇත.",
 	"chat-sounds": "ශබ්ද වාදනය කරන්න",
 	"chat-flood": "ඔබට මේ තරම් වේගයෙන් පණිවිඩ යැවිය නොහැක,කරුණාකර තවත් යවීමට පෙර මඳක් ඉවසන්න.",
 	"tog-chat-ping-pm": "ලැබෙන පුද්ගලික පනිවිඩ සඳහා ශබ්දයක් වාදනය කරන්න.",
-	"prefs-chat": "චැට්"
+	"prefs-chat": "චැට්",
+	"chat-message-from": "$1 ගෙන් පණිවිඩයක්",
+	"chat-private-message-from": "$1 ගෙන් පෞද්ගලික පණිවිඩයක්",
+	"chat-mentioned-by": "$1 විසින් මතක් කරන ලදී"
 }
