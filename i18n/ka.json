@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"GeorgeBarnick"
+			"GeorgeBarnick",
+			"MIKHEIL"
 		]
 	},
-	"chat": "სტატისტიკა"
+	"chat": "სტატისტიკა",
+	"chat-private-message-from": "პირადი წერილი $1-სგან"
 }
