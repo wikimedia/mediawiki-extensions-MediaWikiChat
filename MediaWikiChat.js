@@ -364,7 +364,9 @@ var MediaWikiChat = {
 			$( '#' + convwithE ).attr( 'data-read', 'true' );
 		}
 
-		MediaWikiChat.flashPrivate( mw.message( 'chat-private-message-from', user.name).text(), message );
+		if ( userId != mw.user.getId() ) { // don't flash if we sent the message
+			MediaWikiChat.flashPrivate(mw.message('chat-private-message-from', user.name).text(), message);
+		}
 	},
 
 	greyscale: function( element, microseconds ) {
