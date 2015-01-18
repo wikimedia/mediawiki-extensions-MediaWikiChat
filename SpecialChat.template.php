@@ -17,7 +17,7 @@ class SpecialChatTemplate extends QuickTemplate {
 		<div id="mwchat-topic">
 			<?php echo wfMessage( 'chat-topic' )->parse(); ?>
 		</div>
-		<div id="mwchat-container">
+		<div id="mwchat-container" style="opacity:0.5;">
 			<div id="mwchat-main" >
 				<div id="mwchat-content">
 					<table id="mwchat-table">
@@ -29,10 +29,10 @@ class SpecialChatTemplate extends QuickTemplate {
 					</table>
 				</div>
 				<div id="mwchat-type">
+					<span id="mwchat-loading" style="opacity:0;" data-queue="0">
+						<span id="mwchat-loading-1">&bull;</span><span id="mwchat-loading-2">&bull;</span><span id="mwchat-loading-3">&bull;</span>
+					</span>
 					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
-				</div>
-				<div id="mwchat-options">
-					<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
 				</div>
 			</div>
 			<div id="mwchat-users">
@@ -44,6 +44,9 @@ class SpecialChatTemplate extends QuickTemplate {
 				<img src="" alt="" />
 				<span class="mwchat-useritem-user"></span>
 			</div>
+		</div>
+		<div id="mwchat-options">
+			<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
 		</div>
 <?php
 	}
