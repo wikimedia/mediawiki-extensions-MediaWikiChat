@@ -136,89 +136,91 @@ var MediaWikiChat = {
 			url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 			data: { 'action': 'chatgetnew', 'format': 'json', 'focussed': focussed },
 			cache: false
-		} ).done( function( response ) {
-			var data = response.chatgetnew;
+		} ).done( MediaWikiChat.getNewReply );
+	},
 
-			var onlineUsers = [];
+	getNewReply: function( response ) {
+		var data = response.chatgetnew;
 
-			for ( var userId in data.users ) {
-				var user = data.users[userId];
-				MediaWikiChat.userData[userId] = { 'name': user.name, 'avatar': user.avatar, 'gender': user.gender };
-				if ( user.mod ) {
-					MediaWikiChat.userData[userId].mod = true;
-				}
-				if ( user.online && user.id != mw.config.get( 'wgUserId' ) ) {
-					onlineUsers[onlineUsers.length] = userId;
-					MediaWikiChat.userData[userId].away = user.away;
-				}
+		var onlineUsers = [];
+
+		for ( var userId in data.users ) {
+			var user = data.users[userId];
+			MediaWikiChat.userData[userId] = { 'name': user.name, 'avatar': user.avatar, 'gender': user.gender };
+			if ( user.mod ) {
+				MediaWikiChat.userData[userId].mod = true;
 			}
-
-			MediaWikiChat.amIMod = data.users[mw.config.get( 'wgUserId' )].mod;
-
-			MediaWikiChat.doUsers( onlineUsers );
-
-			for ( var userId2 in data.users ) { // has to be done after doUsers
-				var user2 = MediaWikiChat.userData[userId2];
-				if ( user2.id != mw.config.get( 'wgUserId' ) ) {
-					var userEscaped = MediaWikiChat.safe( user2.name );
-					MediaWikiChat.greyscale( $( '#mwchat-users #' + userEscaped ), user2.away );
-				}
+			if ( user.online && user.id != mw.config.get( 'wgUserId' ) ) {
+				onlineUsers[onlineUsers.length] = userId;
+				MediaWikiChat.userData[userId].away = user.away;
 			}
+		}
 
-			for ( var messageTimestamp in data.messages ) {
-				var message = data.messages[messageTimestamp];
-				MediaWikiChat.addMessage(
-					message.from,
-					message['*'],
-					messageTimestamp
-				);
-			}
+		MediaWikiChat.amIMod = data.users[mw.config.get( 'wgUserId' )].mod;
 
-			for ( var pmTimestamp in data.pms ) {
-				var pm = data.pms[pmTimestamp];
+		MediaWikiChat.doUsers( onlineUsers );
 
-				MediaWikiChat.addPrivateMessage(
-					pm.from,
-					pm.conv,
-					pm['*'],
-					pmTimestamp
-				);
-				var div = $( '#' + MediaWikiChat.safe( pm.conv ) + ' .mwchat-useritem-content' );
-				var objDiv = $( '#' + MediaWikiChat.safe( pm.conv ) + ' .mwchat-useritem-content' );
-				objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+		for ( var userId2 in data.users ) { // has to be done after doUsers
+			var user2 = MediaWikiChat.userData[userId2];
+			if ( user2.id != mw.config.get( 'wgUserId' ) ) {
+				var userEscaped = MediaWikiChat.safe( user2.name );
+				MediaWikiChat.greyscale( $( '#mwchat-users #' + userEscaped ), user2.away );
 			}
+		}
 
-			for ( var kickTimestamp in data.kicks ) {
-				var kick = data.kicks[kickTimestamp];
-				MediaWikiChat.showKickMessage( MediaWikiChat.userData[kick.from], MediaWikiChat.userData[kick.to], kickTimestamp );
-			}
-			for ( var blockTimestamp in data.blocks ) {
-				var block = data.blocks[blockTimestamp];
-				MediaWikiChat.showBlockMessage( MediaWikiChat.userData[block.from], MediaWikiChat.userData[block.to], blockTimestamp );
-			}
-			for ( var unblockTimestamp in data.unblocks ) {
-				var unblock = data.unblocks[unblockTimestamp];
-				MediaWikiChat.showUnblockMessage( MediaWikiChat.userData[unblock.from], MediaWikiChat.userData[unblock.to], unblockTimestamp );
-			}
+		for ( var messageTimestamp in data.messages ) {
+			var message = data.messages[messageTimestamp];
+			MediaWikiChat.addMessage(
+				message.from,
+				message['*'],
+				messageTimestamp
+			);
+		}
 
-			if ( data.kick ) {
-				$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
-				$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
-				clearInterval( MediaWikiChat.pollInterval );
-				MediaWikiChat.getNew();
-			}
+		for ( var pmTimestamp in data.pms ) {
+			var pm = data.pms[pmTimestamp];
 
-			if ( data.interval ) {
-				MediaWikiChat.restartInterval( data.interval );
-				MediaWikiChat.interval = data.interval;
-			}
+			MediaWikiChat.addPrivateMessage(
+				pm.from,
+				pm.conv,
+				pm['*'],
+				pmTimestamp
+			);
+			var div = $( '#' + MediaWikiChat.safe( pm.conv ) + ' .mwchat-useritem-content' );
+			var objDiv = $( '#' + MediaWikiChat.safe( pm.conv ) + ' .mwchat-useritem-content' );
+			objDiv.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+		}
 
-			if ( data.messages || data.kicks || data.blocks || data.unblocks ) {
-				MediaWikiChat.scrollToBottom();
-			}
-			MediaWikiChat.addMe();
+		for ( var kickTimestamp in data.kicks ) {
+			var kick = data.kicks[kickTimestamp];
+			MediaWikiChat.showKickMessage( MediaWikiChat.userData[kick.from], MediaWikiChat.userData[kick.to], kickTimestamp );
+		}
+		for ( var blockTimestamp in data.blocks ) {
+			var block = data.blocks[blockTimestamp];
+			MediaWikiChat.showBlockMessage( MediaWikiChat.userData[block.from], MediaWikiChat.userData[block.to], blockTimestamp );
+		}
+		for ( var unblockTimestamp in data.unblocks ) {
+			var unblock = data.unblocks[unblockTimestamp];
+			MediaWikiChat.showUnblockMessage( MediaWikiChat.userData[unblock.from], MediaWikiChat.userData[unblock.to], unblockTimestamp );
+		}
 
-		} );
+		if ( data.kick ) {
+			$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
+			$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
+			clearInterval( MediaWikiChat.pollInterval );
+			MediaWikiChat.getNew();
+		}
+
+		if ( data.interval ) {
+			MediaWikiChat.restartInterval( data.interval );
+			MediaWikiChat.interval = data.interval;
+		}
+
+		if ( data.messages || data.kicks || data.blocks || data.unblocks ) {
+			MediaWikiChat.scrollToBottom();
+		}
+
+		MediaWikiChat.addMe();
 	},
 
 	scrollToBottom: function() {
@@ -566,6 +568,8 @@ var MediaWikiChat = {
 				);
 			}
 			MediaWikiChat.amI = true;
+
+			$( '#mwchat-container' ).animate( { opacity: 1 } );
 		}
 	},
 
@@ -641,12 +645,13 @@ var MediaWikiChat = {
 	},
 
 	notify: function( title, message ) {
-		if (!Notification) {
+		if ( !Notification ) {
 			return;
 		}
 
-		if (Notification.permission !== "granted")
+		if ( Notification.permission !== "granted" ) {
 			Notification.requestPermission();
+		}
 
 		var notification = new Notification( title, {
 			icon: mw.config.get( 'wgCanonicalServer' ) + '/favicon.ico',
@@ -668,10 +673,23 @@ var MediaWikiChat = {
 		}
 		window.clearInterval( MediaWikiChat.pollInterval );
 		MediaWikiChat.pollInterval = setInterval( MediaWikiChat.getNew, interval );
+	},
+
+	loadingBackground: function() {
+		$( '#mwchat-loading-3' ).animate( { opacity: 1 } );
+		$( '#mwchat-loading-2' ).animate( { opacity: 0 }, callback=function() {
+			$( '#mwchat-loading-3' ).animate( { opacity: 0 } );
+			$( '#mwchat-loading-1' ).animate( { opacity: 1 }, callback=function() {
+				$( '#mwchat-loading-2' ).animate( { opacity: 1 } );
+				$( '#mwchat-loading-1' ).animate( { opacity: 0 }, callback=MediaWikiChat.loadingBackground );
+			});
+		});
 	}
 };
 
 $( document ).ready( function() {
+	MediaWikiChat.loadingBackground();
+
 	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) { // Send text
 		MediaWikiChat.clearMentions();
 
@@ -686,21 +704,25 @@ $( document ).ready( function() {
 				$( '#mwchat-type input' ).val( '' );
 			}
 
+			$( '#mwchat-loading' ).attr('data-queue', parseInt($( '#mwchat-loading' ).attr( 'data-queue' ) ) + 1 )
+			                     .animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
+
 			$.ajax( {
 				type: 'POST',
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 				data: { 'action': 'chatsend', 'message': message, 'format': 'json' }
 			} ).done( function( msg ) {
-				MediaWikiChat.getNew();
+				MediaWikiChat.getNewReply( msg );
+				$( '#mwchat-loading' ).attr('data-queue', parseInt($( '#mwchat-loading' ).attr( 'data-queue' ) ) - 1 )
+				                     .animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
+
 				window.clearInterval( MediaWikiChat.newInterval );
 				MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
 
-				// Error: flood
-				if ( msg.chatsend.error == 'flood' ) {
+				if ( msg.chatsend && msg.chatsend.error == 'flood' ) {
 					$( '#mwchat-type input' ).val( message );
 					alert( mw.message( 'chat-flood' ).text() );
 				}
-
 			} );
 
 		} else if ( e.which == 9 ) { // Tab - autocompletion

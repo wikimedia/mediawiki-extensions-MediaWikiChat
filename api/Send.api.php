@@ -65,7 +65,7 @@ class ChatSendAPI extends ApiBase {
 				MediaWikiChat::deleteEntryIfNeeded();
 				MediaWikiChat::updateAway( $user );
 
-				$result->addValue( $this->getModuleName(), 'timestamp', $timestamp );
+				GetNewWorker::execute( $result, $user, $this->getMain() );
 
 			} else {
 				$result->addValue( $this->getModuleName(), 'error', 'empty message' );

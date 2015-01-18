@@ -43,7 +43,12 @@
 	padding-left: 10px;
 }
 
-#mwchat-type input, .mwchat-useritem input {
+#mwchat-type input {
+	width: 96%;
+	float: right;
+}
+
+.mwchat-useritem input {
 	width: 100%;
 }
 
@@ -167,12 +172,15 @@
 #mwchat-topic {
 	text-align: center;
 	border-bottom: 1px solid #aaa;
-	padding-bottom: .5em;
-	margin-bottom: .5em;
+	padding-bottom: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 #mwchat-options {
-	margin-top: 10px;
+	text-align: center;
+	border-top: 1px solid #aaa;
+	padding-top: 0.5em;
+	margin-top: 1em;
 }
 
 #mwchat-type {
