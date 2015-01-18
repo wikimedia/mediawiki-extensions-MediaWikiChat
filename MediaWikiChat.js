@@ -444,7 +444,7 @@ var MediaWikiChat = {
 		var user = MediaWikiChat.userData[userId];
 		var userE = MediaWikiChat.safe( user.name );
 
-		var html = '<div class="mwchat-useritem noshow" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
+		var html = '<div class="mwchat-useritem noshow" style="display:none;" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
 		html += '<div class="mwchat-useritem-header">';
 
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
@@ -512,7 +512,7 @@ var MediaWikiChat = {
 		var user = MediaWikiChat.userData[userId];
 		var userE = MediaWikiChat.safe( user.name );
 
-		$( '#mwchat-users #' + userE ).remove();
+		$( '#mwchat-users #' + userE).fadeOut().remove();
 
 		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name, user.gender ).text(), MediaWikiChat.now() );
 		MediaWikiChat.scrollToBottom();
