@@ -503,7 +503,7 @@ var MediaWikiChat = {
 			} );
 		} );
 
-		MediaWikiChat.flashJoinLeave();
+		MediaWikiChat.flashJoinLeave( mw.message( 'chat-joined', user.name, user.gender ).text() );
 	},
 
 	removeUser: function( userId ) {
@@ -514,7 +514,7 @@ var MediaWikiChat = {
 
 		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name, user.gender ).text(), MediaWikiChat.now() );
 		MediaWikiChat.scrollToBottom();
-		MediaWikiChat.flashJoinLeave( mw.message( 'chat-left', user.name, user.gender ).text());
+		MediaWikiChat.flashJoinLeave( mw.message( 'chat-left', user.name, user.gender ).text() );
 	},
 
 	clickUser: function() {
