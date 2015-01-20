@@ -225,7 +225,13 @@ var MediaWikiChat = {
 
 	scrollToBottom: function() {
 		var div = $( '#mwchat-content' );
-		div.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+
+		if (
+			div.scrollTop() > div[0].scrollHeight - div.height() - 25 ||  // only if user is scrolled to bottom atm
+			!MediaWikiChat.amI // or if this is the first poll request
+		) {
+			div.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
+		}
 	},
 
 	showKickMessage: function( from, to, timestamp ) {
@@ -706,7 +712,7 @@ $( document ).ready( function() {
 				$( '#mwchat-type input' ).val( '' );
 			}
 
-			$( '#mwchat-loading' ).attr('data-queue', parseInt($( '#mwchat-loading' ).attr( 'data-queue' ) ) + 1 )
+			$( '#mwchat-loading' ).attr('data-queue', parseInt( $( '#mwchat-loading' ).attr( 'data-queue' ) ) + 1 )
 			                     .animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
 
 			$.ajax( {
@@ -715,7 +721,7 @@ $( document ).ready( function() {
 				data: { 'action': 'chatsend', 'message': message, 'format': 'json' }
 			} ).done( function( msg ) {
 				MediaWikiChat.getNewReply( msg );
-				$( '#mwchat-loading' ).attr('data-queue', parseInt($( '#mwchat-loading' ).attr( 'data-queue' ) ) - 1 )
+				$( '#mwchat-loading' ).attr('data-queue', parseInt( $( '#mwchat-loading' ).attr( 'data-queue' ) ) - 1 )
 				                     .animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
 
 				window.clearInterval( MediaWikiChat.newInterval );
@@ -747,8 +753,6 @@ $( document ).ready( function() {
 
 	MediaWikiChat.getNew();
 
-	setTimeout( MediaWikiChat.getNew, 2500 );
-
 	MediaWikiChat.pollInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
 	MediaWikiChat.redoInterval = setInterval( MediaWikiChat.redoTimestamps, 10000 );
 
@@ -760,8 +764,7 @@ $( document ).ready( function() {
 		$( '#mwchat-me' ).animate( { 'top': height }, 'fast' );
 	} );
 
-	// Open any link in chat-topic in a new tab
-	$( '#mwchat-topic a').attr( 'target', '_blank');
+	$( '#mwchat-topic a').attr( 'target', '_blank'); // Open any link in chat-topic in a new tab
 } );
 
 $( window ).blur( function() {
