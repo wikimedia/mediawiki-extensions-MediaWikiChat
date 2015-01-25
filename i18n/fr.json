@@ -4,7 +4,8 @@
 			"Gomoko",
 			"Verdy p",
 			"Elodark",
-			"0x010C"
+			"0x010C",
+			"Orikrin1998"
 		]
 	},
 	"chat": "Discussion",
@@ -72,5 +73,7 @@
 	"apihelp-chatsend-param-message": "Le message à envoyer",
 	"apihelp-chatsend-example-1": "Envoyer \"Hello World!\" au chat",
 	"apihelp-chatsendpm-description": "Envoyer un message privé à un utilisateur",
-	"apihelp-chatsendpm-param-message": "Le message à envoyer"
+	"apihelp-chatsendpm-param-message": "Le message à envoyer",
+	"chat-message-from": "Message de $1",
+	"chat-private-message-from": "Message privé de $1"
 }
