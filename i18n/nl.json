@@ -34,7 +34,7 @@
 	"chat-user-is-moderator": "Deze gebruiker {{GENDER:$1|is}} moderator",
 	"chat-you-are-moderator": "Jij {{GENDER:$1|bent}} een moderator",
 	"chat-topic": "Welkom op de chat van {{SITENAME}}. ([[Special:Log/chat|logboek]])",
-	"chat-change-preferences": "Chatinstellingen wijzigen (volledig scherm en geluiden)",
+	"chat-change-preferences": "Chatinstellingen wijzigen (volledig scherm, geluiden en meldingen)",
 	"chat-sidebar-online": "Online gebruikers in de chat:",
 	"chat-sidebar-join": "Chat mee",
 	"log-name-chat": "Chatlogboek",
