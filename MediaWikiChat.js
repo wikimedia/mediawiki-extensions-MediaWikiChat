@@ -255,7 +255,7 @@ var MediaWikiChat = {
 		} else if ( from.name == mw.config.get( 'wgUserName' ) ) {
 			message = mw.message( 'chat-you-blocked', to.name, mw.user ).text();
 		} else {
-			message = mw.message( 'chat-blocked', from, to.name, from.gender ).text();
+			message = mw.message( 'chat-blocked', from.name, to.name, from.gender ).text();
 		}
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
