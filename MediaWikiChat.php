@@ -16,7 +16,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'MediaWikiChat',
-	'version' => '2.14.4',
+	'version' => '2.14.5',
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
@@ -42,7 +42,7 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 		'chat-idle-minutes', 'chat-idle-hours', 'chat-idle-more', 'chat-today', 'chat-message-from',
 		'chat-private-message-from', 'chat-mentioned-by'
 	),
-	'dependencies' => 'mediawiki.jqueryMsg',
+	'dependencies' => array( 'mediawiki.jqueryMsg', 'mediaWiki.user' ),
 	'localBasePath' => dirname( __FILE__ ),
 	'remoteExtPath' => 'MediaWikiChat',
 );
