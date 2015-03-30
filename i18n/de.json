@@ -71,6 +71,7 @@
 	"action-chat": "Mit anderen Benutzern chatten",
 	"action-modchat": "Chat moderieren",
 	"action-viewpmlog": "Das private Chat-Nachrichten-Logbuch ansehen",
+	"apihelp-chatkick-description": "Wirft einen Benutzer aus dem Chat",
 	"apihelp-chatsend-param-message": "Die zu sendende Nachricht",
 	"apihelp-chatsendpm-param-message": "Die zu sendende Nachricht",
 	"chat-message-from": "Nachricht von $1",
