@@ -79,5 +79,8 @@
 	"apihelp-chatsendpm-description": "Sänd ett privat meddelande till den här användaren",
 	"apihelp-chatsendpm-param-id": "Användar-ID för att skicka ett PM till",
 	"apihelp-chatsendpm-param-message": "Meddelande att skicka",
-	"apihelp-chatsendpm-example-1": "Skicka \"Hello World!\" till användaren med ID 5"
+	"apihelp-chatsendpm-example-1": "Skicka \"Hello World!\" till användaren med ID 5",
+	"chat-message-from": "Meddelande från $1",
+	"chat-private-message-from": "Privat meddelande från $1",
+	"chat-mentioned-by": "Nämndes av $1"
 }
