@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Banjo"
+		]
+	},
+	"chat-a-minute-ago": "hai un minuto",
+	"chat-today": "hoxe",
+	"chat-yesterday": "onte",
+	"chat-kick": "expulsar",
+	"chat-block": "bloquear",
+	"chat-you-kicked": "{{GENDER:$2|Expulsou}} a $1.",
+	"chat-kicked": "$1 {{GENDER:$3|expulsou a}} $2.",
+	"chat-blocked": "$1 {{GENDER:$3|bloqueou a}} $2.",
+	"chat-unblocked": "$1 {{GENDER:$3|desbloqueou a}} $2.",
+	"chat-you-are-moderator": "Vostede {{GENDER:$1|é}} un moderador",
+	"chat-sidebar-join": "Unirse ao chat",
+	"logentry-chat-kick": "$1 {{GENDER:$1|expulsou a}} $4"
+}
