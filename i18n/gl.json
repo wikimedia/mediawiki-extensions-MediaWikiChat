@@ -4,6 +4,8 @@
 			"Banjo"
 		]
 	},
+	"chat-type-your-message": "Escriba a súa mensaxe",
+	"chat-type-your-private-message": "Escriba a súa mensaxe privada",
 	"chat-a-minute-ago": "hai un minuto",
 	"chat-today": "hoxe",
 	"chat-yesterday": "onte",
@@ -13,7 +15,11 @@
 	"chat-kicked": "$1 {{GENDER:$3|expulsou a}} $2.",
 	"chat-blocked": "$1 {{GENDER:$3|bloqueou a}} $2.",
 	"chat-unblocked": "$1 {{GENDER:$3|desbloqueou a}} $2.",
+	"chat-user-is-moderator": "Este usuario {{GENDER:$1|é}} un moderador",
 	"chat-you-are-moderator": "Vostede {{GENDER:$1|é}} un moderador",
 	"chat-sidebar-join": "Unirse ao chat",
-	"logentry-chat-kick": "$1 {{GENDER:$1|expulsou a}} $4"
+	"logentry-chat-kick": "$1 {{GENDER:$1|expulsou a}} $4",
+	"chat-message-from": "Mensaxe de $1",
+	"chat-private-message-from": "Mensaxe privado de $1",
+	"chat-mentioned-by": "Mencionado por $1"
 }
