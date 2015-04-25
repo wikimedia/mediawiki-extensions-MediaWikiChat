@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"George Animal"
+		]
+	},
+	"chat-yesterday": "doh",
+	"chat-message-from": "Peyama ji $1",
+	"chat-private-message-from": "Peyama kesane ji $1"
+}
