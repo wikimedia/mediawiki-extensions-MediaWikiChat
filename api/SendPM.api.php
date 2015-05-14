@@ -3,7 +3,8 @@
 class ChatSendPMAPI extends ApiBase {
 
 	public function execute() {
-		$result = $this->getResult();
+        global $wgChatFloodMessages, $wgChatFloodSeconds;
+        $result = $this->getResult();
 		$user = $this->getUser();
 
 		if ( $user->isAllowed( 'chat' ) && !$user->isBlocked() ) {
@@ -13,10 +14,23 @@ class ChatSendPMAPI extends ApiBase {
 			$message = MediaWikiChat::parseMessage( $originalMessage );
 
 			if ( $message != '' ) {
-				$dbw = wfGetDB( DB_MASTER );
+                $dbr = wfGetDB( DB_SLAVE );
+                $dbw = wfGetDB( DB_MASTER );
 
 				$fromId = $user->getID();
 				$timestamp = MediaWikiChat::now();
+
+                // Flood check
+                $res = $dbr->selectField(
+                    'chat',
+                    array( 'count(*)' ),
+                    array( "chat_timestamp > " . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ), " chat_user_id = " . $fromId ),
+                    __METHOD__
+                );
+                if ( $res > $wgChatFloodMessages ) {
+                    $result->addValue( $this->getModuleName(), 'error', 'flood' );
+                    return true;
+                }
 
 				$dbw->insert(
 					'chat',
