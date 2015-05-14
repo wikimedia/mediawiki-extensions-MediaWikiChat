@@ -31,12 +31,15 @@ class MediaWikiChat {
 	 * @param $id Integer: user ID
 	 * @return String: avatar image path
 	 */
+	
 	static function getAvatar( $id ) {
-		global $wgUploadPath;
+		if ( class_exists( 'SocialProfileHooks' ) ) { // is SocialProfile installed?
+			global $wgUploadPath;
 
-		$avatar = new wAvatar( $id, 's' );
+			$avatar = new wAvatar( $id, 's' );
 
-		return $wgUploadPath . '/avatars/' . $avatar->getAvatarImage();
+			return $wgUploadPath . '/avatars/' . $avatar->getAvatarImage();
+		}
 	}
 
 	/**
