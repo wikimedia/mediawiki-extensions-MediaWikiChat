@@ -5,7 +5,8 @@
 			"GeorgeBarnick",
 			"Sethladan",
 			"Miguel2706",
-			"Macofe"
+			"Macofe",
+			"Ryo567"
 		]
 	},
 	"chat": "Charla",
@@ -42,6 +43,7 @@
 	"chat-sidebar-join": "Únete a la charla",
 	"log-name-chat": "Registro de la charla",
 	"log-description-chat": "Mensajes enviados por MediaWikiChat, así como patear usuarios",
+	"logentry-chat-kick": "$1 {{GENDER:$1|ha expulsado a}} $4",
 	"log-show-hide-chat": "$1 registro de chat",
 	"log-name-privatechat": "Registro de chat privado",
 	"log-description-privatechat": "Mensajes privados enviados por MediaWikiChat",
@@ -68,10 +70,16 @@
 	"action-viewpmlog": "ver registro de mensajes privados del chat",
 	"apihelp-chatgetnew-description": "Recibir mensajes nuevos en el chat.",
 	"apihelp-chatgetnew-example-1": "Recibir mensajes nuevos en el chat",
+	"apihelp-chatkick-description": "Expulsar un usuario del chat",
+	"apihelp-chatkick-param-id": "ID del usuario a expulsar",
+	"apihelp-chatkick-example-1": "Expulsar al usuario con ID de 1",
 	"apihelp-chatsend-description": "Enviar un mensaje público al chat",
 	"apihelp-chatsend-param-message": "El mensaje que se enviará",
 	"apihelp-chatsend-example-1": "Enviar «¡Hola, mundo!» al chat",
 	"apihelp-chatsendpm-description": "Enviar un mensaje privado a un usuario",
 	"apihelp-chatsendpm-param-message": "El mensaje que se enviará",
-	"apihelp-chatsendpm-example-1": "Enviar «¡Hola, mundo!» al usuario con el identificador 5"
+	"apihelp-chatsendpm-example-1": "Enviar «¡Hola, mundo!» al usuario con el identificador 5",
+	"chat-message-from": "Mensaje de $1",
+	"chat-private-message-from": "Mensaje privado de $1",
+	"chat-mentioned-by": "Mencionado por $1"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"George Barnick",
 			"GeorgeBarnick",
-			"Metalhead64"
+			"Metalhead64",
+			"Tiin"
 		]
 	},
 	"chat": "Chat",
@@ -71,9 +72,19 @@
 	"action-chat": "Mit anderen Benutzern chatten",
 	"action-modchat": "Chat moderieren",
 	"action-viewpmlog": "Das private Chat-Nachrichten-Logbuch ansehen",
+	"apihelp-chatgetnew-description": "Ruft neue Nachrichten im Chat ab.",
+	"apihelp-chatgetnew-param-focussed": "ist das Chatfenster im Moment geöffnet/fokussiert?",
+	"apihelp-chatgetnew-example-1": "Ruft neue Nachrichten im Chat ab",
 	"apihelp-chatkick-description": "Wirft einen Benutzer aus dem Chat",
+	"apihelp-chatkick-param-id": "Die Benutzerkennung für einen Rauswurf",
+	"apihelp-chatkick-example-1": "Wirft den Benutzer mit der Kennung 1 hinaus",
+	"apihelp-chatsend-description": "Sendet eine öffentliche Nachricht in den Chat",
 	"apihelp-chatsend-param-message": "Die zu sendende Nachricht",
+	"apihelp-chatsend-example-1": "Sendet „Hallo Welt!“ in den Chat",
+	"apihelp-chatsendpm-description": "Sendet eine private Nachricht an einen Benutzer",
+	"apihelp-chatsendpm-param-id": "Die Benutzerkennung, an welche die PN geschickt wird",
 	"apihelp-chatsendpm-param-message": "Die zu sendende Nachricht",
+	"apihelp-chatsendpm-example-1": "Sendet „Hallo Welt!“ an den Benutzer mit der Kennung 5",
 	"chat-message-from": "Nachricht von $1",
 	"chat-private-message-from": "Private Nachricht von $1",
 	"chat-mentioned-by": "Erwähnt von $1"
