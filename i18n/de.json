@@ -4,11 +4,12 @@
 			"George Barnick",
 			"GeorgeBarnick",
 			"Metalhead64",
-			"Tiin"
+			"Tiin",
+			"Purodha"
 		]
 	},
 	"chat": "Chat",
-	"chat-desc": "Ergänzt einen leichtgewichtigen Chat-Client und -Server",
+	"chat-desc": "Bietet einen leichtgewichtigen Chat-Client und -Server",
 	"chat-type-your-message": "Gib deine Nachricht ein",
 	"chat-type-your-private-message": "Gib deine private Nachricht ein",
 	"chat-no-other-users": "Keine anderen Benutzer im Chat",
