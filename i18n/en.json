@@ -94,7 +94,7 @@
     "apihelp-chatsendpm-param-message": "The message to send",
     "apihelp-chatsendpm-example-1": "Send \"Hello World!\" to user with ID 5",
 
-    "chat-message-from": "Message from $1",
-    "chat-private-message-from": "Private message from $1",
-    "chat-mentioned-by": "Mentioned by $1"
+    "chat-message-from": "Message {{GENDER:$1|from}} $1",
+    "chat-private-message-from": "Private message {{GENDER:$1|from}} $1",
+    "chat-mentioned-by": "Mentioned {{GENDER:$1|by}} $1"
 }
