@@ -25,7 +25,7 @@
 	"chat-block": "The link shown to chatmods to block a user.\n{{Identical|Block}}",
 	"chat-youve-been-kicked": "Shown to users who have been kicked from the chat. Parameters:\n* $1 - the user who kicked from the chat\n* $2 - GENDER of the user who kicked\nSee also:\n* {{msg-mw|Chat-youve-been-blocked}}",
 	"chat-you-kicked": "Shown when the current user kicked the user $1. Parameters:\n* $1 - username\n* $2 - GENDER\nSee also:\n* {{msg-mw|Chat-you-blocked}}\n* {{msg-mw|Chat-you-unblocked}}",
-	"chat-kicked": "Shown when the user $1 kicked the user $2. Parameters:\n* $1 - the user who kicked\n* $2 - the user who was kicked\n* $3 - GENDER of the user who kicked\nSee also:\n* {{msg-mw|Chat-blocked}}\n* {{msg-mw|Chat-unblocked}}\n{{Identical|Kicked}}",
+	"chat-kicked": "Shown when the user $1 kicked the user $2. Parameters:\n* $1 - the user who kicked\n* $2 - the user who was kicked\n* $3 - GENDER of the user who kicked\n* $3 - GENDER of the user who was kicked\nSee also:\n* {{msg-mw|Chat-blocked}}\n* {{msg-mw|Chat-unblocked}}\n{{Identical|Kicked}}",
 	"chat-youve-been-blocked": "Shown when the current user has been blocked, by the user $1. Parameters:\n* $1 - the user who has blocked\n* $2 - GENDER of the user who has blocked\nSee also:\n* {{msg-mw|Chat-youve-been-kicked}}",
 	"chat-you-blocked": "Shown when the current user blocked the user $1. Parameters:\n* $1 - username\n* $2 - GENDER\nSee also:\n* {{msg-mw|Chat-you-kicked}}\n* {{msg-mw|Chat-you-unblocked}}",
 	"chat-blocked": "Shown when the user $1 blocked the user $2. Parameters:\n* $1 - the user who blocked\n* $2 - the user who was blocked\n* $3 - GENDER of the user who blocked\nSee also:\n* {{msg-mw|Chat-kicked}}\n* {{msg-mw|Chat-unblocked}}\n{{Identical|Blocked}}",
@@ -86,7 +86,7 @@
 	"apihelp-chatsendpm-param-id": "{{doc-apihelp-param|chatsendpm|id}}",
 	"apihelp-chatsendpm-param-message": "{{doc-apihelp-param|chatsendpm|message}}",
 	"apihelp-chatsendpm-example-1": "{{doc-apihelp-example|chatsendpm}}",
-	"chat-message-from": "Notification for receiving message",
-	"chat-private-message-from": "Notification for receiving private message",
-	"chat-mentioned-by": "Notification for being mentioned"
+	"chat-message-from": "Notification for receiving message\n$1 sending user\n$2 sending users gender",
+	"chat-private-message-from": "Notification for receiving private message\n$1 sending user\n$2 sending users gender",
+	"chat-mentioned-by": "Notification for being mentioned\n$1 mentioning user\n$2 mentioning users gender"
 }
