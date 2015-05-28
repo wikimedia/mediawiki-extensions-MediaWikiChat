@@ -21,7 +21,7 @@
 	"chat-block": "schpärre",
 	"chat-youve-been-kicked": "Do bes {{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} „$1“ eruß jeschmeße wohde. Donn di Sigg neu oprohfe, öm ze schätte.",
 	"chat-you-kicked": "Do häs {{GENDER:$2|dä|dat|dä Metmaacher|de|dat}} „$1“ eruß jeschmeße.",
-	"chat-kicked": "{{GENDER:$3|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät {{GENDER:$2|dä|dat|dä Metmaacher|de|dat}} „$2“ eruß jeschmeße.",
+	"chat-kicked": "{{GENDER:$3|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät {{GENDER:$4|dä|dat|dä Metmaacher|de|dat}} „$2“ eruß jeschmeße.",
 	"chat-youve-been-blocked": "Do bes {{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} „$1“ jeschpächt wohde.",
 	"chat-you-blocked": "Do häs {{GENDER:$2|dä|dat|dä Metmaacher|de|dat}} „$1“ jeschpächt.",
 	"chat-blocked": "{{GENDER:$3|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät {{GENDER:$2|dä|dat|dä Metmaacher|de|dat}} „$2“ jeschpächt.",
