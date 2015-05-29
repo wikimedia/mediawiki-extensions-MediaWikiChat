@@ -17,7 +17,7 @@
 	"chat-block": "بنديز لگول",
 	"chat-youve-been-kicked": "تاسې د $1 لخوا {{GENDER:$2|وشړل شوئ}}. د بانډار لپاره مو مخ بياتاند کړئ.",
 	"chat-you-kicked": "تاسې $1 {{GENDER:$2|وشاړه}}.",
-	"chat-kicked": "$2 د $1 لخوا {{GENDER:$3|وشړل شو}}.",
+	"chat-kicked": "$2 د $1 لخوا {{GENDER:$3|{{GENDER:$3|وشړل شو}}}}.",
 	"chat-youve-been-blocked": "د $1 لخوا پر تاسې {{GENDER:$2|بنديز لگېدلی}}.",
 	"chat-you-blocked": "تاسې پر $1 {{GENDER:$2|بنديز لگولی}}.",
 	"chat-blocked": "$1 پر $2 {{GENDER:$3|بنديز لگولی}}.",
@@ -42,5 +42,6 @@
 	"group-blockedfromchat-member": "{{GENDER:$1|له بانډار څخه بنديز شوی}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:په بانډار کې بنديز لگېدلي کارنان",
 	"right-mediawikichat-chat": "ځانگړې کارېدنه:بانډار",
-	"right-mediawikichat-modchat": "له ځانگړي:بانډار څخه کارنان شړي او بنديز پرې لگوي (که چارن شي)"
+	"right-mediawikichat-modchat": "له ځانگړي:بانډار څخه کارنان شړي او بنديز پرې لگوي (که چارن شي)",
+	"chat-message-from": "پيغام د $1 {{GENDER:$2|لخوا}}"
 }

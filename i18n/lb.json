@@ -31,7 +31,7 @@
 	"prefs-chat": "Chat",
 	"chat-idle-hours": "Dëse Benotzer ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
 	"apihelp-chatsendpm-description": "Engem Benotzer e private Message schécken",
-	"chat-message-from": "Message vum $1",
-	"chat-private-message-from": "Private Message vum $1",
-	"chat-mentioned-by": "Ernimmt vum $1"
+	"chat-message-from": "Message  {{GENDER:$2|vum}} $1",
+	"chat-private-message-from": "Private Message {{GENDER:$2|vum}} $1",
+	"chat-mentioned-by": "Ernimmt {{GENDER:$2|vum}} $1"
 }

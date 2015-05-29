@@ -25,7 +25,7 @@
 	"chat-block": "sperren",
 	"chat-youve-been-kicked": "Du wurdest von $1 {{GENDER:$2|hinausgeworfen}}. Lade zum Chatten die Seite erneut.",
 	"chat-you-kicked": "Du hast $1 {{GENDER:$2|hinausgeworfen}}",
-	"chat-kicked": "$1 hat $2 {{GENDER:$3|hinausgeworfen}}",
+	"chat-kicked": "$1 hat $2 {{GENDER:$3|{{GENDER:$4|hinausgeworfen}}}}.",
 	"chat-youve-been-blocked": "Du wurdest von $1 {{GENDER:$2|gesperrt}}.",
 	"chat-you-blocked": "Du hast $1 {{GENDER:$2|gesperrt}}",
 	"chat-blocked": "$1 {{GENDER:$3|sperrte}} $2",
@@ -86,7 +86,7 @@
 	"apihelp-chatsendpm-param-id": "Die Benutzerkennung, an welche die PN geschickt wird",
 	"apihelp-chatsendpm-param-message": "Die zu sendende Nachricht",
 	"apihelp-chatsendpm-example-1": "Sendet „Hallo Welt!“ an den Benutzer mit der Kennung 5",
-	"chat-message-from": "Nachricht von $1",
-	"chat-private-message-from": "Private Nachricht von $1",
-	"chat-mentioned-by": "Erwähnt von $1"
+	"chat-message-from": "Nachricht {{GENDER:$2|von}} $1",
+	"chat-private-message-from": "Private Nachricht {{GENDER:$2|von}} $1",
+	"chat-mentioned-by": "Erwähnt {{GENDER:$2|von}} $1"
 }
