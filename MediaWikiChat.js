@@ -241,7 +241,7 @@ var MediaWikiChat = {
 		} else if ( from.name == mw.config.get( 'wgUserName' ) ) {
 			message = mw.message( 'chat-you-kicked', to.name, mw.user ).text();
 		} else {
-			message = mw.message( 'chat-kicked', from.name, to.name, from.gender ).text();
+			message = mw.message( 'chat-kicked', from.name, to.name, from.gender, to.gender ).text();
 		}
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
@@ -293,10 +293,10 @@ var MediaWikiChat = {
 
 		if ( message.toLowerCase().indexOf( mw.user.getName().toLowerCase() ) != -1 ) {
 			mention = true;
-			MediaWikiChat.flashMention( mw.message( 'chat-mentioned-by', user.name).text(), message );
+			MediaWikiChat.flashMention( mw.message( 'chat-mentioned-by', user.name, user.gender ).text(), message );
 		} else {
 			if ( userId != mw.user.getId() ) { // don't flash if we sent the message
-				MediaWikiChat.flash( mw.message( 'chat-message-from', user.name).text(), message );
+				MediaWikiChat.flash( mw.message( 'chat-message-from', user.name, user.gender ).text(), message );
 			}
 		}
 
@@ -371,7 +371,7 @@ var MediaWikiChat = {
 		}
 
 		if ( userId != mw.user.getId() ) { // don't flash if we sent the message
-			MediaWikiChat.flashPrivate(mw.message('chat-private-message-from', user.name).text(), message);
+			MediaWikiChat.flashPrivate(mw.message( 'chat-private-message-from', user.name, user.gender ).text(), message);
 		}
 	},
 

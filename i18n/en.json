@@ -23,7 +23,7 @@
 
     "chat-youve-been-kicked": "You have been {{GENDER:$2|kicked}} by $1. Refresh the page to chat.",
     "chat-you-kicked": "You {{GENDER:$2|kicked}} $1.",
-    "chat-kicked": "$1 {{GENDER:$3|kicked}} $2.",
+    "chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|kicked}}}} $2.",
     "chat-youve-been-blocked": "You have been {{GENDER:$2|blocked}} by $1.",
     "chat-you-blocked": "You {{GENDER:$2|blocked}} $1.",
     "chat-blocked": "$1 {{GENDER:$3|blocked}} $2.",
@@ -94,7 +94,7 @@
     "apihelp-chatsendpm-param-message": "The message to send",
     "apihelp-chatsendpm-example-1": "Send \"Hello World!\" to user with ID 5",
 
-    "chat-message-from": "Message from $1",
-    "chat-private-message-from": "Private message from $1",
-    "chat-mentioned-by": "Mentioned by $1"
+    "chat-message-from": "Message {{GENDER:$2|from}} $1",
+    "chat-private-message-from": "Private message {{GENDER:$2|from}} $1",
+    "chat-mentioned-by": "Mentioned {{GENDER:$2|by}} $1"
 }
