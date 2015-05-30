@@ -66,7 +66,7 @@
 	"tog-chat-notify-message": "接收一般訊息時顯示通知 (僅支援 Chrome & Firefox)",
 	"tog-chat-notify-joinleave": "當使用者加入或離開聊天時顯示通知 (僅支援 Chrome & Firefox)",
 	"chat-idle-minutes": "此使用者已離開$1分鐘",
-	"chat-idle-hours": "此使用者已閒置 $1 {{PLURAL:$1|1 小時|$1 小時}}",
+	"chat-idle-hours": "此使用者已閒置 $1 {{PLURAL:$1|小時}}",
 	"chat-idle-more": "此使用者已閒置逾 24 小時",
 	"action-chat": "與其他使用者聊天",
 	"action-modchat": "管理聊天室",

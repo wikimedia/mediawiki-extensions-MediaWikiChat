@@ -26,7 +26,7 @@
 	"chat-block": "bloquear",
 	"chat-youve-been-kicked": "$1 te ha {{GENDER:$2|expulsado}}. Actualiza la página para charlar.",
 	"chat-you-kicked": "Has {{GENDER:$2|expulsado}} a $1.",
-	"chat-kicked": "$1 {{GENDER:$3|expulsó}} a $2.",
+	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|expulsó}}}} a $2.",
 	"chat-youve-been-blocked": "$1 te ha {{GENDER:$2|bloqueado}}.",
 	"chat-you-blocked": "Has {{GENDER:$2|bloqueado}} a $1.",
 	"chat-blocked": "$1 {{GENDER:$3|bloqueó}} a $2.",
@@ -85,7 +85,7 @@
 	"apihelp-chatsendpm-param-id": "La ID de usuario a la que enviar un MP",
 	"apihelp-chatsendpm-param-message": "El mensaje que se enviará",
 	"apihelp-chatsendpm-example-1": "Enviar «¡Hola, mundo!» al usuario con el identificador 5",
-	"chat-message-from": "Mensaje de $1",
-	"chat-private-message-from": "Mensaje privado de $1",
+	"chat-message-from": "Mensaje {{GENDER:$2|de}} $1",
+	"chat-private-message-from": "Mensaje privado {{GENDER:$2|de}} $1",
 	"chat-mentioned-by": "Mencionado por $1"
 }

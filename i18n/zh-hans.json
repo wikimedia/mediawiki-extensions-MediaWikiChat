@@ -23,9 +23,9 @@
 	"chat-block": "封禁",
 	"chat-youve-been-kicked": "你已经被$1{{GENDER:$2|踢出}}。刷新页面以聊天。",
 	"chat-you-kicked": "您{{GENDER:$2|踢了}}$1。",
-	"chat-kicked": "$1{{GENDER:$3|踢了}}$2。",
+	"chat-kicked": "$1{{GENDER:$3|{{GENDER:$4|踢了}}}}$2。",
 	"chat-youve-been-blocked": "你已经被$1{{GENDER:$2|封禁}}聊天。",
-	"chat-you-blocked": "您{{GENDER:$2|封禁了}}$1。",
+	"chat-you-blocked": "您{{GENDER:$2|封禁}}了$1。",
 	"chat-blocked": "$1{{GENDER:$3|封禁了}}$2。",
 	"chat-you-unblocked": "您{{GENDER:$2|解禁}}了$1。",
 	"chat-unblocked": "$1{{GENDER:$3|解禁}}了$2。",
@@ -83,7 +83,7 @@
 	"apihelp-chatsendpm-param-id": "发送私信的目标用户ID",
 	"apihelp-chatsendpm-param-message": "要发送的消息",
 	"apihelp-chatsendpm-example-1": "发送“Hello World!”至ID为5的用户",
-	"chat-message-from": "来自$1的消息",
-	"chat-private-message-from": "来自$1的私信",
-	"chat-mentioned-by": "被$1提及"
+	"chat-message-from": "{{GENDER:$2|来自}}$1的消息",
+	"chat-private-message-from": "{{GENDER:$2|来自}}$1的私信",
+	"chat-mentioned-by": "{{GENDER:$2|被}}$1提及"
 }

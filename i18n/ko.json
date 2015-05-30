@@ -8,7 +8,8 @@
 			"Keysuck",
 			"Hym411",
 			"Revi",
-			"Jdpark7"
+			"Jdpark7",
+			"LiteHell"
 		]
 	},
 	"chat": "채트",
@@ -27,7 +28,7 @@
 	"chat-block": "차단",
 	"chat-youve-been-kicked": "$1 사용자가 당신을 {{GENDER:$2|추방}}했습니다. 채트하려면 페이지를 새로 고치세요.",
 	"chat-you-kicked": "$1 사용자를 {{GENDER:$2|추방했습니다}}.",
-	"chat-kicked": "$1 사용자가 $2 사용자를 {{GENDER:$3|추방했습니다}}.",
+	"chat-kicked": "$1 사용자가 $2 사용자를 {{GENDER:$3|{{GENDER:$4추방했습니다}}}}.",
 	"chat-youve-been-blocked": "$1 사용자가 당신을 {{GENDER:$2|차단했습니다}}.",
 	"chat-you-blocked": "$1 사용자를 {{GENDER:$2|차단했습니다}}.",
 	"chat-blocked": "$1 사용자가 $2 사용자를 {{GENDER:$3|차단했습니다}}.",
@@ -74,5 +75,8 @@
 	"apihelp-chatkick-param-id": "퇴장시킬 사용자 ID",
 	"apihelp-chatkick-example-1": "ID 1개를 사용하는 사용자 퇴장",
 	"apihelp-chatsend-param-message": "보낼 메시지",
-	"apihelp-chatsend-example-1": "대화방에 \"Hello World!\"를 보내기"
+	"apihelp-chatsend-example-1": "대화방에 \"Hello World!\"를 보내기",
+	"chat-message-from": "$1의 메세지입니다",
+	"chat-private-message-from": "$1에서의 비공개 메세지입니다.",
+	"chat-mentioned-by": "$1이 당신을 언급하였습니다."
 }
