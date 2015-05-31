@@ -87,5 +87,5 @@
 	"apihelp-chatsendpm-example-1": "Enviar «¡Hola, mundo!» al usuario con el identificador 5",
 	"chat-message-from": "Mensaje {{GENDER:$2|de}} $1",
 	"chat-private-message-from": "Mensaje privado {{GENDER:$2|de}} $1",
-	"chat-mentioned-by": "Mencionado por $1"
+	"chat-mentioned-by": "Mencionado {{GENDER:$2|por}} $1"
 }

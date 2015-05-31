@@ -17,7 +17,7 @@
 	"tog-chat-ping-mention": "Tocar um som ao receber menções",
 	"tog-chat-ping-pm": "Tocar um som ao receber mensagens privadas",
 	"tog-chat-ping-message": "Tocar um som ao receber mensagens normais",
-	"chat-message-from": "Mensagem de $1",
-	"chat-private-message-from": "Mensagem privada de $1",
-	"chat-mentioned-by": "Mencionado por $1"
+	"chat-message-from": "Mensagem {{GENDER:$2|de}} $1",
+	"chat-private-message-from": "Mensagem privada {{GENDER:$2|de}} $1",
+	"chat-mentioned-by": "Mencionado {{GENDER:$2|por}} $1"
 }
