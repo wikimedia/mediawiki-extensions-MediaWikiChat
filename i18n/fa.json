@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Armin1392",
-			"Reza1615"
+			"Reza1615",
+			"Dalba"
 		]
 	},
 	"chat": "گفتگو",
@@ -18,7 +19,7 @@
 	"chat-a-minute-ago": "یک دقیقه پیش",
 	"chat-yesterday": "دیروز",
 	"chat-kick": "ضربه زدن",
-	"chat-block": "مسدود",
+	"chat-block": "بستن",
 	"chat-youve-been-kicked": "شما توسط $1 {{GENDER:$2|ضربه}} زده‌اید. صفحه را برای گفتگو تجدید کنید",
 	"chat-you-kicked": "شما $1 را {{GENDER:$2|ضربه زدید}}",
 	"chat-kicked": "$1 {{GENDER:$3|ضربه زدید}} $2",
