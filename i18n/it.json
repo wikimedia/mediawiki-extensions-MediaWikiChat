@@ -3,7 +3,8 @@
 		"authors": [
 			"Beta16",
 			"Gianfranco",
-			"Ricordisamoa"
+			"Ricordisamoa",
+			"Alexmar983"
 		]
 	},
 	"chat": "Chat",
@@ -67,5 +68,5 @@
 	"action-modchat": "moderare la chat",
 	"action-viewpmlog": "vedere il registro dei messaggi delle chat private",
 	"chat-message-from": "Messaggio da $1",
-	"chat-private-message-from": "Messaggio privato da $1"
+	"chat-private-message-from": "Messaggio privato {{GENDER:$2|da}} $1"
 }
