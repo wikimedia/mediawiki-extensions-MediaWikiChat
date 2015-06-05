@@ -226,10 +226,7 @@ var MediaWikiChat = {
 	scrollToBottom: function() {
 		var div = $( '#mwchat-content' );
 
-		if (
-			div.scrollTop() >= div[0].scrollHeight - div.height() - 25 ||  // only if user is scrolled to bottom atm
-			!MediaWikiChat.amI // or if this is the first poll request
-		) {
+		if ( $( 'input[name=autoscroll]')[0].checked ) {
 			div.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
 		}
 	},
