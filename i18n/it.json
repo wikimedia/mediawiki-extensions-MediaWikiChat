@@ -22,6 +22,7 @@
 	"chat-yesterday": "ieri",
 	"chat-kick": "kick (espulsione)",
 	"chat-block": "blocco",
+	"chat-autoscroll": "autoscroll",
 	"chat-youve-been-kicked": "Sei {{GENDER:$2|stato espulso|stata epulsa}} da $1. Aggiorna la pagina per chattare.",
 	"chat-you-kicked": "Hai {{GENDER:$2|espulso}} $1.",
 	"chat-kicked": "$1 {{GENDER:$3|ha espulso}} $2.",
