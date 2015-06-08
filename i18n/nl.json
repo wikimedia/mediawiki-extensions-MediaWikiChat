@@ -9,7 +9,8 @@
 			"Southparkfan",
 			"Robin0van0der0vliet",
 			"Mirolith",
-			"Esketti"
+			"Esketti",
+			"Rangekill"
 		]
 	},
 	"chat": "Chat",
@@ -27,6 +28,7 @@
 	"chat-yesterday": "gisteren",
 	"chat-kick": "kick",
 	"chat-block": "blokkeren",
+	"chat-autoscroll": "autoscroll",
 	"chat-youve-been-kicked": "Je hebt al {{GENDER:$2|geschopt}} $1. Pagina vernieuwen om te chatten.",
 	"chat-you-kicked": "Je {{GENDER:$2|geschopt}} $1.",
 	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|geschopt}}}} $2.",
