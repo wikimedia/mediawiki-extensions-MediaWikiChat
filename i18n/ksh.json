@@ -19,6 +19,7 @@
 	"chat-yesterday": "jäßtere",
 	"chat-kick": "eruß schmiiße",
 	"chat-block": "schpärre",
+	"chat-autoscroll": "automattesch wigger rolle",
 	"chat-youve-been-kicked": "Do bes {{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} „$1“ eruß jeschmeße wohde. Donn di Sigg neu oprohfe, öm ze schätte.",
 	"chat-you-kicked": "Do häs {{GENDER:$2|dä|dat|dä Metmaacher|de|dat}} „$1“ eruß jeschmeße.",
 	"chat-kicked": "{{GENDER:$3|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät {{GENDER:$4|dä|dat|dä Metmaacher|de|dat}} „$2“ eruß jeschmeße.",
