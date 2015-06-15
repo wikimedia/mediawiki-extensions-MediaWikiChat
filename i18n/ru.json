@@ -21,7 +21,7 @@
 	"chat-block": "заблокировать",
 	"chat-youve-been-kicked": "Вы были {{GENDER:$2|выброшены}} участником $1. Обновите страницу чата.",
 	"chat-you-kicked": "Вы {{GENDER:$2|выбросили}} $1.",
-	"chat-kicked": "$1 выбросил{{GENDER:$3||а}} $2.",
+	"chat-kicked": "$1 выбросил{{GENDER:$3||а}} участни{{GENDER:$4|ка|цу}} $2.",
 	"chat-youve-been-blocked": "Вы были {{GENDER:$2|заблокированы}} участником $1.",
 	"chat-you-blocked": "Вы {{GENDER:$2|заблокировали}} $1.",
 	"chat-blocked": "$1 заблокировал{{GENDER:$3||а}} $2.",

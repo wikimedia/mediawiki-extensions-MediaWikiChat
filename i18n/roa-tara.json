@@ -4,9 +4,13 @@
 			"Joetaras"
 		]
 	},
+	"chat-today": "osce",
+	"chat-yesterday": "aijere",
 	"chat-you-blocked": "Tu è state {{GENDER:$2|bloccate}} $1.",
 	"chat-you-unblocked": "Tu è state {{GENDER:$2|sbloccate}} $1.",
 	"chat-left": "$1 è {{GENDER:$2|lassate}} a ciat.",
-	"chat-message-from": "Messàgge da $1",
-	"chat-mentioned-by": "Nnomenate da $1"
+	"prefs-chat": "Ciat",
+	"chat-message-from": "Messàgge {{GENDER:$2|da}} $1",
+	"chat-private-message-from": "Messàgge private {{GENDER:$2|da}} $1",
+	"chat-mentioned-by": "Nnomenate {{GENDER:$2|da}} $1"
 }
