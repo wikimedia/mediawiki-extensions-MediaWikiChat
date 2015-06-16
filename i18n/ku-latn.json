@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"George Animal"
+			"George Animal",
+			"Bikarhêner"
 		]
 	},
 	"chat-yesterday": "doh",
-	"chat-message-from": "Peyama ji $1",
-	"chat-private-message-from": "Peyama kesane ji $1"
+	"chat-message-from": "Peyama {{GENDER:$2|ji}} $1",
+	"chat-private-message-from": "Peyama kesane {{GENDER:$2|ji}} $1"
 }
