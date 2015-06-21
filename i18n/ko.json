@@ -9,7 +9,8 @@
 			"Hym411",
 			"Revi",
 			"Jdpark7",
-			"LiteHell"
+			"LiteHell",
+			"Alex00728"
 		]
 	},
 	"chat": "채트",
@@ -26,6 +27,7 @@
 	"chat-yesterday": "어제",
 	"chat-kick": "추방",
 	"chat-block": "차단",
+	"chat-autoscroll": "자동 스크롤",
 	"chat-youve-been-kicked": "$1 사용자가 당신을 {{GENDER:$2|추방}}했습니다. 채트하려면 페이지를 새로 고치세요.",
 	"chat-you-kicked": "$1 사용자를 {{GENDER:$2|추방했습니다}}.",
 	"chat-kicked": "$1 사용자가 $2 사용자를 {{GENDER:$3|{{GENDER:$4추방했습니다}}}}.",

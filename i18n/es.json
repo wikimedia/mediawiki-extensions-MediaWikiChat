@@ -55,7 +55,7 @@
 	"group-blockedfromchat": "Usuarios bloqueados del chat",
 	"group-blockedfromchat-member": "{{GENDER:$1|bloqueado|bloqueada}} del chat",
 	"grouppage-blockedfromchat": "{{ns:project}}:Usuarios bloqueados del chat",
-	"right-mediawikichat-chat": "Uso Special:Chat",
+	"right-mediawikichat-chat": "Usar Special:Chat",
 	"right-mediawikichat-modchat": "Bloquear y expulsar (si se puede) usuarios de Special:Chat",
 	"tog-chat-fullscreen": "Usar el chat en modo de pantalla completa (experimental)",
 	"tog-chat-ping-mention": "Reproducir sonido al recibir menciones",
