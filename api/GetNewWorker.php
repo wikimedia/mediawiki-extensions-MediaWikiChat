@@ -139,12 +139,12 @@ class GetNewWorker {
                 $result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );
             }
             if ( array_key_exists( $id, $onlineUsers ) ) {
-                $result->addValue( array( $mName, 'users', $idString ), 'online', true );
+                $result->addValue( array( $mName, 'users', $idString ), 'online', 'true' );
                 $result->addValue( array( $mName, 'users', $idString ), 'away', $onlineUsers[$id] );
             }
             $groups = $userObject->getGroups();
             if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
-                $result->addValue( array( $mName, 'users', $idString ), 'mod', true );
+                $result->addValue( array( $mName, 'users', $idString ), 'mod', 'true' );
             }
             $gender = $genderCache->getGenderOf( $userObject );
             $result->addValue( array( $mName, 'users', $idString, ), 'gender', $gender );
@@ -155,7 +155,7 @@ class GetNewWorker {
         $result->addValue( $mName, 'interval', MediaWikiChat::getInterval() );
 
         if ( !$user->isAllowed( 'chat' ) ) {
-            $result->addValue( $mName, 'kick', true ); // if user has since been blocked from chat, kick them now
+            $result->addValue( $mName, 'kick', 'true' ); // if user has since been blocked from chat, kick them now
         }
     }
 }
