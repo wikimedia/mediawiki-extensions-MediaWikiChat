@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Hiro884",
-			"Shirayuki"
+			"Shirayuki",
+			"Sujiniku"
 		]
 	},
 	"chat": "チャット",
@@ -26,7 +27,7 @@
 	"chat-user-is-moderator": "この利用者はモデレーター{{GENDER:$1|です}}",
 	"chat-you-are-moderator": "あなたはモデレーター{{GENDER:$1|です}}",
 	"chat-topic": "{{SITENAME}}のチャットへようこそ。([[Special:Log/chat|チャット記録]])",
-	"chat-change-preferences": "チャットの個人設定を変更 (全画面表示とサウンド)",
+	"chat-change-preferences": "チャットの個人設定を変更 (全画面表示と音と通知)",
 	"chat-sidebar-online": "チャットでオンラインの利用者:",
 	"chat-sidebar-join": "チャットに入室",
 	"log-name-chat": "チャット記録",
