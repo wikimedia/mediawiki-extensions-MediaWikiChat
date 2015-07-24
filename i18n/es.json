@@ -18,7 +18,7 @@
 	"chat-not-allowed": "Intenta iniciar sesión primero antes de charlar.",
 	"chat-sounds": "Activar sonidos",
 	"chat-flood": "No puedes enviar mensajes tan rápido, vaquero.",
-	"chat-too-long": "Ese mensaje es demasiado largo, por favor escribe un mensaje mas corto.",
+	"chat-too-long": "Ese mensaje es demasiado largo. Escribe uno más corto.",
 	"chat-a-minute-ago": "hace un minuto",
 	"chat-today": "hoy",
 	"chat-yesterday": "ayer",
