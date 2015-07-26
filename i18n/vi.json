@@ -70,6 +70,6 @@
 	"apihelp-chatsendpm-param-message": "Tin nhắn sẽ được gửi",
 	"apihelp-chatsendpm-example-1": "Gửi \"Hello World!\" tới người dùng có ID là 5",
 	"chat-message-from": "Tin nhắn từ $1",
-	"chat-private-message-from": "Tin nhắn riêng tư từ {{GENDER:$2|from}} $1",
+	"chat-private-message-from": "Tin nhắn riêng tư {{GENDER:$2}}từ $1",
 	"chat-mentioned-by": "Được nhắc đến bởi $1"
 }
