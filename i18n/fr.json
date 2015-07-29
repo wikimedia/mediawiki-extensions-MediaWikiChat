@@ -6,7 +6,8 @@
 			"Elodark",
 			"0x010C",
 			"Orikrin1998",
-			"Weft"
+			"Weft",
+			"Wladek92"
 		]
 	},
 	"chat": "Discussion",
@@ -26,7 +27,7 @@
 	"chat-block": "bloquer",
 	"chat-youve-been-kicked": "Vous avez été {{GENDER:$2|éjecté|éjectée}} par $1. Rafraîchissez la page pour discuter",
 	"chat-you-kicked": "Vous {{GENDER:$2|avez éjecté}} $1",
-	"chat-kicked": "$1 {{GENDER:$3|a éjecté}} $2",
+	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|a éjecté}}}} $2.",
 	"chat-youve-been-blocked": "Vous avez été {{GENDER:$2|bloqué|bloquée}} par $1.",
 	"chat-you-blocked": "Vous {{GENDER:$2|avez bloqué}} $1",
 	"chat-blocked": "$1 {{GENDER:$3|a bloqué}} $2",
@@ -75,6 +76,6 @@
 	"apihelp-chatsend-example-1": "Envoyer \"Hello World!\" au chat",
 	"apihelp-chatsendpm-description": "Envoyer un message privé à un utilisateur",
 	"apihelp-chatsendpm-param-message": "Le message à envoyer",
-	"chat-message-from": "Message de $1",
-	"chat-private-message-from": "Message privé de $1"
+	"chat-message-from": "Message {{GENDER:$2|de}} $1",
+	"chat-private-message-from": "Message privé {{GENDER:$2|de}} $1"
 }
