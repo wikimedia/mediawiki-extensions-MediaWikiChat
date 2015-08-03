@@ -69,7 +69,7 @@
 	"chat-idle-hours": "此用户已闲置$1小时",
 	"chat-idle-more": "此用户已闲置超过24小时",
 	"action-chat": "与其他用户聊天",
-	"action-modchat": "适当聊天",
+	"action-modchat": "管制聊天",
 	"action-viewpmlog": "查看私人聊天消息日志",
 	"apihelp-chatgetnew-description": "在聊天中获取新消息。",
 	"apihelp-chatgetnew-param-focussed": "聊天标签现在是否开启/被聚焦？",
