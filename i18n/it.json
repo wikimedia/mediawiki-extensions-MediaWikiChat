@@ -68,6 +68,6 @@
 	"action-chat": "chattare con altri utenti",
 	"action-modchat": "moderare la chat",
 	"action-viewpmlog": "vedere il registro dei messaggi delle chat private",
-	"chat-message-from": "Messaggio da $1",
+	"chat-message-from": "Messaggio {{GENDER:$2|da}} $1",
 	"chat-private-message-from": "Messaggio privato {{GENDER:$2|da}} $1"
 }
