@@ -5,7 +5,8 @@
 			"GeorgeBarnick",
 			"Metalhead64",
 			"Tiin",
-			"Purodha"
+			"Purodha",
+			"J. 'mach' wust"
 		]
 	},
 	"chat": "Chat",
@@ -26,7 +27,7 @@
 	"chat-autoscroll": "Automatisch scrollen",
 	"chat-youve-been-kicked": "Du wurdest von $1 {{GENDER:$2|hinausgeworfen}}. Lade zum Chatten die Seite erneut.",
 	"chat-you-kicked": "Du hast $1 {{GENDER:$2|hinausgeworfen}}",
-	"chat-kicked": "$1 hat $2 {{GENDER:$3|{{GENDER:$4|hinausgeworfen}}}}.",
+	"chat-kicked": "{{GENDER:$3|$1}} hat {{GENDER:$4|$2}} hinausgeworfen.",
 	"chat-youve-been-blocked": "Du wurdest von $1 {{GENDER:$2|gesperrt}}.",
 	"chat-you-blocked": "Du hast $1 {{GENDER:$2|gesperrt}}",
 	"chat-blocked": "$1 {{GENDER:$3|sperrte}} $2",
