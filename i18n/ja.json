@@ -3,7 +3,8 @@
 		"authors": [
 			"Hiro884",
 			"Shirayuki",
-			"Sujiniku"
+			"Sujiniku",
+			"Otokoume"
 		]
 	},
 	"chat": "チャット",
@@ -46,5 +47,8 @@
 	"tog-chat-ping-message": "通常のメッセージが届いた際にサウンドを再生",
 	"tog-chat-ping-joinleave": "利用者がチャットに入室または退室した際にサウンドを再生",
 	"prefs-chat": "チャット",
-	"action-chat": "他の利用者とのチャット"
+	"action-chat": "他の利用者とのチャット",
+	"apihelp-chatgetnew-example-1": "チャットでの新しいメッセージを取得",
+	"chat-message-from": "$1 {{GENDER:$2|から}}のメッセージ",
+	"chat-private-message-from": "$1 {{GENDER:$2|から}}のプライベート・メッセージ"
 }

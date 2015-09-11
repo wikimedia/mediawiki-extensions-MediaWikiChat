@@ -19,6 +19,7 @@
 	"chat-yesterday": "вчера",
 	"chat-kick": "выбросить",
 	"chat-block": "заблокировать",
+	"chat-autoscroll": "автопрокрутка",
 	"chat-youve-been-kicked": "Вы были {{GENDER:$2|выброшены}} участником $1. Обновите страницу чата.",
 	"chat-you-kicked": "Вы {{GENDER:$2|выбросили}} $1.",
 	"chat-kicked": "$1 выбросил{{GENDER:$3||а}} участни{{GENDER:$4|ка|цу}} $2.",
@@ -63,5 +64,16 @@
 	"chat-idle-more": "Этот пользователь неактивен более 24 часов",
 	"action-chat": "пообщаться с другими участниками",
 	"action-modchat": "модерировать чат",
-	"action-viewpmlog": "посмотреть журнал личных сообщений в чате"
+	"action-viewpmlog": "посмотреть журнал личных сообщений в чате",
+	"apihelp-chatgetnew-description": "Получить новые сообщения в чате",
+	"apihelp-chatgetnew-example-1": "Получить новые сообщения в чате",
+	"apihelp-chatsend-description": "Отправить публичное сообщение в чат",
+	"apihelp-chatsend-param-message": "Сообщение для отправки",
+	"apihelp-chatsend-example-1": "Отправить «Hello World!» в чат",
+	"apihelp-chatsendpm-description": "Отправить личное сообщение участнику",
+	"apihelp-chatsendpm-param-id": "Идентификатор участника, которому отправляется ЛС",
+	"apihelp-chatsendpm-param-message": "Сообщение для отправки",
+	"apihelp-chatsendpm-example-1": "Отправить «Hello World!» участнику с ID 5",
+	"chat-message-from": "Сообщение {{GENDER:$2|от}} $1",
+	"chat-private-message-from": "Личное сообщение {{GENDER:$2|от}} $1"
 }
