@@ -25,7 +25,7 @@
 	"chat-autoscroll": "autoscroll",
 	"chat-youve-been-kicked": "Sei {{GENDER:$2|stato espulso|stata epulsa}} da $1. Aggiorna la pagina per chattare.",
 	"chat-you-kicked": "Hai {{GENDER:$2|espulso}} $1.",
-	"chat-kicked": "$1 {{GENDER:$3|ha espulso}} $2.",
+	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|ha espulso}}}} $2.",
 	"chat-youve-been-blocked": "Sei {{GENDER:$2|stato bloccato|stata bloccata}} da $1.",
 	"chat-you-blocked": "Hai {{GENDER:$2|bloccato}} $1.",
 	"chat-blocked": "$1 {{GENDER:$3|ha bloccato}} $2.",
