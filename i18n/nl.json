@@ -41,7 +41,7 @@
 	"chat-left": "$1 is {{GENDER:$2|left}} chat.",
 	"chat-private-message": "klik om een persoonlijk bericht te sturen",
 	"chat-user-is-moderator": "Deze gebruiker {{GENDER:$1|is}} moderator",
-	"chat-you-are-moderator": "Jij {{GENDER:$1|bent}} een moderator",
+	"chat-you-are-moderator": "U {{GENDER:$1|bent}} een moderator",
 	"chat-topic": "Welkom op de chat van {{SITENAME}}. ([[Special:Log/chat|logboek]])",
 	"chat-change-preferences": "Chatinstellingen wijzigen (volledig scherm, geluiden en meldingen)",
 	"chat-sidebar-online": "Online gebruikers in de chat:",
