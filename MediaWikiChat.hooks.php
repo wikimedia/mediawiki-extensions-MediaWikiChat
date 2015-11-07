@@ -88,12 +88,14 @@ class MediaWikiChatHooks {
 
 				foreach ( $users as $id => $away ) {
 					$user = User::newFromId( $id );
-					$avatar = MediaWikiChat::getAvatar( $id );
 					$style = "display: block;
 						background-position: right 1em center;
 						background-repeat: no-repeat;
-						background-image: url($avatar);
 						word-wrap: break-word;";
+					if ( class_exists( 'SocialProfileHooks' ) ) {
+						$avatar = MediaWikiChat::getAvatar( $id );
+						$style .= "background-image: url($avatar);";
+					}
 					if ( $away > 120000 ) {
 						$style .= "-webkit-filter: grayscale(1); /* old webkit */
 							-webkit-filter: grayscale(100%); /* new webkit */
