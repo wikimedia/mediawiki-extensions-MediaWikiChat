@@ -344,6 +344,11 @@ var MediaWikiChat = {
 			elem.find( 'a' ).attr( 'target', '_blank' );
 		}
 	},
+	
+	getColourFromUsername: function( name ) {
+		name = name + 'aa'; // at least 3 digits
+		return '#' + name.charCodeAt(0).toString(16) + name.charCodeAt(1).toString(16) + name.charCodeAt(2).toString(16);
+	},
 
 	addPrivateMessage: function( userId, convwith, message, timestamp ) {
 		var user = MediaWikiChat.userData[userId];
@@ -352,6 +357,8 @@ var MediaWikiChat = {
 		var html = '<div class="mwchat-message">';
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
 			html += '<img src="' + user.avatar + '" alt="' + user.name + '" name="' + user.name + '" title="' + user.name + '" />';
+		} else {
+			html += '<span style="background-color:' + MediaWikiChat.getColourFromUsername( user.name ) + '; color:white; display:inline-block; width:16px; height:16px; text-align:center;" name="' + user.name + '" title="' + user.name + '">' + user.name.charAt(0) + '</span>';
 		}
 		html += '<span class="mwchat-item-message">';
 		html += message;
