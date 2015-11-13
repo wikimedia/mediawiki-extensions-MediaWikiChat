@@ -346,8 +346,8 @@ var MediaWikiChat = {
 	},
 	
 	getColourFromUsername: function( name ) {
-		name = name + 'aa'; // at least 3 digits
-		return '#' + name.charCodeAt(0).toString(16) + name.charCodeAt(1).toString(16) + name.charCodeAt(2).toString(16);
+		name = name + 'abc'; // at least 4 digits
+		return '#' + name.charCodeAt(1).toString(16) + name.charCodeAt(2).toString(16) + name.charCodeAt(3).toString(16);
 	},
 
 	addPrivateMessage: function( userId, convwith, message, timestamp ) {
