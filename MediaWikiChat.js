@@ -347,7 +347,10 @@ var MediaWikiChat = {
 	
 	getColourFromUsername: function( name ) {
 		name = name + 'abc'; // at least 4 digits
-		return '#' + name.charCodeAt(1).toString(16) + name.charCodeAt(2).toString(16) + name.charCodeAt(3).toString(16);
+		one = Math.min( Math.max( Math.round( ( name.charCodeAt( 1 ) - 48 ) * 3.2 ), 0 ), 255 ).toString( 16 ); // the 30 and 1.3 are scaling
+		two = Math.min( Math.max( Math.round( ( name.charCodeAt( 2 ) - 30 ) * 3.2 ), 0 ), 255 ).toString( 16 );
+		three = Math.min( Math.max( Math.round( ( name.charCodeAt( 3 ) - 30 ) * 3.2 ), 0 ), 255 ).toString( 16 );
+		return '#' + one + two + three;
 	},
 
 	addPrivateMessage: function( userId, convwith, message, timestamp ) {
@@ -358,7 +361,7 @@ var MediaWikiChat = {
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
 			html += '<img src="' + user.avatar + '" alt="' + user.name + '" name="' + user.name + '" title="' + user.name + '" />';
 		} else {
-			html += '<span style="background-color:' + MediaWikiChat.getColourFromUsername( user.name ) + '; color:white; display:inline-block; width:16px; height:16px; text-align:center;" name="' + user.name + '" title="' + user.name + '">' + user.name.charAt(0) + '</span>';
+			html += '<span style="background-color:' + MediaWikiChat.getColourFromUsername( user.name ) + ';" class="mwchat-avatar-replacement" name="' + user.name + '" title="' + user.name + '">' + user.name.charAt(0) + '</span>';
 		}
 		html += '<span class="mwchat-item-message">';
 		html += message;

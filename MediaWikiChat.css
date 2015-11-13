@@ -186,3 +186,11 @@
 #mwchat-type {
 	position: relative;
 }
+
+.mwchat-avatar-replacement {
+	color: white;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	text-align: center;
+}
