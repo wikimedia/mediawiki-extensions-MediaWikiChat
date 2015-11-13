@@ -38,9 +38,9 @@
 	"chat-you-are-moderator": "You {{GENDER:$1|are}} a moderator",
 	"chat-topic": "Welcome to {{SITENAME}} chat. ([[Special:Log/chat|chat log]])",
 	"chat-change-preferences": "Change your chat preferences (fullscreen, sounds, notifications)",
-	"chat-sidebar-online": "Online users in chat:",
+	"chat-sidebar-online": "Online users in chat",
 	"chat-sidebar-join": "Join the chat",
-	"chat-mod-image": "http://192.168.1.78/mediawiki-core/extensions/MediaWikiChat/assets/chatmod.png",
+	"chat-mod-image": "http://meta.brickimedia.org/extensions/MediaWikiChat/assets/chatmod.png",
 	"chat-smileys": "",
 
 	"log-name-chat": "Chat log",
