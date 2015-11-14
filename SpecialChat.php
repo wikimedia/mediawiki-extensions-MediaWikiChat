@@ -51,6 +51,7 @@ class SpecialChat extends SpecialPage {
 					'wgChatMeCommand' => $wgChatMeCommand,
 					'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
 					'wgCanonicalServer' => $wgCanonicalServer,
+					'wgUserId' => $this->getUser()->getId()
 				)
 			);
 

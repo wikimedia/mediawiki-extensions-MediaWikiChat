@@ -156,7 +156,11 @@ var MediaWikiChat = {
 			}
 		}
 
-		MediaWikiChat.amIMod = data.users[mw.config.get( 'wgUserId' )].mod;
+		if ( mw.config.get( 'wgUserId' ) == 0 ) {
+			MediaWikiChat.amIMod = false;
+		} else {
+			MediaWikiChat.amIMod = data.users[mw.config.get( 'wgUserId' )].mod;
+		}
 
 		MediaWikiChat.doUsers( onlineUsers );
 
