@@ -351,9 +351,18 @@ var MediaWikiChat = {
 	
 	getColourFromUsername: function( name ) {
 		name = name + 'abc'; // at least 4 digits
-		one = Math.min( Math.max( Math.round( ( name.charCodeAt( 1 ) - 48 ) * 3.2 ), 0 ), 255 ).toString( 16 ); // the 30 and 1.3 are scaling
-		two = Math.min( Math.max( Math.round( ( name.charCodeAt( 2 ) - 30 ) * 3.2 ), 0 ), 255 ).toString( 16 );
-		three = Math.min( Math.max( Math.round( ( name.charCodeAt( 3 ) - 30 ) * 3.2 ), 0 ), 255 ).toString( 16 );
+		one = Math.min( Math.max( Math.round( ( name.charCodeAt( 1 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 ); // the 30 and 1.3 are scaling
+		if ( one.length < 2 ) {
+			one = "0" + one;
+		}
+		two = Math.min( Math.max( Math.round( ( name.charCodeAt( 3 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 );
+		if ( two.length < 2 ) {
+			two = "0" + two;
+		}
+		three = Math.min( Math.max( Math.round( ( name.charCodeAt( name.length - 1 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 );
+		if ( three.length < 2 ) {
+			three = "0" + three;
+		}
 		return '#' + one + two + three;
 	},
 
