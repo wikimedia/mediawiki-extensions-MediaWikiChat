@@ -35,7 +35,7 @@
 	"chat-you-are-moderator": "Do bes ene Modderahtor.{{GENDER:$1|}}",
 	"chat-topic": "Welkumme beim Schätt {{GRAMMAR:Gen vun|{{ucfirst:{{SITENAME}}}}}}. Mer han orr_e [[Special:Log/chat|Logbohch vum Schätt]].",
 	"chat-change-preferences": "Donn de enschtällonge för der Schätt ändere (der jannze Beldscherrem, Töhn, Meddeijlonge)",
-	"chat-sidebar-online": "Metmaacher jrahd em Schätt:",
+	"chat-sidebar-online": "Metmaacher jrahd em Schätt",
 	"chat-sidebar-join": "Jangk en der Schätt",
 	"log-name-chat": "Et Logbohch vum Schätt",
 	"log-description-chat": "Övver der Schätt vum MehdijaWikki jeschekte Nohreeschte un de rußjeschmeße Metmaacher",

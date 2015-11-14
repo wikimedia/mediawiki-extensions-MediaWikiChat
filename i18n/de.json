@@ -40,7 +40,7 @@
 	"chat-you-are-moderator": "Du bist {{GENDER:$1|ein Moderator|eine Moderatorin}}",
 	"chat-topic": "Willkommen im {{SITENAME}}-Chat. ([[Special:Log/chat|Chat-Logbuch]])",
 	"chat-change-preferences": "Chat-Einstellungen ändern (Vollbild, Sounds, Benachrichtigungen)",
-	"chat-sidebar-online": "Onlinebenutzer im Chat:",
+	"chat-sidebar-online": "Onlinebenutzer im Chat",
 	"chat-sidebar-join": "Dem Chat beitreten",
 	"log-name-chat": "Chat-Logbuch",
 	"log-description-chat": "Dieses Logbuch protokolliert von MediaWikiChat versandte Nachrichten und Hinauswerfungen von Benutzern.",

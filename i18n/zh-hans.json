@@ -37,7 +37,7 @@
 	"chat-you-are-moderator": "您{{GENDER:$1|是}}一位版主",
 	"chat-topic": "欢迎来到{{SITENAME}}聊天。（[[Special:Log/chat|聊天日志]]）",
 	"chat-change-preferences": "更改您的聊天设置（全屏、声音和通知）",
-	"chat-sidebar-online": "聊天中的在线用户：",
+	"chat-sidebar-online": "聊天中的在线用户",
 	"chat-sidebar-join": "加入聊天",
 	"log-name-chat": "聊天记录",
 	"log-description-chat": "信息由MediaWikiChat发送，当然用户可以踢人",

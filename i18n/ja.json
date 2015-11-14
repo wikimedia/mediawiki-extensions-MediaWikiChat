@@ -29,7 +29,7 @@
 	"chat-you-are-moderator": "あなたはモデレーター{{GENDER:$1|です}}",
 	"chat-topic": "{{SITENAME}}のチャットへようこそ。([[Special:Log/chat|チャット記録]])",
 	"chat-change-preferences": "チャットの個人設定を変更 (全画面表示と音と通知)",
-	"chat-sidebar-online": "チャットでオンラインの利用者:",
+	"chat-sidebar-online": "チャットでオンラインの利用者",
 	"chat-sidebar-join": "チャットに入室",
 	"log-name-chat": "チャット記録",
 	"log-show-hide-chat": "チャット記録を$1",

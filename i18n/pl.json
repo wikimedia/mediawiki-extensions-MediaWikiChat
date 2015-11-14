@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrumps",
 			"Jacenty359",
-			"Vuh"
+			"Vuh",
+			"Mateon1"
 		]
 	},
 	"chat": "Czat",
@@ -33,7 +34,7 @@
 	"chat-you-are-moderator": "Ty {{GENDER:$1|jesteś}} moderatorem.",
 	"chat-topic": "Witamy na czacie {{SITENAME}}. ([[Special:Log/chat|rejestr czatu]])",
 	"chat-change-preferences": "Zmień ustawienia czatu (pełny ekran, dźwięki, powiadomienia)",
-	"chat-sidebar-online": "Użytkowników online na czacie:",
+	"chat-sidebar-online": "Użytkownicy online na czacie",
 	"chat-sidebar-join": "Dołącz do czatu",
 	"log-name-chat": "Rejestr czatu",
 	"group-chatmod": "Moderatorzy czatu",
