@@ -25,6 +25,7 @@
 	"chat-private-message": "klickt fir privat Messagen",
 	"chat-user-is-moderator": "Dëse Benotzer {{GENDER:$1|ass}} e Moderateur.",
 	"chat-change-preferences": "Ännert Är Chat-Astellungen (Fullscreen, Toun, Notifikatiounen)",
+	"chat-sidebar-online": "Online Benotzer am Chat",
 	"log-description-privatechat": "Privat Messagen déi iwwer MediaWikiChat verschéckt goufen",
 	"logentry-privatechat-send": "$1 fir $5: $4",
 	"group-blockedfromchat": "Benotzer déi fir den Chat gespaart sinn",

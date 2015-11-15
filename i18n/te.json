@@ -4,7 +4,8 @@
 			"Ashokjayanti",
 			"Chaduvari",
 			"Ravichandra",
-			"Veeven"
+			"Veeven",
+			"రహ్మానుద్దీన్"
 		]
 	},
 	"chat-sounds": "శబ్దాలను వినిపించు",
@@ -15,6 +16,7 @@
 	"chat-user-is-moderator": "ఈ వాడుకరి {{GENDER:$1|ఓ పరిశీలకుడు|ఓ పరిశీలకురాలు}}",
 	"chat-you-are-moderator": "మీరు {{GENDER:$1|ఓ పరిశీలకులు}}",
 	"chat-change-preferences": "మీ మాటామంతీ ప్రాధాన్యతలని మార్చుకోండి",
+	"chat-sidebar-online": "ఛాట్ లో అందుబాటులో ఉన్న ఆన్లైన్ వాడుకరులు",
 	"tog-chat-ping-pm": "వ్యక్తిగత సందేశాలు వచ్చినప్పుడు ఓ శబ్దం చేయి.",
 	"tog-chat-ping-message": "సాధారణ సందేశాలు వచ్చినప్పుడు శబ్దం చేయి.",
 	"prefs-chat": "మాటామంతి"
