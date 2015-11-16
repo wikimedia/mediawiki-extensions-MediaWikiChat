@@ -38,7 +38,7 @@
 	"chat-you-are-moderator": "Sei {{GENDER:$1|un moderatore|una moderatrice}}",
 	"chat-topic": "Benvenuto alla chat di {{SITENAME}}. ([[Special:Log/chat|log della chat]])",
 	"chat-change-preferences": "Cambia le tue preferenze di chat (schermo intero, suoni, notifiche)",
-	"chat-sidebar-online": "Utenti online in chat:",
+	"chat-sidebar-online": "Utenti online in chat",
 	"chat-sidebar-join": "Entra in chat",
 	"log-name-chat": "Chat",
 	"log-description-chat": "Messaggi inviati da MediaWikiChat, così come espulsioni utente",
