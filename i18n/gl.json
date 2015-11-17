@@ -36,7 +36,7 @@
 	"chat-you-are-moderator": "Vostede {{GENDER:$1|é}} un moderador",
 	"chat-topic": "Benvido/a á charla de {{SITENAME}}. ([[Special:Log/chat|rexistro da charla]])",
 	"chat-change-preferences": "Cambie a súas preferencias de chat (pantalla completa, sons, notificacións)",
-	"chat-sidebar-online": "Usuarios conectados ó chat:",
+	"chat-sidebar-online": "Usuarios conectados ó chat",
 	"chat-sidebar-join": "Unirse á charla",
 	"log-name-chat": "Rexistro da charla",
 	"log-description-chat": "Mensaxes enviadas por MediaWikiChat, así como as expulsións de usuarios",

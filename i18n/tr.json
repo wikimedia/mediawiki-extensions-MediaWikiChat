@@ -4,7 +4,8 @@
 			"Joseph",
 			"Mustavanilya",
 			"Violetanka",
-			"Sayginer"
+			"Sayginer",
+			"HakanIST"
 		]
 	},
 	"chat": "Sohbet",
@@ -34,7 +35,7 @@
 	"chat-you-are-moderator": "Siz {{GENDER:$1|bir}} moderatörsünüz",
 	"chat-topic": "{{SITENAME}} sohbete hoş geldiniz. ([[Special:Log/chat|sohbet günlüğü]])",
 	"chat-change-preferences": "Sohbet tercihlerinizi (tam ekran, sesler, bildirimler) değiştirin",
-	"chat-sidebar-online": "Sohbetteki çevrimiçi kullanıcılar:",
+	"chat-sidebar-online": "Sohbetteki çevrimiçi kullanıcılar",
 	"chat-sidebar-join": "Sohbete katıl",
 	"log-name-chat": "Sohbet günlüğü",
 	"logentry-chat-kick": "$1, $4 kullanıcısını {{GENDER:$1|attı}}",

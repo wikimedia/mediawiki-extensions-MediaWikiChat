@@ -41,7 +41,7 @@
 	"chat-you-are-moderator": "Vous {{GENDER:$1|êtes}} un modérateur",
 	"chat-topic": "Bienvenue sur la discussion de {{SITENAME}}. ([[Special:Log/chat|journal de discussion]])",
 	"chat-change-preferences": "Modifier vos préférences de discussion (plein écran, sons et notifications)",
-	"chat-sidebar-online": "Utilisateurs connectés sur la discussion :",
+	"chat-sidebar-online": "Utilisateurs connectés sur la discussion",
 	"chat-sidebar-join": "Rejoindre la discussion",
 	"log-name-chat": "Journal de discussion",
 	"log-description-chat": "Messages envoyés par MediaWikiChat, ainsi que les éjections d’utilisateur",
