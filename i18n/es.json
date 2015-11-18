@@ -6,7 +6,8 @@
 			"Sethladan",
 			"Miguel2706",
 			"Macofe",
-			"Ryo567"
+			"Ryo567",
+			"Themasterriot"
 		]
 	},
 	"chat": "Charla",
@@ -24,6 +25,7 @@
 	"chat-yesterday": "ayer",
 	"chat-kick": "expulsar",
 	"chat-block": "bloquear",
+	"chat-autoscroll": "autodesplazar",
 	"chat-youve-been-kicked": "$1 te ha {{GENDER:$2|expulsado}}. Actualiza la página para charlar.",
 	"chat-you-kicked": "Has {{GENDER:$2|expulsado}} a $1.",
 	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|expulsó}}}} a $2.",
