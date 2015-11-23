@@ -38,7 +38,7 @@
 	"chat-you-are-moderator": "{{GENDER:$1|Du är}} en moderator.",
 	"chat-topic": "Välkommen till {{SITENAME}}s chatt. ([[Special:Log/chat|chattlogg]])",
 	"chat-change-preferences": "Ändra dina chattinställningar (helskärm, ljud, meddelanden)",
-	"chat-sidebar-online": "Anslutna användare i chatten:",
+	"chat-sidebar-online": "Anslutna användare i chatten",
 	"chat-sidebar-join": "Delta i chatten",
 	"log-name-chat": "Chattlogg",
 	"log-description-chat": "Meddelanden skickade av MediaWikiChat, samt påminnelser från användare",
