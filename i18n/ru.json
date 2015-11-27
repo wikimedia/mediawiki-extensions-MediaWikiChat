@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Okras"
+			"Okras",
+			"Macofe"
 		]
 	},
 	"chat": "Чат",
@@ -35,7 +36,7 @@
 	"chat-you-are-moderator": "Вы — {{GENDER:$1|модератор}}.",
 	"chat-topic": "Добро пожаловать в чат сайта {{SITENAME}}. ([[Special:Log/chat|журнал чата]])",
 	"chat-change-preferences": "Изменить настройки чата (полноэкранный режим, звуки и уведомления)",
-	"chat-sidebar-online": "Пользователи в чатеː",
+	"chat-sidebar-online": "Пользователи в чате",
 	"chat-sidebar-join": "Присоединиться к чату",
 	"log-name-chat": "Лог чата",
 	"log-description-chat": "Сообщения, отправляемые MediaWikiChat, когда участник выкидывает другого",

@@ -4,7 +4,8 @@
 			"EagerLin",
 			"Liuxinyu970226",
 			"Cwlin0416",
-			"LNDDYL"
+			"LNDDYL",
+			"Macofe"
 		]
 	},
 	"chat": "聊天",
@@ -37,7 +38,7 @@
 	"chat-you-are-moderator": "您{{GENDER:$1|是}}管理者。",
 	"chat-topic": "歡迎光臨 {{SITENAME}} 聊天。 ([[Special:Log/chat|聊天日誌]])",
 	"chat-change-preferences": "變更您的聊天個人偏好 (全螢幕、音效、通知)",
-	"chat-sidebar-online": "正在聊天的線上使用者：",
+	"chat-sidebar-online": "正在聊天的線上使用者",
 	"chat-sidebar-join": "加入聊天",
 	"log-name-chat": "聊天日誌",
 	"log-description-chat": "訊息由 MediaWikiChat 傳送，如同使用者踢除",

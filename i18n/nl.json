@@ -10,7 +10,8 @@
 			"Robin0van0der0vliet",
 			"Mirolith",
 			"Esketti",
-			"Rangekill"
+			"Rangekill",
+			"Macofe"
 		]
 	},
 	"chat": "Chat",
@@ -44,7 +45,7 @@
 	"chat-you-are-moderator": "U {{GENDER:$1|bent}} een moderator",
 	"chat-topic": "Welkom op de chat van {{SITENAME}}. ([[Special:Log/chat|logboek]])",
 	"chat-change-preferences": "Chatinstellingen wijzigen (volledig scherm, geluiden en meldingen)",
-	"chat-sidebar-online": "Online gebruikers in de chat:",
+	"chat-sidebar-online": "Online gebruikers in de chat",
 	"chat-sidebar-join": "Chat mee",
 	"log-name-chat": "Chatlogboek",
 	"log-description-chat": "Berichten verzonden door MediaWikiChat, als gebruiker kicks",

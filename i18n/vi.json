@@ -5,7 +5,8 @@
 			"Skye Darcy",
 			"Withoutaname",
 			"Dinhxuanduyet",
-			"Darcy Le"
+			"Darcy Le",
+			"Macofe"
 		]
 	},
 	"chat": "Trò chuyện",
@@ -38,7 +39,7 @@
 	"chat-you-are-moderator": "Bạn {{GENDER:$1}}là quản trị viên.",
 	"chat-topic": "Chào mừng đến với trình trò chuyện {{SITENAME}}. ([[Special:Log/chat|nhật trình trò chuyện]])",
 	"chat-change-preferences": "Thay đổi tùy chọn chat của bạn (toàn màn hình, âm thanh, thông báo)",
-	"chat-sidebar-online": "Những người dùng trực tuyến đang chat:",
+	"chat-sidebar-online": "Những người dùng trực tuyến đang chat",
 	"chat-sidebar-join": "Vào phòng trò chuyện",
 	"log-name-chat": "Nhật trình trò chuyện",
 	"log-description-chat": "Tin nhắn được gửi bởi MediaWikiChat, cũng như người dùng đá",

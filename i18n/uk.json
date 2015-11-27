@@ -3,7 +3,8 @@
 		"authors": [
 			"Andriykopanytsia",
 			"Максим Підліснюк",
-			"Ата"
+			"Ата",
+			"Macofe"
 		]
 	},
 	"chat": "Чат",
@@ -37,7 +38,7 @@
 	"chat-you-are-moderator": "Ви — {{GENDER:$1|модератор|модераторка}}.",
 	"chat-topic": "Ласкаво просимо до чату сайту {{SITENAME}}. ([[Special:Log/chat|журнал чату]])",
 	"chat-change-preferences": "Змінити налаштування чату (повноекранний режим, звуки, сповіщення)",
-	"chat-sidebar-online": "Онлайн-користувачів у чаті:",
+	"chat-sidebar-online": "Онлайн-користувачів у чаті",
 	"chat-sidebar-join": "Приєднатися до чату",
 	"log-name-chat": "Журнал чату",
 	"log-description-chat": "Повідомлення від MediaWikiChat, коли користувач усуває іншого",

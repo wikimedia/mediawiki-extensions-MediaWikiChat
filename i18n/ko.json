@@ -10,7 +10,8 @@
 			"Revi",
 			"Jdpark7",
 			"LiteHell",
-			"Alex00728"
+			"Alex00728",
+			"Macofe"
 		]
 	},
 	"chat": "챗",
@@ -43,7 +44,7 @@
 	"chat-you-are-moderator": "당신은 중재자{{GENDER:$1|입니다}}.",
 	"chat-topic": "{{SITENAME}} 챗에 오신 것을 환영합니다. ([[Special:Log/chat|챗 기록]])",
 	"chat-change-preferences": "채트 환경 설정 바꾸기 (전체 화면과 소리)",
-	"chat-sidebar-online": "채트에 접속한 사용자:",
+	"chat-sidebar-online": "채트에 접속한 사용자",
 	"chat-sidebar-join": "채트에 들어가기",
 	"log-name-chat": "챗 기록",
 	"log-description-chat": "미디어위키채트에서 보낸 메시지와 사용자 추방",

@@ -3,7 +3,8 @@
 		"authors": [
 			"Armin1392",
 			"Reza1615",
-			"Dalba"
+			"Dalba",
+			"Macofe"
 		]
 	},
 	"chat": "گفتگو",
@@ -35,7 +36,7 @@
 	"chat-you-are-moderator": "شما یک مدیر {{GENDER:$1|هستید}}",
 	"chat-topic": "خوش آمدید به {{SITENAME}} گفتگوی. ([[Special:Log/chat|ورود به گفتگو]])",
 	"chat-change-preferences": "اولویت‌های گفتگوی خود را تغییر دهید (تمام صفحه و صداها)",
-	"chat-sidebar-online": "کاربران آنلاین در گفتگو:",
+	"chat-sidebar-online": "کاربران آنلاین در گفتگو",
 	"chat-sidebar-join": "پیوستن به گفتگو",
 	"log-name-chat": "ورود به گفتگو",
 	"log-description-chat": "پیغام‌ها توسط گفتگوی مدیاویکی، به خوبی ضربات کاربران فرستاده شده",

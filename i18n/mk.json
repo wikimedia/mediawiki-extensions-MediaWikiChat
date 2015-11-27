@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Macofe"
 		]
 	},
 	"chat": "Разговори во живо",
@@ -35,7 +36,7 @@
 	"chat-you-are-moderator": "Вие {{GENDER:$1|сте}} модератор",
 	"chat-topic": "Добре дојдовте на разговорот во живо на {{SITENAME}}. ([[Special:Log/chat|записник на разговорот]])",
 	"chat-change-preferences": "Измени нагодувања на разговорот (цел екран, звуци, известувања)",
-	"chat-sidebar-online": "Корисници на линија во разговорот:",
+	"chat-sidebar-online": "Корисници на линија во разговорот",
 	"chat-sidebar-join": "Приклучи се на разговорот",
 	"log-name-chat": "Записник на разговорот",
 	"log-description-chat": "Пораки испратени од МедијаВикиРазговори, како и исфрлања на корисници",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cainamarques",
-			"Rodrigo codignoli"
+			"Rodrigo codignoli",
+			"Macofe"
 		]
 	},
 	"chat": "Bate-papo",
@@ -30,7 +31,7 @@
 	"chat-user-is-moderator": "Esse usuario {{GENDER:$1|is}} é um moderador",
 	"chat-you-are-moderator": "Você {{GENDER:$1|é}}um moderador",
 	"chat-topic": "Bem-vindo ao bate-papo {{SITENAME}}. ([[Special:Log/chat|chat log]])",
-	"chat-sidebar-online": "Usuarios do chat que estão online:",
+	"chat-sidebar-online": "Usuarios do chat que estão online",
 	"chat-sidebar-join": "Entrar no site",
 	"log-name-chat": "log do chat",
 	"log-description-chat": "Mensagens enviadas por MediaWikiChat, bem como usuarios quicados",

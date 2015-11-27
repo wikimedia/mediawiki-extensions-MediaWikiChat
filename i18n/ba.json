@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Рустам Нурыев"
+			"Рустам Нурыев",
+			"Macofe"
 		]
 	},
 	"chat": "Чат",
@@ -33,7 +34,7 @@
 	"chat-you-are-moderator": "Һеҙ {{GENDER:$1|модератор}}",
 	"chat-topic": "{{SITENAME}} чатына рәхим итегеҙ. ([[Special:Log/chat|чат журналы]])",
 	"chat-change-preferences": "Чат көйләүҙәрен үҙгәртергә (тулы экран, тауыш һәм хәбәрҙәр)",
-	"chat-sidebar-online": "Чатта ҡатнашыусылар:",
+	"chat-sidebar-online": "Чатта ҡатнашыусылар",
 	"chat-sidebar-join": "Чатҡа ҡушылырға",
 	"log-name-chat": "Чат логы",
 	"log-description-chat": "Бер ҡатнашыусы икенсеһен сығарғанда MediaWikiChat ебәргән хәбәрҙәр",

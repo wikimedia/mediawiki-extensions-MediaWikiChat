@@ -29,7 +29,7 @@
 	"chat-user-is-moderator": "دا کارن يو منځگړی {{GENDER:$1|دی}}.",
 	"chat-you-are-moderator": "تاسې يو منځگړی {{GENDER:$1|ياست}}.",
 	"chat-topic": "د {{SITENAME}} بانډار ته ښه راغلئ. ([[Special:Log/chat|بانډار ته ورننوتل]])",
-	"chat-sidebar-online": "په بانډار کې پرليکه کارنان:",
+	"chat-sidebar-online": "د بانډار پرليکه کارنان",
 	"chat-sidebar-join": "بانډار کې ورگډ شئ",
 	"log-name-chat": "بانډار يادښت",
 	"log-description-chat": "پيغامونه د مېډياويکي بانډار لخوا ولېږل شول، همداراز کارن شړل شوی",
