@@ -6,5 +6,11 @@
 	},
 	"chat-sounds": "שפילן קלאַנגען",
 	"chat-a-minute-ago": "פאר איין מינוט",
-	"chat-yesterday": "נעכטן"
+	"chat-today": "הײַנט",
+	"chat-yesterday": "נעכטן",
+	"chat-block": "פאַרשפּאַרן",
+	"logentry-privatechat-send": "$1 צו $5: $4",
+	"apihelp-chatsendpm-param-message": "דעם אנזאג צו שיקן",
+	"chat-message-from": "אנזאג {{GENDER:$2|פון}} $1",
+	"chat-private-message-from": "פריוואטער אנזאג {{GENDER:$2|פון}} $1"
 }
