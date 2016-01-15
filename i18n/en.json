@@ -73,9 +73,9 @@
 	"tog-chat-notify-message": "Show a notification receiving normal messages (Chrome & Firefox only)",
 	"tog-chat-notify-joinleave": "Show a notification when users join or leave the chat (Chrome & Firefox only)",
 
-	"chat-idle-minutes": "This user has been idle for {{PLURAL:$1|a minute|$1 minutes}}",
-	"chat-idle-hours": "This user has been idle for {{PLURAL:$1|an hour|$1 hours}}",
-	"chat-idle-more": "This user has been idle for over 24 hours",
+	"chat-idle-minutes": "{{GENDER:$2|This user}} has been idle for {{PLURAL:$1|a minute|$1 minutes}}",
+	"chat-idle-hours": "{{GENDER:$2|This user}} has been idle for {{PLURAL:$1|an hour|$1 hours}}",
+	"chat-idle-more": "{{GENDER:$1|This user}} has been idle for over 24 hours",
 
 	"action-chat": "chat with other users",
 	"action-modchat": "moderate chat",
