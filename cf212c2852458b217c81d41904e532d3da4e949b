@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_3508532a",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2016-01-15T21:43:18Z",
+      "side": 1,
+      "message": "Where is the code change associated with the addition of this parameter?\n\nSee https://www.mediawiki.org/wiki/Manual:Messages_API#GENDER_in_JavaScript for details.",
+      "revId": "cf212c2852458b217c81d41904e532d3da4e949b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
