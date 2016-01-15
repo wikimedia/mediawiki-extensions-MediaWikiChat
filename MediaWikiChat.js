@@ -403,15 +403,15 @@ var MediaWikiChat = {
 
 		if ( hours > 1 ) {
 			if ( hours > 24 ) {
-				tooltip = mw.message( 'chat-idle-more' ).text();
+				tooltip = mw.message( 'chat-idle-more', mw.user.getName() ).text();
 			} else {
-				tooltip = mw.message( 'chat-idle-hours', Math.round( hours ) ).text();
+				tooltip = mw.message( 'chat-idle-hours', Math.round( hours ), mw.user.getName() ).text();
 			}
 			hours = 1;
 		} else {
 			var minutes = microseconds / 6000;
 			if ( minutes > 10 ) {
-				tooltip = mw.message( 'chat-idle-minutes', Math.round( minutes ) ).text();
+				tooltip = mw.message( 'chat-idle-minutes', Math.round( minutes ), mw.user.getName() ).text();
 			} else {
 				tooltip = mw.message( 'chat-private-message' ).text();
 			}
