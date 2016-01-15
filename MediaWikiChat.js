@@ -405,7 +405,7 @@ var MediaWikiChat = {
 			if ( hours > 24 ) {
 				tooltip = mw.message( 'chat-idle-more' ).text();
 			} else {
-				tooltip = mw.message( 'chat-idle-hours', Math.round( hours ) ).text();
+				tooltip = mw.message( 'chat-idle-hours', Math.round( hours ), mw.user ).text();
 			}
 			hours = 1;
 		} else {
