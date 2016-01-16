@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_0b8413d7",
+        "filename": "i18n/en.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 644
+      },
+      "writtenOn": "2016-01-16T08:47:03Z",
+      "side": 1,
+      "message": "In the JavaScript code, you\u0027re passing the user as the first parameter.",
+      "revId": "6c395731007dab0296919a4817b8810180501223",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
