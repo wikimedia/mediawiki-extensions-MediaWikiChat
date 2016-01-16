@@ -50,7 +50,7 @@
 	"log-show-hide-chat": "$1 chat log",
 	"log-name-privatechat": "Private chat log",
 	"log-description-privatechat": "Private messages sent by MediaWikiChat",
-	"logentry-privatechat-send": "$1 to $5: $4",
+	"logentry-privatechat-send": "{{GENDER:$1|$1}} to {{GENDER:$5|$5}}: $4",
 	"log-show-hide-privatechat": "$1 private chat log",
 
 	"group-chatmod": "Chat moderators",
