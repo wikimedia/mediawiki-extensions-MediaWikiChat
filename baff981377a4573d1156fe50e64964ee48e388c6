@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_eb51773b",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2016-01-16T11:16:33Z",
+      "side": 1,
+      "message": "Do the same here please",
+      "revId": "baff981377a4573d1156fe50e64964ee48e388c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_0b55f325",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2016-01-16T11:16:33Z",
+      "side": 1,
+      "message": "And here",
+      "revId": "baff981377a4573d1156fe50e64964ee48e388c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
