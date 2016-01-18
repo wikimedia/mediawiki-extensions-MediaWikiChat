@@ -20,6 +20,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'author' => 'Adam Carter/UltrasonicNXT',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MediaWikiChat',
 	'descriptionmsg' => 'chat-desc',
+	'license-name' => 'GPL-2.0+',
 );
 
 // ResourceLoader support for MediaWiki 1.17+
