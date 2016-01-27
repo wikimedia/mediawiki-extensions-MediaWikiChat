@@ -48,7 +48,7 @@
 	"prefs-chat": "Czat",
 	"chat-idle-minutes": "{{GENDER:$2|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od {{PLURAL:$1|minuty|$1 minut}}",
 	"chat-idle-hours": "{{GENDER:$2|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od {{PLURAL:$1|godziny|$1 godzin}}",
-	"chat-idle-more": "{{GENDER:$2|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od ponad 24 godzin",
+	"chat-idle-more": "{{GENDER:$1|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od ponad 24 godzin",
 	"chat-message-from": "Wiadomość od $1",
 	"chat-private-message-from": "Prywatna wiadomość od $1"
 }
