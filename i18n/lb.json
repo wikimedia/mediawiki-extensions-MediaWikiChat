@@ -31,7 +31,7 @@
 	"group-blockedfromchat": "Benotzer déi fir den Chat gespaart sinn",
 	"right-mediawikichat-chat": "Special:Chat benotzen",
 	"prefs-chat": "Chat",
-	"chat-idle-hours": "Dëse Benotzer ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
+	"chat-idle-hours": "{{GENDER:$2Dëse Benotzer}} ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
 	"apihelp-chatsendpm-description": "Engem Benotzer e private Message schécken",
 	"chat-message-from": "Message  {{GENDER:$2|vum}} $1",
 	"chat-private-message-from": "Private Message {{GENDER:$2|vum}} $1",
