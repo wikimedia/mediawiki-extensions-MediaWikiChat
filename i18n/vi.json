@@ -6,7 +6,8 @@
 			"Withoutaname",
 			"Dinhxuanduyet",
 			"Darcy Le",
-			"Macofe"
+			"Macofe",
+			"Trần Nguyễn Minh Huy"
 		]
 	},
 	"chat": "Trò chuyện",
@@ -15,7 +16,7 @@
 	"chat-type-your-private-message": "Nhập tin nhắn riêng của bạn",
 	"chat-no-other-users": "Không có người dùng khác trong phòng trò chuyện",
 	"chat-blocked-from-chat": "Bạn đã bị cấm không được vào phòng trò chuyện này.",
-	"chat-not-allowed": "Bạn không có phép trò chuyện. Hãy thử đăng nhập trước tiên.",
+	"chat-not-allowed": "Bạn không được phép trò chuyện. Hãy thử đăng nhập trước tiên.",
 	"chat-sounds": "Phát âm thanh",
 	"chat-flood": "Bạn không thể gửi tin nhắn quá nhanh, xin vui lòng đợi trước khi gửi thêm.",
 	"chat-too-long": "Tin nhắn đó quá dài. Xin vui lòng gửi một tin nhắn ngắn hơn.",
