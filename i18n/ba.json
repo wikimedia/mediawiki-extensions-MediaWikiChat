@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Рустам Нурыев",
-			"Macofe"
+			"Macofe",
+			"Аҡҡашҡа"
 		]
 	},
 	"chat": "Чат",
+	"chat-desc": "Сервер өлөшлө еңел чат-клиент",
 	"chat-type-your-message": "Хәбәргеҙҙе яҙығыҙ",
 	"chat-type-your-private-message": "Шәхси хәбәрегеҙҙе яҙығыҙ",
 	"chat-no-other-users": "Башҡа ҡулланыусылар чатта юҡ",
@@ -19,9 +21,10 @@
 	"chat-yesterday": "кисәге",
 	"chat-kick": "сығарырға",
 	"chat-block": "бикләргә",
+	"chat-autoscroll": "автоәйләндергес",
 	"chat-youve-been-kicked": "Һеҙ ҡатнашыусы $1 тарафынан  {{GENDER:$2|сығарылғанһығыҙ}}. Чат битен яңыртығыҙ.",
 	"chat-you-kicked": "Һеҙ $1 {{GENDER:$2|сығарҙығыҙ}}.",
-	"chat-kicked": "$1 $2 {{GENDER:$3|сығарҙы}} .",
+	"chat-kicked": "$1 ҡатнашыусыны{{GENDER:$3||}} ташланы{{GENDER:$4||}} $2.",
 	"chat-youve-been-blocked": "Һеҙ $1 тарафынан {{GENDER:$2|бикләнгәнһегеҙ}}.",
 	"chat-you-blocked": "Һеҙ $1 ҡулланыусыны {{GENDER:$2|бикләнегеҙ}}",
 	"chat-blocked": "$1 $2 ҡулланыусыны {{GENDER:$3|бикләне}} .",
@@ -58,12 +61,22 @@
 	"tog-chat-ping-message": "Ябай хәбәр килгәндә тауыш бирергә",
 	"tog-chat-ping-joinleave": "Ҡатнашыусылар чатҡа ҡушылғанда йәки сыҡҡанда тауыш бирергә",
 	"prefs-chat": "Чат",
-	"chat-idle-minutes": "Был ҡулланыусы {{PLURAL:$1|$1 минут}} әүҙем түгел",
+	"chat-idle-minutes": "{{PLURAL:$1|}}Был ҡулланыусы {{PLURAL:$1|$1 минут}} әүҙем түгел",
 	"chat-idle-hours": "Был ҡулланыусы {{PLURAL:$1|$1 сәғәт}} әүҙем түгел",
 	"chat-idle-more": "Был ҡулланыусы 24 сәғәттән күберәк әүҙем түгел",
 	"action-chat": "башҡа ҡатнашыусылар менән аралашырға",
 	"action-modchat": "чатты күҙәтергә",
 	"action-viewpmlog": "чатта шәхси хәбәрҙәр журналын ҡарарға",
 	"apihelp-chatgetnew-description": "Чатта яңы хәбәрҙәр алырға.",
-	"apihelp-chatgetnew-example-1": "Чатта яңы хәбәрҙәр алырға."
+	"apihelp-chatgetnew-example-1": "Чатта яңы хәбәрҙәр алырға.",
+	"apihelp-chatkick-description": "Ҡулланыусыны чаттан сығарып ташлау",
+	"apihelp-chatkick-param-id": "Чаттан сығарыла торған ҡулланыусының ID-һы",
+	"apihelp-chatkick-example-1": "ID 1 тамғалы ҡулланыусыны сығарырға",
+	"apihelp-chatsend-description": "Чатҡа күмәк кеше (публика) өсөн тәғәйенләнгән хәбәр ебәреү",
+	"apihelp-chatsend-param-message": "Ебәрә торған хәбәр",
+	"apihelp-chatsend-example-1": "«Hello World!»ты чатҡа ебәрергә",
+	"apihelp-chatsendpm-param-id": "ЛС ебәрелә торған ҡулланыусыны танытҡыс (идентификатор)",
+	"apihelp-chatsendpm-example-1": "«Hello World!»ты ID 5 һанлы ҡулланыусыға ебәреү",
+	"chat-message-from": "{{GENDER:$2|нән}} $1 хәбәр",
+	"chat-private-message-from": "{{GENDER:$2|нән}} $1 шәхсән хәбәр"
 }
