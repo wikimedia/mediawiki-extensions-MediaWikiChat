@@ -29,6 +29,8 @@
 	"grouppage-chatmod": "{{ns:project}}:מנהלי הצ'אט",
 	"group-blockedfromchat": "המשתמשים נחסמו לצ'אט",
 	"grouppage-blockedfromchat": "{{ns:project}}:המשתמשים נחסמו לצ'אט",
+	"right-mediawikichat-chat": "שימוש בדף \"Special:Chat\" (או \"מיוחד:צ'אט\")",
+	"right-mediawikichat-modchat": "חסימה והרחקה של משתמשים מהדף \"Special:Chat\" (או \"מיוחד:צ'אט\")",
 	"tog-chat-ping-mention": "השמע צליל בעת קבלת תזכיר",
 	"tog-chat-ping-pm": "השמע צליל בעת קבלת הודעה פרטית",
 	"tog-chat-ping-message": "השמע צליל בעת קבלת הודעה רגילה",
