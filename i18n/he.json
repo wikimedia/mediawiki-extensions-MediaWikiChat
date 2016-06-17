@@ -36,6 +36,7 @@
 	"tog-chat-ping-message": "השמע צליל בעת קבלת הודעה רגילה",
 	"prefs-chat": "צ'אט",
 	"action-chat": "לשוחח עם משתמשים בצ'אט",
+	"action-modchat": "למתן צ'אטים",
 	"apihelp-chatsend-description": "שליחת הודעה ציבורית בצ'אט",
 	"apihelp-chatsendpm-description": "שליחת הודעה פרטית למשתמש",
 	"apihelp-chatsendpm-param-message": "ההודעה לשליחה"
