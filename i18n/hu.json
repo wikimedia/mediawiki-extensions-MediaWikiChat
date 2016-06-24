@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wolf Rex"
+		]
+	},
+	"chat": "Csevegés",
+	"chat-type-your-message": "Írd be üzeneted",
+	"chat-type-your-private-message": "Írd be privát üzeneted",
+	"chat-no-other-users": "Nincsenek a chaten",
+	"chat-blocked-from-chat": "Blokkoltak a csevegésből.",
+	"chat-sounds": "Hangok lejátszása",
+	"chat-a-minute-ago": "egy perce",
+	"chat-today": "ma",
+	"chat-yesterday": "tegnap",
+	"chat-youve-been-blocked": "$1 {{GENDER:$2|blokkolt}}.",
+	"chat-you-blocked": "{{GENDER:$2|Blokkoltad}} $1 felhasználót.",
+	"chat-blocked": "$1 {{GENDER:$3|blokkolta}} $2 felhasználót.",
+	"chat-you-unblocked": "{{GENDER:$2|Feloldottad}} $1 blokkját.",
+	"chat-unblocked": "$1 {{GENDER:$3|feloldotta}} $2 blokkját.",
+	"chat-you-are-moderator": "Moderátor {{GENDER:$1|vagy}}.",
+	"prefs-chat": "Csevegés",
+	"apihelp-chatsend-param-message": "Elküldendő üzenet",
+	"apihelp-chatsendpm-param-message": "Elküldendő üzenet"
+}
