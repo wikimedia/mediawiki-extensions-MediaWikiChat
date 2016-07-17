@@ -303,7 +303,8 @@ var MediaWikiChat = {
 		html += '<td class="mwchat-item-user">';
 		if ( mw.config.get( 'wgChatLinkUsernames' ) ) {
 			var userURL = mw.config.get( 'wgScriptPath' ) + '/index.php?title=User:' + mw.html.escape( user.name );
-			html += '<a href="' + userURL + '" target="_blank">' + mw.html.escape( user.name ) + '</a>';
+			var userTitle = mw.config.get( 'wgFormattedNamespaces' )[2] + ':' + mw.html.escape( user.name ); // @see T140546
+			html += '<a href="' + userURL + '" title="' + userTitle + '" target="_blank">' + mw.html.escape( user.name ) + '</a>';
 		} else {
 			html += user.name;
 		}
