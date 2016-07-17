@@ -306,7 +306,7 @@ var MediaWikiChat = {
 			var userTitle = mw.config.get( 'wgFormattedNamespaces' )[2] + ':' + mw.html.escape( user.name ); // @see T140546
 			html += '<a href="' + userURL + '" title="' + userTitle + '" target="_blank">' + mw.html.escape( user.name ) + '</a>';
 		} else {
-			html += user.name;
+			html += mw.html.escape( user.name );
 		}
 		html += '</td>';
 		html += '<td class="mwchat-item-avatar">';
@@ -373,9 +373,9 @@ var MediaWikiChat = {
 
 		var html = '<div class="mwchat-message">';
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
-			html += '<img src="' + user.avatar + '" alt="' + user.name + '" name="' + user.name + '" title="' + user.name + '" />';
+			html += '<img src="' + user.avatar + '" alt="' + mw.html.escape( user.name ) + '" name="' + mw.html.escape( user.name ) + '" title="' + mw.html.escape( user.name ) + '" />';
 		} else {
-			html += '<span style="background-color:' + MediaWikiChat.getColourFromUsername( user.name ) + ';" class="mwchat-avatar-replacement" name="' + user.name + '" title="' + user.name + '">' + user.name.charAt(0) + '</span>';
+			html += '<span style="background-color:' + MediaWikiChat.getColourFromUsername( user.name ) + ';" class="mwchat-avatar-replacement" name="' + mw.html.escape( user.name ) + '" title="' + mw.html.escape( user.name ) + '">' + user.name.charAt( 0 ) + '</span>';
 		}
 		html += '<span class="mwchat-item-message">';
 		html += message;
@@ -392,7 +392,7 @@ var MediaWikiChat = {
 		}
 
 		if ( userId != mw.user.getId() ) { // don't flash if we sent the message
-			MediaWikiChat.flashPrivate(mw.message( 'chat-private-message-from', user.name, user.gender ).text(), message);
+			MediaWikiChat.flashPrivate( mw.message( 'chat-private-message-from', user.name, user.gender ).text(), message );
 		}
 	},
 
@@ -473,23 +473,23 @@ var MediaWikiChat = {
 		var user = MediaWikiChat.userData[userId];
 		var userE = MediaWikiChat.safe( user.name );
 
-		var html = '<div class="mwchat-useritem noshow" style="display:none;" data-unread="" data-name="' + user.name + '" data-id="' + userId + '" id="' + userE + '">';
+		var html = '<div class="mwchat-useritem noshow" style="display:none;" data-unread="" data-name="' + mw.html.escape( user.name ) + '" data-id="' + userId + '" id="' + userE + '">';
 		html += '<div class="mwchat-useritem-header">';
 
 		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
 			html += '<img src="' + user.avatar + '" />';
 		}
 		html += '<span class="mwchat-useritem-user">';
-		html += user.name;
+		html += mw.html.escape( user.name );
 		html += '</span>';
 		if ( user.mod ) {
-			html += '<img src="' + mw.message( 'chat-mod-image').escaped() + '" height="16px" alt="" title="';
+			html += '<img src="' + mw.message( 'chat-mod-image' ).escaped() + '" height="16px" alt="" title="';
 			html += mw.message( 'chat-user-is-moderator' ).text() + '" />';
 		}
 		html += '</div><span class="mwchat-useritem-header-links">';
 
 		if ( MediaWikiChat.amIMod && ( !user.mod ) ) {
-			html += '<a class="mwchat-useritem-blocklink" href="' + mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserRights/' + user.name );
+			html += '<a class="mwchat-useritem-blocklink" href="' + mw.util.getUrl( 'Special:UserRights', { user: user.name } );
 			html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
 
 			if ( mw.config.get( 'wgChatKicks' ) ) {
