@@ -283,9 +283,8 @@ var MediaWikiChat = {
 	},
 
 	addMessage: function( userId, message, timestamp ) {
-
 		if ( message.substring( 0, 4 ) == '/me ' && mw.config.get( 'wgChatMeCommand' ) ) {
-			return MediaWikiChat.addSystemMessage ( '* ' + MediaWikiChat.userData[userId].name + message.substring( 3 ), timestamp );
+			return MediaWikiChat.addSystemMessage( '* ' + MediaWikiChat.userData[userId].name + message.substring( 3 ), timestamp );
 		}
 
 		var user = MediaWikiChat.userData[userId];
@@ -303,7 +302,8 @@ var MediaWikiChat = {
 
 		html += '<td class="mwchat-item-user">';
 		if ( mw.config.get( 'wgChatLinkUsernames' ) ) {
-			html += '<a href="' + mw.config.get( 'wgScriptPath' ) + '/index.php?title=user:' + user.name + '" target="_blank">' + user.name + '</a>';
+			var userURL = mw.config.get( 'wgScriptPath' ) + '/index.php?title=User:' + mw.html.escape( user.name );
+			html += '<a href="' + userURL + '" target="_blank">' + mw.html.escape( user.name ) + '</a>';
 		} else {
 			html += user.name;
 		}
@@ -348,7 +348,7 @@ var MediaWikiChat = {
 			elem.find( 'a' ).attr( 'target', '_blank' );
 		}
 	},
-	
+
 	getColourFromUsername: function( name ) {
 		name = name + 'abc'; // at least 4 digits
 		one = Math.min( Math.max( Math.round( ( name.charCodeAt( 1 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 ); // the 30 and 1.3 are scaling
