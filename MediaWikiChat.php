@@ -25,7 +25,7 @@ $wgExtensionCredits['specialpage'][] = array(
 // ResourceLoader support for MediaWiki 1.17+
 $wgResourceModules['ext.mediawikichat.css'] = array(
 	'styles' => 'MediaWikiChat.css',
-	'localBasePath' => dirname( __FILE__ ),
+	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'MediaWikiChat',
 	'position' => 'top' // available since r85616
 );
@@ -43,18 +43,17 @@ $wgResourceModules['ext.mediawikichat.js'] = array(
 		'chat-private-message-from', 'chat-mentioned-by'
 	),
 	'dependencies' => array( 'mediawiki.jqueryMsg', 'mediawiki.user', 'mediawiki.util' ),
-	'localBasePath' => dirname( __FILE__ ),
+	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'MediaWikiChat',
 );
 
 // Set up everything
-$dir = dirname( __FILE__ ) . '/';
+$dir = __DIR__ . '/';
 $wgAutoloadClasses['SpecialChat'] = $dir . 'SpecialChat.php';
 $wgAutoloadClasses['MediaWikiChat'] = $dir. 'MediaWikiChatClass.php';
 $wgAutoloadClasses['MediaWikiChatHooks'] = $dir. 'MediaWikiChat.hooks.php';
 $wgSpecialPages['Chat'] = 'SpecialChat';
 $wgMessagesDirs['MediaWikiChat'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['MediaWikiChat'] = $dir . 'MediaWikiChat.i18n.php';
 
 // Config vars
 $wgChatKicks = false; // allow 'kicking' of users?
