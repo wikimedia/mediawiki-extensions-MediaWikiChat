@@ -38,7 +38,7 @@
 	"chat-youve-been-blocked": "$1님이 당신을 {{GENDER:$2|차단}}했습니다.",
 	"chat-you-blocked": "$1님을 {{GENDER:$2|차단했습니다}}.",
 	"chat-blocked": "$1님이 $2님을 {{GENDER:$3|차단했습니다}}.",
-	"chat-you-unblocked": "$1 사용자의 {{GENDER:$2|차단을 해제했습니다}}.",
+	"chat-you-unblocked": "$1님의 {{GENDER:$2|차단을 해제했습니다}}.",
 	"chat-unblocked": "$1님이 $2님의 {{GENDER:$3|차단을 해제했습니다}}.",
 	"chat-joined": "$1님이 챗에 {{GENDER:$2|들어왔습니다}}.",
 	"chat-left": "$1님이 채트에서 {{GENDER:$2|떠났습니다}}.",
