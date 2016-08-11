@@ -126,12 +126,14 @@
 	},
 	"GroupPermissions": {
 		"chatmod": {
+			"chat": true,
 			"modchat": true
 		},
 		"user": {
 			"chat": false
 		},
 		"sysop": {
+			"chat": true,
 			"modchat": true
 		}
 	},
