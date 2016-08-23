@@ -47,7 +47,7 @@
 		"privatechat": true
 	},
 	"LogRestrictions": {
-		"privatechat": "viewpmchatlog"
+		"privatechat": "viewpmlog"
 	},
 	"AutoloadClasses": {
 		"ChatGetNewAPI": "api/GetNew.api.php",
@@ -104,7 +104,8 @@
 	},
 	"AvailableRights": [
 		"chat",
-		"modchat"
+		"modchat",
+		"viewpmlog"
 	],
 	"AddGroups": {
 		"sysop": [
