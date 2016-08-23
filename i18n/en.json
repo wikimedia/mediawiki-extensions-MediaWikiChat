@@ -40,7 +40,7 @@
 	"chat-change-preferences": "Change your chat preferences (fullscreen, sounds, notifications)",
 	"chat-sidebar-online": "Online users in chat",
 	"chat-sidebar-join": "Join the chat",
-	"chat-mod-image": "http://meta.brickimedia.org/extensions/MediaWikiChat/assets/chatmod.png",
+	"chat-mod-image": "http://en.brickimedia.org/extensions/MediaWikiChat/assets/chatmod.png",
 	"chat-smileys": "",
 
 	"log-name-chat": "Chat log",
@@ -59,8 +59,9 @@
 	"group-blockedfromchat": "Users blocked from chat",
 	"group-blockedfromchat-member": "{{GENDER:$1|blocked from chat}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:Users blocked from chat",
-	"right-mediawikichat-chat": "Use Special:Chat",
-	"right-mediawikichat-modchat": "Block and kick (if enabled) users from Special:Chat",
+	"right-chat": "Use Special:Chat",
+	"right-modchat": "Block and kick (if enabled) users from Special:Chat",
+	"right-viewpmlog": "View the [[Special:Log/privatechat|private chat messages log]]",
 
 	"tog-chat-fullscreen": "Use chat in fullscreen mode (experimental)",
 	"tog-chat-ping-mention": "Play a sound on receiving mentions",
