@@ -54,6 +54,7 @@
 	"group-blockedfromchat": "Utenti bloccati dalla chat",
 	"group-blockedfromchat-member": "{{GENDER:$1|bloccato dalla chat|bloccata dalla chat}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:Utenti bloccati dalla chat",
+	"right-chat": "Usa Speciale:Chat",
 	"right-modchat": "Usa Speciale:Chat",
 	"tog-chat-fullscreen": "Utilizza la chat in modalità a schermo intero (sperimentale)",
 	"tog-chat-ping-mention": "Riprodurre un suono quando si ricevono menzioni",
