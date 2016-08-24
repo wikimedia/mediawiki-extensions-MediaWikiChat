@@ -44,6 +44,5 @@
 	"group-blockedfromchat": "Usuarios bloqueados do bate-papo",
 	"group-blockedfromchat-member": "{{GENDER:$1|bloqueado no chat}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:Usuarios bloqueados no chat",
-	"right-mediawikichat-chat": "Use Special:Chat",
-	"right-mediawikichat-modchat": "Bloquea e quica (se autorizado) usuarios do Special:Chat"
+	"right-modchat": "Use Special:Chat"
 }

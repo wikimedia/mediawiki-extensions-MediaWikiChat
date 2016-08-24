@@ -43,7 +43,7 @@
 	"group-chatmod": "チャット モデレーター",
 	"group-chatmod-member": "{{GENDER:$1|チャット モデレーター}}",
 	"grouppage-chatmod": "{{ns:project}}:チャット モデレーター",
-	"right-mediawikichat-chat": "Special:Chat を使用",
+	"right-modchat": "Special:Chat を使用",
 	"tog-chat-fullscreen": "チャットを全画面表示モードで使用 (開発中)",
 	"tog-chat-ping-mention": "言及された際にサウンドを再生",
 	"tog-chat-ping-pm": "非公開メッセージが届いた際にサウンドを再生",

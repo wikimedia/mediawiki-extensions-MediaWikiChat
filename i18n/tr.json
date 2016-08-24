@@ -46,6 +46,5 @@
 	"group-blockedfromchat": "Sohbette engellenen kullanıcılar",
 	"group-blockedfromchat-member": "{{GENDER:$1|sohbette engellenen}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:Sohbette engellenen kullanıcılar",
-	"right-mediawikichat-chat": "Special:Chat kullan",
-	"right-mediawikichat-modchat": "Special:Chat'te kullanıcıları engelle ve at (etkinleştirildiyse)"
+	"right-modchat": "Special:Chat kullan"
 }

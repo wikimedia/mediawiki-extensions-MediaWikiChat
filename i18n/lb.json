@@ -29,7 +29,7 @@
 	"log-description-privatechat": "Privat Messagen déi iwwer MediaWikiChat verschéckt goufen",
 	"logentry-privatechat-send": "$1 fir $5: $4",
 	"group-blockedfromchat": "Benotzer déi fir den Chat gespaart sinn",
-	"right-mediawikichat-chat": "Special:Chat benotzen",
+	"right-modchat": "Special:Chat benotzen",
 	"prefs-chat": "Chat",
 	"chat-idle-hours": "{{GENDER:$2Dëse Benotzer}} ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
 	"apihelp-chatsendpm-description": "Engem Benotzer e private Message schécken",

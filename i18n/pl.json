@@ -40,7 +40,7 @@
 	"group-chatmod": "Moderatorzy czatu",
 	"group-chatmod-member": "{{GENDER:$1|moderator czatu|moderatorka czatu}}",
 	"grouppage-chatmod": "{{ns:project}}:Moderatorzy czatu",
-	"right-mediawikichat-chat": "Użyj Specjalna:Chat",
+	"right-modchat": "Użyj Specjalna:Chat",
 	"tog-chat-fullscreen": "Używaj czatu w trybie pełnego ekranu (funkcja eksperymentalna)",
 	"tog-chat-ping-mention": "Odtwórz dźwięk kiedy zostaniesz wspomniany",
 	"tog-chat-ping-pm": "Odtwórz dźwięk kiedy otrzymasz prywatną wiadomość",

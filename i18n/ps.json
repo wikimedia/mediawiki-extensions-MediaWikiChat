@@ -41,7 +41,6 @@
 	"group-blockedfromchat": "په بانډار کې بنديز لگېدلي کارنان",
 	"group-blockedfromchat-member": "{{GENDER:$1|له بانډار څخه بنديز شوی}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:په بانډار کې بنديز لگېدلي کارنان",
-	"right-mediawikichat-chat": "ځانگړې کارېدنه:بانډار",
-	"right-mediawikichat-modchat": "له ځانگړي:بانډار څخه کارنان شړي او بنديز پرې لگوي (که چارن شي)",
+	"right-modchat": "ځانگړې کارېدنه:بانډار",
 	"chat-message-from": "پيغام د $1 {{GENDER:$2|لخوا}}"
 }
