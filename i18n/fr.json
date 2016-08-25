@@ -59,7 +59,7 @@
 	"group-blockedfromchat-member": "{{GENDER:$1|bloqué|bloquée}} depuis la discussion",
 	"grouppage-blockedfromchat": "{{ns:project}}:Users blocked from chat",
 	"right-chat": "Utiliser Special:Chat",
-	"right-modchat": "Utiliser Special:Chat",
+	"right-modchat": "Bloquer et éjecter(si autorisé) des utilisateur de Special:Chat",
 	"right-viewpmlog": "Voir le [[Special:Log/privatechat|journal des messages privés de chat]]",
 	"tog-chat-fullscreen": "Utiliser la discussion en mode plein écran (expérimental)",
 	"tog-chat-ping-mention": "Jouer un son lors de la réception de mentions",
