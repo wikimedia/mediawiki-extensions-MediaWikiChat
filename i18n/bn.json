@@ -36,6 +36,8 @@
 	"group-chatmod": "আড্ডা নিয়ামকসমূহ",
 	"group-blockedfromchat": "ব্যবহারকারী আড্ডা থেকে অবরুদ্ধ",
 	"group-blockedfromchat-member": "{{GENDER:$1|আড্ডা থেকে অবরুদ্ধ}}",
+	"right-chat": "বিশেষ:Chat ব্যবহার করে",
+	"right-viewpmlog": "[[Special:Log/privatechat|ব্যক্তিগত বার্তা চ্যাট লগ]] দেখে",
 	"prefs-chat": "আড্ডা",
 	"action-viewpmlog": "ব্যক্তিগত আড্ডার বার্তার লগ দেখুন"
 }
