@@ -3,7 +3,8 @@
 		"authors": [
 			"Cainamarques",
 			"Rodrigo codignoli",
-			"Macofe"
+			"Macofe",
+			"Cristofer Alves"
 		]
 	},
 	"chat": "Bate-papo",
@@ -44,5 +45,5 @@
 	"group-blockedfromchat": "Usuarios bloqueados do bate-papo",
 	"group-blockedfromchat-member": "{{GENDER:$1|bloqueado no chat}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:Usuarios bloqueados no chat",
-	"right-modchat": "Use Special:Chat"
+	"right-modchat": "Bloquea e quica (se autorizado) usuarios do Special:Chat"
 }
