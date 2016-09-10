@@ -352,15 +352,15 @@ var MediaWikiChat = {
 
 	getColourFromUsername: function( name ) {
 		name = name + 'abc'; // at least 4 digits
-		one = Math.min( Math.max( Math.round( ( name.charCodeAt( 1 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 ); // the 30 and 1.3 are scaling
+		var one = Math.min( Math.max( Math.round( ( name.charCodeAt( 1 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 ); // the 30 and 1.3 are scaling
 		if ( one.length < 2 ) {
 			one = "0" + one;
 		}
-		two = Math.min( Math.max( Math.round( ( name.charCodeAt( 3 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 );
+		var two = Math.min( Math.max( Math.round( ( name.charCodeAt( 3 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 );
 		if ( two.length < 2 ) {
 			two = "0" + two;
 		}
-		three = Math.min( Math.max( Math.round( ( name.charCodeAt( name.length - 1 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 );
+		var three = Math.min( Math.max( Math.round( ( name.charCodeAt( name.length - 1 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 );
 		if ( three.length < 2 ) {
 			three = "0" + three;
 		}
@@ -541,7 +541,7 @@ var MediaWikiChat = {
 		var user = MediaWikiChat.userData[userId];
 		var userE = MediaWikiChat.safe( user.name );
 
-		$( '#mwchat-users #' + userE ).animate( { height:0, opacity:0 }, callback=function(){ $( this ).remove(); } );
+		$( '#mwchat-users #' + userE ).animate( { height:0, opacity:0 }, function() { $( this ).remove(); } );
 
 		MediaWikiChat.addSystemMessage( mw.message( 'chat-left', user.name, user.gender ).text(), MediaWikiChat.now() );
 		MediaWikiChat.scrollToBottom();
@@ -706,11 +706,11 @@ var MediaWikiChat = {
 
 	loadingBackground: function() {
 		$( '#mwchat-loading-3' ).animate( { opacity: 1 } );
-		$( '#mwchat-loading-2' ).animate( { opacity: 0 }, callback=function() {
+		$( '#mwchat-loading-2' ).animate( { opacity: 0 }, function() {
 			$( '#mwchat-loading-3' ).animate( { opacity: 0 } );
-			$( '#mwchat-loading-1' ).animate( { opacity: 1 }, callback=function() {
+			$( '#mwchat-loading-1' ).animate( { opacity: 1 }, function() {
 				$( '#mwchat-loading-2' ).animate( { opacity: 1 } );
-				$( '#mwchat-loading-1' ).animate( { opacity: 0 }, callback=MediaWikiChat.loadingBackground );
+				$( '#mwchat-loading-1' ).animate( { opacity: 0 }, MediaWikiChat.loadingBackground );
 			});
 		});
 	}
