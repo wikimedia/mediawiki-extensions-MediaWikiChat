@@ -645,7 +645,7 @@ var MediaWikiChat = {
 			if ( mw.user.options.get( 'chat-ping-joinleave' ) ) {
 				MediaWikiChat.audio( 'message' );
 			}
-			document.title = "+ " + MediaWikiChat.title;
+			document.title = '- ' + MediaWikiChat.title;
 			if ( mw.user.options.get( 'chat-notify-joinleave' ) ) {
 				MediaWikiChat.notify( title, '' );
 			}
