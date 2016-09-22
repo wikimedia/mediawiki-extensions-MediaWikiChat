@@ -56,6 +56,7 @@
 	"grouppage-blockedfromchat": "{{ns:project}}:Användare blockerade från chatten",
 	"right-chat": "Använd Special:Chat",
 	"right-modchat": "Använd Special:Chat",
+	"right-viewpmlog": "Visa [[Special:Log/privatechat|loggen för privata chattmeddelanden]]",
 	"tog-chat-fullscreen": "Använd chatt i helskärmsläge (experimentell)",
 	"tog-chat-ping-mention": "Spela upp ett ljud när omnämnanden tas emot",
 	"tog-chat-ping-pm": "Spela upp ett ljud när privata meddelanden tas emot",
