@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kaganer"
+			"Kaganer",
+			"Irus"
 		]
 	},
+	"chat": "Чат",
+	"chat-today": "туннэ",
+	"chat-yesterday": "толон",
 	"chat-block": "блокировать карыны"
 }
