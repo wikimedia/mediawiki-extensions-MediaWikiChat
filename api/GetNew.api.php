@@ -26,7 +26,7 @@ class ChatGetNewAPI extends ApiBase {
 
 	public function getExamplesMessages() {
 		return array(
-				'api.php?action=chatgetnew'
+				'action=chatgetnew'
 				=> 'apihelp-chatgetnew-example-1'
 		);
 	}

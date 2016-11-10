@@ -69,7 +69,7 @@ class ChatKickAPI extends ApiBase {
 
 	public function getExamplesMessages() {
 		return array(
-			'api.php?action=chatkick&id=1'
+			'action=chatkick&id=1'
 				=> 'apihelp-chatkick-example-1'
 		);
 	}

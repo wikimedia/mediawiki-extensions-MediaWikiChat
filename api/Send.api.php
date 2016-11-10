@@ -88,7 +88,7 @@ class ChatSendAPI extends ApiBase {
 
 	public function getExamplesMessages() {
 		return array(
-			'api.php?action=chatsend&message=Hello%20World!'
+			'action=chatsend&message=Hello%20World!'
 				=> 'apihelp-chatsend-example-1'
 		);
 	}

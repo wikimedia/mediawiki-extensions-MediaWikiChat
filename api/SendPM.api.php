@@ -85,7 +85,7 @@ class ChatSendPMAPI extends ApiBase {
 
 	public function getExamplesMessages() {
 		return array(
-			'api.php?action=chatsendpm&id=5&message=Hello%20World!'
+			'action=chatsendpm&id=5&message=Hello%20World!'
 				=> 'apihelp-chatsendpm-example-1'
 		);
 	}
