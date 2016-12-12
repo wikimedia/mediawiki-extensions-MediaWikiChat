@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Kaganer",
-			"Irus"
+			"Irus",
+			"Mouse21"
 		]
 	},
 	"chat": "Чат",
 	"chat-today": "туннэ",
 	"chat-yesterday": "толон",
-	"chat-block": "блокировать карыны"
+	"chat-block": "блокировать карыны",
+	"chat-topic": "Гажаса {{SITENAME}} чат. ([[Special:Log/chat|чат журнал]])"
 }
