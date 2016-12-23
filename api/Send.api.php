@@ -10,7 +10,7 @@ class ChatSendAPI extends ApiBase {
 
 		if ( $user->isAllowed( 'chat' ) && !$user->isBlocked() ) {
 			$originalMessage = $this->getMain()->getVal( 'message' );
-			$message = MediaWikiChat::parseMessage( $originalMessage );
+			$message = MediaWikiChat::parseMessage( $originalMessage, $user );
 
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_MASTER );

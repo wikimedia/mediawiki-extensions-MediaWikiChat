@@ -174,9 +174,10 @@ class MediaWikiChat {
 	 * provided $wgChatRichMessages is enabled
 	 *
 	 * @param String $message: message to parse
+	 * @param User $user: current user object
 	 * @return String: parsed message
 	 */
-	static function parseMessage( $message ) {
+	static function parseMessage( $message, $user ) {
 		global $wgChatRichMessages, $wgUploadPath, $wgChatUseStyleAttribute;
 
 		$smileyString = wfMessage( 'smileys' )->plain();
@@ -228,6 +229,14 @@ class MediaWikiChat {
 			$opts->setRemoveComments( true );
 
 			$parser = new Parser();
+			
+			$message = $parser->preSaveTransform(
+				$message,
+				SpecialPage::getTitleFor( 'Chat' ),
+				$user,
+				$opts
+			);
+			
 			$parseOut = $parser->parse(
 				$message,
 				SpecialPage::getTitleFor( 'Chat' ),

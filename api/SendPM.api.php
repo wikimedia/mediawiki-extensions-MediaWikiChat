@@ -11,7 +11,7 @@ class ChatSendPMAPI extends ApiBase {
 			$toId = intval( $this->getMain()->getVal( 'id' ) );
 
 			$originalMessage = $this->getMain()->getVal( 'message' );
-			$message = MediaWikiChat::parseMessage( $originalMessage );
+			$message = MediaWikiChat::parseMessage( $originalMessage, $user );
 
 			if ( $message != '' ) {
                 $dbr = wfGetDB( DB_SLAVE );
