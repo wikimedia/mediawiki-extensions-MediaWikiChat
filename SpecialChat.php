@@ -55,20 +55,19 @@ class SpecialChat extends SpecialPage {
 				)
 			);
 
-			if ( !$user->getOption( 'chat-fullscreen' ) ) {
-				$out->addTemplate( $template ); // Output the GUI HTML
-
-			} else {
-				$out->disable();
+			if ( $user->getOption( 'chat-fullscreen' ) ) {
+				$out->disable(); // disable the normal skin stuff so only the MWC window appears
 
 				echo $out->headElement( $this->getSkin() );
 
-				echo "<div id='wrapper' style='background-color: white; margin: 2em; padding: 1em; border:1px solid #ccc;'>";
+				echo "<div id='mwchat-wrapper'>";
 				$template->execute(); // print template
 				echo "</div>";
 
 				echo $this->getSkin()->bottomScripts();
 				echo "</body></html>";
+			} else {
+				$out->addTemplate( $template ); // output the MWC window along with everything else
 			}
 		}
 	}
