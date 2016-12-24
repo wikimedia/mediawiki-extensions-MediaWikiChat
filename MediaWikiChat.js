@@ -291,7 +291,10 @@ var MediaWikiChat = {
 		var html = '<tr class="mwchat-message">';
 		var mention = false;
 
-		if ( message.toLowerCase().indexOf( mw.user.getName().toLowerCase() ) != -1 ) {
+		if (
+			mw.config.get( 'wgUserId' ) != userId && // prevents flashing when you sent the message yourself
+			message.toLowerCase().indexOf( mw.user.getName().toLowerCase() ) != -1
+		) {
 			mention = true;
 			MediaWikiChat.flashMention( mw.message( 'chat-mentioned-by', user.name, user.gender ).text(), message );
 		} else {
