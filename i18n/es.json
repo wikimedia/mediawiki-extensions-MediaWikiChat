@@ -7,7 +7,8 @@
 			"Miguel2706",
 			"Macofe",
 			"Ryo567",
-			"Themasterriot"
+			"Themasterriot",
+			"Dgstranz"
 		]
 	},
 	"chat": "Charla",
@@ -59,6 +60,7 @@
 	"grouppage-blockedfromchat": "{{ns:project}}:Usuarios bloqueados del chat",
 	"right-chat": "Usar Especial:Chat",
 	"right-modchat": "Usar Special:Chat",
+	"right-viewpmlog": "Ver el [[Special:Log/privatechat|registro de mensajes privados del chat]]",
 	"tog-chat-fullscreen": "Usar el chat en modo de pantalla completa (experimental)",
 	"tog-chat-ping-mention": "Reproducir sonido al recibir menciones",
 	"tog-chat-ping-pm": "Reproducir sonido al recibir mensajes privados",
