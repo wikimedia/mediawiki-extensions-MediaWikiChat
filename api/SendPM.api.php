@@ -20,17 +20,17 @@ class ChatSendPMAPI extends ApiBase {
 				$fromId = $user->getID();
 				$timestamp = MediaWikiChat::now();
 
-			 // Flood check
-			 $res = $dbr->selectField(
-				'chat',
-				array( 'count(*)' ),
-				array( "chat_timestamp > " . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ), " chat_user_id = " . $fromId ),
-				__METHOD__
-			 );
-			 if ( $res > $wgChatFloodMessages ) {
-				$result->addValue( $this->getModuleName(), 'error', 'flood' );
-				return true;
-			 }
+				// Flood check
+				$res = $dbr->selectField(
+					'chat',
+					array( 'count(*)' ),
+					array( "chat_timestamp > " . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ), " chat_user_id = " . $fromId ),
+					__METHOD__
+				);
+				 if ( $res > $wgChatFloodMessages ) {
+					$result->addValue( $this->getModuleName(), 'error', 'flood' );
+					return true;
+				}
 
 				$dbw->insert(
 					'chat',
