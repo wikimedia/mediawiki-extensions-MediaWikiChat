@@ -86,7 +86,6 @@ class GetNewWorker {
                 ) ) {
 
                 $message = $row->chat_message;
-                $message = html_entity_decode( $message ); // otherwise the HTML is printed as text
 
                 $fromid = $row->chat_user_id;
                 $toid = $row->chat_to_id;
