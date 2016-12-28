@@ -4,7 +4,6 @@ class ChatSendAPI extends ApiBase {
 
 	public function execute() {
 		global $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
-
 		$result = $this->getResult();
 		$user = $this->getUser();
 
