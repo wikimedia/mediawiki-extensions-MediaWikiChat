@@ -29,9 +29,7 @@ class SpecialChatTemplate extends QuickTemplate {
 					</table>
 				</div>
 				<div id="mwchat-type">
-					<span id="mwchat-loading" style="opacity:0;" data-queue="0">
-						<span id="mwchat-loading-1">&bull;</span><span id="mwchat-loading-2">&bull;</span><span id="mwchat-loading-3">&bull;</span>
-					</span>
+					<span id="mwchat-loading" style="opacity:0;" data-queue="0" class="feedback-spinner"></span><?php // .feedback-spinner adds the loading gif ?>
 					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
 				</div>
 			</div>

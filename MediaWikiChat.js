@@ -705,23 +705,10 @@ var MediaWikiChat = {
 		}
 		window.clearInterval( MediaWikiChat.pollInterval );
 		MediaWikiChat.pollInterval = setInterval( MediaWikiChat.getNew, interval );
-	},
-
-	loadingBackground: function() {
-		$( '#mwchat-loading-3' ).animate( { opacity: 1 } );
-		$( '#mwchat-loading-2' ).animate( { opacity: 0 }, function() {
-			$( '#mwchat-loading-3' ).animate( { opacity: 0 } );
-			$( '#mwchat-loading-1' ).animate( { opacity: 1 }, function() {
-				$( '#mwchat-loading-2' ).animate( { opacity: 1 } );
-				$( '#mwchat-loading-1' ).animate( { opacity: 0 }, MediaWikiChat.loadingBackground );
-			});
-		});
 	}
 };
 
 $( document ).ready( function() {
-	MediaWikiChat.loadingBackground();
-
 	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) { // Send text
 		MediaWikiChat.clearMentions();
 

@@ -38,8 +38,9 @@ class SpecialChat extends SpecialPage {
 
 			// Load modules via ResourceLoader
 			$modules = array(
-					'ext.mediawikichat.css',
-					'ext.mediawikichat.js',
+				'ext.mediawikichat.css',
+				'ext.mediawikichat.js',
+				'mediawiki.feedback' // for the loading gif
 			);
 			$out->addModules( $modules );
 
