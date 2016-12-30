@@ -12,9 +12,7 @@ class MediaWikiChatHooks {
 	 * @return bool
 	 */
 	public static function onParserBeforeInternalParse( &$parser, &$text, &$strip_state ) {
-		if ( strpos( $text, 'MWCHAT' ) === false ) {
-			return true;
-		} else {
+		if ( $parser->getTitle()->equals( SpecialPage::getTitleFor( 'Chat', 'message' ) ) ) { // only do our version of parsing when this is Special:Chat and we're parsing a message
 			$text = $parser->replaceVariables( $text );
 
 			$text = Sanitizer::removeHTMLtags(
@@ -24,17 +22,14 @@ class MediaWikiChatHooks {
 				array_keys( $parser->mTransparentTagHooks )
 			);
 
-			$text = preg_replace( '/(^|\n)-----*/', '\\1<hr />', $text );
-
 			$text = $parser->replaceInternalLinks( $text );
 			$text = $parser->doAllQuotes( $text );
 			$text = $parser->replaceExternalLinks( $text );
-
-			$text = str_replace( $parser->mUniqPrefix . 'NOPARSE', '', $text );
-
 			$text = $parser->doMagicLinks( $text );
 
-			return false;
+			return false; // stop parser doing anything as we've done the parsing ourselves
+		} else {
+			return true;
 		}
 	}
 

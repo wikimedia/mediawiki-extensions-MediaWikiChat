@@ -224,8 +224,6 @@ class MediaWikiChat {
 				$message
 			);
 
-			$message = "MWCHAT $message"; // flag to show the parser this is a chat message (for our hook)
-
 			$opts = new ParserOptions();
 			$opts->setEditSection( false );
 			$opts->setExternalLinkTarget( '_blank' );
@@ -237,19 +235,18 @@ class MediaWikiChat {
 			
 			$message = $parser->preSaveTransform(
 				$message,
-				SpecialPage::getTitleFor( 'Chat' ),
+				SpecialPage::getTitleFor( 'Chat', 'message' ),
 				$user,
 				$opts
 			);
 			
 			$parseOut = $parser->parse(
 				$message,
-				SpecialPage::getTitleFor( 'Chat' ),
+				SpecialPage::getTitleFor( 'Chat', 'message' ), // the message subpage tells our hook this is message
 				$opts
 			);
 
 			$message = $parseOut->getText();
-			$message = str_replace( 'MWCHAT', '', $message ); // remove flag for parser
 
 			$message = str_replace( '<p>', '', $message ); // remove MW's automatical p,
 			$message = str_replace( '</p>', '', $message ); // it's pointless
@@ -258,7 +255,7 @@ class MediaWikiChat {
 		} else {
 			$message = htmlentities( $message );
 
-			$message = preg_replace( '#(http[s]?\:\/\/[^ \n]+)#', '<a target="_blank" href="$1">$1</a>', $message );
+			$message = preg_replace( '#(http[s]?\:\/\/[^ \n]+)#', '<a target="_blank" href="$1">$1</a>', $message ); // turn URLs into links
 		}
 
 		$message = str_replace( array( '&nbsp;', '&#160;' ), ' ', $message ); // replace nonbreaking space with regular space
