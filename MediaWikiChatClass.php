@@ -185,20 +185,15 @@ class MediaWikiChat {
 
 		if ( is_array( $smileyData ) ) {
 			$smileys = array();
-			$codes = array();
 			foreach ( $smileyData as $line ) {
 				$line = trim( $line );
 				$bits = explode( ' ', $line );
 
-				if ( count( $bits ) >= 1 ) { // any line with a code
-					$codes[] = $bits[0];
-				}
-				if ( count( $bits ) == 2 ) { // final line giving filename
-					$filename = $bits[1];
-					foreach ( $codes as $code) {
+				if ( count( $bits ) > 1 ) {
+					$filename = array_pop( $bits );
+					foreach ( $bits as $code) {
 						$smileys[$code] = $filename;
 					}
-					$codes = array();
 				}
 			}
 		}
