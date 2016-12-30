@@ -178,7 +178,7 @@ class MediaWikiChat {
 	 * @return String: parsed message
 	 */
 	static function parseMessage( $message, $user ) {
-		global $wgChatRichMessages, $wgUploadPath, $wgChatUseStyleAttribute;
+		global $wgChatRichMessages, $wgChatUseStyleAttribute;
 
 		$smileyString = wfMessage( 'smileys' )->plain();
 		$smileyData = explode( '*', $smileyString );
@@ -199,7 +199,7 @@ class MediaWikiChat {
 		}
 
 		if ( $wgChatRichMessages ) {
-			$message = str_ireplace( '[[File:', '[[:File:', $message ); // prevent users showing huge local images in chat
+			$message = str_ireplace( '[[', '[[:', $message ); // prevent users showing huge local images in chat
 
 			if ( !$wgChatUseStyleAttribute ) {
 				$message = preg_replace( '#<([a-zA-z].+?) (.?)style=["\'].+?["\'](.?)>#', '<$1 $2$3>', $message ); // remove style attribute of html elements
@@ -224,7 +224,6 @@ class MediaWikiChat {
 			$opts->setExternalLinkTarget( '_blank' );
 			$opts->setAllowSpecialInclusion( false );
 			$opts->setAllowExternalImages( false );
-			$opts->setRemoveComments( true );
 
 			$parser = new Parser();
 
@@ -243,10 +242,6 @@ class MediaWikiChat {
 			);
 
 			$message = $parseOut->getText();
-
-			$message = str_replace( '<p>', '', $message ); // remove MW's automatical p,
-			$message = str_replace( '</p>', '', $message ); // it's pointless
-
 			$message = trim( $message );
 		} else {
 			$message = htmlentities( $message );
