@@ -283,46 +283,50 @@ var MediaWikiChat = {
 	},
 
 	addMessage: function( userId, message, timestamp ) {
+		var fromUser = MediaWikiChat.userData[userId];
+		var currentUser = MediaWikiChat.userData[mw.config.get( 'wgUserId' )]
+
 		if ( message.substring( 0, 4 ) == '/me ' && mw.config.get( 'wgChatMeCommand' ) ) {
-			return MediaWikiChat.addSystemMessage( '* ' + MediaWikiChat.userData[userId].name + message.substring( 3 ), timestamp );
+			return MediaWikiChat.addSystemMessage( '* ' + fromUser.name + message.substring( 3 ), timestamp );
 		}
 
-		var user = MediaWikiChat.userData[userId];
-		var html = '<tr class="mwchat-message">';
 		var mention = false;
-
-		if (
-			mw.config.get( 'wgUserId' ) != userId && // prevents flashing when you sent the message yourself
-			message.toLowerCase().indexOf( mw.user.getName().toLowerCase() ) != -1
-		) {
-			mention = true;
-			MediaWikiChat.flashMention( mw.message( 'chat-mentioned-by', user.name, user.gender ).text(), message );
-		} else {
-			if ( userId != mw.user.getId() ) { // don't flash if we sent the message
-				MediaWikiChat.flash( mw.message( 'chat-message-from', user.name, user.gender ).text(), message );
+		if ( fromUser.name != currentUser.name ) { // prevents flashing when you sent the message yourself
+			if ( message.toLowerCase().indexOf( currentUser.name.toLowerCase() ) != -1) {
+				mention = true;
+				MediaWikiChat.flashMention( mw.message( 'chat-mentioned-by', fromUser.name, fromUser.gender ).text(), message );
+			} else {
+				MediaWikiChat.flash( mw.message( 'chat-message-from', fromUser.name, fromUser.gender ).text(), message );
 			}
 		}
+		var messages = $( '#mwchat-table tr.mwchat-parent' );
+		var lastParent = $( messages[messages.length - 1] );
+		
+		if ( lastParent.attr( 'data-username' ) == fromUser.name ) {
+			lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan', Number( lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan' ) ) + 1 ); // increment the rowspan
 
-		html += '<td class="mwchat-item-user">';
-		if ( mw.config.get( 'wgChatLinkUsernames' ) ) {
-			var userURL = mw.config.get( 'wgScriptPath' ) + '/index.php?title=User:' + mw.html.escape( user.name );
-			var userTitle = mw.config.get( 'wgFormattedNamespaces' )[2] + ':' + mw.html.escape( user.name ); // @see T140546
-			html += '<a href="' + userURL + '" title="' + userTitle + '" target="_blank">' + mw.html.escape( user.name ) + '</a>';
+			var html = '<tr data-username="' + fromUser.name + '" class="mwchat-message">';
 		} else {
-			html += mw.html.escape( user.name );
-		}
-		html += '</td>';
-		html += '<td class="mwchat-item-avatar">';
-		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
-			html += '<img src="' + user.avatar + '" /></td>';
+			var html = '<tr data-username="' + fromUser.name + '" class="mwchat-message mwchat-parent">';
+
+			html += '<td rowspan=1 class="mwchat-item-user mwchat-rowspan">';
+			if ( mw.config.get( 'wgChatLinkUsernames' ) ) {
+				var userURL = mw.config.get( 'wgScriptPath' ) + '/index.php?title=User:' + mw.html.escape( fromUser.name );
+				var userTitle = mw.config.get( 'wgFormattedNamespaces' )[2] + ':' + mw.html.escape( fromUser.name ); // @see T140546
+				html += '<a href="' + userURL + '" title="' + userTitle + '" target="_blank">' + mw.html.escape( fromUser.name ) + '</a>';
+			} else {
+				html += mw.html.escape( fromUser.name );
+			}
+			html += '</td><td rowspan=1 class="mwchat-item-avatar mwchat-rowspan">';
+			if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
+				html += '<img src="' + fromUser.avatar + '" /></td>';
+			}
 		}
 		html += '<td class="mwchat-item-messagecell"><span class="mwchat-item-message"';
 		if ( mention ) {
 			html += ' data-read="true"';
 		}
-		html += '>';
-		html += message;
-		html += '</span>';
+		html += '>'+ message + '</span>';
 		html += MediaWikiChat.htmlTimestamp( timestamp );
 		html += '</td></tr>';
 
