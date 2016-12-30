@@ -232,18 +232,19 @@ class MediaWikiChat {
 			$opts->setRemoveComments( true );
 
 			$parser = new Parser();
-			
+
 			$message = $parser->preSaveTransform(
 				$message,
 				SpecialPage::getTitleFor( 'Chat', 'message' ),
 				$user,
 				$opts
 			);
-			
+
 			$parseOut = $parser->parse(
 				$message,
 				SpecialPage::getTitleFor( 'Chat', 'message' ), // the message subpage tells our hook this is message
-				$opts
+				$opts,
+				false // $linestart = false, prevents *#:; lists rendering
 			);
 
 			$message = $parseOut->getText();
