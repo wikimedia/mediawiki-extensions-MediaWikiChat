@@ -243,7 +243,8 @@ class MediaWikiChat {
 			$parseOut = $parser->parse(
 				$message,
 				SpecialPage::getTitleFor( 'Chat', 'message' ), // the message subpage tells our hook this is message
-				$opts
+				$opts,
+				false // $linestart = false, prevents *#:; lists rendering
 			);
 
 			$message = $parseOut->getText();
