@@ -272,7 +272,7 @@ var MediaWikiChat = {
 	},
 
 	addSystemMessage: function( text, timestamp ) {
-		var html = '<tr class="mwchat-message system">';
+		var html = '<tr class="mwchat-message system mwchat-parent">'; // mwchat-parent so that sending a system message resets the parent/child system
 		html += '<td colspan="3" class="mwchat-item-messagecell"><span class="mwchat-item-message">';
 		html += text;
 		html += '</span>';
