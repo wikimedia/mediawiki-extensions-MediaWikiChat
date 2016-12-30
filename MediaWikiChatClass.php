@@ -183,17 +183,22 @@ class MediaWikiChat {
 		$smileyString = wfMessage( 'smileys' )->plain();
 		$smileyData = explode( '*', $smileyString );
 
-		$smileys = array();
-
 		if ( is_array( $smileyData ) ) {
+			$smileys = array();
+			$codes = array();
 			foreach ( $smileyData as $line ) {
 				$line = trim( $line );
 				$bits = explode( ' ', $line );
 
-				if ( count( $bits ) > 1 ) {
-					$chars = $bits[0];
+				if ( count( $bits ) >= 1 ) { // any line with a code
+					$codes[] = $bits[0];
+				}
+				if ( count( $bits ) == 2 ) { // final line giving filename
 					$filename = $bits[1];
-					$smileys[$chars] = $filename;
+					foreach ( $codes as $code) {
+						$smileys[$code] = $filename;
+					}
+					$codes = array();
 				}
 			}
 		}
@@ -205,7 +210,7 @@ class MediaWikiChat {
 				$message = preg_replace( '#<([a-zA-z].+?) (.?)style=["\'].+?["\'](.?)>#', '<$1 $2$3>', $message ); // remove style attribute of html elements
 			}
 
-			$message = preg_replace_callback(
+			$message = preg_replace_callback( // prevent smileys wrapped in <nowiki> tags rendering
 				"#<nowiki>(.+?)</nowiki>#i",
 				function ( $matches ) use ( $smileys ) { // loop through instances of <nowiki>
 					$s = $matches[0];
@@ -256,11 +261,8 @@ class MediaWikiChat {
 			$message = preg_replace( '#(http[s]?\:\/\/[^ \n]+)#', '<a target="_blank" href="$1">$1</a>', $message );
 		}
 
-		$message = str_replace( array( '&nbsp;', '&#160;' ), ' ', $message );
-
+		$message = str_replace( array( '&nbsp;', '&#160;' ), ' ', $message ); // replace nonbreaking space with regular space
 		$message = ' ' . $message . ' '; // to allow smileys at beginning/end of message
-
-		$s = '';
 
 		foreach ( $smileys as $chars => $filename ) {
 			$chars = htmlspecialchars( $chars ); // needed for replacements containing special HTML characters, and for HTML
