@@ -44,6 +44,7 @@ class SpecialChatTemplate extends QuickTemplate {
 			</div>
 		</div>
 		<div id="mwchat-options">
+			<span id="mwchat-jumptolatest-span" style="opacity:0;"><a id="mwchat-jumptolatest-link" href="javascript:;"><?php echo wfMessage( 'chat-jump-to-latest' )->plain(); ?></a>&nbsp;&bull;&nbsp;</span>
 			<?php echo wfMessage( 'chat-autoscroll' )->plain(); ?><input type="checkbox" name="autoscroll" checked="checked" />&nbsp;&bull;&nbsp;
 			<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
 		</div>

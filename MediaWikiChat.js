@@ -230,9 +230,15 @@ var MediaWikiChat = {
 	scrollToBottom: function() {
 		var div = $( '#mwchat-content' );
 
-		if ( $( 'input[name=autoscroll]')[0].checked ) {
+		if ( $( 'input[name=autoscroll]' )[0].checked ) {
 			div.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
 		}
+	},
+	
+	jumpToLatest: function() {
+		$( 'input[name=autoscroll]' )[0].checked = true;
+		$( "#mwchat-jumptolatest-span" ).animate( { opacity: 0 } ); // should be done by the changed() statement at bottom but for some reason isn't
+		MediaWikiChat.scrollToBottom();
 	},
 
 	showKickMessage: function( from, to, timestamp ) {
@@ -780,6 +786,18 @@ $( document ).ready( function() {
 	} );
 
 	$( '#mwchat-topic a').attr( 'target', '_blank'); // Open any link in chat-topic in a new tab
+	
+	$( 'input[name=autoscroll]' ).change( function() {
+		if ( this.checked ) {
+			$( "#mwchat-jumptolatest-span" ).animate( { opacity: 0 } );
+		} else {
+			$( "#mwchat-jumptolatest-span" ).animate( { opacity: 1 } );
+		}
+	} );
+	
+	$( "#mwchat-jumptolatest-link" ).click( function() {
+		MediaWikiChat.jumpToLatest();
+	} );
 } );
 
 $( window ).blur( function() {

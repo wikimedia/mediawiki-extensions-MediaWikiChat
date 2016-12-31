@@ -21,6 +21,7 @@
 	"chat-kick": "kick",
 	"chat-block": "block",
 	"chat-autoscroll": "autoscroll",
+	"chat-jump-to-latest": "jump to latest",
 
 	"chat-youve-been-kicked": "You have been {{GENDER:$2|kicked}} by $1. Refresh the page to chat.",
 	"chat-you-kicked": "You {{GENDER:$2|kicked}} $1.",
