@@ -13,7 +13,7 @@
 		]
 	},
 	"chat": "{{doc-special|Chat}}\n{{Identical|Chat}}",
-	"chat-desc": "{{desc}}",
+	"chat-desc": "{{desc|name=MediaWikiChat|url=https://www.mediawiki.org/wiki/Extension:MediaWikiChat}}",
 	"chat-type-your-message": "Used as placeholder shown in the input field you type your message in.",
 	"chat-type-your-private-message": "The same as chat-type-your-message, but for private messages, shown in the input field for typing private messages",
 	"chat-no-other-users": "Shown in the user list when there are no other users on chat",
@@ -57,7 +57,7 @@
 	"logentry-privatechat-send": "The user $1 sent the private message $4, to the user $5.\n\n\n{{logentry}}\nAdditional parameters:\n* $4 - private message\n* $5 - user\n{{Identical|To}}",
 	"log-show-hide-privatechat": "For [[Special:Log]].\n\nThis should be consistent with {{msg-mw|Log-name-privatechat}}.\n\nParameters:\n* $1 - {{msg-mw|Show}} or {{msg-mw|Hide}}\n{{Related|Log-show-hide}}",
 	"group-chatmod": "{{doc-group|chatmod}}",
-	"group-chatmod-member": "{{doc-group|forumadmin|member}}",
+	"group-chatmod-member": "{{doc-group|chatmod|member}}",
 	"grouppage-chatmod": "{{doc-group|chatmod|page}}",
 	"group-blockedfromchat": "{{doc-group|blockedfromchat}}",
 	"group-blockedfromchat-member": "{{doc-group|blockedfromchat|member}}",
