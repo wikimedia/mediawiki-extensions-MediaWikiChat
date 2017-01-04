@@ -28,6 +28,7 @@
 	"chat-kick": "{{Identical|Kick}}",
 	"chat-block": "The link shown to chatmods to block a user.\n{{Identical|Block}}",
 	"chat-autoscroll": "Label for checkbox for whether chat should scroll automatically",
+	"chat-jump-to-latest": "Label for link to take the user to the most recently sent message",
 	"chat-youve-been-kicked": "Shown to users who have been kicked from the chat. Parameters:\n* $1 - the user who kicked from the chat\n* $2 - GENDER of the user who kicked\nSee also:\n* {{msg-mw|Chat-youve-been-blocked}}",
 	"chat-you-kicked": "Shown when the current user kicked the user $1. Parameters:\n* $1 - username\n* $2 - GENDER\nSee also:\n* {{msg-mw|Chat-you-blocked}}\n* {{msg-mw|Chat-you-unblocked}}",
 	"chat-kicked": "Shown when the user $1 kicked the user $2. Parameters:\n* $1 - the user who kicked\n* $2 - the user who was kicked\n* $3 - GENDER of the user who kicked\n* $4 - GENDER of the user who was kicked\nSee also:\n* {{msg-mw|Chat-blocked}}\n* {{msg-mw|Chat-unblocked}}\n{{Identical|Kicked}}",
