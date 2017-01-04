@@ -25,6 +25,7 @@
 	"chat-kick": "hinauswerfen",
 	"chat-block": "sperren",
 	"chat-autoscroll": "Automatisch scrollen",
+	"chat-jump-to-latest": "zur neuesten springen",
 	"chat-youve-been-kicked": "Du wurdest von $1 {{GENDER:$2|hinausgeworfen}}. Lade zum Chatten die Seite erneut.",
 	"chat-you-kicked": "Du hast $1 {{GENDER:$2|hinausgeworfen}}",
 	"chat-kicked": "{{GENDER:$3|$1}} hat {{GENDER:$4|$2}} hinausgeworfen.",
