@@ -18,6 +18,7 @@
 	"chat-yesterday": "গতকাল",
 	"chat-kick": "পদাঘাত",
 	"chat-block": "অবরুদ্ধ",
+	"chat-jump-to-latest": "সাম্প্রতিকটিতে ঝাঁপ দিন",
 	"chat-youve-been-blocked": "আপনি $1-এর দ্বারা {{GENDER:$2|অবরুদ্ধ}} হয়েছেন।",
 	"chat-you-blocked": "আপনি $1কে {{GENDER:$2|অবরুদ্ধ}} করেছেন।",
 	"chat-blocked": "$1 $2 কে {{GENDER:$3|অবরুদ্ধ}} করেছে।",
