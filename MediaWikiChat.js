@@ -234,7 +234,7 @@ var MediaWikiChat = {
 			div.animate( { 'scrollTop': div[0].scrollHeight }, 1000 );
 		}
 	},
-	
+
 	jumpToLatest: function() {
 		$( 'input[name=autoscroll]' )[0].checked = true;
 		$( "#mwchat-jumptolatest-span" ).animate( { opacity: 0 } ); // should be done by the changed() statement at bottom but for some reason isn't
@@ -307,7 +307,7 @@ var MediaWikiChat = {
 		}
 		var messages = $( '#mwchat-table tr.mwchat-parent' );
 		var lastParent = $( messages[messages.length - 1] );
-		
+
 		if ( lastParent.attr( 'data-username' ) == fromUser.name ) {
 			lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan', Number( lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan' ) ) + 1 ); // increment the rowspan
 
@@ -718,7 +718,7 @@ var MediaWikiChat = {
 	}
 };
 
-$( document ).ready( function() {
+$( function() {
 	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) { // Send text
 		MediaWikiChat.clearMentions();
 
@@ -786,7 +786,7 @@ $( document ).ready( function() {
 	} );
 
 	$( '#mwchat-topic a').attr( 'target', '_blank'); // Open any link in chat-topic in a new tab
-	
+
 	$( 'input[name=autoscroll]' ).change( function() {
 		if ( this.checked ) {
 			$( "#mwchat-jumptolatest-span" ).animate( { opacity: 0 } );
@@ -794,7 +794,7 @@ $( document ).ready( function() {
 			$( "#mwchat-jumptolatest-span" ).animate( { opacity: 1 } );
 		}
 	} );
-	
+
 	$( "#mwchat-jumptolatest-link" ).click( function() {
 		MediaWikiChat.jumpToLatest();
 	} );
