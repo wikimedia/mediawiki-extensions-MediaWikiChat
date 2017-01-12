@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.0",
+	"version": "2.20.1",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -131,7 +131,7 @@
 			"modchat": true
 		},
 		"user": {
-			"chat": false
+			"chat": true
 		},
 		"sysop": {
 			"chat": true,
