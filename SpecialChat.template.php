@@ -29,12 +29,12 @@ class SpecialChatTemplate extends QuickTemplate {
 					</table>
 				</div>
 				<div id="mwchat-type">
-					<span id="mwchat-loading" style="opacity:0;" data-queue="0" class="feedback-spinner"></span><?php // .feedback-spinner adds the loading gif ?>
-					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
+					<span id="mwchat-loading" data-queue="0" class="feedback-spinner"></span><?php // .feedback-spinner adds the loading gif ?>
+					<textarea placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>"></textarea>
 				</div>
 			</div>
 			<div id="mwchat-users">
-				<div id="mwchat-no-other-users" style="display:none;">
+				<div id="mwchat-no-other-users">
 					<?php echo wfMessage( 'chat-no-other-users' )->plain() ?>
 				</div>
 			</div>
@@ -44,7 +44,7 @@ class SpecialChatTemplate extends QuickTemplate {
 			</div>
 		</div>
 		<div id="mwchat-options">
-			<span id="mwchat-jumptolatest-span" style="opacity:0;"><a id="mwchat-jumptolatest-link" href="javascript:;"><?php echo wfMessage( 'chat-jump-to-latest' )->plain(); ?></a>&nbsp;&bull;&nbsp;</span>
+			<span id="mwchat-jumptolatest-span"><a id="mwchat-jumptolatest-link" href="javascript:;"><?php echo wfMessage( 'chat-jump-to-latest' )->plain(); ?></a>&nbsp;&bull;&nbsp;</span>
 			<?php echo wfMessage( 'chat-autoscroll' )->plain(); ?><input type="checkbox" name="autoscroll" checked="checked" />&nbsp;&bull;&nbsp;
 			<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
 		</div>
