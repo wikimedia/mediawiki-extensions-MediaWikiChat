@@ -1,8 +1,9 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.1",
+	"version": "2.20.2",
 	"author": [
-		"Adam Carter/UltrasonicNXT"
+		"Adam Carter/UltrasonicNXT",
+		"Jack Phoenix"
 	],
 	"license-name": "GPL-2.0+",
 	"url": "https://www.mediawiki.org/wiki/Extension:MediaWikiChat",
