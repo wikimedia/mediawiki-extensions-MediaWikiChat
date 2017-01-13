@@ -201,3 +201,15 @@
 	padding: 1em;
 	border:1px solid #ccc;
 }
+
+#mwchat-jumptolatest-span {
+	opacity: 0;
+}
+
+#mwchat-no-other-users {
+	display: none;
+}
+
+#mwchat-loading {
+	opacity: 0;
+}

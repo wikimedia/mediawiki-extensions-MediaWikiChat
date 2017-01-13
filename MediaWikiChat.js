@@ -209,8 +209,8 @@ var MediaWikiChat = {
 		}
 
 		if ( data.kick ) {
-			$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
-			$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
+			$( '#mwchat-type textarea' ).attr( 'disabled', 'disabled' );
+			$( '#mwchat-users div textarea' ).attr( 'disabled', 'disabled' );
 			clearInterval( MediaWikiChat.pollInterval );
 			MediaWikiChat.getNew();
 		}
@@ -257,8 +257,8 @@ var MediaWikiChat = {
 		var message;
 		if ( to.name == mw.config.get( 'wgUserName' ) ) {
 			message = mw.message( 'chat-youve-been-blocked', from.name, mw.user ).text();
-			$( '#mwchat-type input' ).attr( 'disabled', 'disabled' );
-			$( '#mwchat-users div input' ).attr( 'disabled', 'disabled' );
+			$( '#mwchat-type textarea' ).attr( 'disabled', 'disabled' );
+			$( '#mwchat-users div textarea' ).attr( 'disabled', 'disabled' );
 		} else if ( from.name == mw.config.get( 'wgUserName' ) ) {
 			message = mw.message( 'chat-you-blocked', to.name, mw.user ).text();
 		} else {
@@ -719,10 +719,10 @@ var MediaWikiChat = {
 };
 
 $( function() {
-	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) { // Send text
+	$( $( '#mwchat-type textarea' )[0] ).keydown( function( e ) { // Send text
 		MediaWikiChat.clearMentions();
 
-		var message = $( '#mwchat-type input' )[0].value;
+		var message = $( '#mwchat-type textarea' )[0].value;
 
 		if ( e.which == 13 && e.shiftKey ) {
 			return false;
@@ -730,7 +730,7 @@ $( function() {
 			if ( message.length > mw.config.get( 'wgChatMaxMessageLength' ) ) {
 				alert( mw.message( 'chat-too-long' ).text() );
 			} else {
-				$( '#mwchat-type input' ).val( '' );
+				$( '#mwchat-type textarea' ).val( '' );
 			}
 
 			$( '#mwchat-loading' ).attr('data-queue', parseInt( $( '#mwchat-loading' ).attr( 'data-queue' ) ) + 1 )
@@ -749,7 +749,7 @@ $( function() {
 				MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
 
 				if ( msg.chatsend && msg.chatsend.error == 'flood' ) {
-					$( '#mwchat-type input' ).val( message );
+					$( '#mwchat-type textarea' ).val( message );
 					alert( mw.message( 'chat-flood' ).text() );
 				}
 			} );
@@ -757,8 +757,8 @@ $( function() {
 		} else if ( e.which == 9 ) { // Tab - autocompletion
 			for ( var userId in MediaWikiChat.userData ) {
 				if ( userId != mw.config.get( 'wgUserId' ) ) {
-					if ( MediaWikiChat.userData[userId].name.toLowerCase().indexOf( $( '#mwchat-type input' )[0].value.toLowerCase() ) === 0 ) {
-						$( '#mwchat-type input' )[0].value = MediaWikiChat.userData[userId].name + ': ';
+					if ( MediaWikiChat.userData[userId].name.toLowerCase().indexOf( $( '#mwchat-type textarea' )[0].value.toLowerCase() ) === 0 ) {
+						$( '#mwchat-type textarea' )[0].value = MediaWikiChat.userData[userId].name + ': ';
 						return false;
 					}
 				}
