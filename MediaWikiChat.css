@@ -43,18 +43,21 @@
 	padding-left: 10px;
 }
 
-#mwchat-type input {
-	width: 96%;
+#mwchat-type textarea {
+	width: 100%;
+	max-width: 100%;
 	float: right;
 }
 
-.mwchat-useritem input {
-	width: 100%;
-}
-
-.mwchat-useritem input {
+.mwchat-useritem textarea {
 	margin-top: 0;
 	width: 99%; /* keeps input in line, otherwise it sticks out */
+	max-width: 99%;
+}
+
+#mwchat-type textarea,
+.mwchat-useritem textarea {
+	font-family: Arial, "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 .mwchat-item-messagecell {
@@ -70,7 +73,7 @@
 }
 
 .mwchat-item-timestamp {
-	color: #CCC;
+	color: #ccc;
 	text-transform: lowercase;
 }
 
@@ -79,7 +82,7 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	background-color: #FFF;
+	background-color: #fff;
 	padding-bottom: 5px;
 	white-space: nowrap;
 }
@@ -100,21 +103,21 @@
 .mwchat-useritem {
 	/*padding: 3px 0 3px 3px;*/
 	padding: 3px;
-	background-color: #FFF;
-	transition: background-color 0.5s;
+	background-color: #fff;
 	-webkit-transition: background-color 0.5s;
+	transition: background-color 0.5s;
 	position: relative;
 }
 
 .mwchat-useritem[data-read="true"],
 .mwchat-useritem[data-read="true"] .mwchat-useritem-header,
 .mwchat-item-message[data-read="true"] {
-	background-color: #FDD !important;
+	background-color: #fdd !important;
 }
 
 .mwchat-item-message {
-	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
+	transition: background-color 0.5s;
 }
 
 .mwchat-useritem-header {
@@ -188,7 +191,7 @@
 }
 
 .mwchat-avatar-replacement {
-	color: white;
+	color: #fff;
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -196,8 +199,20 @@
 }
 
 #mwchat-wrapper {
-	background-color: white;
+	background-color: #fff;
 	margin: 2em;
 	padding: 1em;
 	border:1px solid #ccc;
+}
+
+#mwchat-jumptolatest-span {
+	opacity: 0;
+}
+
+#mwchat-no-other-users {
+	display: none;
+}
+
+#mwchat-loading {
+	opacity: 0;
 }
