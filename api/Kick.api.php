@@ -29,8 +29,8 @@ class ChatKickAPI extends ApiBase {
 				__METHOD__
 			);
 
-			// Log the kick to Special:Log/chat
-			$logEntry = new ManualLogEntry( 'chat', 'kick' );
+			// Log the kick to Special:Log/chatkick
+			$logEntry = new ManualLogEntry( 'chatkick', 'kick' );
 			$logEntry->setPerformer( $user );
 			$page = SpecialPage::getTitleFor( 'Chat' );
 			$logEntry->setTarget( $page );
