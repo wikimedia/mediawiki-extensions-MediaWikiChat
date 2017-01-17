@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.2",
+	"version": "2.20.3",
 	"author": [
 		"Adam Carter/UltrasonicNXT",
 		"Jack Phoenix"
@@ -37,14 +37,17 @@
 	},
 	"LogTypes": [
 		"chat",
+		"chatkick",
 		"privatechat"
 	],
 	"LogActionsHandlers": {
 		"chat/*": "LogFormatter",
+		"chatkick/*": "LogFormatter",
 		"privatechat/*": "LogFormatter"
 	},
 	"FilterLogTypes": {
 		"chat": true,
+		"chatkick": true,
 		"privatechat": true
 	},
 	"LogRestrictions": {
