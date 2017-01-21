@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.1",
+	"version": "2.20.2",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -27,6 +27,9 @@
 		"MediaWikiChat": [
 			"i18n"
 		]
+	},
+	"ExtensionMessagesFiles": {
+		"MediaWikiChatAlias": "MediaWikiChat.alias.php"
 	},
 	"APIModules": {
 		"chatgetnew": "ChatGetNewAPI",
