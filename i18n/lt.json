@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Mantak111",
-			"Aswanas"
+			"Aswanas",
+			"Eitvys200"
 		]
 	},
 	"chat-sounds": "Groti garsus",
+	"chat-jump-to-latest": "peršokti į naujausią",
 	"chat-change-preferences": "Pakeiskite jūsų pokalbių nuostatas (pilnas ekranas, garsai, pastabos)",
 	"log-name-privatechat": "Privačių pokalbių žurnalas",
 	"log-description-privatechat": "Asmenines žinutes siuntė MediaWikiChat",
