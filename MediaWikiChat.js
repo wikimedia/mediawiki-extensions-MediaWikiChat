@@ -502,7 +502,7 @@ var MediaWikiChat = {
 		html += '</div><span class="mwchat-useritem-header-links">';
 
 		if ( MediaWikiChat.amIMod && ( !user.mod ) ) {
-			html += '<a class="mwchat-useritem-blocklink" href="' + mw.util.getUrl( 'Special:UserRights', { user: user.name } );
+			html += '<a class="mwchat-useritem-blocklink" href="#" data-user-name="' + mw.html.escape( user.name );
 			html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
 
 			if ( mw.config.get( 'wgChatKicks' ) ) {
@@ -719,7 +719,79 @@ var MediaWikiChat = {
 };
 
 $( function() {
-	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) { // Send text
+	/**
+	 * chat block dialog which opens upon
+	 * clicking block next to a user
+	 *
+	 * @see https://phabricator.wikimedia.org/T145310
+	 */
+
+	function chatDialogBlock( config ) {
+		chatDialogBlock.super.call( this, config );
+	}
+	OO.inheritClass( chatDialogBlock, OO.ui.Dialog );
+
+	chatDialogBlock.static.title = wfMsg();
+	chatDialogBlock.static.actions = [
+		{
+			label: mw.msg( 'cancel' )
+		},
+		{
+			label: mw.msg( 'block' ),
+			flags: [
+				'primary',
+				'destructive'
+			]
+		}
+	];
+
+	chatDialogBlock.prototype.initialize = function () {
+		chatDialogBlock.super.prototype.intalize.call( this );
+		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+		this.content.$element.append(
+			var fieldset = new OO.ui.FieldsetLayout( {
+				label: ''
+			} );
+			
+			fieldset.addItems( [
+				new OO.ui.FieldLayout( input1, {
+	    				label: mw.msg( 'ipbreason' ),
+					align: 'top'
+				} ),
+				new OO.ui.FieldLayout( input2, {
+	    				label: mw.msg( 'ipbexpiry' ),
+					align: 'top'
+				} )
+			] );
+
+			var form = new OO.ui.FormLayout( {
+				items: [ fieldset ],
+				action: '/api/formhandler',
+				method: 'get'
+			} );
+		);
+		this.$body.append( this.content.$element );
+	}
+
+	chatDialogBlock.prototype.getBodyHeight = function () {
+		return this.content.$element.outerHeight( true );
+	}
+
+	var myDialog = new MyDialog( {
+		size: 'medium'
+	} );
+
+	var windowManager = new OO.ui.WindowManager();
+	$( 'body' ).append( windowManager.$element );
+
+	windowManager.addWindows( [ myDialog ] );
+	$( 'body' ).on( 'click', '.mwchat-useritem-blocklink', function( e ) {
+		windowManager.openWindow( myDialog );
+	} );
+
+
+	// send text
+	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) {
 		MediaWikiChat.clearMentions();
 
 		var message = $( '#mwchat-type input' )[0].value;
