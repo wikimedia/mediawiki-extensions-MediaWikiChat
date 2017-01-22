@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efb0bce_b318bf24",
+        "filename": "MediaWikiChat.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 3786
+      },
+      "writtenOn": "2017-01-22T20:04:49Z",
+      "side": 1,
+      "message": "Need to fill with an i18n message (currently working on)",
+      "range": {
+        "startLine": 734,
+        "startChar": 32,
+        "endLine": 734,
+        "endChar": 39
+      },
+      "revId": "0b6751417c092f8b0d77574740a184f536ca6a9b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_931703f2",
+        "filename": "MediaWikiChat.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 3786
+      },
+      "writtenOn": "2017-01-22T20:04:49Z",
+      "side": 1,
+      "message": "Need to fill with an i18n message (currently working on)",
+      "range": {
+        "startLine": 753,
+        "startChar": 11,
+        "endLine": 753,
+        "endChar": 13
+      },
+      "revId": "0b6751417c092f8b0d77574740a184f536ca6a9b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
