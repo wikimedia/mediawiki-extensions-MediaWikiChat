@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.1",
+	"version": "2.20.2",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -96,7 +96,7 @@
 				"chat-block", "chat-private-message", "chat-user-is-moderator", "chat-you-are-moderator",
 				"chat-joined", "chat-left", "chat-mod-image", "chat-yesterday", "chat-flood", "chat-too-long",
 				"chat-idle-minutes", "chat-idle-hours", "chat-idle-more", "chat-today", "chat-message-from",
-				"chat-private-message-from", "chat-mentioned-by"
+				"chat-private-message-from", "chat-mentioned-by", "cancel", "block"
 			],
 			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ],
 			"position": "bottom"
@@ -149,5 +149,9 @@
 		"chat-notify-mention": 1,
 		"chat-notify-pm": 1
 	},
+	"dependencies": [
+		"oojs-ui-core",
+		"oojs-ui-windows"
+	],
 	"manifest_version": 1
 }
