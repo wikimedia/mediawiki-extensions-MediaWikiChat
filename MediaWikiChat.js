@@ -502,7 +502,7 @@ var MediaWikiChat = {
 		html += '</div><span class="mwchat-useritem-header-links">';
 
 		if ( MediaWikiChat.amIMod && ( !user.mod ) ) {
-			html += '<a class="mwchat-useritem-blocklink" href="' + mw.util.getUrl( 'Special:UserRights', { user: user.name } );
+			html += '<a class="mwchat-useritem-blocklink" href="#" data-user-name="' + mw.html.escape( user.name );
 			html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
 
 			if ( mw.config.get( 'wgChatKicks' ) ) {
@@ -719,6 +719,34 @@ var MediaWikiChat = {
 };
 
 $( function() {
+	$( 'body' ).on( 'click', '.mwchat-useritem-blocklink', function( e ) {
+		var options = {
+			actions: [
+				{
+					label: mw.msg( 'cancel' ),
+				},
+				{
+					label: mw.msg( 'block' ),
+					action: 'accept',
+					flags: [
+						'primary',
+						'destructive'
+					]
+				}
+			]
+		}
+		OO.ui.prompt( mw.msg( 'chat-dialog-block-message', mw.user.getName() ), textInput: { placeholder: 'chat-dialog-block-input-placeholder'} ).done( function ( result ) {
+			if ( confirmed ) {
+				( new mw.Api() ).postWithToken( 'edit', {
+					action: 'userrights',
+					format: 'json',
+					user: user,
+					add: 'blockedfromchat',
+					reason: $( '.oo-ui-textInputWidget' ).text()
+				} );
+			}
+		} );
+	} );
 	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) { // Send text
 		MediaWikiChat.clearMentions();
 
