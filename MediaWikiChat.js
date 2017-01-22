@@ -502,7 +502,7 @@ var MediaWikiChat = {
 		html += '</div><span class="mwchat-useritem-header-links">';
 
 		if ( MediaWikiChat.amIMod && ( !user.mod ) ) {
-			html += '<a class="mwchat-useritem-blocklink" href="' + mw.util.getUrl( 'Special:UserRights', { user: user.name } );
+			html += '<a class="mwchat-useritem-blocklink" href="#" data-user-name="' + mw.html.escape( user.name );
 			html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
 
 			if ( mw.config.get( 'wgChatKicks' ) ) {
@@ -719,7 +719,100 @@ var MediaWikiChat = {
 };
 
 $( function() {
-	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) { // Send text
+	/**
+	 * Chat mods' "block user" links; clicking on such a link opens up a dialog
+	 * for supplying the block reason and pressing the button POSTs a request
+	 * to the userrights API, so the chat mod doesn't have to leave the chat
+	 * page in order to block a misbehaving user
+	 *
+	 * @see https://phabricator.wikimedia.org/T145310
+	 */
+
+	function chatDialogBlock( config ) {
+		chatDialogBlock.super.call( this, config );
+	}
+	OO.inheritClass( chatDialogBlock, OO.ui.ProcessDialog );
+
+	chatDialogBlock.static.title = mw.msg( 'chat-dialog-block-message', mw.user.getName() );
+	chatDialogBlock.static.actions = [
+		{
+			label: mw.msg( 'cancel' ),
+			flag: [
+				'safe'
+			]
+		},
+		{
+			label: mw.msg( 'block' ),
+			action: 'block',
+			flags: [
+				'primary',
+				'destructive'
+			]
+		}
+	];
+
+	chatDialogBlock.prototype.initialize = function () {
+		chatDialogBlock.parent.prototype.initialize.call( this );
+		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+		var fieldset = new OO.ui.FieldsetLayout( {
+			label: ''
+		} );
+
+		fieldset.addItems( [
+			new OO.ui.FieldLayout( new OO.ui.TextInputWidget(), {
+	    			label: mw.msg( 'ipbreason' ),
+				align: 'top'
+			} ),
+			new OO.ui.FieldLayout( new OO.ui.TextInputWidget(), {
+	    			label: mw.msg( 'ipbexpiry' ),
+				align: 'top'
+			} )
+		] );
+
+		var form = new OO.ui.FormLayout( {
+			items: [ fieldset ],
+			action: '/api/formhandler',
+			method: 'get'
+		} );
+
+		this.content.$element.append( form.$element );
+		this.$body.append( this.content.$element );
+	};
+
+
+	chatDialogBlock.prototype.getActionProcess = function ( action ) {
+		if ( action === 'block' ) {
+			( new mw.Api() ).postWithToken( 'edit', {
+				action: 'userrights',
+				format: 'json',
+				user: $( this ).data( 'user-name' ),
+				add: 'blockedfromchat',
+				reason: $( '.oo-ui-textInputWidget' ).text()
+			} );
+		}
+		return chatDialogBlock.parent.prototype.getActionProcess.call( this, action );
+		};
+	}
+	chatDialogBlock.prototype.getBodyHeight = function () {
+		return this.content.$element.outerHeight( true );
+	}
+
+	var chatDialogBlock = new chatDialogBlock( {
+		size: 'medium'
+	} );
+
+	var windowManager = new OO.ui.WindowManager();
+	$( 'body' ).append( windowManager.$element );
+
+	windowManager.addWindows( [ myDialog ] );
+	$( 'body' ).on( 'click', '.mwchat-useritem-blocklink', function( e ) {
+		windowManager.openWindow( myDialog );
+		return false;
+	} );
+
+
+	// send text
+	$( $( '#mwchat-type input' )[0] ).keydown( function( e ) {
 		MediaWikiChat.clearMentions();
 
 		var message = $( '#mwchat-type input' )[0].value;
