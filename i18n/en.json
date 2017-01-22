@@ -99,5 +99,8 @@
 
 	"chat-message-from": "Message {{GENDER:$2|from}} $1",
 	"chat-private-message-from": "Private message {{GENDER:$2|from}} $1",
-	"chat-mentioned-by": "Mentioned {{GENDER:$2|by}} $1"
+	"chat-mentioned-by": "Mentioned {{GENDER:$2|by}} $1",
+
+	"chat-dialog-block-message": "You are about to block $1.",
+	"chat-dialog-block-input-placeholder": "Enter your reason"
 }

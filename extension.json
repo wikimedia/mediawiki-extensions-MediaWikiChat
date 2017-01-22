@@ -1,8 +1,10 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.1",
+	"version": "2.20.2",
 	"author": [
-		"Adam Carter/UltrasonicNXT"
+		"Adam Carter/UltrasonicNXT",
+		"Jack Phoenix",
+		"Prtksxna"
 	],
 	"license-name": "GPL-2.0+",
 	"url": "https://www.mediawiki.org/wiki/Extension:MediaWikiChat",
@@ -96,9 +98,17 @@
 				"chat-block", "chat-private-message", "chat-user-is-moderator", "chat-you-are-moderator",
 				"chat-joined", "chat-left", "chat-mod-image", "chat-yesterday", "chat-flood", "chat-too-long",
 				"chat-idle-minutes", "chat-idle-hours", "chat-idle-more", "chat-today", "chat-message-from",
-				"chat-private-message-from", "chat-mentioned-by"
+				"chat-private-message-from", "chat-mentioned-by", "chat-dialog-block-input-placeholder",
+				"chat-dialog-block-message", "cancel", "block", "ipbreason", "ipbexpiry"
 			],
-			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ],
+			"dependencies": [
+				"mediawiki.api",
+				"mediawiki.jqueryMsg",
+				"mediawiki.user",
+				"mediawiki.util",
+				"oojs-ui-core",
+				"oojs-ui-windows"
+			],
 			"position": "bottom"
 		}
 	},
