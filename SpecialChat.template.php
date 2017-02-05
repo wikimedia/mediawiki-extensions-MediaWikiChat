@@ -5,7 +5,6 @@
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die();
 }
-
 /**
  * Main user interface for Special:Chat.
  *
@@ -30,7 +29,11 @@ class SpecialChatTemplate extends QuickTemplate {
 				</div>
 				<div id="mwchat-type">
 					<span id="mwchat-loading" style="opacity:0;" data-queue="0" class="feedback-spinner"></span><?php // .feedback-spinner adds the loading gif ?>
-					<input type="text" placeholder="<?php echo wfMessage( 'chat-type-your-message' )->plain() ?>" />
+					<?php
+					new OOUI\TextInputWidget( [
+						'placeholder' => wfMessage( 'chat-type-your-message' )->plain()
+					] );
+					?>
 				</div>
 			</div>
 			<div id="mwchat-users">
@@ -43,11 +46,33 @@ class SpecialChatTemplate extends QuickTemplate {
 				<span class="mwchat-useritem-user"></span>
 			</div>
 		</div>
-		<div id="mwchat-options">
-			<span id="mwchat-jumptolatest-span" style="opacity:0;"><a id="mwchat-jumptolatest-link" href="javascript:;"><?php echo wfMessage( 'chat-jump-to-latest' )->plain(); ?></a>&nbsp;&bull;&nbsp;</span>
-			<?php echo wfMessage( 'chat-autoscroll' )->plain(); ?><input type="checkbox" name="autoscroll" checked="checked" />&nbsp;&bull;&nbsp;
-			<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
-		</div>
-<?php
+		<?php
+			$mwChatOptions = ( new OOUI\Tag( 'footer' ) );
+			$mwChatJumpToLatest = new OOUI\Tag( 'span' );
+			$mwChatJumpToLatestAnchor = new OOUI\Tag( 'a' );
+			$mwChatOptions->appendContent( new OOUI\FieldsetLayout( [
+				'items' => [
+					$mwChatJumpToLatest->setAttributes( [
+						'id' => 'mwchat-jumptolatest-span',
+						'style' => 'opacity: 0;'
+					] )->appendContent(
+						$mwChatJumpToLatestAnchor->setAttributes( [
+							'id' => 'mwchat-jumptolatest-link',
+							'href' => 'javascript:;'
+						] )
+					),
+					new OOUI\CheckboxInputWidget( [
+						'selected' => true,
+						'name' => 'autoscroll',
+						'label' => wfMessage( 'chat-autoscroll' )->plain()
+					] ),
+					new OOUI\ButtonWidget( [
+						setHref( SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL() ),
+						'flags' => [ 'constructive', 'primary' ],
+						'label' => wfMessage( 'chat-change-preferences' )
+					] )
+				]
+			] ) );
+			echo $mwChatOptions;
 	}
 }
