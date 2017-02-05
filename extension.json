@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.2",
+	"version": "2.20.3",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -101,7 +101,12 @@
 				"chat-idle-minutes", "chat-idle-hours", "chat-idle-more", "chat-today", "chat-message-from",
 				"chat-private-message-from", "chat-mentioned-by"
 			],
-			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ],
+			"dependencies": [
+				"mediawiki.jqueryMsg",
+				"mediawiki.user",
+				"mediawiki.util",
+				"oojs-ui-core"
+			],
 			"position": "bottom"
 		}
 	},
