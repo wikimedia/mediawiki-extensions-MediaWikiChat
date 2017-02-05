@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ef897d1_ffe15ffc",
+        "filename": "SpecialChat.template.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 4072
+      },
+      "writtenOn": "2017-02-05T16:32:48Z",
+      "side": 1,
+      "message": "Not needed here, remove \u0027?\u003e and \u003c?php\u0027",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 5
+      },
+      "revId": "48817301bf0247a80b5c7f7d9a2971c55db30e91",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
