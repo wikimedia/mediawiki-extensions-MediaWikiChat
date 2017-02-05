@@ -514,7 +514,9 @@ var MediaWikiChat = {
 		html += '</span>';
 		html += '<div class="mwchat-useritem-window" style="display:none;">';
 		html += '<div class="mwchat-useritem-content"></div>';
-		html += '<input type="text" placeholder="' + mw.message( 'chat-type-your-private-message' ).text() + '" />';
+		html += new OO.ui.textInputWidget( {
+				placeholder: mw.message( 'chat-type-your-private-message' ).text()
+			} );
 		html += '</div>';
 		html += '</div>';
 
