@@ -3,12 +3,13 @@
 		"authors": [
 			"Kaganer",
 			"Irus",
-			"Mouse21"
+			"Mouse21",
+			"Wadorgurt"
 		]
 	},
 	"chat": "Чат",
 	"chat-today": "туннэ",
 	"chat-yesterday": "толон",
 	"chat-block": "блокировать карыны",
-	"chat-topic": "Гажаса {{SITENAME}} чат. ([[Special:Log/chat|чат журнал]])"
+	"chat-topic": "Гажаса ӧтиськом {{SITENAME}} сайтлэн чатаз. ([[Special:Log/chat|чат журнал]])"
 }
