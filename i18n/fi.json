@@ -1,10 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Stryn"
+			"Stryn",
+			"Pyscowicz"
 		]
 	},
+	"chat-type-your-message": "Kirjoita viestisi",
+	"chat-type-your-private-message": "Kirjoita yksityisviestisi",
+	"chat-no-other-users": "Ei muita käyttäjiä chatissa",
+	"chat-blocked-from-chat": "Sinut on estetty tästä chatista.",
 	"chat-a-minute-ago": "minuutti sitten",
+	"chat-today": "tänään",
 	"chat-yesterday": "eilen",
 	"chat-block": "estä"
 }

@@ -1,13 +1,40 @@
 {
 	"@metadata": {
 		"authors": [
-			"Palapa"
+			"Palapa",
+			"Srdjan m"
 		]
 	},
 	"chat": "Dopisivanje",
+	"chat-desc": "Pruža lagani klijent i server za ćaskanje",
 	"chat-type-your-message": "Upišite vašu poruku",
+	"chat-type-your-private-message": "Upišite svoju privatnu poruku",
+	"chat-no-other-users": "Nema drugih korisnika na kanalu",
+	"chat-not-allowed": "Ćaskanje Vam nije dopušteno. Pokušajte se prvo prijaviti.",
+	"chat-sounds": "Reproduciraj zvukove",
+	"chat-too-long": "Poruka je bila preduga. Pošaljite kraću poruku.",
 	"chat-today": "danas",
 	"chat-yesterday": "jučer",
+	"chat-kick": "šutni",
 	"chat-block": "blokiranje",
-	"prefs-chat": "Dopisivanje"
+	"chat-youve-been-kicked": "$1 Vas je {{GENDER:$2|šutnuo|šutnula}}. Osvješite stranicu da biste ćaskali.",
+	"chat-you-kicked": "{{GENDER:$2|Šutnuli ste}} $1.",
+	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|je šutnuo|je šutnula}}}} $2.",
+	"chat-youve-been-blocked": "$1 Vas je {{GENDER:$2|blokirao|blokirala}}.",
+	"chat-you-blocked": "{{GENDER:$2|Blokirali ste}} $1.",
+	"chat-blocked": "$1 {{GENDER:$3|je blokirao|je blokirala}} $2.",
+	"chat-you-unblocked": "{{GENDER:$2|Deblokirali ste}} $1.",
+	"chat-unblocked": "$1 {{GENDER:$3|je deblokirao|je deblokirala}} $2.",
+	"chat-joined": "$1 se {{GENDER:$2|pridružio|pridružila}} kanalu.",
+	"chat-left": "$1 je {{GENDER:$2|napustio|napustila}} kanal.",
+	"chat-private-message": "kliknite da biste poslali privatnu poruku",
+	"chat-user-is-moderator": "{{GENDER:$1|Ovaj korisnik je moderator|Ova korisnica je moderatorica}}",
+	"chat-you-are-moderator": "{{GENDER:$1|Vi ste moderator|Vi ste moderatorica}}",
+	"chat-topic": "Dobro došli na ćaskanje sajta {{SITENAME}}. ([[Special:Log/chat|zapisnik ćaskanja]])",
+	"chat-change-preferences": "Promijenite postavke ćaskanja (cijeli ekran, zvukovi, obavještenja)",
+	"chat-sidebar-online": "Korisnici na mreži",
+	"chat-sidebar-join": "Pridruži se ćaskanju",
+	"logentry-chat-kick": "$1 {{GENDER:$1|je šutnuo|je šutnula}} $4",
+	"prefs-chat": "Dopisivanje",
+	"chat-mentioned-by": "$1 Vas je {{GENDER:$2|spomenuo|spomenula}}"
 }
