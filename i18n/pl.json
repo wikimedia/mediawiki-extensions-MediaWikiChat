@@ -19,6 +19,7 @@
 	"chat-today": "dzisiaj",
 	"chat-yesterday": "wczoraj",
 	"chat-block": "zablokuj",
+	"chat-autoscroll": "autoprzewijanie",
 	"chat-youve-been-kicked": "{{GENDER:$2|Zostałeś wyrzucony|Zostałaś wyrzucona}} przez $1. Odśwież stronę czatu.",
 	"chat-you-kicked": "Ty {{GENDER:$2|wyrzuciłeś|wyrzuciłaś}} $1.",
 	"chat-kicked": "$1 {{GENDER:$3|wyrzucił|wyrzuciła}} $2.",
@@ -49,6 +50,7 @@
 	"chat-idle-minutes": "{{GENDER:$2|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od {{PLURAL:$1|minuty|$1 minut}}",
 	"chat-idle-hours": "{{GENDER:$2|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od {{PLURAL:$1|godziny|$1 godzin}}",
 	"chat-idle-more": "{{GENDER:$1|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od ponad 24 godzin",
-	"chat-message-from": "Wiadomość od $1",
-	"chat-private-message-from": "Prywatna wiadomość od $1"
+	"apihelp-chatsend-param-message": "Wiadomość do wysłania",
+	"chat-message-from": "Wiadomość {{GENDER:$2|od}} $1",
+	"chat-private-message-from": "Prywatna wiadomość {{GENDER:$2|od}} $1"
 }
