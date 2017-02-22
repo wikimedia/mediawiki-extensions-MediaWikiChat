@@ -2,12 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"DCLXVI",
-			"Mitzev"
+			"Mitzev",
+			"StanProg"
 		]
 	},
+	"chat": "Чат",
 	"chat-change-preferences": "Промяна на предпочитанията за чат (цял екран и звуци)",
+	"log-name-chat": "Дневник на чата",
+	"group-chatmod": "Модератори на чата",
 	"tog-chat-fullscreen": "Използване на чата на цял екран (експериментално)",
 	"tog-chat-ping-mention": "Звуков сигнал при споменаване",
 	"tog-chat-ping-pm": "Звуков сигнал при получаване на лични съобщения",
-	"tog-chat-ping-message": "Звуков сигнал при получаване на съобщения"
+	"tog-chat-ping-message": "Звуков сигнал при получаване на съобщения",
+	"prefs-chat": "Чат",
+	"action-modchat": "модериране на чат"
 }
