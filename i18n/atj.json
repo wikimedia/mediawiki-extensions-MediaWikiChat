@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dereckson"
+			"Dereckson",
+			"Benoit Rochon"
 		]
 	},
-	"chat-today": "ke kicikak"
+	"chat-today": "ke kicikak",
+	"chat-block": "nokipita"
 }
