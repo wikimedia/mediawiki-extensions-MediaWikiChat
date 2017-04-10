@@ -23,6 +23,7 @@
 	"chat-kick": "sparka",
 	"chat-block": "blockera",
 	"chat-autoscroll": "autorulla",
+	"chat-jump-to-latest": "hoppa till senaste",
 	"chat-youve-been-kicked": "Du har {{GENDER:$2|sparkats ut}} av $1. Uppdatera sidan för att chatta.",
 	"chat-you-kicked": "Du {{GENDER:$2|sparkade ut}} $1.",
 	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|sparkade ut}}}} $2.",
