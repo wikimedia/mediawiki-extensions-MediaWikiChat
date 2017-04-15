@@ -112,9 +112,9 @@ var MediaWikiChat = {
 				item.fadeOut( 250, function() {
 					item.html( newPretty );
 					item.fadeIn( 250 );
-				});
+				} );
 			}
-		});
+		} );
 	},
 
 	htmlTimestamp: function( timestamp ) {
@@ -733,8 +733,10 @@ $( function() {
 				$( '#mwchat-type input' ).val( '' );
 			}
 
-			$( '#mwchat-loading' ).attr('data-queue', parseInt( $( '#mwchat-loading' ).attr( 'data-queue' ) ) + 1 )
-			                     .animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
+			$( '#mwchat-loading' ).attr(
+				'data-queue',
+				parseInt( $( '#mwchat-loading' ).attr( 'data-queue' ) ) + 1 )
+			.animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
 
 			$.ajax( {
 				type: 'POST',
@@ -742,8 +744,10 @@ $( function() {
 				data: { 'action': 'chatsend', 'message': message, 'format': 'json' }
 			} ).done( function( msg ) {
 				MediaWikiChat.getNewReply( msg );
-				$( '#mwchat-loading' ).attr('data-queue', parseInt( $( '#mwchat-loading' ).attr( 'data-queue' ) ) - 1 )
-				                     .animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
+				$( '#mwchat-loading' ).attr(
+					'data-queue',
+					parseInt( $( '#mwchat-loading' ).attr( 'data-queue' ) ) - 1 )
+				.animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
 
 				window.clearInterval( MediaWikiChat.newInterval );
 				MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
