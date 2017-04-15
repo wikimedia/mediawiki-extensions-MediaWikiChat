@@ -69,7 +69,7 @@ class MediaWikiChat {
 	 * Get the list of users who are online, if we have the "chat" user right.
 	 *
 	 * @return Mixed: array of user IDs and user names on success, boolean false
-	 *                if the current user doesn't have the "chat" right
+	 * if the current user doesn't have the "chat" right
 	 */
 	static function getOnline() {
 		global $wgUser, $wgChatOnlineTimeout;
@@ -149,24 +149,24 @@ class MediaWikiChat {
 				'ORDER BY' => 'chat_timestamp DESC'
 			)
 		);
-		
+
 		if ( $res->numRows() ) {
 			$row = $res->fetchObject();
 			$oldest = $row->chat_timestamp;
 			$now = MediaWikiChat::now();
+			// / 5 to find average, then / 2, then * 10 as MWC timestamps are 100th seconds, JS intervals are 1000th seconds
+			$av = ( $now - $oldest );
 
-    		$av = ( $now - $oldest ); // / 5 to find average, then / 2, then * 10 as MWC timestamps are 100th seconds, JS intervals are 1000th seconds
+			if ( $av > $maxInterval ) {
+				$av = $maxInterval;
+			} elseif ( $av < $minInterval ) {
+				$av = $minInterval;
+			}
 
-    		if ( $av > $maxInterval ) {
-    			$av = $maxInterval;
-    		} elseif ( $av < $minInterval ) {
-    			$av = $minInterval;
-    		}
-
-    		return $av;
-    	} else { // before there are any messages to consider
-        	return 7 * 1000; // use 7 secs
-    	}
+		return $av;
+		} else { // before there are any messages to consider
+			return 7 * 1000; // use 7 secs
+ 		}
 	}
 
 	/**
