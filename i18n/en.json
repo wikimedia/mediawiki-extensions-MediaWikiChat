@@ -71,8 +71,8 @@
 	"tog-chat-ping-joinleave": "Play a sound when users join or leave the chat",
 	"prefs-chat": "Chat",
 	"tog-chat-notify-mention": "Show a notification on receiving mentions (Chrome & Firefox only)",
-	"tog-chat-notify-pm": "Show a notification receiving private messages (Chrome & Firefox only)",
-	"tog-chat-notify-message": "Show a notification receiving normal messages (Chrome & Firefox only)",
+	"tog-chat-notify-pm": "Show a notification on receiving private messages (Chrome & Firefox only)",
+	"tog-chat-notify-message": "Show a notification on receiving normal messages (Chrome & Firefox only)",
 	"tog-chat-notify-joinleave": "Show a notification when users join or leave the chat (Chrome & Firefox only)",
 
 	"chat-idle-minutes": "{{GENDER:$2|This user}} has been idle for {{PLURAL:$1|a minute|$1 minutes}}",
