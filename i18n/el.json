@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Indoril"
+			"Indoril",
+			"Thodoris"
 		]
 	},
+	"tog-chat-notify-pm": "Δείχνει μια ειδοποίηση σχετικά με τη λήψη προσωπικών μηνυμάτων (Chrome και Firefox μόνο)",
+	"tog-chat-notify-message": "Δείχνει μια ειδοποίηση σχετικά με τη λήψη κανονικών μηνυμάτων (Chrome και Firefox μόνο)",
 	"action-chat": "συνομιλία με άλλους χρήστες",
 	"action-modchat": "συντονίστε συνομιλία",
 	"action-viewpmlog": "προβάλετε το αρχείο καταγραφής μηνυμάτων ιδιωτικής συνομιλίας"
