@@ -32,6 +32,8 @@
 	"group-blockedfromchat": "Benotzer déi fir den Chat gespaart sinn",
 	"right-modchat": "Special:Chat benotzen",
 	"prefs-chat": "Chat",
+	"tog-chat-notify-pm": "Eng Notifikatioun weise wann een e private Message kritt (Chrome & Firefox)",
+	"tog-chat-notify-message": "Eng Notifikatioun weise wann een en normale Message kritt (Chrome & Firefox)",
 	"chat-idle-hours": "{{GENDER:$2Dëse Benotzer}} ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
 	"apihelp-chatsendpm-description": "Engem Benotzer e private Message schécken",
 	"chat-message-from": "Message  {{GENDER:$2|vum}} $1",
