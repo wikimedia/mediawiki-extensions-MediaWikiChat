@@ -97,5 +97,7 @@
 	"apihelp-chatsendpm-example-1": "{{doc-apihelp-example|chatsendpm}}",
 	"chat-message-from": "Notification for receiving message\n* $1 sending user\n* $2 sending users gender",
 	"chat-private-message-from": "Notification for receiving private message\n* $1 sending user\n* $2 sending users gender",
-	"chat-mentioned-by": "Notification for being mentioned\n* $1 mentioning user\n* $2 mentioning users gender"
+	"chat-mentioned-by": "Notification for being mentioned\n* $1 mentioning user\n* $2 mentioning users gender",
+	"chat.css": "{{optional}}\nSee also:\n* {{msg-mw|Chat.js}}",
+	"chat.js": "{{optional}}\nSee also:\n* {{msg-mw|Chat.css}}"
 }

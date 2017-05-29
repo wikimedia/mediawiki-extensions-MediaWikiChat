@@ -99,5 +99,8 @@
 
 	"chat-message-from": "Message {{GENDER:$2|from}} $1",
 	"chat-private-message-from": "Private message {{GENDER:$2|from}} $1",
-	"chat-mentioned-by": "Mentioned {{GENDER:$2|by}} $1"
+	"chat-mentioned-by": "Mentioned {{GENDER:$2|by}} $1",
+
+	"chat.css": "/* CSS loaded here will affect Special:Chat only */",
+	"chat.js": "/* Any JavaScript here will be loaded for users using Special:Chat */"
 }
