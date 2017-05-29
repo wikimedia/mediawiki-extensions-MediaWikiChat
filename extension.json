@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.4",
+	"version": "2.20.5",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -103,6 +103,14 @@
 			],
 			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ],
 			"position": "bottom"
+		},
+		"ext.mediawikichat.site": {
+			"class": "ResourceLoaderWikiModule",
+			"scripts": "MediaWiki:Chat.js"
+		},
+		"ext.mediawikichat.site.styles": {
+			"class": "ResourceLoaderWikiModule",
+			"styles": "MediaWiki:Chat.css"
 		}
 	},
 	"AvailableRights": [
