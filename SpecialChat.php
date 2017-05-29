@@ -37,12 +37,16 @@ class SpecialChat extends SpecialPage {
 			$template = new SpecialChatTemplate;
 
 			// Load modules via ResourceLoader
-			$modules = array(
-				'ext.mediawikichat.css',
+			$out->addModules( [
 				'ext.mediawikichat.js',
-				'mediawiki.feedback' // for the loading gif
-			);
-			$out->addModules( $modules );
+				'ext.mediawikichat.site',
+				'mediawiki.feedback'
+			] );
+
+			$out->addModuleStyles( [
+				'ext.mediawikichat.css',
+				'ext.mediawikichat.site.styles'
+			] );
 
 			$out->addJsConfigVars(
 				array(
