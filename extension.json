@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.20.4",
+	"version": "2.20.5",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -60,7 +60,8 @@
 		"GetNewWorker": "api/GetNewWorker.php",
 		"SpecialChat": "SpecialChat.php",
 		"MediaWikiChat": "MediaWikiChatClass.php",
-		"MediaWikiChatHooks": "MediaWikiChat.hooks.php"
+		"MediaWikiChatHooks": "MediaWikiChat.hooks.php",
+		"ChatWikiModule": "modules/ChatWikiModule.php"
 	},
 	"Hooks": {
 		"ParserBeforeInternalParse": [
@@ -103,6 +104,9 @@
 			],
 			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ],
 			"position": "bottom"
+		},
+		"wiki.mediawikichat.cssjs": {
+			"class": "modules/ChatWikiModule.php"
 		}
 	},
 	"AvailableRights": [
