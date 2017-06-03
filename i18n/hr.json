@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bugoslav"
+		]
+	},
+	"logentry-chat-kick": "$1 {{GENDER:$1|izbacio|izbacila}} je $4",
+	"log-name-privatechat": "Evidencija o privatnim mrežnim razgovorima"
+}
