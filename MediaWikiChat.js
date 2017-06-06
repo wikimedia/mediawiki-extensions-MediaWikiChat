@@ -285,7 +285,27 @@ var MediaWikiChat = {
 		html += MediaWikiChat.htmlTimestamp( timestamp );
 		html += '</td></tr>';
 
-		MediaWikiChat.addGeneralMessage( html, timestamp );
+		var post = true;
+
+		$( '.mwchat-item-timestamp.pretty' ).each( function( index, value ) {
+			if ( $( value ).attr( 'data-timestamp' ) == timestamp ) {
+				post = false;
+			}
+		} );
+
+		if ( post ) {
+			var elem = $( html ).appendTo( $( '#mwchat-table' ) );
+
+			elem.hover( function() {
+				elem.find( '.pretty' ).css( 'visibility', 'hidden' );
+				elem.find( '.real' ).show();
+			}, function() {
+				elem.find( '.real' ).hide();
+				elem.find( '.pretty' ).css( 'visibility', 'visible' );
+			} );
+
+			elem.find( 'a' ).attr( 'target', '_blank' );
+		}
 	},
 
 	addMessage: function( userId, message, timestamp ) {
@@ -336,10 +356,6 @@ var MediaWikiChat = {
 		html += MediaWikiChat.htmlTimestamp( timestamp );
 		html += '</td></tr>';
 
-		MediaWikiChat.addGeneralMessage( html, timestamp );
-	},
-
-	addGeneralMessage: function( html, timestamp ) {
 		var post = true;
 
 		$( '.mwchat-item-timestamp.pretty' ).each( function( index, value ) {
@@ -361,6 +377,7 @@ var MediaWikiChat = {
 
 			elem.find( 'a' ).attr( 'target', '_blank' );
 		}
+
 	},
 
 	getColourFromUsername: function( name ) {
