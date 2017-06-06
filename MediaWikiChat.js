@@ -361,7 +361,7 @@ var MediaWikiChat = {
 
 			elem.find( 'a' ).attr( 'target', '_blank' );
 		}
-	},
+        },
 
 	getColourFromUsername: function( name ) {
 		name = name + 'abc'; // at least 4 digits
