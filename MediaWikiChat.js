@@ -278,6 +278,10 @@ var MediaWikiChat = {
 	},
 
 	addSystemMessage: function( text, timestamp ) {
+		// stop processing the message if it's a duplicate
+		if ( MediaWikiChat.messageIsDuplicate( timestamp ) ) {
+			return;
+		}
 		var html = '<tr class="mwchat-message system mwchat-parent">'; // mwchat-parent so that sending a system message resets the parent/child system
 		html += '<td colspan="3" class="mwchat-item-messagecell"><span class="mwchat-item-message">';
 		html += text;
@@ -288,7 +292,23 @@ var MediaWikiChat = {
 		MediaWikiChat.addGeneralMessage( html, timestamp );
 	},
 
+	messageIsDuplicate: function( timestamp ) {
+		// note message is only considered duplicate if it has the same timestamp as another,
+		//regardless of who posted that other message
+		$( '.mwchat-item-timestamp.pretty' ).each( function( index, value ) {
+			if ( $( value ).attr( 'data-timestamp' ) == timestamp ) {
+				return true;
+			}
+		} );
+		return false;
+	},
+
 	addMessage: function( userId, message, timestamp ) {
+		// stop processing the message if it's a duplicate
+		if ( MediaWikiChat.messageIsDuplicate( timestamp ) ) {
+			return;
+		}
+
 		var fromUser = MediaWikiChat.userData[userId];
 		var currentUser = MediaWikiChat.userData[mw.config.get( 'wgUserId' )]
 
@@ -307,13 +327,14 @@ var MediaWikiChat = {
 		}
 		var messages = $( '#mwchat-table tr.mwchat-parent' );
 		var lastParent = $( messages[messages.length - 1] );
+		var html = '';
 
 		if ( lastParent.attr( 'data-username' ) == fromUser.name ) {
 			lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan', Number( lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan' ) ) + 1 ); // increment the rowspan
 
-			var html = '<tr data-username="' + fromUser.name + '" class="mwchat-message">';
+			html = '<tr data-username="' + fromUser.name + '" class="mwchat-message">';
 		} else {
-			var html = '<tr data-username="' + fromUser.name + '" class="mwchat-message mwchat-parent">';
+			html = '<tr data-username="' + fromUser.name + '" class="mwchat-message mwchat-parent">';
 
 			html += '<td rowspan=1 class="mwchat-item-user mwchat-rowspan">';
 			if ( mw.config.get( 'wgChatLinkUsernames' ) ) {
@@ -340,27 +361,18 @@ var MediaWikiChat = {
 	},
 
 	addGeneralMessage: function( html, timestamp ) {
-		var post = true;
+		// assumes the message isn't a duplicate (already checked in addMessage and addSystemMessage)
+		var elem = $( html ).appendTo( $( '#mwchat-table' ) );
 
-		$( '.mwchat-item-timestamp.pretty' ).each( function( index, value ) {
-			if ( $( value ).attr( 'data-timestamp' ) == timestamp ) {
-				post = false;
-			}
+		elem.hover( function() {
+			elem.find( '.pretty' ).css( 'visibility', 'hidden' );
+			elem.find( '.real' ).show();
+		}, function() {
+			elem.find( '.real' ).hide();
+			elem.find( '.pretty' ).css( 'visibility', 'visible' );
 		} );
 
-		if ( post ) {
-			var elem = $( html ).appendTo( $( '#mwchat-table' ) );
-
-			elem.hover( function() {
-				elem.find( '.pretty' ).css( 'visibility', 'hidden' );
-				elem.find( '.real' ).show();
-			}, function() {
-				elem.find( '.real' ).hide();
-				elem.find( '.pretty' ).css( 'visibility', 'visible' );
-			} );
-
-			elem.find( 'a' ).attr( 'target', '_blank' );
-		}
+		elem.find( 'a' ).attr( 'target', '_blank' );
 	},
 
 	getColourFromUsername: function( name ) {
