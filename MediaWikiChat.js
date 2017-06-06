@@ -309,7 +309,6 @@ var MediaWikiChat = {
 		var lastParent = $( messages[messages.length - 1] );
 
 		if ( lastParent.attr( 'data-username' ) == fromUser.name ) {
-			lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan', Number( lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan' ) ) + 1 ); // increment the rowspan
 
 			var html = '<tr data-username="' + fromUser.name + '" class="mwchat-message">';
 		} else {
@@ -361,7 +360,12 @@ var MediaWikiChat = {
 
 			elem.find( 'a' ).attr( 'target', '_blank' );
 		}
-	},
+
+		var messages = $( '#mwchat-table tr.mwchat-parent' );
+		var lastParent = $( messages[messages.length - 1] );
+		lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan', Number( lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan' ) ) + 1 ); // increment the rowspan
+
+        },
 
 	getColourFromUsername: function( name ) {
 		name = name + 'abc'; // at least 4 digits
