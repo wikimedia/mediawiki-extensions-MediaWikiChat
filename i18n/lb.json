@@ -35,7 +35,9 @@
 	"tog-chat-notify-pm": "Eng Notifikatioun weise wann een e private Message kritt (Chrome & Firefox)",
 	"tog-chat-notify-message": "Eng Notifikatioun weise wann een en normale Message kritt (Chrome & Firefox)",
 	"chat-idle-hours": "{{GENDER:$2Dëse Benotzer}} ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
+	"apihelp-chatkick-summary": "E Bemnotzr aus dem Chat erausgeheien",
 	"apihelp-chatsendpm-description": "Engem Benotzer e private Message schécken",
+	"apihelp-chatsendpm-summary": "Engem Benotzer e private Message schécken",
 	"chat-message-from": "Message  {{GENDER:$2|vum}} $1",
 	"chat-private-message-from": "Private Message {{GENDER:$2|vum}} $1",
 	"chat-mentioned-by": "Ernimmt {{GENDER:$2|vum}} $1"

@@ -68,6 +68,8 @@
 	"action-chat": "chattare con altri utenti",
 	"action-modchat": "moderare la chat",
 	"action-viewpmlog": "vedere il registro dei messaggi delle chat private",
+	"apihelp-chatsend-summary": "Invia un messaggio pubblico alla chat",
+	"apihelp-chatsendpm-summary": "Invia un messaggio privato a un utente",
 	"chat-message-from": "Messaggio {{GENDER:$2|da}} $1",
 	"chat-private-message-from": "Messaggio privato {{GENDER:$2|da}} $1"
 }
