@@ -5,5 +5,6 @@
 		]
 	},
 	"chat-a-minute-ago": "pirms minūtes",
-	"chat-yesterday": "vakar"
+	"chat-yesterday": "vakar",
+	"apihelp-chatkick-summary": "Izmest dalībnieku no tērzētavas"
 }
