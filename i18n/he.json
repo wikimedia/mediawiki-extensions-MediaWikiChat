@@ -7,7 +7,8 @@
 			"איתן96",
 			"תומר ט",
 			"Guycn2",
-			"Macofe"
+			"Macofe",
+			"המקיסט"
 		]
 	},
 	"chat": "צ'אט",
@@ -37,7 +38,9 @@
 	"action-chat": "לשוחח עם משתמשים בצ'אט",
 	"action-modchat": "למתן צ'אטים",
 	"action-viewpmlog": "לצפות ביומן השיחות בצ'אט הפרטי",
+	"apihelp-chatkick-summary": "הוצא משתמש משיחה",
 	"apihelp-chatsend-description": "שליחת הודעה ציבורית בצ'אט",
 	"apihelp-chatsendpm-description": "שליחת הודעה פרטית למשתמש",
+	"apihelp-chatsendpm-summary": "שלח הודעה פרטית למשתמש",
 	"apihelp-chatsendpm-param-message": "ההודעה לשליחה"
 }
