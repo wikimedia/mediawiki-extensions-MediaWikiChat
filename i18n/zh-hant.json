@@ -5,7 +5,8 @@
 			"Liuxinyu970226",
 			"Cwlin0416",
 			"LNDDYL",
-			"Macofe"
+			"Macofe",
+			"Corainn"
 		]
 	},
 	"chat": "聊天",
@@ -75,6 +76,7 @@
 	"apihelp-chatgetnew-param-focussed": "聊天的貢籤是否正在開啟/使用？",
 	"apihelp-chatgetnew-example-1": "取得聊天的新訊息。",
 	"apihelp-chatkick-description": "自聊天踢除使用者",
+	"apihelp-chatkick-summary": "從聊天中踢除一位使用者",
 	"apihelp-chatkick-param-id": "要踢除的使用者 ID",
 	"apihelp-chatkick-example-1": "踢除 ID 為 1 的使用者",
 	"apihelp-chatsend-description": "傳送公開訊息至聊天",
