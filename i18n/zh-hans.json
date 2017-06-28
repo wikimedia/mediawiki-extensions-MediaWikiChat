@@ -23,7 +23,7 @@
 	"chat-block": "封禁",
 	"chat-autoscroll": "自动成卷",
 	"chat-jump-to-latest": "跳转至最新",
-	"chat-youve-been-kicked": "你已经被$1{{GENDER:$2|踢出}}。刷新页面以聊天。",
+	"chat-youve-been-kicked": "您已经被$1{{GENDER:$2|踢出}}。刷新页面以聊天。",
 	"chat-you-kicked": "您{{GENDER:$2|踢了}}$1。",
 	"chat-kicked": "$1{{GENDER:$3|{{GENDER:$4|踢了}}}}$2。",
 	"chat-youve-been-blocked": "您已经被$1{{GENDER:$2|封禁}}。",
