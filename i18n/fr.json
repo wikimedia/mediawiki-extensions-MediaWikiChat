@@ -88,6 +88,7 @@
 	"apihelp-chatkick-param-id": "L’ID de l’utilisateur à bannir",
 	"apihelp-chatkick-example-1": "Bannir l’utilisateur avec l’ID de 1",
 	"apihelp-chatsend-description": "Envoyer un message public à la discussion",
+	"apihelp-chatsend-summary": "Envoyer un message public à la discussion",
 	"apihelp-chatsend-param-message": "Le message à envoyer",
 	"apihelp-chatsend-example-1": "Envoyer \"Hello World!\" au clavardage",
 	"apihelp-chatsendpm-description": "Envoyer un message privé à un utilisateur",
