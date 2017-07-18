@@ -3,7 +3,8 @@
 		"authors": [
 			"Rancher",
 			"Milicevic01",
-			"Obsuser"
+			"Obsuser",
+			"Сербијана"
 		]
 	},
 	"chat": "Ћаскање",
@@ -13,7 +14,7 @@
 	"chat-today": "данас",
 	"chat-yesterday": "јуче",
 	"chat-block": "блокирај",
-	"chat-change-preferences": "Промени поставке ћаскања",
+	"chat-change-preferences": "Промени поставке ћаскања (пун екран, звукови, обавештења)",
 	"tog-chat-ping-mention": "Репродукуј звук када вас неко помене",
 	"tog-chat-ping-pm": "Репродукуј звук по доспећу приватних порука",
 	"tog-chat-ping-message": "Репродукуј звук по доспећу нормалних порука",
