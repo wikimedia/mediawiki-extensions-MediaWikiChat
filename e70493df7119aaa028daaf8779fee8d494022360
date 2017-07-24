@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e71af52_0722f750",
+        "filename": "extension.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2017-07-24T01:44:52Z",
+      "side": 1,
+      "message": "I can\u0027t think of any other module name that starts with \"wiki.\". Probably \"ext.mediawikichat.site\" or something (\"site\" \u003d\u003d \"MediaWiki:Common.js\" in RL terminology)\n\nAlso instead of defining a PHP class, you can actually list the pages in the module definition. So if you set class \u003d \"ResourceLoaderWikiModule\", scripts: [\"MediaWiki:Chat.js\"], styles: [\"MediaWiki:Chat.css\"] it should work fine.\n\nAnd now that I\u0027ve said that, you should really have separate modules for the JS and the CSS, so that the CSS is still loaded for users with JS disabled. So \"ext.mediawikichat.site\" is JS, and \"ext.mediawikichat.site.styles\" is pure CSS.",
+      "range": {
+        "startLine": 108,
+        "startChar": 3,
+        "endLine": 108,
+        "endChar": 27
+      },
+      "revId": "e70493df7119aaa028daaf8779fee8d494022360",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
