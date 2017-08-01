@@ -4,6 +4,10 @@
 			"Joetaras"
 		]
 	},
+	"chat": "Ciat",
+	"chat-type-your-message": "Scrive 'u messàgge tune",
+	"chat-type-your-private-message": "Scrive 'u messàgge private tune",
+	"chat-no-other-users": "Non ge stonne otre utinde jndr'à ciat",
 	"chat-today": "osce",
 	"chat-yesterday": "aijere",
 	"chat-you-blocked": "Tu è state {{GENDER:$2|bloccate}} $1.",
