@@ -101,5 +101,7 @@
 	"apihelp-chatsendpm-example-1": "ID 5의 사용자에게 \"Hello World!\" 보내기",
 	"chat-message-from": "$1{{GENDER:$2|에게서 온}} 메시지입니다",
 	"chat-private-message-from": "$1{{GENDER:$2|에게서 온}} 비공개 메시지입니다.",
-	"chat-mentioned-by": "$1{{GENDER:$2|이}} 당신을 언급하였습니다"
+	"chat-mentioned-by": "$1{{GENDER:$2|이}} 당신을 언급하였습니다",
+	"chat.css": "/* 여기에 로드되는 CSS는 Special:Chat에만 영향을 줍니다 */",
+	"chat.js": "/* 여기의 자바스크립트는 Special:Chat를 사용하는 사용자에게 적용됩니다 */"
 }

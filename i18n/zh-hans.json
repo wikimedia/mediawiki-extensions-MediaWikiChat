@@ -92,5 +92,7 @@
 	"apihelp-chatsendpm-example-1": "发送“Hello World!”至ID为5的用户",
 	"chat-message-from": "{{GENDER:$2|来自}}$1的消息",
 	"chat-private-message-from": "{{GENDER:$2|来自}}$1的私信",
-	"chat-mentioned-by": "{{GENDER:$2|被}}$1提及"
+	"chat-mentioned-by": "{{GENDER:$2|被}}$1提及",
+	"chat.css": "/* 这里加载的CSS将只影响Special:Chat */",
+	"chat.js": "/* 这里的任何JavaScript将为使用Special:Chat的用户加载 */"
 }

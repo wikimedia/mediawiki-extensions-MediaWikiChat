@@ -3,7 +3,8 @@
 		"authors": [
 			"Gagnabil",
 			"Tarawneh",
-			"Khaled"
+			"Khaled",
+			"ديفيد"
 		]
 	},
 	"chat": "دردشة",
@@ -20,7 +21,7 @@
 	"chat-yesterday": "أمس",
 	"chat-kick": "طرد",
 	"chat-block": "منع",
-	"chat-change-preferences": "تعديل تفضيلاتك الخاصة بالدردشة (شاشة كاملة والاصوات)",
+	"chat-change-preferences": "تعديل تفضيلاتك الخاصة بالدردشة (ملء الشاشة والأصوات والإشعارات)",
 	"chat-sidebar-join": "الانضمام للدردشة",
 	"log-name-chat": "سجل الدردشة",
 	"log-show-hide-chat": "$1 سجل محادثة",

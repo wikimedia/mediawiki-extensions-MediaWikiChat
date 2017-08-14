@@ -91,5 +91,7 @@
 	"apihelp-chatsendpm-example-1": "Испрати „Здраво на сите“ на корисник со назнака 5",
 	"chat-message-from": "Порака {{GENDER:$2|од}} $1",
 	"chat-private-message-from": "Лична порака {{GENDER:$2|од}} $1",
-	"chat-mentioned-by": "Споменат  {{GENDER:$2|од}} $1"
+	"chat-mentioned-by": "Споменат  {{GENDER:$2|од}} $1",
+	"chat.css": "/* тука поставениот CSS ќе се применува само врз Special:Chat */",
+	"chat.js": "/* Тука поставениот JavaScript ќе им се вчитува на корисниците на Special:Chat */"
 }

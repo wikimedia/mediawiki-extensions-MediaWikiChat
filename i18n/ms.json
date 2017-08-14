@@ -17,5 +17,6 @@
 	"chat-left": "$1 telah {{GENDER:$2|keluar}} dari ruang sembang.",
 	"chat-private-message": "klik untuk pesanan peribadi",
 	"chat-user-is-moderator": "Pengguna ini {{GENDER:$1|ialah}} seorang moderator",
-	"chat-you-are-moderator": "Anda {{GENDER:$1|ialah}} seorang moderator"
+	"chat-you-are-moderator": "Anda {{GENDER:$1|ialah}} seorang moderator",
+	"chat.css": "/* CSS yang dimuatkan di sini akan mempengaruhi Khas:Sembang sahaja */"
 }

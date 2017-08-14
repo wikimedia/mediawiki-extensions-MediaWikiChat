@@ -92,5 +92,7 @@
 	"apihelp-chatsendpm-example-1": "Sendet „Hallo Welt!“ an den Benutzer mit der Kennung 5",
 	"chat-message-from": "Nachricht {{GENDER:$2|von}} $1",
 	"chat-private-message-from": "Private Nachricht {{GENDER:$2|von}} $1",
-	"chat-mentioned-by": "Erwähnt {{GENDER:$2|von}} $1"
+	"chat-mentioned-by": "Erwähnt {{GENDER:$2|von}} $1",
+	"chat.css": "/* CSS an dieser Stelle hat nur Einfluss auf Special:Chat */",
+	"chat.js": "/* JavaScript an dieser Stelle wird für Benutzer geladen, die Special:Chat verwenden */"
 }
