@@ -96,5 +96,7 @@
 	"apihelp-chatsendpm-example-1": "Enviar \"Hello World!\" ao utilizador com o identificador 5",
 	"chat-message-from": "Mensagem {{GENDER:$2|de}} $1",
 	"chat-private-message-from": "Mensagem privada {{GENDER:$2|de}} $1",
-	"chat-mentioned-by": "Mencionado {{GENDER:$2|por}} $1"
+	"chat-mentioned-by": "Mencionado {{GENDER:$2|por}} $1",
+	"chat.css": "/* Código CSS carregado aqui só afetará Special:Chat */",
+	"chat.js": "/* Código Javascript colocado aqui será carregado para utilizadores que usam Special:Chat */"
 }
