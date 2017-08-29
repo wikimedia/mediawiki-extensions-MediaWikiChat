@@ -8,7 +8,8 @@
 			"Orikrin1998",
 			"Weft",
 			"Wladek92",
-			"Urhixidur"
+			"Urhixidur",
+			"Epok"
 		]
 	},
 	"chat": "Clavardage",
@@ -17,7 +18,7 @@
 	"chat-type-your-private-message": "Tapez votre message privé",
 	"chat-no-other-users": "Aucun autre utilisateur dans le clavardoir",
 	"chat-blocked-from-chat": "Vous avez été bloqué de ce clavardoir.",
-	"chat-not-allowed": "Vous n’êtes pas autorisé à clavarder, essayez d’abord de vous connecter",
+	"chat-not-allowed": "Vous n’êtes pas autorisé à discuter, essayez d’abord de vous connecter.",
 	"chat-sounds": "Jouer des sons",
 	"chat-flood": "Vous ne pouvez pas envoyer de messages aussi rapidement, veuillez attendre avant d’en envoyer davantage.",
 	"chat-too-long": "Ce message était trop long, veuillez en envoyer un plus court.",
@@ -28,7 +29,7 @@
 	"chat-block": "bloquer",
 	"chat-autoscroll": "défilement automatique",
 	"chat-jump-to-latest": "sauter au dernier",
-	"chat-youve-been-kicked": "Vous avez été {{GENDER:$2|éjecté|éjectée}} par $1. Rafraîchissez la page pour clavarder",
+	"chat-youve-been-kicked": "Vous avez été {{GENDER:$2|éjecté|éjectée}} par $1. Rafraîchissez la page pour discuter.",
 	"chat-you-kicked": "Vous {{GENDER:$2|avez éjecté}} $1",
 	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|a éjecté}}}} $2.",
 	"chat-youve-been-blocked": "Vous avez été {{GENDER:$2|bloqué|bloquée}} par $1.",
@@ -76,7 +77,7 @@
 	"chat-idle-minutes": "{{GENDER:$2|Cet utilisateur est inactif|Cette utilisatrice est inactive}} depuis {{PLURAL:$1|une minute|$1 minutes}}",
 	"chat-idle-hours": "{{GENDER:$2|Cet utilisateur est inactif|Cette utilisatrice est inactive}} depuis {{PLURAL:$1|une heure|$1 heures}}",
 	"chat-idle-more": "{{GENDER:$1|Cet utilisateur est inactif|Cette utilisatrice est inactive}} depuis plus de 24 heures",
-	"action-chat": "clavarder avec les autres utilisateurs",
+	"action-chat": "discuter avec les autres utilisateurs",
 	"action-modchat": "modérer la discussion",
 	"action-viewpmlog": "afficher le journal des messages de la discussion privée",
 	"apihelp-chatgetnew-description": "Recevez de nouveaux messages dans le clavardoir.",
