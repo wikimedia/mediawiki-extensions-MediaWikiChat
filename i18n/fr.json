@@ -29,7 +29,7 @@
 	"chat-block": "bloquer",
 	"chat-autoscroll": "défilement automatique",
 	"chat-jump-to-latest": "sauter au dernier",
-	"chat-youve-been-kicked": "Vous avez été {{GENDER:$2|éjecté|éjectée}} par $1. Rafraîchissez la page pour discuter.",
+	"chat-youve-been-kicked": "Vous avez été éjecté{{GENDER:$2||e}} par $1. Rafraîchissez la page pour discuter.",
 	"chat-you-kicked": "Vous {{GENDER:$2|avez éjecté}} $1",
 	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|a éjecté}}}} $2.",
 	"chat-youve-been-blocked": "Vous avez été {{GENDER:$2|bloqué|bloquée}} par $1.",
