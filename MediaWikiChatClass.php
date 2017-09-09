@@ -75,7 +75,7 @@ class MediaWikiChat {
 		global $wgUser, $wgChatOnlineTimeout;
 
 		if ( $wgUser->isAllowed( 'chat' ) ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 
 			$now = MediaWikiChat::now();
 			$timestamp = $now - $wgChatOnlineTimeout;
@@ -111,7 +111,7 @@ class MediaWikiChat {
 	static function amIOnline() {
 		global $wgUser, $wgChatOnlineTimeout;
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$timestamp = MediaWikiChat::now() - $wgChatOnlineTimeout;
 
@@ -134,7 +134,7 @@ class MediaWikiChat {
 	 * @return Integer: polling interval to use (how long between each poll)
 	 */
 	static function getInterval() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$maxInterval = 30 * 1000;
 		$minInterval = 3 * 1000;
 
@@ -274,7 +274,7 @@ class MediaWikiChat {
 	 * Prevents speeds slowing down due to massive IM tables
 	 */
 	static function deleteEntryIfNeeded() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$field = $dbr->selectField(
 			'chat',
 			'chat_timestamp',
