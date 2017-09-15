@@ -94,5 +94,7 @@
 	"apihelp-chatsendpm-example-1": "Надіслати «Hello World!» користувачу з ідентифікатором 5",
 	"chat-message-from": "Повідомлення {{GENDER:$2|від}} $1",
 	"chat-private-message-from": "Приватне повідомлення {{GENDER:$2|від}} $1",
-	"chat-mentioned-by": "{{GENDER:$2|Згадав|Згадала}} $1"
+	"chat-mentioned-by": "{{GENDER:$2|Згадав|Згадала}} $1",
+	"chat.css": "/* Завантажений сюди CSS впливатиме лише на Special:Chat */",
+	"chat.js": "/* Будь-який JavaScript, поміщений сюди, завантажуватиметься для користувачів, які використовують Special:Chat */"
 }
