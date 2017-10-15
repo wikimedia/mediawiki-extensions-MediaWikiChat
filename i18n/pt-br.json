@@ -5,7 +5,8 @@
 			"Rodrigo codignoli",
 			"Macofe",
 			"Cristofer Alves",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"chat": "Bate-papo",
@@ -76,19 +77,25 @@
 	"action-modchat": "moderar o chat",
 	"action-viewpmlog": "ver o log de mensagens privadas do chat",
 	"apihelp-chatgetnew-description": "Receba novas mensagens no chat.",
+	"apihelp-chatgetnew-summary": "Obter as mensagens novas da conversa.",
 	"apihelp-chatgetnew-param-focussed": "a aba de chat está aberta/focada agora?",
 	"apihelp-chatgetnew-example-1": "Receba novas mensagens no chat.",
 	"apihelp-chatkick-description": "Expulsar um usuário do chat",
+	"apihelp-chatkick-summary": "Chute um usuário do bate-papo",
 	"apihelp-chatkick-param-id": "A ID do usuário a ser expulso",
 	"apihelp-chatkick-example-1": "Expulsar usuário com ID de 1",
 	"apihelp-chatsend-description": "Envia uma mensagem pública para o chat",
+	"apihelp-chatsend-summary": "Enviar uma mensagem pública para a conversa",
 	"apihelp-chatsend-param-message": "A mensagem a ser enviada",
 	"apihelp-chatsend-example-1": "Envia \"Olá Mundo!\" para o chat",
 	"apihelp-chatsendpm-description": "Envia uma mensagem privada para um usuário",
+	"apihelp-chatsendpm-summary": "Enviar uma mensagem privada para um usuário",
 	"apihelp-chatsendpm-param-id": "A ID do usuário ao qual enviar a mensagem privada",
 	"apihelp-chatsendpm-param-message": "A mensagem a ser enviada",
 	"apihelp-chatsendpm-example-1": "Envia \"Olá Mundo!\" para o usuário com ID 5",
 	"chat-message-from": "Mensagem {{GENDER:$2|de|da}} $1",
 	"chat-private-message-from": "Mensagem privada {{GENDER:$2|de|da}} $1",
-	"chat-mentioned-by": "Mencionado {{GENDER:$2|por}} $1"
+	"chat-mentioned-by": "Mencionado {{GENDER:$2|por}} $1",
+	"chat.css": "/* Código CSS carregado aqui só afetará Special:Chat */",
+	"chat.js": "/* Código Javascript colocado aqui será carregado para usuários que usam Special:Chat */"
 }
