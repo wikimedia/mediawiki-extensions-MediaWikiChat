@@ -32,7 +32,7 @@
 	"chat-kick": "추방",
 	"chat-block": "차단",
 	"chat-autoscroll": "자동 스크롤",
-	"chat-jump-to-latest": "최근 항목으로 이동",
+	"chat-jump-to-latest": "마지막으로 이동",
 	"chat-youve-been-kicked": "$1님이 당신을 {{GENDER:$2|추방}}했습니다. 챗하려면 페이지를 새로 고치세요.",
 	"chat-you-kicked": "$1님을 {{GENDER:$2|추방했습니다}}.",
 	"chat-kicked": "$1님이 $2님을 {{GENDER:$3|{{GENDER:$4|추방했습니다}}}}.",
