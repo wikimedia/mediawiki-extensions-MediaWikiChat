@@ -93,5 +93,7 @@
 	"apihelp-chatsendpm-example-1": "Skicka \"Hello World!\" till användaren med ID 5",
 	"chat-message-from": "Meddelande {{GENDER:$2|från}} $1",
 	"chat-private-message-from": "Privat meddelande {{GENDER:$2|från}} $1",
-	"chat-mentioned-by": "Nämndes av {{GENDER:$2|$1}}"
+	"chat-mentioned-by": "Nämndes av {{GENDER:$2|$1}}",
+	"chat.css": "/* CSS som läses in här kommer att endast påverka Special:Chat */",
+	"chat.js": "/* All JavaScript här kommer att läsas in för användare som använder Special:Chat */"
 }
