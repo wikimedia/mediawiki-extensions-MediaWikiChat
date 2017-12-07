@@ -40,7 +40,7 @@
 	"chat-joined": "$1 a {{GENDER:$2|rejoint}} le clavardoir",
 	"chat-left": "$1 a {{GENDER:$2|quitté}} le clavardoir",
 	"chat-private-message": "cliquer pour un message privé",
-	"chat-user-is-moderator": "Cet utilisateur {{GENDER:$1|est}} un modérateur",
+	"chat-user-is-moderator": "Cet{{GENDER:$1||te}} utilisat{{GENDER:$1|eur|rice}} est un{{GENDER:$1||e}} modérat{{GENDER:$1|eur|rice}}",
 	"chat-you-are-moderator": "Vous {{GENDER:$1|êtes}} un modérateur",
 	"chat-topic": "Bienvenue sur le clavardoir de {{SITENAME}}. ([[Special:Log/chat|journal de clavardage]])",
 	"chat-change-preferences": "Modifier vos préférences de clavardage (plein écran, sons et notifications)",
