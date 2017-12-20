@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_c8138a04",
+        "filename": "composer.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 24
+      },
+      "writtenOn": "2017-12-20T23:21:00Z",
+      "side": 1,
+      "message": "You are redefining the key \"test\" which has unknown behavior in JSON dependending on the implementation.\n\nMost probably you meant \"fix\" so one can use:\n\n composer fix\n\nWhich will then run:\n\n minus-x.php fix .\n\n\nSame issue on https://gerrit.wikimedia.org/r/#/c/399535/\n\n\nNote you can run those commands if you install composer https://getcomposer.org/ and then:\n\n composer install\n composer test",
+      "revId": "242fb1a259acd67a99efb928eb64518fd74a2055",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
