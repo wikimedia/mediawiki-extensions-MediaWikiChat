@@ -85,8 +85,7 @@
 	},
 	"ResourceModules": {
 		"ext.mediawikichat.css": {
-			"styles": "MediaWikiChat.css",
-			"position": "top"
+			"styles": "MediaWikiChat.css"
 		},
 		"ext.mediawikichat.js": {
 			"scripts": "MediaWikiChat.js",
@@ -101,8 +100,7 @@
 				"chat-idle-minutes", "chat-idle-hours", "chat-idle-more", "chat-today", "chat-message-from",
 				"chat-private-message-from", "chat-mentioned-by"
 			],
-			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ],
-			"position": "bottom"
+			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ]
 		},
 		"ext.mediawikichat.site": {
 			"class": "ResourceLoaderWikiModule",
