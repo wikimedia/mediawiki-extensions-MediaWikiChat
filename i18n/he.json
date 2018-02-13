@@ -8,7 +8,8 @@
 			"תומר ט",
 			"Guycn2",
 			"Macofe",
-			"המקיסט"
+			"המקיסט",
+			"Amire80"
 		]
 	},
 	"chat": "צ'אט",
@@ -41,6 +42,6 @@
 	"apihelp-chatkick-summary": "הוצא משתמש משיחה",
 	"apihelp-chatsend-description": "שליחת הודעה ציבורית בצ'אט",
 	"apihelp-chatsendpm-description": "שליחת הודעה פרטית למשתמש",
-	"apihelp-chatsendpm-summary": "שלח הודעה פרטית למשתמש",
+	"apihelp-chatsendpm-summary": "שליחת הודעה פרטית למשתמש",
 	"apihelp-chatsendpm-param-message": "ההודעה לשליחה"
 }
