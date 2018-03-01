@@ -1,12 +1,30 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01"
+			"Milicevic01",
+			"Zoranzoki21"
 		]
 	},
 	"chat": "Ćaskanje",
-	"chat-type-your-message": "Otkucajte vašu poruku",
+	"chat-desc": "Pruža lagan klijent i server za ćaskanje",
+	"chat-type-your-message": "Unesite vašu poruku",
+	"chat-type-your-private-message": "Unesite vašu privatnu poruku",
+	"chat-sounds": "Репродукуј звукове",
+	"chat-flood": "Ne možete da šaljete poruke toliko brzo. Sačekajte pa pošaljite drugu.",
+	"chat-too-long": "Ova poruka je mnogo dugačka, molimo Vas pošaljite kraću poruku.",
 	"chat-today": "danas",
 	"chat-yesterday": "juče",
-	"chat-block": "blokiraj"
+	"chat-block": "blokiraj",
+	"chat-change-preferences": "Promeni podešavanja ćaskanja (pun ekran, zvukovi, obaveštenja)",
+	"chat-sidebar-online": "Trenutno aktivni korisnici u časkanju",
+	"chat-sidebar-join": "Pridruži se ćaskanju",
+	"logentry-chat-send": "$1: $4",
+	"tog-chat-ping-mention": "Reprodukuj zvuk kada vas neko pomene",
+	"tog-chat-ping-pm": "Reprodukuj zvuk po dospeću privatnih poruka",
+	"tog-chat-ping-message": "Reprodukuj zvuk po dospeću normalnih poruka",
+	"tog-chat-ping-joinleave": "Reprodukuj zvuk kada se korisnici pridruže ili korisnici izađu iz ćaskanja",
+	"prefs-chat": "Ćaskanje",
+	"tog-chat-notify-pm": "Prikaz obaveštenja o primanju privatnih poruka (Kroum i Fajerfoks samo)",
+	"tog-chat-notify-message": "Prikaz obaveštenja o primanju običnih poruka (Kroum i Fajerfoks samo)",
+	"tog-chat-notify-joinleave": "Prikaz obaveštenja kada korisnici uđu ili izađu iz ćaskanja (Kroum i Fajerfoks samo)"
 }
