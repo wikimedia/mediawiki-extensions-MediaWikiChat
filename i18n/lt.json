@@ -3,7 +3,8 @@
 		"authors": [
 			"Mantak111",
 			"Aswanas",
-			"Eitvys200"
+			"Eitvys200",
+			"Manvydasz"
 		]
 	},
 	"chat-sounds": "Groti garsus",
@@ -16,7 +17,7 @@
 	"tog-chat-notify-pm": "Rodyti pranešimą gavus privačias žinutes (tik \"Chrome\" ir \"Firefox\")",
 	"tog-chat-notify-message": "Rodyti pranešimą gavus įprastas žinutes (tik \"Chrome\" ir \"Firefox\")",
 	"tog-chat-notify-joinleave": "Rodyti pranešimą, kai vartotojai prisijungia arba baigia pokalbį (tik \"Chrome\" ir \"Firefox\")",
-	"chat-message-from": "Žinutė nuo $1",
-	"chat-private-message-from": "Privati žinutė iš $1",
-	"chat-mentioned-by": "Paminėjo $1"
+	"chat-message-from": "Žinutė {{GENDER:$2|nuo}} $1",
+	"chat-private-message-from": "Privati žinutė {{GENDER:$2|nuo}} $1",
+	"chat-mentioned-by": "{{GENDER:$2|Paminėjo}} $1"
 }
