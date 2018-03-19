@@ -4,7 +4,8 @@
 			"Chrumps",
 			"Jacenty359",
 			"Vuh",
-			"Mateon1"
+			"Mateon1",
+			"Railfail536"
 		]
 	},
 	"chat": "Czat",
@@ -18,6 +19,7 @@
 	"chat-a-minute-ago": "minutę temu",
 	"chat-today": "dzisiaj",
 	"chat-yesterday": "wczoraj",
+	"chat-kick": "wyrzuć",
 	"chat-block": "zablokuj",
 	"chat-autoscroll": "autoprzewijanie",
 	"chat-youve-been-kicked": "{{GENDER:$2|Zostałeś wyrzucony|Zostałaś wyrzucona}} przez $1. Odśwież stronę czatu.",
@@ -38,19 +40,29 @@
 	"chat-sidebar-online": "Użytkownicy online na czacie",
 	"chat-sidebar-join": "Dołącz do czatu",
 	"log-name-chat": "Rejestr czatu",
+	"logentry-chat-kick": "$1 {{GENDER:$1|wyrzucił|wyrzuciła}} $4",
 	"group-chatmod": "Moderatorzy czatu",
 	"group-chatmod-member": "{{GENDER:$1|moderator czatu|moderatorka czatu}}",
 	"grouppage-chatmod": "{{ns:project}}:Moderatorzy czatu",
+	"group-blockedfromchat": "Użytkownicy zablokowani na czacie",
 	"right-modchat": "Użyj Specjalna:Chat",
 	"tog-chat-fullscreen": "Używaj czatu w trybie pełnego ekranu (funkcja eksperymentalna)",
 	"tog-chat-ping-mention": "Odtwórz dźwięk kiedy zostaniesz wspomniany",
 	"tog-chat-ping-pm": "Odtwórz dźwięk kiedy otrzymasz prywatną wiadomość",
 	"tog-chat-ping-message": "Odtwórz dźwięk kiedy otrzymasz wiadomość",
+	"tog-chat-ping-joinleave": "Odtwarzaj dźwięk, gdy użytkownicy dołączają lub opuszczają czat",
 	"prefs-chat": "Czat",
+	"tog-chat-notify-mention": "Pokazuj powiadomienie o otrzymywanych wzmiankach (tylko Chrome i Firefox)",
+	"tog-chat-notify-pm": "Pokazuj powiadomienie o otrzymywanych wiadomościach prywatnych (tylko Chrome i Firefox)",
+	"tog-chat-notify-message": "Pokazuj powiadomienie o otrzymywaniu normalnych wiadomości (tylko Chrome i Firefox)",
+	"tog-chat-notify-joinleave": "Pokazuj powiadomienie, gdy użytkownicy dołączają lub opuszczają czat",
 	"chat-idle-minutes": "{{GENDER:$2|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od {{PLURAL:$1|minuty|$1 minut}}",
 	"chat-idle-hours": "{{GENDER:$2|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od {{PLURAL:$1|godziny|$1 godzin}}",
 	"chat-idle-more": "{{GENDER:$1|Ten użytkownik jest bezczynny|Ta użytkowniczka jest bezczynna}} od ponad 24 godzin",
 	"apihelp-chatsend-param-message": "Wiadomość do wysłania",
+	"apihelp-chatsendpm-summary": "Wyślij prywatną wiadomość użytkownikowi",
 	"chat-message-from": "Wiadomość {{GENDER:$2|od}} $1",
-	"chat-private-message-from": "Prywatna wiadomość {{GENDER:$2|od}} $1"
+	"chat-private-message-from": "Prywatna wiadomość {{GENDER:$2|od}} $1",
+	"chat.css": "/* Umieszczony tutaj kod CSS zostanie załadowany tylko na stronie Specjalna:Chat */",
+	"chat.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany tylko na stronie Specjalna:Chat */"
 }
