@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ranveig"
+		]
+	},
+	"chat-mentioned-by": "Nemnd {{GENDER:$2|av}} $1"
+}
