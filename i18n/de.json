@@ -6,7 +6,8 @@
 			"Metalhead64",
 			"Tiin",
 			"Purodha",
-			"J. 'mach' wust"
+			"J. 'mach' wust",
+			"ToBeFree"
 		]
 	},
 	"chat": "Chat",
@@ -81,6 +82,7 @@
 	"apihelp-chatgetnew-param-focussed": "ist das Chatfenster im Moment geöffnet/fokussiert?",
 	"apihelp-chatgetnew-example-1": "Ruft neue Nachrichten im Chat ab",
 	"apihelp-chatkick-description": "Wirft einen Benutzer aus dem Chat",
+	"apihelp-chatkick-summary": "Einen Benutzer aus dem Chat werfen",
 	"apihelp-chatkick-param-id": "Die Benutzerkennung für einen Rauswurf",
 	"apihelp-chatkick-example-1": "Wirft den Benutzer mit der Kennung 1 hinaus",
 	"apihelp-chatsend-description": "Sendet eine öffentliche Nachricht in den Chat",
