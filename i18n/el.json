@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Indoril",
-			"Thodoris"
+			"Thodoris",
+			"Nikosgranturismogt"
 		]
 	},
+	"chat": "Συνομιλία",
 	"tog-chat-notify-pm": "Δείχνει μια ειδοποίηση σχετικά με τη λήψη προσωπικών μηνυμάτων (Chrome και Firefox μόνο)",
 	"tog-chat-notify-message": "Δείχνει μια ειδοποίηση σχετικά με τη λήψη κανονικών μηνυμάτων (Chrome και Firefox μόνο)",
 	"action-chat": "συνομιλία με άλλους χρήστες",
