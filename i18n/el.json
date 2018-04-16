@@ -7,9 +7,23 @@
 		]
 	},
 	"chat": "Συνομιλία",
+	"chat-sounds": "Αναπαραγωγή ήχων",
+	"chat-a-minute-ago": "ένα λεπτό χριν",
+	"chat-today": "σήμερα",
+	"chat-yesterday": "Χθες",
+	"chat-jump-to-latest": "πήδηση στα πιο πρόσφατα",
+	"chat-sidebar-online": "Χρήστες εκτός σύνδεσης στη συνομιλία",
+	"chat-sidebar-join": "Γίνετε μέλος της συνομιλίας",
+	"log-name-chat": "Μητρώο συνομιλίας",
+	"log-show-hide-chat": "Μητρώο συνομιλίας $1",
+	"logentry-privatechat-send": "$1 στις $5: $4",
+	"group-chatmod": "Συντονιστές συνομιλίες",
+	"prefs-chat": "Συνομιλία",
 	"tog-chat-notify-pm": "Δείχνει μια ειδοποίηση σχετικά με τη λήψη προσωπικών μηνυμάτων (Chrome και Firefox μόνο)",
 	"tog-chat-notify-message": "Δείχνει μια ειδοποίηση σχετικά με τη λήψη κανονικών μηνυμάτων (Chrome και Firefox μόνο)",
 	"action-chat": "συνομιλία με άλλους χρήστες",
 	"action-modchat": "συντονίστε συνομιλία",
-	"action-viewpmlog": "προβάλετε το αρχείο καταγραφής μηνυμάτων ιδιωτικής συνομιλίας"
+	"action-viewpmlog": "προβάλετε το αρχείο καταγραφής μηνυμάτων ιδιωτικής συνομιλίας",
+	"apihelp-chatsend-param-message": "Το μήνυμα για αποστολή",
+	"apihelp-chatsendpm-param-message": "Το μήνυμα για αποστολή"
 }
