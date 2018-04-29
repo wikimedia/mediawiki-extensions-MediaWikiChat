@@ -1,12 +1,5 @@
 <?php
 /**
- * @file
- */
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die();
-}
-
-/**
  * Main user interface for Special:Chat.
  *
  * @ingroup Templates

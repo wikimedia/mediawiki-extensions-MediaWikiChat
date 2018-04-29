@@ -55,7 +55,7 @@ class MediaWikiChatHooks {
 	 * Hook for update.php
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$dir = __DIR__ . '/sql/';
+		$dir = __DIR__ . '/../sql/';
 
 		$updater->addExtensionTable( 'chat', $dir . 'chat.sql', true );
 		$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );

@@ -12,7 +12,6 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.ParamNameNoMatch"></exclude>
 		<exclude name="MediaWiki.Commenting.FunctionComment.NotPunctuationParam"></exclude>
 		<exclude name="MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords"></exclude>
-		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch"></exclude>
 		<exclude name="MediaWiki.WhiteSpace.OpeningKeywordParenthesis.WrongWhitespaceBeforeParenthesis"></exclude>
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment"></exclude>
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment"></exclude>

@@ -32,8 +32,6 @@ class SpecialChat extends SpecialPage {
 			}
 
 		} else {
-			// Load the GUI (from its own, separate file)
-			include( 'SpecialChat.template.php' );
 			$template = new SpecialChatTemplate;
 
 			// Load modules via ResourceLoader
