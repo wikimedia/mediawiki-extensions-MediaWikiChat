@@ -7,6 +7,9 @@
 		]
 	},
 	"chat": "Συνομιλία",
+	"chat-type-your-message": "Πληκτρολογήστε το μήνυμά σας",
+	"chat-type-your-private-message": "Πληκτρολογήστε το ιδιωτικό μήνυμά σας",
+	"chat-no-other-users": "Δεν υπάρχουν άλλοι χρήστες στη συνομιλία",
 	"chat-sounds": "Αναπαραγωγή ήχων",
 	"chat-a-minute-ago": "ένα λεπτό χριν",
 	"chat-today": "σήμερα",

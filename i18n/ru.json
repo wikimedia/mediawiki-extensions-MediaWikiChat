@@ -92,7 +92,7 @@
 	"apihelp-chatsendpm-example-1": "Отправить «Hello World!» участнику с ID 5",
 	"chat-message-from": "Сообщение {{GENDER:$2|от}} $1",
 	"chat-private-message-from": "Личное сообщение {{GENDER:$2|от}} $1",
-	"chat-mentioned-by": "Упомянуто {{GENDER:$2|от}} $1",
-	"chat.css": "/* CSS, загруженный здесь, будет влиять на только для Special:Chat */",
+	"chat-mentioned-by": "Упомянуто {{GENDER:$2|участником|участницей}} $1",
+	"chat.css": "/* CSS, загруженный здесь, будет влиять только на Special:Chat */",
 	"chat.js": "/* Любой JavaScript здесь будет загружен для пользователей с помощью Special:Chat */"
 }
