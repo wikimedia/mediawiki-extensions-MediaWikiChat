@@ -16,18 +16,18 @@ class ChatGetNewAPI extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'focussed' => array(
+		return [
+			'focussed' => [
 				ApiBase::PARAM_REQUIRED => false,
 				ApiBase::PARAM_TYPE => 'boolean'
-			)
-		);
+			]
+		];
 	}
 
 	public function getExamplesMessages() {
-		return array(
+		return [
 				'action=chatgetnew'
 				=> 'apihelp-chatgetnew-example-1'
-		);
+		];
 	}
 }

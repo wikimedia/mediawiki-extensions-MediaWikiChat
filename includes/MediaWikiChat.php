@@ -16,7 +16,7 @@ class MediaWikiChat {
 	 * Get the current UNIX time with 100th seconds (i.e. 138524180871).
 	 * Standard UNIX timestamp contains only 10 digits.
 	 *
-	 * @return Integer: current UNIX timestamp + 100th seconds
+	 * @return Integer current UNIX timestamp + 100th seconds
 	 */
 	static function now() {
 		$m = explode( ' ', microtime() );
@@ -29,7 +29,7 @@ class MediaWikiChat {
 	 * Get the path to the specified user's avatar image.
 	 *
 	 * @param $id Integer: user ID
-	 * @return String: avatar image path
+	 * @return String avatar image path
 	 */
 	static function getAvatar( $id ) {
 		global $wgUploadPath;
@@ -52,23 +52,23 @@ class MediaWikiChat {
 
 		$toid = $user->getId();
 		$fromid = $wgUser->getId();
-		$timestamp = MediaWikiChat::now();
+		$timestamp = self::now();
 
 		$dbw->insert(
 			'chat',
-			array(
+			[
 				'chat_to_id' => $toid,
 				'chat_user_id' => $fromid,
 				'chat_timestamp' => $timestamp,
 				'chat_type' => $type
-			)
+			]
 		);
 	}
 
 	/**
 	 * Get the list of users who are online, if we have the "chat" user right.
 	 *
-	 * @return Mixed: array of user IDs and user names on success, boolean false
+	 * @return Mixed array of user IDs and user names on success, boolean false
 	 * if the current user doesn't have the "chat" right
 	 */
 	static function getOnline() {
@@ -77,20 +77,20 @@ class MediaWikiChat {
 		if ( $wgUser->isAllowed( 'chat' ) ) {
 			$dbr = wfGetDB( DB_REPLICA );
 
-			$now = MediaWikiChat::now();
+			$now = self::now();
 			$timestamp = $now - $wgChatOnlineTimeout;
 
 			$res = $dbr->select(
 				'chat_users',
-				array( 'cu_user_id', 'cu_away' ),
-				array(
+				[ 'cu_user_id', 'cu_away' ],
+				[
 					"cu_timestamp > $timestamp",
 					"cu_user_id != {$wgUser->getId()}"
-				),
+				],
 				__METHOD__
 			);
 
-			$data = array();
+			$data = [];
 
 			foreach ( $res as $row ) {
 				$away = $row->cu_away;
@@ -106,22 +106,22 @@ class MediaWikiChat {
 	/**
 	 * Is the current user online or not?
 	 *
-	 * @return boolean: whether they're online or not.
+	 * @return bool whether they're online or not.
 	 */
 	static function amIOnline() {
 		global $wgUser, $wgChatOnlineTimeout;
 
 		$dbr = wfGetDB( DB_REPLICA );
 
-		$timestamp = MediaWikiChat::now() - $wgChatOnlineTimeout;
+		$timestamp = self::now() - $wgChatOnlineTimeout;
 
 		$res = $dbr->select(
 			'chat_users',
 			'cu_user_id',
-			array(
+			[
 				"cu_timestamp > $timestamp",
 				"cu_user_id = {$wgUser->getId()}"
-			),
+			],
 			__METHOD__
 		);
 
@@ -131,7 +131,7 @@ class MediaWikiChat {
 	/**
 	 * Get interval to poll the server from. Based on the average milliseconds between recent messages.
 	 *
-	 * @return Integer: polling interval to use (how long between each poll)
+	 * @return Integer polling interval to use (how long between each poll)
 	 */
 	static function getInterval() {
 		$dbr = wfGetDB( DB_REPLICA );
@@ -141,19 +141,19 @@ class MediaWikiChat {
 		$res = $dbr->select(
 			'chat',
 			'chat_timestamp',
-			array( 'chat_type' => MediaWikiChat::TYPE_MESSAGE ),
+			[ 'chat_type' => self::TYPE_MESSAGE ],
 			__METHOD__,
-			array(
+			[
 				'LIMIT' => 1,
 				'OFFSET' => 4,
 				'ORDER BY' => 'chat_timestamp DESC'
-			)
+			]
 		);
 
 		if ( $res->numRows() ) {
 			$row = $res->fetchObject();
 			$oldest = $row->chat_timestamp;
-			$now = MediaWikiChat::now();
+			$now = self::now();
 			// / 5 to find average, then / 2, then * 10 as MWC timestamps are 100th seconds, JS intervals are 1000th seconds
 			$av = ( $now - $oldest );
 
@@ -173,9 +173,9 @@ class MediaWikiChat {
 	 * Parses the given message as wikitext, and replaces smileys,
 	 * provided $wgChatRichMessages is enabled
 	 *
-	 * @param String $message: message to parse
-	 * @param User $user: current user object
-	 * @return String: parsed message
+	 * @param String $message message to parse
+	 * @param User $user current user object
+	 * @return String parsed message
 	 */
 	static function parseMessage( $message, $user ) {
 		global $wgChatRichMessages, $wgChatUseStyleAttribute;
@@ -184,14 +184,14 @@ class MediaWikiChat {
 		$smileyData = explode( '*', $smileyString );
 
 		if ( is_array( $smileyData ) ) {
-			$smileys = array();
+			$smileys = [];
 			foreach ( $smileyData as $line ) {
 				$line = trim( $line );
 				$bits = explode( ' ', $line );
 
 				if ( count( $bits ) > 1 ) {
 					$filename = array_pop( $bits );
-					foreach ( $bits as $code) {
+					foreach ( $bits as $code ) {
 						$smileys[$code] = $filename;
 					}
 				}
@@ -210,7 +210,7 @@ class MediaWikiChat {
 				function ( $matches ) use ( $smileys ) { // loop through instances of <nowiki>
 					$s = $matches[0];
 					foreach ( $smileys as $chars => $filename ) {
-						$replacement = mb_encode_numericentity( $chars, array( 0x0, 0xffff, 0, 0xffff ), 'UTF-8' ); // converts ALL characters to html entities
+						$replacement = mb_encode_numericentity( $chars, [ 0x0, 0xffff, 0, 0xffff ], 'UTF-8' ); // converts ALL characters to html entities
 
 						$s = str_ireplace( $chars, $replacement, $s ); // for each instance, replace smiley chars with converted versions, so they don't render
 					}
@@ -249,7 +249,7 @@ class MediaWikiChat {
 			$message = preg_replace( '#(http[s]?\:\/\/[^ \n]+)#', '<a target="_blank" href="$1">$1</a>', $message ); // turn URLs into links
 		}
 
-		$message = str_replace( array( '&nbsp;', '&#160;' ), ' ', $message ); // replace nonbreaking space with regular space
+		$message = str_replace( [ '&nbsp;', '&#160;' ], ' ', $message ); // replace nonbreaking space with regular space
 		$message = ' ' . $message . ' '; // to allow smileys at beginning/end of message
 
 		foreach ( $smileys as $chars => $filename ) {
@@ -278,20 +278,20 @@ class MediaWikiChat {
 		$field = $dbr->selectField(
 			'chat',
 			'chat_timestamp',
-			array(),
+			[],
 			__METHOD__,
-			array(
+			[
 				'ORDER BY' => 'chat_timestamp DESC',
 				'OFFSET' => 50,
 				'LIMIT' => 1
-			)
+			]
 		);
 
 		if ( $field ) {
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->delete(
 				'chat',
-				array( "chat_timestamp < $field" ),
+				[ "chat_timestamp < $field" ],
 				__METHOD__
 			);
 		}
@@ -307,8 +307,8 @@ class MediaWikiChat {
 
 		$dbw->update(
 			'chat_users',
-			array( 'cu_away' => MediaWikiChat::now() ),
-			array( 'cu_user_id' => $user->getId() )
+			[ 'cu_away' => self::now() ],
+			[ 'cu_user_id' => $user->getId() ]
 		);
 	}
 }

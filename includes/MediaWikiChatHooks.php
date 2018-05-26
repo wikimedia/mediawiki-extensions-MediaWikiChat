@@ -17,7 +17,7 @@ class MediaWikiChatHooks {
 
 			$text = Sanitizer::removeHTMLtags(
 				$text,
-				array( &$parser, 'attributeStripCallback' ),
+				[ &$parser, 'attributeStripCallback' ],
 				false,
 				array_keys( $parser->mTransparentTagHooks )
 			);
@@ -79,7 +79,7 @@ class MediaWikiChatHooks {
 			$users = MediaWikiChat::getOnline();
 
 			if ( count( $users ) ) {
-				$arr = array();
+				$arr = [];
 
 				foreach ( $users as $id => $away ) {
 					$user = User::newFromId( $id );
@@ -100,19 +100,19 @@ class MediaWikiChatHooks {
 							filter: gray; /* maybe ie */
 							filter: grayscale(100%); /* future */";
 					}
-					$arr[$id] = array(
+					$arr[$id] = [
 						'text' => $user->getName(),
 						'href' => htmlspecialchars( $user->getUserPage()->getFullURL() ),
 						'style' => $style,
 						'class' => 'mwchat-sidebar-user'
-					);
+					];
 				}
 
 				if ( !MediaWikiChat::amIOnline() ) {
-					$arr['join'] = array(
+					$arr['join'] = [
 						'text' => $skin->msg( 'chat-sidebar-join' )->text(),
 						'href' => htmlspecialchars( SpecialPage::getTitleFor( 'Chat' )->getFullURL() )
-					);
+					];
 				}
 
 				$bar[$skin->msg( 'chat-sidebar-online' )->text()] = $arr;
@@ -123,53 +123,53 @@ class MediaWikiChatHooks {
 	}
 
 	static function wfPrefHook( $user, &$preferences ) {
-		$preferences['chat-fullscreen'] = array(
+		$preferences['chat-fullscreen'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-fullscreen',
 			'section' => 'misc/chat',
-		);
+		];
 
-		$preferences['chat-ping-mention'] = array(
+		$preferences['chat-ping-mention'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-ping-mention',
 			'section' => 'misc/chat',
-		);
-		$preferences['chat-ping-pm'] = array(
+		];
+		$preferences['chat-ping-pm'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-ping-pm',
 			'section' => 'misc/chat',
-		);
-		$preferences['chat-ping-message'] = array(
+		];
+		$preferences['chat-ping-message'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-ping-message',
 			'section' => 'misc/chat',
-		);
-		$preferences['chat-ping-joinleave'] = array(
+		];
+		$preferences['chat-ping-joinleave'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-ping-joinleave',
 			'section' => 'misc/chat',
-		);
+		];
 
-		$preferences['chat-notify-mention'] = array(
+		$preferences['chat-notify-mention'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-notify-mention',
 			'section' => 'misc/chat',
-		);
-		$preferences['chat-notify-pm'] = array(
+		];
+		$preferences['chat-notify-pm'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-notify-pm',
 			'section' => 'misc/chat',
-		);
-		$preferences['chat-notify-message'] = array(
+		];
+		$preferences['chat-notify-message'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-notify-message',
 			'section' => 'misc/chat',
-		);
-		$preferences['chat-notify-joinleave'] = array(
+		];
+		$preferences['chat-notify-joinleave'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-notify-joinleave',
 			'section' => 'misc/chat',
-		);
+		];
 
 		return true;
 	}

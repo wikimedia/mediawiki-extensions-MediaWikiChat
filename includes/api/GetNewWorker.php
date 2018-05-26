@@ -19,25 +19,25 @@ class GetNewWorker {
 		$lastCheck = $dbr->selectField(
 			'chat_users',
 			'cu_timestamp',
-			array( 'cu_user_id' => $user->getId() ),
+			[ 'cu_user_id' => $user->getId() ],
 			__METHOD__
 		);
 
 		if ( $lastCheck ) {
 			$dbw->update(
 				'chat_users',
-				array( 'cu_timestamp' => $thisCheck ),
-				array( 'cu_user_id' => $user->getId() ),
+				[ 'cu_timestamp' => $thisCheck ],
+				[ 'cu_user_id' => $user->getId() ],
 				__METHOD__
 			);
 
 		} else {
 			$dbw->insert(
 				'chat_users',
-				array(
+				[
 					'cu_user_id' => $user->getId(),
 					'cu_timestamp' => $thisCheck,
-				),
+				],
 				__METHOD__
 			);
 			$lastCheck = 0;
@@ -49,17 +49,17 @@ class GetNewWorker {
 
 		$res = $dbr->select(
 			'chat',
-			array( 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_type', 'chat_to_id' ),
-			array( "chat_timestamp > $lastCheck" ),
+			[ 'chat_user_id', 'chat_message', 'chat_timestamp', 'chat_type', 'chat_to_id' ],
+			[ "chat_timestamp > $lastCheck" ],
 			'',
 			__METHOD__,
-			array(
+			[
 				'LIMIT' => 20,
 				'ORDER BY' => 'chat_timestamp DESC'
-			)
+			]
 		);
 
-		$users = array();
+		$users = [];
 
 		$prevTimestamp = 0;
 
@@ -74,8 +74,8 @@ class GetNewWorker {
 				$id = $row->chat_user_id;
 				$message = $row->chat_message;
 
-				$result->addValue( array( $mName, 'messages', $timestamp ), 'from', strval( $id ) );
-				$result->addValue( array( $mName, 'messages', $timestamp ), '*', $message );
+				$result->addValue( [ $mName, 'messages', $timestamp ], 'from', strval( $id ) );
+				$result->addValue( [ $mName, 'messages', $timestamp ], '*', $message );
 
 				$users[$id] = true; // ensure message sender is in users list
 
@@ -96,9 +96,9 @@ class GetNewWorker {
 					$convwith = User::newFromId( $fromid )->getName();
 				}
 
-				$result->addValue( array( $mName, 'pms', $timestamp ), '*', $message );
-				$result->addValue( array( $mName, 'pms', $timestamp ), 'from', $fromid );
-				$result->addValue( array( $mName, 'pms', $timestamp ), 'conv', $convwith );
+				$result->addValue( [ $mName, 'pms', $timestamp ], '*', $message );
+				$result->addValue( [ $mName, 'pms', $timestamp ], 'from', $fromid );
+				$result->addValue( [ $mName, 'pms', $timestamp ], 'conv', $convwith );
 
 				$users[$fromid] = true; // ensure pm sender is in users list
 				$users[$toid] = true; // ensure pm receiver is in users list
@@ -107,16 +107,16 @@ class GetNewWorker {
 				if ( $row->chat_to_id == $user->getId() ) {
 					$result->addValue( $mName, 'kick', true );
 				}
-				$result->addValue( array( $mName, 'kicks', $timestamp ), 'from', $row->chat_user_id );
-				$result->addValue( array( $mName, 'kicks', $timestamp ), 'to', $row->chat_to_id );
+				$result->addValue( [ $mName, 'kicks', $timestamp ], 'from', $row->chat_user_id );
+				$result->addValue( [ $mName, 'kicks', $timestamp ], 'to', $row->chat_to_id );
 
 			} elseif ( $row->chat_type == MediaWikiChat::TYPE_BLOCK ) {
-				$result->addValue( array( $mName, 'blocks', $timestamp ), 'from', $row->chat_user_id );
-				$result->addValue( array( $mName, 'blocks', $timestamp ), 'to', $row->chat_to_id );
+				$result->addValue( [ $mName, 'blocks', $timestamp ], 'from', $row->chat_user_id );
+				$result->addValue( [ $mName, 'blocks', $timestamp ], 'to', $row->chat_to_id );
 
 			} elseif ( $row->chat_type == MediaWikiChat::TYPE_UNBLOCK ) {
-				$result->addValue( array( $mName, 'unblocks', $timestamp ), 'from', $row->chat_user_id );
-				$result->addValue( array( $mName, 'unblocks', $timestamp ), 'to', $row->chat_to_id );
+				$result->addValue( [ $mName, 'unblocks', $timestamp ], 'from', $row->chat_user_id );
+				$result->addValue( [ $mName, 'unblocks', $timestamp ], 'to', $row->chat_to_id );
 			}
 
 			$prevTimestamp = $timestamp;
@@ -133,20 +133,20 @@ class GetNewWorker {
 			$userObject = User::newFromId( $id );
 			$idString = strval( $id );
 
-			$result->addValue( array( $mName, 'users', $idString ), 'name', $userObject->getName() );
+			$result->addValue( [ $mName, 'users', $idString ], 'name', $userObject->getName() );
 			if ( class_exists( 'SocialProfileHooks' ) ) { // is SocialProfile installed?
-				$result->addValue( array( $mName, 'users', $idString ), 'avatar', MediaWikiChat::getAvatar( $id ) );
+				$result->addValue( [ $mName, 'users', $idString ], 'avatar', MediaWikiChat::getAvatar( $id ) );
 			}
 			if ( array_key_exists( $id, $onlineUsers ) ) {
-				$result->addValue( array( $mName, 'users', $idString ), 'online', 'true' );
-				$result->addValue( array( $mName, 'users', $idString ), 'away', $onlineUsers[$id] );
+				$result->addValue( [ $mName, 'users', $idString ], 'online', 'true' );
+				$result->addValue( [ $mName, 'users', $idString ], 'away', $onlineUsers[$id] );
 			}
 			$groups = $userObject->getGroups();
 			if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
-				$result->addValue( array( $mName, 'users', $idString ), 'mod', 'true' );
+				$result->addValue( [ $mName, 'users', $idString ], 'mod', 'true' );
 			}
 			$gender = $genderCache->getGenderOf( $userObject );
-			$result->addValue( array( $mName, 'users', $idString, ), 'gender', $gender );
+			$result->addValue( [ $mName, 'users', $idString, ], 'gender', $gender );
 		}
 
 		$result->addValue( $mName, 'now', MediaWikiChat::now() );

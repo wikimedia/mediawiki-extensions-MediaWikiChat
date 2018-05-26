@@ -20,12 +20,12 @@ class ChatKickAPI extends ApiBase {
 
 			$dbw->insert(
 				'chat',
-				array(
+				[
 					'chat_to_id' => $toId,
 					'chat_user_id' => $fromId,
 					'chat_timestamp' => $timestamp,
 					'chat_type' => MediaWikiChat::TYPE_KICK
-				),
+				],
 				__METHOD__
 			);
 
@@ -34,9 +34,9 @@ class ChatKickAPI extends ApiBase {
 			$logEntry->setPerformer( $user );
 			$page = SpecialPage::getTitleFor( 'Chat' );
 			$logEntry->setTarget( $page );
-			$logEntry->setParameters( array(
+			$logEntry->setParameters( [
 				'4::kick' => $toName,
-			) );
+			] );
 			$logEntry->insert();
 
 			MediaWikiChat::updateAway( $user );
@@ -59,19 +59,19 @@ class ChatKickAPI extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'id' => array (
+		return [
+			'id' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true
-			)
-		);
+			]
+		];
 	}
 
 	public function getExamplesMessages() {
-		return array(
+		return [
 			'action=chatkick&id=1'
 				=> 'apihelp-chatkick-example-1'
-		);
+		];
 	}
 
 	public function mustBePosted() {

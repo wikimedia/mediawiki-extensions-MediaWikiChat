@@ -47,7 +47,7 @@ class SpecialChat extends SpecialPage {
 			] );
 
 			$out->addJsConfigVars(
-				array(
+				[
 					'wgChatKicks' => $wgChatKicks,
 					'wgChatSocialAvatars' => class_exists( 'SocialProfileHooks' ), // has SocialProfile been installed?
 					'wgChatLinkUsernames' => $wgChatLinkUsernames,
@@ -55,7 +55,7 @@ class SpecialChat extends SpecialPage {
 					'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
 					'wgCanonicalServer' => $wgCanonicalServer,
 					'wgUserId' => $this->getUser()->getId()
-				)
+				]
 			);
 
 			if ( $user->getOption( 'chat-fullscreen' ) ) {
