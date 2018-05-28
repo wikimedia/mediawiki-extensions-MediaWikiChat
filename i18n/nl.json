@@ -103,5 +103,7 @@
 	"apihelp-chatsendpm-example-1": "Stuur \"Hallo wereld!\" naar de gebruiker met ID 5",
 	"chat-message-from": "Bericht {{GENDER:$2|van}} $1",
 	"chat-private-message-from": "Privébericht {{GENDER:$2|van}} $1",
-	"chat-mentioned-by": "Uw naam is genoemd {{GENDER:$2|door}} $1"
+	"chat-mentioned-by": "Uw naam is genoemd {{GENDER:$2|door}} $1",
+	"chat.css": "/** CSS die hier wordt geplaatst heeft alleen invloed op Special:Chat */",
+	"chat.js": "/* JavaScript die hier wordt geplaatst heeft alleen invloed op Special:Chat */"
 }
