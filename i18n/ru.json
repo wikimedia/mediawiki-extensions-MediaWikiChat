@@ -3,7 +3,8 @@
 		"authors": [
 			"Okras",
 			"Macofe",
-			"Happy13241"
+			"Happy13241",
+			"Movses"
 		]
 	},
 	"chat": "Чат",
@@ -54,9 +55,9 @@
 	"group-blockedfromchat": "Участники, заблокированные в чате",
 	"group-blockedfromchat-member": "заблокирован{{GENDER:$1||а}} в чате",
 	"grouppage-blockedfromchat": "{{ns:project}}:Участники, заблокированные в чате",
-	"right-chat": "Использовать Special:Chat",
+	"right-chat": "Использование Special:Chat",
 	"right-modchat": "Блокировать и удалять (если разрешено) пользователей из Special:Chat",
-	"right-viewpmlog": "Просмотрите журнал [[Special:Log/privatechat|журнал личных сообщений чата]]",
+	"right-viewpmlog": "Просмотр [[Special:Log/privatechat|журнала личных сообщений чата]]",
 	"tog-chat-fullscreen": "Использовать чат в полноэкранном режиме (экспериментальная функция)",
 	"tog-chat-ping-mention": "Проигрывать звук при появлении упоминаний",
 	"tog-chat-ping-pm": "Проигрывать звук при получении личных сообщений",
@@ -66,7 +67,7 @@
 	"tog-chat-notify-mention": "Показывать уведомление о получении упоминаний (только для Chrome и Firefox)",
 	"tog-chat-notify-pm": "Показывать уведомление о получении личных сообщений (только для Chrome и Firefox)",
 	"tog-chat-notify-message": "Показывать уведомление о получении обычных сообщений (только для Chrome и Firefox)",
-	"tog-chat-notify-joinleave": "Показывать уведомление, когда пользователи присоединяются или выходят из чата (только для Chrome и Firefox)",
+	"tog-chat-notify-joinleave": "Показывать уведомление, когда пользователи входят или выходят из чата (только для Chrome и Firefox)",
 	"chat-idle-minutes": "{{GENDER:$2|Этот участник неактивен|Эта участница неактивна}} $1 {{PLURAL:$1|минуту|минуты|минут}}",
 	"chat-idle-hours": "{{GENDER:$2|Этот участник неактивен|Эта участница неактивна}} $1 {{PLURAL:$1|час|часа|часов}}",
 	"chat-idle-more": "{{GENDER:$1|Этот участник неактивен|Эта участница неактивна}} более 24 часов",
@@ -75,7 +76,7 @@
 	"action-viewpmlog": "посмотреть журнал личных сообщений в чате",
 	"apihelp-chatgetnew-description": "Получить новые сообщения в чате",
 	"apihelp-chatgetnew-summary": "Получить новые сообщения в чате",
-	"apihelp-chatgetnew-param-focussed": "это вкладка чата, открытая / сфокусированная прямо сейчас?",
+	"apihelp-chatgetnew-param-focussed": "вкладка чата, открыта/активна прямо сейчас?",
 	"apihelp-chatgetnew-example-1": "Получить новые сообщения в чате",
 	"apihelp-chatkick-description": "Выкинуть участника из чата",
 	"apihelp-chatkick-summary": "Выкинуть участника из чата",
@@ -94,5 +95,5 @@
 	"chat-private-message-from": "Личное сообщение {{GENDER:$2|от}} $1",
 	"chat-mentioned-by": "Упомянуто {{GENDER:$2|участником|участницей}} $1",
 	"chat.css": "/* CSS, загруженный здесь, будет влиять только на Special:Chat */",
-	"chat.js": "/* Любой JavaScript здесь будет загружен для пользователей с помощью Special:Chat */"
+	"chat.js": "/* Любой JavaScript-код размещённый здесь, будет загружен для пользователей, которые используют  Special:Chat */"
 }
