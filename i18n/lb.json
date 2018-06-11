@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Matěj Suchánek"
 		]
 	},
 	"chat": "Chat",
@@ -34,7 +35,7 @@
 	"prefs-chat": "Chat",
 	"tog-chat-notify-pm": "Eng Notifikatioun weise wann een e private Message kritt (Chrome & Firefox)",
 	"tog-chat-notify-message": "Eng Notifikatioun weise wann een en normale Message kritt (Chrome & Firefox)",
-	"chat-idle-hours": "{{GENDER:$2Dëse Benotzer}} ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
+	"chat-idle-hours": "{{GENDER:$2|Dëse Benotzer}} ass zanter {{PLURAL:$1|enger Stonn|$1 Stonnen}} net aktiv",
 	"apihelp-chatkick-summary": "E Bemnotzr aus dem Chat erausgeheien",
 	"apihelp-chatsendpm-description": "Engem Benotzer e private Message schécken",
 	"apihelp-chatsendpm-summary": "Engem Benotzer e private Message schécken",
