@@ -8,7 +8,8 @@
 			"Macofe",
 			"Ryo567",
 			"Themasterriot",
-			"Dgstranz"
+			"Dgstranz",
+			"Astroemi"
 		]
 	},
 	"chat": "Charla",
@@ -53,6 +54,7 @@
 	"log-description-privatechat": "Mensajes privados enviados por MediaWikiChat",
 	"logentry-privatechat-send": "$1 a $5: $4",
 	"log-show-hide-privatechat": "$1 registro privado de chat",
+	"logeventslist-privatechat-log": "Registro de chat privado",
 	"group-chatmod": "Moderadores del chat",
 	"group-chatmod-member": "{{GENDER:$1|moderador|moderadora}} del chat",
 	"grouppage-chatmod": "{{ns:project}}:Moderadores del chat",

@@ -4,7 +4,8 @@
 			"Gagnabil",
 			"Tarawneh",
 			"Khaled",
-			"ديفيد"
+			"ديفيد",
+			"Meno25"
 		]
 	},
 	"chat": "دردشة",
@@ -45,10 +46,12 @@
 	"log-description-chat": "الرسائل المرسلة من قبل دردشة ميدياويكي، وكذلك ركلات المستخدم",
 	"logentry-chat-kick": "$1 {{GENDER:$1|ركل|ركلت}} $4",
 	"log-show-hide-chat": "$1 سجل محادثة",
+	"logeventslist-chat-log": "سجل الدردشة",
 	"log-name-privatechat": "سجل محادثة خاصة",
 	"log-description-privatechat": "الرسائل الخاصة المرسلة بواسطة دردشة ميدياويكي",
 	"logentry-privatechat-send": "$1 إلى $5: $4",
 	"log-show-hide-privatechat": "$1 سجل الدردشة الخاصة",
+	"logeventslist-privatechat-log": "سجل الدردشة الخاص",
 	"group-chatmod": "مشرفو الدردشة",
 	"group-chatmod-member": "{{GENDER:$1|مشرف|مشرفة}} دردشة",
 	"grouppage-chatmod": "{{ns:project}}:مشرفو الدردشة",
