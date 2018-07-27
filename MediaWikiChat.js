@@ -332,9 +332,9 @@ var MediaWikiChat = {
 		if ( lastParent.attr( 'data-username' ) == fromUser.name ) {
 			lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan', Number( lastParent.children( '.mwchat-rowspan' ).attr( 'rowspan' ) ) + 1 ); // increment the rowspan
 
-			html = '<tr data-username="' + fromUser.name + '" class="mwchat-message">';
+			html = '<tr data-username="' + mw.html.escape( fromUser.name ) + '" class="mwchat-message">';
 		} else {
-			html = '<tr data-username="' + fromUser.name + '" class="mwchat-message mwchat-parent">';
+			html = '<tr data-username="' + mw.html.escape( fromUser.name ) + '" class="mwchat-message mwchat-parent">';
 
 			html += '<td rowspan=1 class="mwchat-item-user mwchat-rowspan">';
 			if ( mw.config.get( 'wgChatLinkUsernames' ) ) {
