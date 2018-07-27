@@ -27,6 +27,8 @@
 	"chat-sidebar-online": "משתמשים מחוברים בצ'אט",
 	"chat-sidebar-join": "הצטרפות לצ'אט",
 	"log-name-chat": "יומן צ'אט",
+	"logeventslist-chat-log": "יומן צ'אט",
+	"logeventslist-privatechat-log": "יומן צ'אט פרטי",
 	"group-chatmod": "מנהלי הצ'אט",
 	"grouppage-chatmod": "{{ns:project}}:מנהלי הצ'אט",
 	"group-blockedfromchat": "המשתמשים נחסמו לצ'אט",

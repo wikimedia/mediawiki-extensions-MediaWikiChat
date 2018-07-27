@@ -45,6 +45,7 @@
 	"log-description-chat": "Meddelanden skickade av MediaWikiChat, samt påminnelser från användare",
 	"logentry-chat-kick": "$1 {{GENDER:$1|sparkade ut}} $4.",
 	"log-show-hide-chat": "$1 chattlogg",
+	"logeventslist-chat-log": "Chattlogg",
 	"log-name-privatechat": "Privat chattlogg",
 	"log-description-privatechat": "Privata meddelanden som skickas av MediaWikiChat",
 	"logentry-privatechat-send": "$1 till $5: $4",
