@@ -50,6 +50,7 @@
 	"log-description-privatechat": "Privata meddelanden som skickas av MediaWikiChat",
 	"logentry-privatechat-send": "$1 till $5: $4",
 	"log-show-hide-privatechat": "$1 privat chattlogg",
+	"logeventslist-privatechat-log": "Logg för privat chatt",
 	"group-chatmod": "Chattmoderatorer",
 	"group-chatmod-member": "{{GENDER:$1|chattmoderator}}",
 	"grouppage-chatmod": "{{ns:project}}:Chattmoderatorer",
