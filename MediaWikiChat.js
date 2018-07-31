@@ -364,12 +364,15 @@ var MediaWikiChat = {
 		// assumes the message isn't a duplicate (already checked in addMessage and addSystemMessage)
 		var elem = $( html ).appendTo( $( '#mwchat-table' ) );
 
-		elem.hover( function() {
-			elem.find( '.pretty' ).css( 'visibility', 'hidden' );
-			elem.find( '.real' ).show();
-		}, function() {
-			elem.find( '.real' ).hide();
-			elem.find( '.pretty' ).css( 'visibility', 'visible' );
+		elem.on( {
+			'mouseenter': function() {
+				elem.find( '.pretty' ).css( 'visibility', 'hidden' );
+				elem.find( '.real' ).show();
+			},
+			'mouseleave': function() {
+				elem.find( '.real' ).hide();
+				elem.find( '.pretty' ).css( 'visibility', 'visible' );
+			}
 		} );
 
 		elem.find( 'a' ).attr( 'target', '_blank' );
