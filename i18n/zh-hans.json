@@ -3,7 +3,8 @@
 		"authors": [
 			"Liuxinyu970226",
 			"Qiyue2001",
-			"Yfdyh000"
+			"Yfdyh000",
+			"夢蝶葬花"
 		]
 	},
 	"chat": "聊天",
@@ -44,6 +45,7 @@
 	"log-description-chat": "信息由MediaWikiChat发送，当然用户可以踢人",
 	"logentry-chat-kick": "$1{{GENDER:$1|踢出}}了$4",
 	"log-show-hide-chat": "$1聊天日志",
+	"logeventslist-chat-log": "聊天记录",
 	"log-name-privatechat": "私人聊天日志",
 	"log-description-privatechat": "通过MediaWikiChat发送的私人信息",
 	"logentry-privatechat-send": "$1至$5：$4",
