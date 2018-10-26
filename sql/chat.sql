@@ -1,4 +1,4 @@
-CREATE TABLE /*_*/chat (
+CREATE TABLE IF NOT EXISTS /*_*/chat (
   chat_user_id int(10),
   chat_message text,
   chat_type int(4),
