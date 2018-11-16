@@ -6,9 +6,9 @@
  * @ingroup Extensions
  */
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English */
-$specialPageAliases['en'] = array(
-	'Chat' => array( 'Chat' )
-);
+$specialPageAliases['en'] = [
+	'Chat' => [ 'Chat' ]
+];
