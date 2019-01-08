@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cvanca"
+			"Cvanca",
+			"Dvorapa"
 		]
 	},
-	"chat-sidebar-online": "Přihlášení uživatelé chatu"
+	"chat-sidebar-online": "Přihlášení uživatelé chatu",
+	"chat.js": "/* Zde uvedený JavaScript bude použit pouze pro uživatele používající Speciální:Chat */"
 }
