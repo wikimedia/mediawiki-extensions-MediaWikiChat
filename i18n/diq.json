@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mirzali"
+			"Mirzali",
+			"Orbot707"
 		]
 	},
+	"chat": "Mıhebet",
+	"chat-today": "ewro",
+	"chat-yesterday": "vızêr",
 	"logentry-privatechat-send": "$5 rê $1: $4"
 }
