@@ -8,5 +8,7 @@
 	"chat": "Mıhebet",
 	"chat-today": "ewro",
 	"chat-yesterday": "vızêr",
+	"chat-block": "kılit ke",
+	"chat-blocked": "$1i $2 {{GENDER:$3|kılit kerd}}.",
 	"logentry-privatechat-send": "$5 rê $1: $4"
 }
