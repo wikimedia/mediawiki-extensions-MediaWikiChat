@@ -1,8 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Dr Lotus Black"
 		]
 	},
-	"chat-today": "ယနေ့"
+	"chat-type-your-message": "သင်၏မက်ဆေ့ကို ရိုက်ထည့်ပါ",
+	"chat-type-your-private-message": "သင်၏ ပုဂ္ဂိုလ်ရေး သီးသန့်မက်ဆေ့ကို ရိုက်ထည့်ပါ",
+	"chat-a-minute-ago": "၁ မိနစ်အကြာက",
+	"chat-today": "ယနေ့",
+	"chat-yesterday": "မနေ့",
+	"chat-kick": "ကန်ထုတ်",
+	"chat-block": "ပိတ်ပင်"
 }
