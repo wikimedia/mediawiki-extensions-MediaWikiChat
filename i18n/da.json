@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sarrus"
+			"Sarrus",
+			"Saederup92"
 		]
 	},
-	"chat-unblocked": "$1 {{GENDER:$3|ophævede blokering af}} $2."
+	"chat-unblocked": "$1 {{GENDER:$3|ophævede blokering af}} $2.",
+	"apihelp-chatkick-description": "Spark en bruger ud af chatten"
 }
