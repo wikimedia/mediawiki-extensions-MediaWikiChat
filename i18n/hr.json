@@ -4,6 +4,12 @@
 			"Bugoslav"
 		]
 	},
+	"chat": "Čavrljanje",
+	"chat-no-other-users": "Nema drugih korisnika čavrljanja",
+	"chat-blocked-from-chat": "Blokirani ste u ovom čavrljanju.",
 	"logentry-chat-kick": "$1 {{GENDER:$1|izbacio|izbacila}} je $4",
-	"log-name-privatechat": "Evidencija o privatnim mrežnim razgovorima"
+	"log-name-privatechat": "Evidencija o privatnim mrežnim razgovorima",
+	"group-chatmod": "Raspravni upravitelji",
+	"group-chatmod-member": "{{GENDER:$1|raspravni upravitelj|raspravna upraviteljica}}",
+	"grouppage-chatmod": "{{ns:project}}:Raspravni upravitelji"
 }
