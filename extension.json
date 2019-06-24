@@ -67,7 +67,7 @@
 		"ParserBeforeInternalParse": [
 			"MediaWikiChatHooks::onParserBeforeInternalParse"
 		],
-		"UserRights": [
+		"UserGroupsChanged": [
 			"MediaWikiChatHooks::onUserRights"
 		],
 		"LoadExtensionSchemaUpdates": [
