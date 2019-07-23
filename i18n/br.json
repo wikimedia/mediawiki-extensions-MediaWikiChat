@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fohanno",
-			"Fulup"
+			"Fulup",
+			"Huñvreüs"
 		]
 	},
 	"chat": "Flap",
@@ -16,5 +17,6 @@
 	"chat-block": "stankañ",
 	"chat-private-message": "klikañ d'ober ur gemennadenn nevez",
 	"prefs-chat": "Flap",
-	"action-chat": "flapañ gant implijerien all"
+	"action-chat": "flapañ gant implijerien all",
+	"chat-mentioned-by": "Meneget gant $1"
 }
