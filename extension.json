@@ -8,6 +8,9 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:MediaWikiChat",
 	"descriptionmsg": "chat-desc",
 	"type": "specialpage",
+	"requires": {
+		"MediaWiki": ">=1.28.0"
+	},
 	"config": {
 		"ChatKicks": true,
 		"ChatRichMessages": true,

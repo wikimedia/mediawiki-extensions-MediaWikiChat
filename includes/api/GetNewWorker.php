@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class GetNewWorker {
 	/**
 	 * Internals of GetNew, separate class so they can be used by other API actions
@@ -128,7 +130,7 @@ class GetNewWorker {
 		foreach ( $onlineUsers as $id => $away ) {
 			$users[$id] = true; // ensure all online users are present in the users list
 		}
-		$genderCache = GenderCache::singleton();
+		$genderCache = MediaWikiServices::getInstance()->getGenderCache();
 		foreach ( $users as $id => $tr ) {
 			$userObject = User::newFromId( $id );
 			$idString = strval( $id );
