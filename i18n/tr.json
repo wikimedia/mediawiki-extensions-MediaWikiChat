@@ -6,7 +6,8 @@
 			"Violetanka",
 			"Sayginer",
 			"HakanIST",
-			"Hedda"
+			"Hedda",
+			"BaRaN6161 TURK"
 		]
 	},
 	"chat": "Sohbet",
@@ -47,10 +48,12 @@
 	"log-description-chat": "MediaWikiChat tarafından gönderilen mesajlar",
 	"logentry-chat-kick": "$1, $4 kullanıcısını {{GENDER:$1|attı}}",
 	"log-show-hide-chat": "$1 sohbet günlüğü",
+	"logeventslist-chat-log": "Sohbet günlüğü",
 	"log-name-privatechat": "Özel sohbet günlüğü",
 	"log-description-privatechat": "Özel mesajlar MediaWikiChat tarafından gönderildi",
 	"logentry-privatechat-send": "$1 kullanıcısından $5 kullanıcısına: $4",
 	"log-show-hide-privatechat": "$1 özel sohbet günlüğü",
+	"logeventslist-privatechat-log": "Özel sohbet günlüğü",
 	"group-chatmod": "Sohbet moderatörleri",
 	"group-chatmod-member": "{{GENDER:$1|sohbet moderatörü}}",
 	"grouppage-chatmod": "{{ns:project}}:Sohbet moderatörleri",
@@ -74,6 +77,7 @@
 	"chat-idle-hours": "{{GENDER:$2|Bu kullanıcı}}, {{PLURAL:$1|bir saattir|$1 saattir}} boşta",
 	"chat-idle-more": "{{GENDER:$1|Bu kullanıcı}}, 24 saattir boşta",
 	"action-chat": "diğer kullanıcılarla sohbet",
+	"action-modchat": "sohbeti yönet",
 	"action-viewpmlog": "özel sohbet mesaj günlüğünü gör",
 	"apihelp-chatgetnew-description": "Sohbette yeni mesajlar alın.",
 	"apihelp-chatgetnew-summary": "Sohbette yeni mesajlar alın.",
