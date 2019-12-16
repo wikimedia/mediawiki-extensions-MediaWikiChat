@@ -7,7 +7,8 @@
 			"LNDDYL",
 			"Macofe",
 			"Corainn",
-			"Kly"
+			"Kly",
+			"Xiplus"
 		]
 	},
 	"chat": "聊天",
@@ -40,7 +41,7 @@
 	"chat-private-message": "點選至私人訊息",
 	"chat-user-is-moderator": "此使用者{{GENDER:$1|是}}管理者。",
 	"chat-you-are-moderator": "您{{GENDER:$1|是}}管理者。",
-	"chat-topic": "歡迎光臨 {{SITENAME}} 聊天。 ([[Special:Log/chat|聊天日誌]])",
+	"chat-topic": "歡迎光臨{{SITENAME}}聊天。 ([[Special:Log/chat|聊天日誌]])",
 	"chat-change-preferences": "變更您的聊天個人偏好 (全螢幕、音效、通知)",
 	"chat-sidebar-online": "正在聊天的線上使用者",
 	"chat-sidebar-join": "加入聊天",
