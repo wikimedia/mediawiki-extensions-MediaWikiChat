@@ -220,7 +220,6 @@ class MediaWikiChat {
 			);
 
 			$opts = new ParserOptions();
-			$opts->setEditSection( false );
 			$opts->setExternalLinkTarget( '_blank' );
 			$opts->setAllowSpecialInclusion( false );
 			$opts->setAllowExternalImages( false );
@@ -241,7 +240,7 @@ class MediaWikiChat {
 				false // $linestart = false, prevents *#:; lists rendering
 			);
 
-			$message = $parseOut->getText();
+			$message = $parseOut->getText( [ 'enableSectionEditLinks' => false ] );
 			$message = trim( $message );
 		} else {
 			$message = htmlentities( $message );
