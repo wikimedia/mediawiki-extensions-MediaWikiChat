@@ -23,14 +23,13 @@ class SpecialChat extends SpecialPage {
 		// Set the page title, robot policies, etc.
 		$this->setHeaders();
 
-		if ( !$this->getUser()->isAllowed( 'chat' ) ) {
-			$groups = $this->getUser()->getGroups();
+		if ( !$user->isAllowed( 'chat' ) ) {
+			$groups = $user->getGroups();
 			if ( in_array( 'blockedfromchat', $groups ) ) {
 				$out->addWikiMsg( 'chat-blocked-from-chat' );
 			} else {
 				$out->addWikiMsg( 'chat-not-allowed' );
 			}
-
 		} else {
 			$template = new SpecialChatTemplate;
 
@@ -53,8 +52,7 @@ class SpecialChat extends SpecialPage {
 					'wgChatLinkUsernames' => $wgChatLinkUsernames,
 					'wgChatMeCommand' => $wgChatMeCommand,
 					'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
-					'wgCanonicalServer' => $wgCanonicalServer,
-					'wgUserId' => $this->getUser()->getId()
+					'wgCanonicalServer' => $wgCanonicalServer
 				]
 			);
 

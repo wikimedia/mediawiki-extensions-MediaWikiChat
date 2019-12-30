@@ -150,23 +150,23 @@ var MediaWikiChat = {
 			if ( user.mod ) {
 				MediaWikiChat.userData[userId].mod = true;
 			}
-			if ( user.online && user.id != mw.config.get( 'wgUserId' ) ) {
+			if ( user.online && user.id != mw.user.getId() ) {
 				onlineUsers[onlineUsers.length] = userId;
 				MediaWikiChat.userData[userId].away = user.away;
 			}
 		}
 
-		if ( mw.config.get( 'wgUserId' ) == 0 ) {
+		if ( mw.user.getId() == 0 ) {
 			MediaWikiChat.amIMod = false;
 		} else {
-			MediaWikiChat.amIMod = data.users[mw.config.get( 'wgUserId' )].mod;
+			MediaWikiChat.amIMod = data.users[mw.user.getId()].mod;
 		}
 
 		MediaWikiChat.doUsers( onlineUsers );
 
 		for ( var userId2 in data.users ) { // has to be done after doUsers
 			var user2 = MediaWikiChat.userData[userId2];
-			if ( user2.id != mw.config.get( 'wgUserId' ) ) {
+			if ( user2.id != mw.user.getId() ) {
 				var userEscaped = MediaWikiChat.safe( user2.name );
 				MediaWikiChat.greyscale( $( '#mwchat-users #' + userEscaped ), user2.away );
 			}
@@ -310,7 +310,7 @@ var MediaWikiChat = {
 		}
 
 		var fromUser = MediaWikiChat.userData[userId];
-		var currentUser = MediaWikiChat.userData[mw.config.get( 'wgUserId' )]
+		var currentUser = MediaWikiChat.userData[mw.user.getId()];
 
 		if ( message.substring( 0, 4 ) == '/me ' && mw.config.get( 'wgChatMeCommand' ) ) {
 			return MediaWikiChat.addSystemMessage( '* ' + fromUser.name + message.substring( 3 ), timestamp );
@@ -596,7 +596,6 @@ var MediaWikiChat = {
 		var toid = $( this ).parents( '.mwchat-useritem' ).attr( 'data-id' );
 
 		if ( e.which == 13 ) {
-
 			$.ajax( {
 				type: 'POST',
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
@@ -612,8 +611,7 @@ var MediaWikiChat = {
 
 	addMe: function() {
 		if ( !MediaWikiChat.amI ) {
-
-			var me = MediaWikiChat.userData[mw.config.get( 'wgUserId' )];
+			var me = MediaWikiChat.userData[mw.user.getId()];
 
 			$( '#mwchat-me span' ).html( me.name );
 			$( '#mwchat-me img' ).attr( 'src', me.avatar );
@@ -775,7 +773,7 @@ $( function() {
 
 		} else if ( e.which == 9 ) { // Tab - autocompletion
 			for ( var userId in MediaWikiChat.userData ) {
-				if ( userId != mw.config.get( 'wgUserId' ) ) {
+				if ( userId != mw.user.getId() ) {
 					if ( MediaWikiChat.userData[userId].name.toLowerCase().indexOf( $( '#mwchat-type input' )[0].value.toLowerCase() ) === 0 ) {
 						$( '#mwchat-type input' )[0].value = MediaWikiChat.userData[userId].name + ': ';
 						return false;
