@@ -126,7 +126,7 @@ class GetNewWorker {
 
 		$users[$user->getId()] = true; // ensure current user is in the users list
 
-		$onlineUsers = MediaWikiChat::getOnline();
+		$onlineUsers = MediaWikiChat::getOnline( $user );
 		foreach ( $onlineUsers as $id => $away ) {
 			$users[$id] = true; // ensure all online users are present in the users list
 		}

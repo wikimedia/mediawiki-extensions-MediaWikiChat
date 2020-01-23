@@ -39,13 +39,13 @@ class MediaWikiChatHooks {
 	 * Whenever a user is added to or removed from the 'blockedfromchat' group,
 	 * this function ensures that the chat database table is updated accordingly.
 	 */
-	public static function onUserRights( $user, array $add, array $remove ) {
+	public static function onUserRights( $user, array $add, array $remove, User $performer ) {
 		if ( in_array( 'blockedfromchat', $add ) ) {
-			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_BLOCK, $user );
+			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_BLOCK, $user, $performer );
 		}
 
 		if ( in_array( 'blockedfromchat', $remove ) ) {
-			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_UNBLOCK, $user );
+			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_UNBLOCK, $user, $performer );
 		}
 
 		return true;
@@ -76,7 +76,7 @@ class MediaWikiChatHooks {
 			!$skin->getTitle()->isSpecial( 'Chat' ) &&
 			$wgChatSidebarPortlet
 		) {
-			$users = MediaWikiChat::getOnline();
+			$users = MediaWikiChat::getOnline( $skin->getUser() );
 
 			if ( count( $users ) ) {
 				$arr = [];
@@ -108,7 +108,7 @@ class MediaWikiChatHooks {
 					];
 				}
 
-				if ( !MediaWikiChat::amIOnline() ) {
+				if ( !MediaWikiChat::amIOnline( $skin->getUser() ) ) {
 					$arr['join'] = [
 						'text' => $skin->msg( 'chat-sidebar-join' )->text(),
 						'href' => htmlspecialchars( SpecialPage::getTitleFor( 'Chat' )->getFullURL() )

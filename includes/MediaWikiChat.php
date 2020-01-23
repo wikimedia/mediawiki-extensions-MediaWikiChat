@@ -44,14 +44,13 @@ class MediaWikiChat {
 	 *
 	 * @param $type String: block/unblock: whether the user has been blocked or unblocked
 	 * @param $user User: user that has been blocked/unblocked
+	 * @param $performer User: user that did the blocking/unblocking
 	 */
-	static function sendSystemBlockingMessage( $type, $user ) {
-		global $wgUser;
-
+	static function sendSystemBlockingMessage( $type, $user, User $performer ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$toid = $user->getId();
-		$fromid = $wgUser->getId();
+		$fromid = $performer->getId();
 		$timestamp = self::now();
 
 		$dbw->insert(
@@ -68,13 +67,14 @@ class MediaWikiChat {
 	/**
 	 * Get the list of users who are online, if we have the "chat" user right.
 	 *
+	 * @param User $user
 	 * @return Mixed array of user IDs and user names on success, boolean false
 	 * if the current user doesn't have the "chat" right
 	 */
-	static function getOnline() {
-		global $wgUser, $wgChatOnlineTimeout;
+	static function getOnline( User $user ) {
+		global $wgChatOnlineTimeout;
 
-		if ( $wgUser->isAllowed( 'chat' ) ) {
+		if ( $user->isAllowed( 'chat' ) ) {
 			$dbr = wfGetDB( DB_REPLICA );
 
 			$now = self::now();
@@ -85,7 +85,7 @@ class MediaWikiChat {
 				[ 'cu_user_id', 'cu_away' ],
 				[
 					"cu_timestamp > $timestamp",
-					"cu_user_id != {$wgUser->getId()}"
+					"cu_user_id != {$user->getId()}"
 				],
 				__METHOD__
 			);
@@ -106,10 +106,11 @@ class MediaWikiChat {
 	/**
 	 * Is the current user online or not?
 	 *
+	 * @param User $user
 	 * @return bool whether they're online or not.
 	 */
-	static function amIOnline() {
-		global $wgUser, $wgChatOnlineTimeout;
+	static function amIOnline( User $user ) {
+		global $wgChatOnlineTimeout;
 
 		$dbr = wfGetDB( DB_REPLICA );
 
@@ -120,7 +121,7 @@ class MediaWikiChat {
 			'cu_user_id',
 			[
 				"cu_timestamp > $timestamp",
-				"cu_user_id = {$wgUser->getId()}"
+				"cu_user_id = {$user->getId()}"
 			],
 			__METHOD__
 		);
