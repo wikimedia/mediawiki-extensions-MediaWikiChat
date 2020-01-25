@@ -242,6 +242,9 @@ var MediaWikiChat = {
 	},
 
 	showKickMessage: function( from, to, timestamp ) {
+		// If .name is undefined let's just stop here
+		// as it will just throw an undefined before.
+		if (!from || !from.name || !to || !to.name) return;
 		var message;
 		if ( to.name == mw.config.get( 'wgUserName' ) ) {
 			message = mw.message( 'chat-youve-been-kicked', from.name, mw.user ).text();
