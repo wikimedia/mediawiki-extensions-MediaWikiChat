@@ -19,7 +19,7 @@ class MediaWikiChatHooks {
 				$text,
 				[ &$parser, 'attributeStripCallback' ],
 				false,
-				array_keys( $parser->mTransparentTagHooks )
+				[]
 			);
 
 			$text = $parser->replaceInternalLinks( $text );
