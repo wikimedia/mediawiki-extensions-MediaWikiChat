@@ -4,7 +4,8 @@
 			"Armin1392",
 			"Reza1615",
 			"Dalba",
-			"Macofe"
+			"Macofe",
+			"1233qwer1234qwer4"
 		]
 	},
 	"chat": "گفتگو",
@@ -44,7 +45,7 @@
 	"log-show-hide-chat": "$1 سیاهه گفتگو",
 	"log-name-privatechat": "سیاهه گفتگو خصوصی",
 	"log-description-privatechat": "پیام‌های خصوصی ارسال شده توسط گفتگو مدیاویکی",
-	"logentry-privatechat-send": "$1 به $5ː $4",
+	"logentry-privatechat-send": "$1 به $5: $4",
 	"log-show-hide-privatechat": "$1 سیاهه گفتگو خصوصی",
 	"group-chatmod": "مدیران گفتگو",
 	"group-chatmod-member": "{{GENDER:$1|مدیر گفتگو}}",
