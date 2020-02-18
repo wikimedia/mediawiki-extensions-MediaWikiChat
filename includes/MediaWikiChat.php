@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Backend class for various static methods for the MediaWikiChat extension.
  *
@@ -225,7 +228,7 @@ class MediaWikiChat {
 			$opts->setAllowSpecialInclusion( false );
 			$opts->setAllowExternalImages( false );
 
-			$parser = new Parser();
+			$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 
 			$message = $parser->preSaveTransform(
 				$message,
