@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nirajan pant"
+			"Nirajan pant",
+			"हिमाल सुबेदी"
 		]
 	},
+	"chat-today": "आज",
 	"logeventslist-chat-log": "वार्तालाप गतिविधि",
 	"logeventslist-privatechat-log": "निजी वार्तालाप गतिविधि"
 }
