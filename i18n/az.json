@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toghrul Rahimli"
+		]
+	},
+	"chat-blocked": "$1 $2 adlı istifadəçini {{GENDER:$3|blokladı}}."
+}
