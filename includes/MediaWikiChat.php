@@ -220,7 +220,7 @@ class MediaWikiChat {
 				$message
 			);
 
-			$opts = new ParserOptions();
+			$opts = new ParserOptions( $user );
 			$opts->setExternalLinkTarget( '_blank' );
 			$opts->setAllowSpecialInclusion( false );
 			$opts->setAllowExternalImages( false );
