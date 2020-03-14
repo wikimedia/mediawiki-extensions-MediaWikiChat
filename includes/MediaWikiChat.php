@@ -4,6 +4,9 @@
  *
  * @file
  */
+
+use MediaWiki\MediaWikiServices;
+
 class MediaWikiChat {
 
 	const TYPE_MESSAGE = 0;
@@ -252,10 +255,11 @@ class MediaWikiChat {
 		$message = str_replace( [ '&nbsp;', '&#160;' ], ' ', $message ); // replace nonbreaking space with regular space
 		$message = ' ' . $message . ' '; // to allow smileys at beginning/end of message
 
+		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 		foreach ( $smileys as $chars => $filename ) {
 			$chars = htmlspecialchars( $chars ); // needed for replacements containing special HTML characters, and for HTML
 
-			$file = wfFindFile( $filename );
+			$file = $repoGroup->findFile( $filename );
 			if ( $file ) {
 				$url = $file->getFullUrl();
 
