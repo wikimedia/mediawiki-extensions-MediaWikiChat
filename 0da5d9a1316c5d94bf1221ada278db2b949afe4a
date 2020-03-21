@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "331c0deb_6342d20e",
+        "filename": "includes/MediaWikiChat.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2020-03-21T19:19:24Z",
+      "side": 1,
+      "message": "it is already here",
+      "revId": "0da5d9a1316c5d94bf1221ada278db2b949afe4a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
