@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sarrus",
-			"Saederup92"
+			"Saederup92",
+			"Sarrus"
 		]
 	},
 	"chat-unblocked": "$1 {{GENDER:$3|ophævede blokering af}} $2.",
