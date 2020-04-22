@@ -6,8 +6,8 @@ class MediaWikiChatHooks {
 	/**
 	 * Hook for parser, to parse chat messages slightly differently,
 	 * not parsing tables, double underscores, and headings
-	 * @param Parser $parser
-	 * @param string $text
+	 * @param Parser &$parser
+	 * @param string &$text
 	 * @param $strip_state
 	 * @return bool
 	 */
