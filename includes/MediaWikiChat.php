@@ -19,7 +19,7 @@ class MediaWikiChat {
 	 * Get the current UNIX time with 100th seconds (i.e. 138524180871).
 	 * Standard UNIX timestamp contains only 10 digits.
 	 *
-	 * @return Integer current UNIX timestamp + 100th seconds
+	 * @return int current UNIX timestamp + 100th seconds
 	 */
 	static function now() {
 		$m = explode( ' ', microtime() );
@@ -135,7 +135,7 @@ class MediaWikiChat {
 	/**
 	 * Get interval to poll the server from. Based on the average milliseconds between recent messages.
 	 *
-	 * @return Integer polling interval to use (how long between each poll)
+	 * @return int polling interval to use (how long between each poll)
 	 */
 	static function getInterval() {
 		$dbr = wfGetDB( DB_REPLICA );

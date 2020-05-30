@@ -8,7 +8,7 @@ class MediaWikiChatHooks {
 	 * not parsing tables, double underscores, and headings
 	 * @param Parser &$parser
 	 * @param string &$text
-	 * @param $strip_state
+	 * @param &$strip_state
 	 * @return bool
 	 */
 	public static function onParserBeforeInternalParse( &$parser, &$text, &$strip_state ) {
