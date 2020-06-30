@@ -21,7 +21,7 @@
 	"chat-blocked": "$1 {{GENDER:$3|блоктоьхна}} $2.",
 	"chat-you-unblocked": "Ахьа {{GENDER:$2|блоктоьхна}} $1.",
 	"chat-unblocked": "$1 {{GENDER:$3||блокдӀаяьккхина}} $2.",
-	"chat-left": "$1 {{GENDER:$2|араваьлла|араяьлла}} чат чура.",
+	"chat-left": "$1 {{GENDER:$2|араваьлла|араяьлла}} чат чуьра.",
 	"chat-private-message": "тӀетаӀ йе хьай хаам дӀабахьийта",
 	"chat-user-is-moderator": "ХӀара декъашхо — {{GENDER:$1|модератор ву|модератор ю}}.",
 	"chat-you-are-moderator": "Хьо — {{GENDER:$1|модератор ву|модератор ю}}.",
