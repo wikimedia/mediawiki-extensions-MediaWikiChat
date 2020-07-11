@@ -31,8 +31,8 @@ class MediaWikiChat {
 	/**
 	 * Get the path to the specified user's avatar image.
 	 *
-	 * @param $id Integer: user ID
-	 * @return String avatar image path
+	 * @param int $id user ID
+	 * @return string avatar image path
 	 */
 	static function getAvatar( $id ) {
 		global $wgUploadPath;
@@ -45,9 +45,9 @@ class MediaWikiChat {
 	/**
 	 * Send a message to the database that a user has been (un)blocked
 	 *
-	 * @param $type String: block/unblock: whether the user has been blocked or unblocked
-	 * @param $user User: user that has been blocked/unblocked
-	 * @param $performer User: user that did the blocking/unblocking
+	 * @param string $type block/unblock: whether the user has been blocked or unblocked
+	 * @param User $user user that has been blocked/unblocked
+	 * @param User $performer user that did the blocking/unblocking
 	 */
 	static function sendSystemBlockingMessage( $type, $user, User $performer ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -71,7 +71,7 @@ class MediaWikiChat {
 	 * Get the list of users who are online, if we have the "chat" user right.
 	 *
 	 * @param User $user
-	 * @return Mixed array of user IDs and user names on success, boolean false
+	 * @return int[]|false array of user IDs and user names on success, boolean false
 	 * if the current user doesn't have the "chat" right
 	 */
 	static function getOnline( User $user ) {

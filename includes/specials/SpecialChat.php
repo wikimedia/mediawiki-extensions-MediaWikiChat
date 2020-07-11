@@ -12,7 +12,7 @@ class SpecialChat extends SpecialPage {
 	/**
 	 * Show the special page
 	 *
-	 * @param $par Mixed: parameter passed to the special page or null
+	 * @param string|null $par parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
 		global $wgChatKicks, $wgChatLinkUsernames, $wgChatMeCommand, $wgChatMaxMessageLength, $wgCanonicalServer;

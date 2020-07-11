@@ -8,7 +8,7 @@ class MediaWikiChatHooks {
 	 * not parsing tables, double underscores, and headings
 	 * @param Parser &$parser
 	 * @param string &$text
-	 * @param &$strip_state
+	 * @param StripState &$strip_state
 	 * @return bool
 	 */
 	public static function onParserBeforeInternalParse( &$parser, &$text, &$strip_state ) {
@@ -38,6 +38,11 @@ class MediaWikiChatHooks {
 	 *
 	 * Whenever a user is added to or removed from the 'blockedfromchat' group,
 	 * this function ensures that the chat database table is updated accordingly.
+	 * @param User $user
+	 * @param array $add
+	 * @param array $remove
+	 * @param User $performer
+	 * @return true
 	 */
 	public static function onUserRights( $user, array $add, array $remove, User $performer ) {
 		if ( in_array( 'blockedfromchat', $add ) ) {
@@ -53,6 +58,8 @@ class MediaWikiChatHooks {
 
 	/**
 	 * Hook for update.php
+	 * @param DatabaseUpdater $updater
+	 * @return true
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$dir = __DIR__ . '/../sql/';
@@ -67,6 +74,9 @@ class MediaWikiChatHooks {
 
 	/**
 	 * Hook for adding a sidebar portlet ($wgChatSidebarPortlet)
+	 * @param Skin $skin
+	 * @param array &$bar
+	 * @return true
 	 */
 	public static function fnNewSidebarItem( Skin $skin, &$bar ) {
 		global $wgChatSidebarPortlet;
