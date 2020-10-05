@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"Vadgt"
 		]
 	},
 	"chat": "Վիճակագրություն",
 	"chat-type-your-message": "Մուտքագրեք ձեր հաղորդագրությունը",
-	"chat-a-minute-ago": "մի քանի րոպե առաջ"
+	"chat-a-minute-ago": "մի քանի րոպե առաջ",
+	"chat-yesterday": "Երեկ"
 }
