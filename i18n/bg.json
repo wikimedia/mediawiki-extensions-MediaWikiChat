@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"DCLXVI",
+			"Kareyac",
 			"Mitzev",
 			"ShockD",
 			"StanProg"
@@ -9,6 +10,7 @@
 	},
 	"chat": "Чат",
 	"chat-a-minute-ago": "преди минута",
+	"chat-yesterday": "вчера",
 	"chat-you-unblocked": "Вие {{GENDER:$2|отблокирахте}} $1.",
 	"chat-unblocked": "$1 {{GENDER:$3|отблокира}} $2.",
 	"chat-change-preferences": "Промяна на предпочитанията за чат (цял екран, звуци и уведомления)",
