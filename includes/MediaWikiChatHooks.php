@@ -1,37 +1,9 @@
 <?php
+
 /**
  * Class containing hooks for the MediaWikiChat extension
  */
 class MediaWikiChatHooks {
-	/**
-	 * Hook for parser, to parse chat messages slightly differently,
-	 * not parsing tables, double underscores, and headings
-	 * @param Parser &$parser
-	 * @param string &$text
-	 * @param StripState &$strip_state
-	 * @return bool
-	 */
-	public static function onParserBeforeInternalParse( &$parser, &$text, &$strip_state ) {
-		if ( $parser->getTitle()->equals( SpecialPage::getTitleFor( 'Chat', 'message' ) ) ) { // only do our version of parsing when this is Special:Chat and we're parsing a message
-			$text = $parser->replaceVariables( $text );
-
-			$text = Sanitizer::removeHTMLtags(
-				$text,
-				[ &$parser, 'attributeStripCallback' ],
-				false,
-				[]
-			);
-
-			$text = $parser->replaceInternalLinks( $text );
-			$text = $parser->doAllQuotes( $text );
-			$text = $parser->replaceExternalLinks( $text );
-			$text = $parser->doMagicLinks( $text );
-
-			return false; // stop parser doing anything as we've done the parsing ourselves
-		} else {
-			return true;
-		}
-	}
 
 	/**
 	 * Hook for user rights changes

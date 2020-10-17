@@ -67,7 +67,6 @@
 		"MediaWikiChatHooks": "includes/MediaWikiChatHooks.php"
 	},
 	"Hooks": {
-		"ParserBeforeInternalParse": "MediaWikiChatHooks::onParserBeforeInternalParse",
 		"UserGroupsChanged": "MediaWikiChatHooks::onUserRights",
 		"LoadExtensionSchemaUpdates": "MediaWikiChatHooks::onLoadExtensionSchemaUpdates",
 		"SkinBuildSidebar": "MediaWikiChatHooks::fnNewSidebarItem",
