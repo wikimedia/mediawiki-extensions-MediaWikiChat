@@ -8,7 +8,8 @@
 			"MuratTheTurkish",
 			"Mustavanilya",
 			"Sayginer",
-			"Violetanka"
+			"Violetanka",
+			"Vito Genovese"
 		]
 	},
 	"chat": "Sohbet",
@@ -52,7 +53,7 @@
 	"logeventslist-chat-log": "Sohbet günlüğü",
 	"log-name-privatechat": "Özel sohbet günlüğü",
 	"log-description-privatechat": "Özel mesajlar MediaWikiChat tarafından gönderildi",
-	"logentry-privatechat-send": "$1 kullanıcısından $5 kullanıcısına: $4",
+	"logentry-privatechat-send": "$1 adlı kullanıcıdan $5 adlı kullanıcıya: $4",
 	"log-show-hide-privatechat": "$1 özel sohbet günlüğü",
 	"logeventslist-privatechat-log": "Özel sohbet günlüğü",
 	"group-chatmod": "Sohbet moderatörleri",
@@ -97,8 +98,8 @@
 	"apihelp-chatsendpm-param-id": "Özel mesaj gönderilecek kullanıcı kimliği",
 	"apihelp-chatsendpm-param-message": "Gönderilecek mesaj",
 	"apihelp-chatsendpm-example-1": "5 Kimliğine sahip kullanıcıya \"Hello World!\" diye bir mesaj gönderin",
-	"chat-message-from": "$1 {{GENDER:$2|kullanıcısından}} mesaj",
-	"chat-private-message-from": "$1 {{GENDER:$2|kullanıcısından}} özel mesaj",
+	"chat-message-from": "$1 {{GENDER:$2|adlı kullanıcıdan}} mesaj",
+	"chat-private-message-from": "$1 {{GENDER:$2|adlı kullanıcıdan}} özel mesaj",
 	"chat-mentioned-by": "$1 {{GENDER:$2|tarafından}} bahsedildi",
 	"chat.css": "/* Buraya yüklenen CSS, yalnızca Special:Chat kısmını etkileyecek */",
 	"chat.js": "/* Special:Chat kullanan kullanıcılar için herhangi bir JavaScript yüklenecek */"
