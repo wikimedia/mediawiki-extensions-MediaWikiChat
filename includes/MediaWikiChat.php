@@ -177,9 +177,9 @@ class MediaWikiChat {
 	 * Parses the given message as wikitext, and replaces smileys,
 	 * provided $wgChatRichMessages is enabled
 	 *
-	 * @param String $message message to parse
+	 * @param string $message message to parse
 	 * @param User $user current user object
-	 * @return String parsed message
+	 * @return string parsed message
 	 */
 	static function parseMessage( $message, $user ) {
 		global $wgChatRichMessages, $wgChatUseStyleAttribute;
