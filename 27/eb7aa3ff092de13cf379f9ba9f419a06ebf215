@@ -1,0 +1,8 @@
+Verified+1: Libraryupgrader <tools.libraryupgrader@tools.wmflabs.org>
+Verified+2: jenkins-bot
+Code-Review+2: DannyS712 <DannyS712.enwiki@gmail.com>
+Submitted-by: jenkins-bot
+Submitted-at: Wed, 04 Nov 2020 05:52:34 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/MediaWikiChat/+/638834
+Project: mediawiki/extensions/MediaWikiChat
+Branch: refs/heads/master
