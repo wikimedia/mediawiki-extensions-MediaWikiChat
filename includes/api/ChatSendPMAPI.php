@@ -22,7 +22,7 @@ class ChatSendPMAPI extends ApiBase {
 
 				if ( strlen( $message ) > $wgChatMaxMessageLength ) {
 					$result->addValue( $this->getModuleName(), 'error', 'length' );
-					return true;
+					return;
 				}
 
 				// Flood check
@@ -34,7 +34,7 @@ class ChatSendPMAPI extends ApiBase {
 				);
 				if ( $res > $wgChatFloodMessages ) {
 					$result->addValue( $this->getModuleName(), 'error', 'flood' );
-					return true;
+					return;
 				}
 
 				$dbw->insert(
@@ -71,10 +71,9 @@ class ChatSendPMAPI extends ApiBase {
 		} else {
 			$result->addValue( $this->getModuleName(), 'error', 'blockedfromchat' );
 		}
-
-		return true;
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'message' => [
@@ -88,6 +87,7 @@ class ChatSendPMAPI extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getExamplesMessages() {
 		return [
 			'action=chatsendpm&id=5&message=Hello%20World!'
@@ -95,6 +95,7 @@ class ChatSendPMAPI extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function mustBePosted() {
 		return true;
 	}

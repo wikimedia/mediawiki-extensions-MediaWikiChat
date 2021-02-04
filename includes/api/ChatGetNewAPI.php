@@ -14,10 +14,9 @@ class ChatGetNewAPI extends ApiBase {
 		} else {
 			$result->addValue( $this->getModuleName(), 'error', 'blockedfromchat' );
 		}
-
-		return true;
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'focussed' => [
@@ -27,6 +26,7 @@ class ChatGetNewAPI extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getExamplesMessages() {
 		return [
 				'action=chatgetnew'

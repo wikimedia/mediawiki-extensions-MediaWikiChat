@@ -6,14 +6,15 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
 
 class MediaWikiChat {
 
-	const TYPE_MESSAGE = 0;
-	const TYPE_PM = 1;
-	const TYPE_BLOCK = 2;
-	const TYPE_UNBLOCK = 3;
-	const TYPE_KICK = 4;
+	public const TYPE_MESSAGE = 0;
+	public const TYPE_PM = 1;
+	public const TYPE_BLOCK = 2;
+	public const TYPE_UNBLOCK = 3;
+	public const TYPE_KICK = 4;
 
 	/**
 	 * Get the current UNIX time with 100th seconds (i.e. 138524180871).
@@ -22,10 +23,7 @@ class MediaWikiChat {
 	 * @return int current UNIX timestamp + 100th seconds
 	 */
 	static function now() {
-		$m = explode( ' ', microtime() );
-
-		return intval( $m[1] ) * 100 +
-				intval( $m[0] * 100 );
+		return (int)( microtime( true ) * 100 );
 	}
 
 	/**
@@ -46,10 +44,10 @@ class MediaWikiChat {
 	 * Send a message to the database that a user has been (un)blocked
 	 *
 	 * @param string $type block/unblock: whether the user has been blocked or unblocked
-	 * @param User $user user that has been blocked/unblocked
-	 * @param User $performer user that did the blocking/unblocking
+	 * @param UserIdentity $user user that has been blocked/unblocked
+	 * @param UserIdentity $performer user that did the blocking/unblocking
 	 */
-	static function sendSystemBlockingMessage( $type, $user, User $performer ) {
+	static function sendSystemBlockingMessage( $type, UserIdentity $user, UserIdentity $performer ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$toid = $user->getId();
@@ -109,10 +107,10 @@ class MediaWikiChat {
 	/**
 	 * Is the current user online or not?
 	 *
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return bool whether they're online or not.
 	 */
-	static function amIOnline( User $user ) {
+	static function amIOnline( UserIdentity $user ) {
 		global $wgChatOnlineTimeout;
 
 		$dbr = wfGetDB( DB_REPLICA );
@@ -206,7 +204,12 @@ class MediaWikiChat {
 			$message = str_ireplace( '[[', '[[:', $message ); // prevent users showing huge local images in chat
 
 			if ( !$wgChatUseStyleAttribute ) {
-				$message = preg_replace( '#<([a-zA-z].+?) (.?)style=["\'].+?["\'](.?)>#', '<$1 $2$3>', $message ); // remove style attribute of html elements
+				// Remove style attribute of html elements
+				$message = preg_replace(
+					'#<([a-zA-z].+?) (.?)style=["\'].+?["\'](.?)>#',
+					'<$1 $2$3>',
+					$message
+				);
 			}
 
 			$message = preg_replace_callback( // prevent smileys wrapped in <nowiki> tags rendering
@@ -214,9 +217,12 @@ class MediaWikiChat {
 				function ( $matches ) use ( $smileys ) { // loop through instances of <nowiki>
 					$s = $matches[0];
 					foreach ( $smileys as $chars => $filename ) {
-						$replacement = mb_encode_numericentity( $chars, [ 0x0, 0xffff, 0, 0xffff ], 'UTF-8' ); // converts ALL characters to html entities
+						// Converts ALL characters to html entities
+						$replacement = mb_encode_numericentity( $chars, [ 0x0, 0xffff, 0, 0xffff ], 'UTF-8' );
 
-						$s = str_ireplace( $chars, $replacement, $s ); // for each instance, replace smiley chars with converted versions, so they don't render
+						// For each instance, replace smiley chars with converted versions, so they
+						// don't render
+						$s = str_ireplace( $chars, $replacement, $s );
 					}
 					return $s;
 				},
@@ -304,9 +310,9 @@ class MediaWikiChat {
 	/**
 	 * Update the away timestamp (last time user sent message) for the given user to now
 	 *
-	 * @param User $user
+	 * @param UserIdentity $user
 	 */
-	static function updateAway( User $user ) {
+	static function updateAway( UserIdentity $user ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$dbw->update(

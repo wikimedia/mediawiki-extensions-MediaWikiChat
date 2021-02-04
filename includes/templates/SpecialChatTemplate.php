@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Main user interface for Special:Chat.
  *
@@ -6,6 +7,7 @@
  */
 class SpecialChatTemplate extends QuickTemplate {
 	public function execute() {
+		// phpcs:disable Generic.Files.LineLength
 ?>
 		<div id="mwchat-topic">
 			<?php echo wfMessage( 'chat-topic' )->parse(); ?>
@@ -42,5 +44,6 @@ class SpecialChatTemplate extends QuickTemplate {
 			<a target="_blank" href="<?php echo SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-misc' )->getFullURL(); ?>"><?php echo wfMessage( 'chat-change-preferences' ); ?></a>
 		</div>
 <?php
+		// phpcs:enable
 	}
 }

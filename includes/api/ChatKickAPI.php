@@ -58,6 +58,7 @@ class ChatKickAPI extends ApiBase {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'id' => [
@@ -67,6 +68,7 @@ class ChatKickAPI extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getExamplesMessages() {
 		return [
 			'action=chatkick&id=1'
@@ -74,6 +76,7 @@ class ChatKickAPI extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function mustBePosted() {
 		return true;
 	}
