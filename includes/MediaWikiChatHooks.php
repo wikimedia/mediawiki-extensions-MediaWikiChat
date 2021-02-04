@@ -14,7 +14,6 @@ class MediaWikiChatHooks {
 	 * @param array $add
 	 * @param array $remove
 	 * @param User $performer
-	 * @return true
 	 */
 	public static function onUserRights( $user, array $add, array $remove, User $performer ) {
 		if ( in_array( 'blockedfromchat', $add ) ) {
@@ -24,14 +23,11 @@ class MediaWikiChatHooks {
 		if ( in_array( 'blockedfromchat', $remove ) ) {
 			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_UNBLOCK, $user, $performer );
 		}
-
-		return true;
 	}
 
 	/**
 	 * Hook for update.php
 	 * @param DatabaseUpdater $updater
-	 * @return true
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$dir = __DIR__ . '/../sql/';
@@ -40,15 +36,12 @@ class MediaWikiChatHooks {
 		$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );
 		$updater->addExtensionField( 'chat_users', 'cu_away', $dir . 'cu_away.sql' );
 		$updater->modifyExtensionField( 'chat_users', 'cu_away', $dir . 'cu_away_new.sql' );
-
-		return true;
 	}
 
 	/**
 	 * Hook for adding a sidebar portlet ($wgChatSidebarPortlet)
 	 * @param Skin $skin
 	 * @param array &$bar
-	 * @return true
 	 */
 	public static function fnNewSidebarItem( Skin $skin, &$bar ) {
 		global $wgChatSidebarPortlet;
@@ -100,10 +93,12 @@ class MediaWikiChatHooks {
 				$bar[$skin->msg( 'chat-sidebar-online' )->text()] = $arr;
 			}
 		}
-
-		return true;
 	}
 
+	/**
+	 * @param User $user
+	 * @param array[] &$preferences
+	 */
 	static function wfPrefHook( $user, &$preferences ) {
 		$preferences['chat-fullscreen'] = [
 			'type' => 'toggle',
@@ -152,8 +147,6 @@ class MediaWikiChatHooks {
 			'label-message' => 'tog-chat-notify-joinleave',
 			'section' => 'misc/chat',
 		];
-
-		return true;
 	}
 
 }
