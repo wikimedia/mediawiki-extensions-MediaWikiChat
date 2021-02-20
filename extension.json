@@ -86,7 +86,7 @@
 				"january", "february", "march", "april", "may", "june", "july", "august", "september", "october",
 				"november", "december", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday",
 				"sunday", "chat-type-your-private-message", "chat-no-other-users", "chat-blocked-from-chat",
-				"just-now", "chat-a-minute-ago", "minutes-ago", "chat-youve-been-kicked","chat-you-kicked",
+				"just-now", "chat-a-minute-ago", "minutes-ago", "chat-youve-been-kicked", "chat-you-kicked",
 				"chat-kicked", "chat-kick", "chat-youve-been-blocked", "chat-you-blocked", "chat-blocked",
 				"chat-block", "chat-private-message", "chat-user-is-moderator", "chat-you-are-moderator",
 				"chat-joined", "chat-left", "chat-mod-image", "chat-yesterday", "chat-flood", "chat-too-long",
@@ -97,11 +97,11 @@
 		},
 		"ext.mediawikichat.site": {
 			"class": "ResourceLoaderWikiModule",
-			"scripts": ["MediaWiki:Chat.js"]
+			"scripts": [ "MediaWiki:Chat.js" ]
 		},
 		"ext.mediawikichat.site.styles": {
 			"class": "ResourceLoaderWikiModule",
-			"styles": ["MediaWiki:Chat.css"]
+			"styles": [ "MediaWiki:Chat.css" ]
 		}
 	},
 	"AvailableRights": [
