@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c0d4847_736cf61b",
+        "filename": "includes/MediaWikiChat.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2021-05-02T06:45:16Z",
+      "side": 1,
+      "message": "self notes, confirmed this does the same:\nmicrotime() returns `msec sec`, where `sec` is the seconds since Unix epoch, and `msec` is for microseconds since `sec` (eg \"0.93896200 1619937546\" for a call 1619937546.93896200 after the epoch)\n\nmicrotime( true ) returns the number of seconds with the epoch, with microseconds as a decimal, eg 1619937546.93896200\n\nold code: take the number of seconds, multiply by one hundred, to get (eg) 161993754600, and then add the microseconds multiplied by a hundred and cast to an int, (eg) 0.93896200 -\u003e 93, to get 161993754600 + 93 \u003d 161993754693\n\nnew code: take the number of seconds, including microseconds, multiply by one hundred, and then cast to an int, eg 1619937546.93896200 -\u003e 161993754693.896200 -\u003e 161993754693",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "5a60f48703b5c2f67d99913acf5098e6e2c45aaa",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a510dfd_5fb92ecf",
+        "filename": "includes/MediaWikiChatHooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 6729
+      },
+      "writtenOn": "2021-05-02T06:45:16Z",
+      "side": 1,
+      "message": "this is the hook handler for the `GetPreferences` hook, documentation matches",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 4
+      },
+      "revId": "5a60f48703b5c2f67d99913acf5098e6e2c45aaa",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
