@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02fd735e_e6c4f77c",
+        "filename": "includes/MediaWikiChat.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2021-05-03T08:11:08Z",
+      "side": 1,
+      "message": "Great analysis, thanks a lot! I wish there would be an RfC to deprecate microtime( false ) in PHP. This string return value is one of the ugliest things in PHP. I wonder why it\u0027s not listed in https://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/? ;-)",
+      "parentUuid": "6c0d4847_736cf61b",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "5a60f48703b5c2f67d99913acf5098e6e2c45aaa",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a510dfd_5fb92ecf",
         "filename": "includes/MediaWikiChatHooks.php",
         "patchSetId": 1
