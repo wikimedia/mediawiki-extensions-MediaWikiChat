@@ -214,7 +214,7 @@ class MediaWikiChat {
 
 			$message = preg_replace_callback( // prevent smileys wrapped in <nowiki> tags rendering
 				"#<nowiki>(.+?)</nowiki>#i",
-				function ( $matches ) use ( $smileys ) { // loop through instances of <nowiki>
+				static function ( $matches ) use ( $smileys ) { // loop through instances of <nowiki>
 					$s = $matches[0];
 					foreach ( $smileys as $chars => $filename ) {
 						// Converts ALL characters to html entities
