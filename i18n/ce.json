@@ -36,7 +36,7 @@
 	"logentry-privatechat-send": "$1 йахьийтина $5: $4",
 	"log-show-hide-privatechat": "$1 чатан тептар",
 	"group-chatmod-member": "{{GENDER:$1|чатан модератор}}",
-	"right-modchat": "Лелае Special:Chat",
+	"right-modchat": "Лелайе Special:Chat",
 	"tog-chat-ping-mention": "Хаам беача аз хилийта",
 	"tog-chat-ping-pm": "Хаам беача аз хилийта",
 	"tog-chat-ping-message": "Хаам беача аз хилийта",
