@@ -45,6 +45,7 @@
 	"chat-sidebar-join": "Приєднатися до чату",
 	"log-name-chat": "Журнал чату",
 	"log-description-chat": "Повідомлення від MediaWikiChat, коли користувач усуває іншого",
+	"logentry-chat-send": "$1: $4",
 	"logentry-chat-kick": "$1 {{GENDER:$1|усунув|усунула}} $4",
 	"log-show-hide-chat": "$1 журнал чату",
 	"logeventslist-chat-log": "Журнал чату",
