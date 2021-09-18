@@ -13,7 +13,7 @@ class GetNewWorker {
 	static function execute( ApiResult $result, User $user, ApiMain $main ) {
 		global $wgChatOnlineTimeout;
 		$dbr = wfGetDB( DB_REPLICA );
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$mName = 'chatgetnew';
 
 		$thisCheck = MediaWikiChat::now();

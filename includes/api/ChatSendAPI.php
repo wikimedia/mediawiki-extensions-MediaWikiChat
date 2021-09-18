@@ -13,7 +13,7 @@ class ChatSendAPI extends ApiBase {
 			$message = MediaWikiChat::parseMessage( $originalMessage, $user );
 
 			if ( $message != '' ) {
-				$dbw = wfGetDB( DB_MASTER );
+				$dbw = wfGetDB( DB_PRIMARY );
 				$dbr = wfGetDB( DB_REPLICA );
 
 				$id = $user->getId();

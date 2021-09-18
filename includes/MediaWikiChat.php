@@ -48,7 +48,7 @@ class MediaWikiChat {
 	 * @param UserIdentity $performer user that did the blocking/unblocking
 	 */
 	static function sendSystemBlockingMessage( $type, UserIdentity $user, UserIdentity $performer ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$toid = $user->getId();
 		$fromid = $performer->getId();
@@ -298,7 +298,7 @@ class MediaWikiChat {
 		);
 
 		if ( $field ) {
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$dbw->delete(
 				'chat',
 				[ "chat_timestamp < $field" ],
@@ -313,7 +313,7 @@ class MediaWikiChat {
 	 * @param UserIdentity $user
 	 */
 	static function updateAway( UserIdentity $user ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->update(
 			'chat_users',
