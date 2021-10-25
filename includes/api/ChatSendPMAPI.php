@@ -7,7 +7,7 @@ class ChatSendPMAPI extends ApiBase {
 		$result = $this->getResult();
 		$user = $this->getUser();
 
-		if ( $user->isAllowed( 'chat' ) && !$user->isBlocked() ) {
+		if ( $user->isAllowed( 'chat' ) && !$user->getBlock() ) {
 			$toId = intval( $this->getMain()->getVal( 'id' ) );
 
 			$originalMessage = $this->getMain()->getVal( 'message' );
