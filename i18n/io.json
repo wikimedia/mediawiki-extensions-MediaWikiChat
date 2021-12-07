@@ -4,5 +4,7 @@
 			"Joao Xavier"
 		]
 	},
-	"chat-today": "hodie"
+	"chat-today": "hodie",
+	"chat-block": "blokusar",
+	"chat-blocked": "$1 {{GENDER:$3|blokusis}} $2."
 }
