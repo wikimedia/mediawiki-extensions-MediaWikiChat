@@ -3,6 +3,7 @@
 		"authors": [
 			"1233qwer1234qwer4",
 			"Armin1392",
+			"Beginneruser",
 			"Dalba",
 			"Macofe",
 			"Reza1615"
@@ -32,7 +33,7 @@
 	"chat-unblocked": "$1 {{GENDER:$3|مسدود نشده}} $2",
 	"chat-joined": "$1 به گفتگو {{GENDER:$2|پیوسته شده‌است}}",
 	"chat-left": "$1 گفتگو {{GENDER:$2|ترک کرده‌است}}",
-	"chat-private-message": "برای پیغام خصوصی کلیک کنید",
+	"chat-private-message": "برای پیام خصوصی کلیک کنید",
 	"chat-user-is-moderator": "این کاربر یک مدیر {{GENDER:$1|هست}}",
 	"chat-you-are-moderator": "شما یک مدیر {{GENDER:$1|هستید}}",
 	"chat-topic": "خوش آمدید به {{SITENAME}} گفتگوی. ([[Special:Log/chat|ورود به گفتگو]])",
@@ -40,7 +41,7 @@
 	"chat-sidebar-online": "کاربران آنلاین در گفتگو",
 	"chat-sidebar-join": "پیوستن به گفتگو",
 	"log-name-chat": "ورود به گفتگو",
-	"log-description-chat": "پیغام‌ها توسط گفتگوی مدیاویکی، به خوبی ضربات کاربران فرستاده شده",
+	"log-description-chat": "پیام‌ها توسط گفتگوی مدیاویکی، به خوبی ضربات کاربران فرستاده شده",
 	"logentry-chat-kick": "$1 {{GENDER:$1|ضربه زده}} $4",
 	"log-show-hide-chat": "$1 سیاهه گفتگو",
 	"log-name-privatechat": "سیاهه گفتگو خصوصی",
