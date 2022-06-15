@@ -6,7 +6,8 @@
 			"Dalba",
 			"Macofe",
 			"Reza1615",
-			"Beginneruser"
+			"Beginneruser",
+			"Jeeputer"
 		]
 	},
 	"chat": "گفتگو",
@@ -25,7 +26,7 @@
 	"chat-block": "بستن",
 	"chat-youve-been-kicked": "شما توسط $1 {{GENDER:$2|ضربه}} زده‌اید. صفحه را برای گفتگو تجدید کنید",
 	"chat-you-kicked": "شما $1 را {{GENDER:$2|ضربه زدید}}",
-	"chat-kicked": "$1 {{GENDER:$3|ضربه زدید}} $2",
+	"chat-kicked": "$1 $$2 را {{GENDER:$3|{{GENDER:$4|بیرون کرد}}}}.",
 	"chat-youve-been-blocked": "شما توسط $1 {{GENDER:$2|مسدود شده‌اید}}.",
 	"chat-you-blocked": "شما {{GENDER:$2|مسدود شدید}} $1",
 	"chat-blocked": "$1 {{GENDER:$3|مسدود شده}} $2",
@@ -37,7 +38,7 @@
 	"chat-user-is-moderator": "این کاربر یک مدیر {{GENDER:$1|هست}}",
 	"chat-you-are-moderator": "شما یک مدیر {{GENDER:$1|هستید}}",
 	"chat-topic": "خوش آمدید به {{SITENAME}} گفتگوی. ([[Special:Log/chat|ورود به گفتگو]])",
-	"chat-change-preferences": "اولویت‌های گفتگوی خود را تغییر دهید (تمام صفحه و صداها)",
+	"chat-change-preferences": "ترجیحات گفتگوی خود را تغییر دهید (تمام‌صفحه، صداها، اعلان‌ها)",
 	"chat-sidebar-online": "کاربران آنلاین در گفتگو",
 	"chat-sidebar-join": "پیوستن به گفتگو",
 	"log-name-chat": "ورود به گفتگو",
