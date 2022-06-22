@@ -104,5 +104,5 @@
 	"chat-private-message-from": "Message privé {{GENDER:$2|de}} $1",
 	"chat-mentioned-by": "Mentionné {{GENDER:$2|par}} $1",
 	"chat.css": "/* Les CSS chargés ici modifieront seulement Special:Chat */",
-	"chat.js": "/* Tout JavaScript ici sera chargé pour les utilisateurs qui utilisent Special:Chat */"
+	"chat.js": "/* Tout code JavaScript placé ici sera chargé avec les pages accédées par les utilisateurs de Special:Chat */"
 }
