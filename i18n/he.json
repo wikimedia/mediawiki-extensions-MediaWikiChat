@@ -43,7 +43,7 @@
 	"logeventslist-privatechat-log": "יומן צ'אט פרטי",
 	"group-chatmod": "מנהלי הצ'אט",
 	"grouppage-chatmod": "{{ns:project}}:מנהלי הצ'אט",
-	"group-blockedfromchat": "המשתמשים נחסמו לצ'אט",
+	"group-blockedfromchat": "משתמשים שנחסמו מצ'אט",
 	"grouppage-blockedfromchat": "{{ns:project}}:המשתמשים נחסמו לצ'אט",
 	"right-modchat": "שימוש בדף \"Special:Chat\" (או \"מיוחד:צ'אט\")",
 	"tog-chat-ping-mention": "השמע צליל בעת קבלת תזכיר",
