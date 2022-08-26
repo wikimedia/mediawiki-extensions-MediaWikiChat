@@ -1,12 +1,20 @@
 <?php
 
+use MediaWiki\User\UserOptionsLookup;
+
 class SpecialChat extends SpecialPage {
+
+	/** @var UserOptionsLookup */
+	private $userOptionsLookup;
 
 	/**
 	 * Constructor -- set up the new special page
 	 */
-	public function __construct() {
+	public function __construct(
+		UserOptionsLookup $userOptionsLookup
+	) {
 		parent::__construct( 'Chat', 'chat' );
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**
@@ -56,7 +64,7 @@ class SpecialChat extends SpecialPage {
 				]
 			);
 
-			if ( $user->getOption( 'chat-fullscreen' ) ) {
+			if ( $this->userOptionsLookup->getOption( $user, 'chat-fullscreen' ) ) {
 				$out->disable(); // disable the normal skin stuff so only the MWC window appears
 
 				echo $out->headElement( $this->getSkin() );

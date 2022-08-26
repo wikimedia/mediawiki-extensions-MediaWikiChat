@@ -24,7 +24,12 @@
 		"ChatMaxMessageLength": 1000
 	},
 	"SpecialPages": {
-		"Chat": "SpecialChat"
+		"Chat": {
+			"class": "SpecialChat",
+			"services": [
+				"UserOptionsLookup"
+			]
+		}
 	},
 	"MessagesDirs": {
 		"MediaWikiChat": [
