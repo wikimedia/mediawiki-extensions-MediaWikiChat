@@ -1,11 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bada Kaji",
 			"Nirajan pant",
 			"हिमाल सुबेदी"
 		]
 	},
+	"chat": "कुराकानी",
+	"chat-type-your-message": "तपाईंको सन्देश लेख्नुहोस्",
+	"chat-type-your-private-message": "आफ्नो निजी सन्देश लेख्नुहोस्",
+	"chat-no-other-users": "च्याटमा अन्य प्रयोगकर्ताहरू छैनन्",
+	"chat-blocked-from-chat": "तपाईंलाई यो च्याटबाट निषेध लगाइएको छ।",
+	"chat-not-allowed": "तपाईंलाई च्याट गर्न अनुमति छैन, पहिले लग इन गर्ने प्रयास गर्नुहोस्।",
+	"chat-sounds": "ध्वनिहरू बजाउनुहोस्",
+	"chat-a-minute-ago": "एक मिनेट पहिले",
 	"chat-today": "आज",
+	"chat-yesterday": "हिजो",
+	"chat-kick": "उसलाई लात मार्नुहोस्",
+	"chat-block": "निषेध",
 	"logeventslist-chat-log": "वार्तालाप गतिविधि",
 	"logeventslist-privatechat-log": "निजी वार्तालाप गतिविधि"
 }
