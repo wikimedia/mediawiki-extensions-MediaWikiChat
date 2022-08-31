@@ -10,7 +10,8 @@
 			"Urhixidur",
 			"Verdy p",
 			"Weft",
-			"Wladek92"
+			"Wladek92",
+			"McDutchie"
 		]
 	},
 	"chat": "Clavardage",
@@ -51,12 +52,12 @@
 	"log-description-chat": "Messages envoyés par MediaWikiChat, ainsi que les expulsions d’utilisateurs",
 	"logentry-chat-send": "$1 : $4",
 	"logentry-chat-kick": "{{GENDER:$1|}}$1 a expulsé $4",
-	"log-show-hide-chat": "Journal de clavardage de $1",
+	"log-show-hide-chat": "$1 le journal de clavardage",
 	"logeventslist-chat-log": "Journal de clavardage",
 	"log-name-privatechat": "Journal de clavardage privé",
 	"log-description-privatechat": "Messages privés envoyés par MediaWikiChat",
 	"logentry-privatechat-send": "$1 à $5 : $4",
-	"log-show-hide-privatechat": "Journal de clavardage privé de $1",
+	"log-show-hide-privatechat": "$1 le journal des clavardages privés",
 	"logeventslist-privatechat-log": "Journal de clavardage privé",
 	"group-chatmod": "Modérateurs de clavardage",
 	"group-chatmod-member": "modérat{{GENDER:$1|eur|rice}} de clavardage",
