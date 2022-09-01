@@ -22,7 +22,7 @@
 	"chat-blocked-from-chat": "Vous avez été bloqué de ce clavardage.",
 	"chat-not-allowed": "Vous n’êtes pas autorisé à clavarder, essayez d’abord de vous connecter.",
 	"chat-sounds": "Jouer des sons",
-	"chat-flood": "Vous ne pouvez pas envoyer des messages aussi rapidement, veuillez attendre avant d’en envoyer davantage.",
+	"chat-flood": "Vous ne pouvez pas envoyer des messages aussi rapidement, veuillez attendre avant d’en envoyer d’autres.",
 	"chat-too-long": "Ce message était trop long, veuillez en envoyer un plus court.",
 	"chat-a-minute-ago": "il y a une minute",
 	"chat-today": "aujourd’hui",
