@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"chat-block": "blokiraj",
+	"chat-blocked": "$1 je {{GENDER:$3|blokiral|blokirala|blokiral/a}} $2."
+}
