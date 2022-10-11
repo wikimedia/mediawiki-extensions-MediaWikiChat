@@ -4,6 +4,9 @@
 			"Eleassar"
 		]
 	},
+	"chat-a-minute-ago": "pred minuto",
+	"chat-today": "danes",
+	"chat-yesterday": "včeraj",
 	"chat-block": "blokiraj",
 	"chat-blocked": "$1 je {{GENDER:$3|blokiral|blokirala|blokiral/a}} $2."
 }
