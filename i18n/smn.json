@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Seipinne"
+			"Seipinne",
+			"Yupik"
 		]
 	},
-	"chat-today": "onne"
+	"chat-today": "onne",
+	"chat-block": "eesti"
 }
