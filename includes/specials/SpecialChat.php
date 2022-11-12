@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserOptionsLookup;
 
 class SpecialChat extends SpecialPage {
@@ -7,16 +8,22 @@ class SpecialChat extends SpecialPage {
 	/** @var UserOptionsLookup */
 	private $userOptionsLookup;
 
+	/** @var UserGroupManager */
+	private $userGroupManager;
+
 	/**
 	 * Constructor -- set up the new special page
 	 *
 	 * @param UserOptionsLookup $userOptionsLookup
+	 * @param UserGroupManager $userGroupManager
 	 */
 	public function __construct(
-		UserOptionsLookup $userOptionsLookup
+		UserOptionsLookup $userOptionsLookup,
+		UserGroupManager $userGroupManager
 	) {
 		parent::__construct( 'Chat', 'chat' );
 		$this->userOptionsLookup = $userOptionsLookup;
+		$this->userGroupManager = $userGroupManager;
 	}
 
 	/**
@@ -34,7 +41,7 @@ class SpecialChat extends SpecialPage {
 		$this->setHeaders();
 
 		if ( !$user->isAllowed( 'chat' ) ) {
-			$groups = $user->getGroups();
+			$groups = $this->userGroupManager->getUserGroups( $user );
 			if ( in_array( 'blockedfromchat', $groups ) ) {
 				$out->addWikiMsg( 'chat-blocked-from-chat' );
 			} else {
