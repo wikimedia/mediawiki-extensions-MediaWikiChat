@@ -27,7 +27,8 @@
 		"Chat": {
 			"class": "SpecialChat",
 			"services": [
-				"UserOptionsLookup"
+				"UserOptionsLookup",
+				UserGroupManager""
 			]
 		}
 	},
