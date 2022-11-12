@@ -131,6 +131,7 @@ class GetNewWorker {
 			$users[$id] = true; // ensure all online users are present in the users list
 		}
 		$genderCache = MediaWikiServices::getInstance()->getGenderCache();
+		$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
 		foreach ( $users as $id => $tr ) {
 			$userObject = User::newFromId( $id );
 			$idString = strval( $id );
@@ -143,7 +144,7 @@ class GetNewWorker {
 				$result->addValue( [ $mName, 'users', $idString ], 'online', 'true' );
 				$result->addValue( [ $mName, 'users', $idString ], 'away', $onlineUsers[$id] );
 			}
-			$groups = $userObject->getGroups();
+			$groups = $userGroupManager->getUserGroups( $userObject );
 			if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
 				$result->addValue( [ $mName, 'users', $idString ], 'mod', 'true' );
 			}
