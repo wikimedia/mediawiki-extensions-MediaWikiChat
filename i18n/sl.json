@@ -12,5 +12,9 @@
 	"chat-blocked": "$1 je {{GENDER:$3|blokiral|blokirala|blokiral_a}} $2.",
 	"chat-unblocked": "$1 je {{GENDER:$3|odblokiral|odblokirala|odblokiral_a}} $2.",
 	"chat-private-message": "kliknite za zasebno sporočilo",
-	"logentry-privatechat-send": "od $1 do $5: $4"
+	"log-name-chat": "Dnevnik klepetov",
+	"log-show-hide-chat": "$1 dnevnik klepetov",
+	"log-name-privatechat": "Dnevnik zasebnih klepetov",
+	"logentry-privatechat-send": "od $1 do $5: $4",
+	"log-show-hide-privatechat": "$1 dnevnik zasebnih klepetov"
 }
