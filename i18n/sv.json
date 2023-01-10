@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jon Harald Søby",
 			"Jopparn",
 			"Lokal Profil",
 			"Platinawolf",
@@ -37,7 +38,7 @@
 	"chat-private-message": "klicka för privat meddelande",
 	"chat-user-is-moderator": "{{GENDER:$1|Denna användare}} är en moderator.",
 	"chat-you-are-moderator": "{{GENDER:$1|Du är}} en moderator.",
-	"chat-topic": "Välkommen till {{SITENAME}}s chatt. ([[Special:Log/chat|chattlogg]])",
+	"chat-topic": "Välkommen till {{GRAMMAR:genitive|{{SITENAME}}}} chatt. ([[Special:Log/chat|chattlogg]])",
 	"chat-change-preferences": "Ändra dina chattinställningar (helskärm, ljud, meddelanden)",
 	"chat-sidebar-online": "Anslutna användare i chatten",
 	"chat-sidebar-join": "Delta i chatten",
