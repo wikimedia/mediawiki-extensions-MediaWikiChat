@@ -14,6 +14,7 @@
 	"chat-private-message": "kliknite za zasebno sporočilo",
 	"log-name-chat": "Dnevnik klepetov",
 	"log-show-hide-chat": "$1 dnevnik klepetov",
+	"logeventslist-chat-log": "Dnevnik klepeta",
 	"log-name-privatechat": "Dnevnik zasebnih klepetov",
 	"logentry-privatechat-send": "od $1 do $5: $4",
 	"log-show-hide-privatechat": "$1 dnevnik zasebnih klepetov"
