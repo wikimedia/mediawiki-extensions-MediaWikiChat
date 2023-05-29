@@ -45,6 +45,7 @@
 	"grouppage-chatmod": "{{ns:project}}:チャット モデレーター",
 	"right-chat": "Special:Chat を使用",
 	"right-modchat": "Special:Chat で利用者をブロック/キック (有効の場合)",
+	"right-viewpmlog": "[[Special:Log/privatechat|非公開チャットメッセージ記録]]を閲覧",
 	"tog-chat-fullscreen": "チャットを全画面表示モードで使用 (開発中)",
 	"tog-chat-ping-mention": "言及された際にサウンドを再生",
 	"tog-chat-ping-pm": "非公開メッセージが届いた際にサウンドを再生",
@@ -54,6 +55,7 @@
 	"chat-idle-minutes": "{{GENDER:$2|この利用者}}は{{PLURAL:$1|1分|$1分}}間アイドル状態になっています",
 	"chat-idle-more": "{{GENDER:$1|この利用者}}は24時間以上アイドル状態になっています",
 	"action-chat": "他の利用者とのチャット",
+	"action-viewpmlog": "非公開チャットメッセージの閲覧",
 	"apihelp-chatgetnew-example-1": "チャットでの新しいメッセージを取得",
 	"chat-message-from": "$1 {{GENDER:$2|から}}のメッセージ",
 	"chat-private-message-from": "$1 {{GENDER:$2|から}}のプライベート・メッセージ"
