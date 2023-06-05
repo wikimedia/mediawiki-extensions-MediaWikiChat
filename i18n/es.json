@@ -5,6 +5,7 @@
 			"Dgstranz",
 			"DiegoAmbrocio",
 			"Fitoschido",
+			"Gabe the cat",
 			"GeorgeBarnick",
 			"Macofe",
 			"Miguel2706",
@@ -13,7 +14,7 @@
 			"Themasterriot"
 		]
 	},
-	"chat": "Charla",
+	"chat": "Chat",
 	"chat-desc": "Proporciona un cliente y servidor de chat ligero",
 	"chat-type-your-message": "Escribe tu mensaje",
 	"chat-type-your-private-message": "Escribe tu mensaje privado",
