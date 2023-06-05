@@ -4,7 +4,9 @@
 			"Joao Xavier"
 		]
 	},
+	"chat-a-minute-ago": "1 minuto ante nun",
 	"chat-today": "hodie",
+	"chat-yesterday": "hiere",
 	"chat-block": "blokusar",
 	"chat-blocked": "$1 {{GENDER:$3|blokusis}} $2."
 }
