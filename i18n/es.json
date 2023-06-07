@@ -10,10 +10,11 @@
 			"Ryo567",
 			"Sethladan",
 			"Themasterriot",
-			"DiegoAmbrocio"
+			"DiegoAmbrocio",
+			"Gabe the cat"
 		]
 	},
-	"chat": "Charla",
+	"chat": "Chat",
 	"chat-desc": "Proporciona un cliente y servidor de chat ligero",
 	"chat-type-your-message": "Escribe tu mensaje",
 	"chat-type-your-private-message": "Escribe tu mensaje privado",
