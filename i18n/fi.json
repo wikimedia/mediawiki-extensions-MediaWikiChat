@@ -15,7 +15,5 @@
 	"chat-a-minute-ago": "minuutti sitten",
 	"chat-today": "tänään",
 	"chat-yesterday": "eilen",
-	"chat-block": "estä",
-	"apihelp-chatkick-description": "Potki käyttäjä chatista",
-	"apihelp-chatsendpm-description": "Lähetä yksityisviesti käyttäjälle"
+	"chat-block": "estä"
 }

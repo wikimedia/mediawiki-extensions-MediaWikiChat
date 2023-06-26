@@ -78,7 +78,6 @@
 	"action-chat": "گفتگو با کاربران دیگر",
 	"action-modchat": "تعدیل گفتگو",
 	"action-viewpmlog": "مشاهدهٔ سیاههٔ خصوصی پیام‌های گفتگو",
-	"apihelp-chatgetnew-description": "دریافت پیام‌های تازه در گفتگو.",
 	"apihelp-chatgetnew-summary": "دریافت پیام‌های تازه در گفتگو.",
 	"apihelp-chatsendpm-param-message": "پیام برای ارسال",
 	"apihelp-chatsendpm-example-1": "ارسال «سلام دنیا!» به کاربر با شناسهٔ 5",

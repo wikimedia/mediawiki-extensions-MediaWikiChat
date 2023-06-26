@@ -8,6 +8,5 @@
 	"chat-unblocked": "$1 {{GENDER:$3|ophævede blokering af}} $2.",
 	"group-blockedfromchat": "Brugere blokeret fra chat",
 	"group-blockedfromchat-member": "{{GENDER:$1|blokeret fra chat}}",
-	"apihelp-chatkick-description": "Spark en bruger ud af chatten",
 	"apihelp-chatkick-summary": "Spark en bruger ud af chatten"
 }
