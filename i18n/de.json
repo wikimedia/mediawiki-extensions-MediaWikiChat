@@ -8,7 +8,8 @@
 			"Metalhead64",
 			"Purodha",
 			"Tiin",
-			"ToBeFree"
+			"ToBeFree",
+			"XenonX3"
 		]
 	},
 	"chat": "Chat",
@@ -77,7 +78,7 @@
 	"tog-chat-notify-joinleave": "Eine Benachrichtigung anzeigen, wenn Benutzer dem Chat beitreten oder es verlassen (nur Chrome und Firefox)",
 	"chat-idle-minutes": "{{GENDER:$2|Dieser Benutzer|Diese Benutzerin}} ist seit mehr als {{PLURAL:$1|einer Minute|$1 Minuten}} inaktiv",
 	"chat-idle-hours": "{{GENDER:$2|Dieser Benutzer|Diese Benutzerin}} ist seit mehr als {{PLURAL:$1|einer Stunde|$1 Stunden}} inaktiv",
-	"chat-idle-more": "{{GENDER:$1|Dieser Benutzer|Diese Benutzerin}} ist seit mehr als 24 Stunden inaktiv",
+	"chat-idle-more": "{{GENDER:$1|Dieser Benutzer|Diese Benutzerin}} ist seit mehr als 24 Stunden inaktiv.",
 	"action-chat": "Mit anderen Benutzern chatten",
 	"action-modchat": "Chat moderieren",
 	"action-viewpmlog": "Das private Chat-Nachrichten-Logbuch ansehen",
