@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"chat": "Ćaskanje",
+	"chat-desc": "Pruža lagani klijent i server za ćaskanje"
+}
