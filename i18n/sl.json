@@ -4,6 +4,9 @@
 			"Eleassar"
 		]
 	},
+	"chat": "Klepet",
+	"chat-type-your-message": "Vnesite svoje sporočilo",
+	"chat-type-your-private-message": "Vnesite svoje zasebno sporočilo",
 	"chat-a-minute-ago": "pred minuto",
 	"chat-today": "danes",
 	"chat-yesterday": "včeraj",
@@ -12,10 +15,18 @@
 	"chat-blocked": "$1 je {{GENDER:$3|blokiral|blokirala|blokiral_a}} $2.",
 	"chat-unblocked": "$1 je {{GENDER:$3|odblokiral|odblokirala|odblokiral_a}} $2.",
 	"chat-private-message": "kliknite za zasebno sporočilo",
+	"chat-sidebar-online": "Prisotni uporabniki v klepetu",
+	"chat-sidebar-join": "Pridružitev klepetu",
 	"log-name-chat": "Dnevnik klepetov",
 	"log-show-hide-chat": "$1 dnevnik klepetov",
 	"logeventslist-chat-log": "Dnevnik klepeta",
 	"log-name-privatechat": "Dnevnik zasebnih klepetov",
 	"logentry-privatechat-send": "od $1 do $5: $4",
-	"log-show-hide-privatechat": "$1 dnevnik zasebnih klepetov"
+	"log-show-hide-privatechat": "$1 dnevnik zasebnih klepetov",
+	"group-chatmod": "Moderatorji klepeta",
+	"tog-chat-ping-mention": "Predvajanje zvoka ob prejemu omemb",
+	"tog-chat-ping-pm": "Predvajanje zvoka ob prejemu zasebnih sporočil",
+	"tog-chat-ping-message": "Predvajanje zvoka ob prejemu običajnih sporočil",
+	"tog-chat-ping-joinleave": "Predvajanje zvoka, ko se uporabnik pridruži klepetu ali ga zapusti",
+	"prefs-chat": "Klepet"
 }
