@@ -26,6 +26,7 @@
 	"chat-a-minute-ago": "לפני דקה",
 	"chat-today": "היום",
 	"chat-yesterday": "אתמול",
+	"chat-kick": "לבעוט",
 	"chat-block": "חסום",
 	"chat-autoscroll": "גלילה אוטומטית",
 	"chat-you-blocked": "{{GENDER:$2|חסמת}} את $1.",
