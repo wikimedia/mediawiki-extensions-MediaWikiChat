@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eleassar"
+			"Eleassar",
+			"Upwinxp"
 		]
 	},
 	"chat": "Klepet",
@@ -12,7 +13,7 @@
 	"chat-yesterday": "včeraj",
 	"chat-block": "blokiraj",
 	"chat-kicked": "$1 je {{GENDER:$3|{{GENDER:$4|brcnil|brcnila|brcnil_a}}}} $2.",
-	"chat-blocked": "$1 je {{GENDER:$3|blokiral|blokirala|blokiral_a}} $2.",
+	"chat-blocked": "$1 je {{GENDER:$3|blokiral|blokirala|blokiral/a}} $2.",
 	"chat-unblocked": "$1 je {{GENDER:$3|odblokiral|odblokirala|odblokiral_a}} $2.",
 	"chat-private-message": "kliknite za zasebno sporočilo",
 	"chat-sidebar-online": "Prisotni uporabniki v klepetu",
