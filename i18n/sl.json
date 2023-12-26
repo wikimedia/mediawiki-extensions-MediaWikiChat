@@ -27,7 +27,7 @@
 	"chat-kicked": "$1 je {{GENDER:$3|{{GENDER:$4|brcnil|brcnila|brcnil_a}}}} $2.",
 	"chat-youve-been-blocked": "$1 {{GENDER:$2|vas}} je {{GENDER:$1|izključil|izključila|izključil_a}}.",
 	"chat-you-blocked": "{{GENDER:$2|Blokirali ste}} $1.",
-	"chat-blocked": "$1 je {{GENDER:$3|blokiral|blokirala|blokiral/a}} $2.",
+	"chat-blocked": "$1 je {{GENDER:$3|blokiral|blokirala|blokiral_a}} $2.",
 	"chat-you-unblocked": "{{GENDER:$2|Odblokirali ste}} $1.",
 	"chat-unblocked": "$1 je {{GENDER:$3|odblokiral|odblokirala|odblokiral_a}} $2.",
 	"chat-joined": "$1 se je {{GENDER:$2|pridružil|pridružila|pridružil_a}} klepetu.",
