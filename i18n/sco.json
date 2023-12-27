@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"John Reid"
+			"John Reid",
+			"CiphriusKane"
 		]
 	},
 	"chat-sounds": "Pley soonds",
@@ -22,8 +23,8 @@
 	"tog-chat-ping-joinleave": "Pley ae soond whan uisers jyn or lea the tauk",
 	"prefs-chat": "The Tauk",
 	"chat-idle-minutes": "This uiser haes been idle fer {{PLURAL:$1|ae minute|$1 minutes}}",
-	"chat-idle-hours": "This uiser haes been idle fer {{PLURAL:$1|aen hoor|$1 hoors}}",
-	"chat-idle-more": "This uiser haes been idle fer ower 24 hoors",
+	"chat-idle-hours": "{{GENDER:$2|This uiser}} haes been idle fur {{PLURAL:$1|ae oor|$1 oor}}",
+	"chat-idle-more": "{{GENDER:$1|This uiser}} haes been idle fur ower 24 oor",
 	"action-chat": "blether wi ither uisers",
 	"action-modchat": "moderate the blether",
 	"action-viewpmlog": "see the private blether messages log"
