@@ -82,7 +82,7 @@ class SpecialChat extends SpecialPage {
 				$template->execute(); // print template
 				echo "</div>";
 
-				echo $this->getSkin()->bottomScripts();
+				echo $out->getBottomScripts();
 				echo "</body></html>";
 			} else {
 				$out->addTemplate( $template ); // output the MWC window along with everything else
