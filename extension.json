@@ -102,11 +102,11 @@
 			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ]
 		},
 		"ext.mediawikichat.site": {
-			"class": "ResourceLoaderWikiModule",
+			"class": "MediaWiki\\ResourceLoader\\WikiModule",
 			"scripts": [ "MediaWiki:Chat.js" ]
 		},
 		"ext.mediawikichat.site.styles": {
-			"class": "ResourceLoaderWikiModule",
+			"class": "MediaWiki\\ResourceLoader\\WikiModule",
 			"styles": [ "MediaWiki:Chat.css" ]
 		}
 	},
