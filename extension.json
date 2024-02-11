@@ -9,7 +9,7 @@
 	"descriptionmsg": "chat-desc",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">=1.35.3"
+		"MediaWiki": ">=1.39"
 	},
 	"config": {
 		"ChatKicks": true,
@@ -102,11 +102,11 @@
 			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ]
 		},
 		"ext.mediawikichat.site": {
-			"class": "ResourceLoaderWikiModule",
+			"class": "MediaWiki\\ResourceLoader\\WikiModule",
 			"scripts": [ "MediaWiki:Chat.js" ]
 		},
 		"ext.mediawikichat.site.styles": {
-			"class": "ResourceLoaderWikiModule",
+			"class": "MediaWiki\\ResourceLoader\\WikiModule",
 			"styles": [ "MediaWiki:Chat.css" ]
 		}
 	},
