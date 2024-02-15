@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A Chinese Wikipedian",
+			"Anterdc99",
 			"Liuxinyu970226",
 			"Qiyue2001",
 			"Yfdyh000",
@@ -51,6 +52,7 @@
 	"log-description-privatechat": "通过MediaWikiChat发送的私人信息",
 	"logentry-privatechat-send": "$1至$5：$4",
 	"log-show-hide-privatechat": "$1私人聊天日志",
+	"logeventslist-privatechat-log": "私人聊天日志",
 	"group-chatmod": "聊天版主",
 	"group-chatmod-member": "{{GENDER:$1|聊天版主}}",
 	"grouppage-chatmod": "{{ns:project}}:聊天版主",
