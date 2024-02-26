@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alex00728",
+			"Dr1t jg",
 			"Freebiekr",
 			"Hym411",
 			"Infinity",
@@ -86,6 +87,7 @@
 	"action-modchat": "챗 중재",
 	"action-viewpmlog": "개인 채팅 메시지 로그 보기",
 	"apihelp-chatgetnew-summary": "채팅에서 새로운 메시지를 가져옵니다.",
+	"apihelp-chatgetnew-param-focussed": "지금 대화 탭이 열려/중심되어 있어?",
 	"apihelp-chatgetnew-example-1": "채팅에서 새로운 메시지를 가져옵니다",
 	"apihelp-chatkick-summary": "대화방에서 사용자를 퇴장시킴",
 	"apihelp-chatkick-param-id": "퇴장시킬 사용자 ID",
