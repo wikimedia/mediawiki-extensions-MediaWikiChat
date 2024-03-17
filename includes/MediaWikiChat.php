@@ -165,7 +165,7 @@ class MediaWikiChat {
 				$av = $minInterval;
 			}
 
-		return $av;
+			return $av;
 		} else { // before there are any messages to consider
 			return 7 * 1000; // use 7 secs
 		}
