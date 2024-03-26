@@ -5,6 +5,7 @@
 			"Armin1392",
 			"Beginneruser",
 			"Dalba",
+			"Ebraminio",
 			"Jeeputer",
 			"Macofe",
 			"Reza1615"
@@ -35,8 +36,8 @@
 	"chat-blocked": "$1 {{GENDER:$3|مسدود شده}} $2",
 	"chat-you-unblocked": "شما {{GENDER:$2|مسدود نشدید}} $1",
 	"chat-unblocked": "$1 {{GENDER:$3|مسدود نشده}} $2",
-	"chat-joined": "$1 به گفتگو {{GENDER:$2|پیوسته شده‌است}}",
-	"chat-left": "$1 گفتگو {{GENDER:$2|ترک کرده‌است}}",
+	"chat-joined": "$1 به گفتگو {{GENDER:$2|پیوسته شده است}}",
+	"chat-left": "$1 گفتگو {{GENDER:$2|ترک کرده است}}",
 	"chat-private-message": "برای پیام خصوصی کلیک کنید",
 	"chat-user-is-moderator": "این کاربر یک مدیر {{GENDER:$1|هست}}",
 	"chat-you-are-moderator": "شما یک مدیر {{GENDER:$1|هستید}}",
