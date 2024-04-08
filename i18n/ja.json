@@ -5,7 +5,8 @@
 			"Otokoume",
 			"Shirayuki",
 			"Sujiniku",
-			"春春眠眠"
+			"春春眠眠",
+			"Salvare"
 		]
 	},
 	"chat": "チャット",
@@ -41,7 +42,7 @@
 	"log-description-privatechat": "MediaWikiChat で送信された非公開メッセージ",
 	"logentry-privatechat-send": "$1 → $5: $4",
 	"log-show-hide-privatechat": "非公開チャット記録を$1",
-	"group-chatmod": "チャット モデレーター",
+	"group-chatmod": "チャットモデレーター",
 	"group-chatmod-member": "{{GENDER:$1|チャット モデレーター}}",
 	"grouppage-chatmod": "{{ns:project}}:チャット モデレーター",
 	"group-blockedfromchat": "チャットからブロックされた利用者",
