@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7255805_c5410c53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2024-04-12T23:56:14Z",
+      "side": 1,
+      "message": "Seems like the avatar-related changes aren\u0027t working as intended, so temporarily setting -2 while I work that out...jerkins\u0027 -1 is due to wfGetDB being deprecated (!) in MW 1.39 but still being used in MWC but that\u0027s not anything to care about when evaluating *this* patchset.",
+      "revId": "007a52492dd61ad3621050d089baecb76270a6eb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
