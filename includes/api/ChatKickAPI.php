@@ -71,8 +71,7 @@ class ChatKickAPI extends ApiBase {
 	/** @inheritDoc */
 	public function getExamplesMessages() {
 		return [
-			'action=chatkick&id=1'
-				=> 'apihelp-chatkick-example-1'
+			'action=chatkick&id=1' => 'apihelp-chatkick-example-1'
 		];
 	}
 

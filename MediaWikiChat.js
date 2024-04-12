@@ -604,7 +604,12 @@ var MediaWikiChat = {
 			$.ajax( {
 				type: 'POST',
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-				data: { 'action': 'chatsendpm', 'message': $( this )[0].value, 'id': toid, 'format': 'json' }
+				data: {
+					'action': 'chatsendpm',
+					'message': $( this )[0].value,
+					'id': toid,
+					'format': 'json'
+				}
 			} ).done( function() {
 				MediaWikiChat.getNew();
 				MediaWikiChat.restartInterval();
@@ -638,7 +643,7 @@ var MediaWikiChat = {
 			if ( mw.user.options.get( 'chat-ping-message' ) ) {
 				MediaWikiChat.audio( 'message' );
 			}
-			document.title = "* " + MediaWikiChat.title;
+			document.title = '* ' + MediaWikiChat.title;
 			if ( mw.user.options.get( 'chat-notify-message' ) ) {
 				MediaWikiChat.notify( title, message );
 			}
@@ -689,7 +694,7 @@ var MediaWikiChat = {
 
 	audio: function( filename ) {
 		var audio = document.createElement( 'audio' );
-		var path = mw.config.get( 'wgScriptPath') + '/extensions/MediaWikiChat/assets/' + filename;
+		var path = mw.config.get( 'wgExtensionAssetsPath' ) + '/MediaWikiChat/assets/' + filename;
 
 		var source = document.createElement( 'source' );
 		source.type = 'audio/ogg';
@@ -709,7 +714,7 @@ var MediaWikiChat = {
 			return;
 		}
 
-		if ( Notification.permission !== "granted" ) {
+		if ( Notification.permission !== 'granted' ) {
 			Notification.requestPermission();
 		}
 
@@ -759,7 +764,11 @@ $( function() {
 			$.ajax( {
 				type: 'POST',
 				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-				data: { 'action': 'chatsend', 'message': message, 'format': 'json' }
+				data: {
+					'action': 'chatsend',
+					'message': message,
+					'format': 'json'
+				}
 			} ).done( function( msg ) {
 				MediaWikiChat.getNewReply( msg );
 				$( '#mwchat-loading' ).attr(
@@ -807,7 +816,7 @@ $( function() {
 		$( '#mwchat-me' ).animate( { 'top': height }, 'fast' );
 	} );
 
-	$( '#mwchat-topic a').attr( 'target', '_blank'); // Open any link in chat-topic in a new tab
+	$( '#mwchat-topic a' ).attr( 'target', '_blank' ); // Open any link in chat-topic in a new tab
 
 	$( 'input[name=autoscroll]' ).change( function() {
 		if ( this.checked ) {
