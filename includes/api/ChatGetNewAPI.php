@@ -29,8 +29,7 @@ class ChatGetNewAPI extends ApiBase {
 	/** @inheritDoc */
 	public function getExamplesMessages() {
 		return [
-				'action=chatgetnew'
-				=> 'apihelp-chatgetnew-example-1'
+			'action=chatgetnew' => 'apihelp-chatgetnew-example-1'
 		];
 	}
 }

@@ -27,8 +27,11 @@ class ChatSendAPI extends ApiBase {
 				// Flood check
 				$res = $dbr->selectField(
 					'chat',
-					[ 'count(*)' ],
-					[ "chat_timestamp > " . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ), " chat_user_id = " . $id ],
+					[ 'COUNT(*)' ],
+					[
+						'chat_timestamp > ' . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ),
+						'chat_user_id' => $id
+					],
 					__METHOD__
 				);
 				if ( $res > $wgChatFloodMessages ) {
@@ -88,8 +91,7 @@ class ChatSendAPI extends ApiBase {
 	/** @inheritDoc */
 	public function getExamplesMessages() {
 		return [
-			'action=chatsend&message=Hello%20World!'
-				=> 'apihelp-chatsend-example-1'
+			'action=chatsend&message=Hello%20World!' => 'apihelp-chatsend-example-1'
 		];
 	}
 
