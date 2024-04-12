@@ -12,6 +12,7 @@ class GetNewWorker {
 	 */
 	static function execute( ApiResult $result, User $user, ApiMain $main ) {
 		global $wgChatOnlineTimeout;
+
 		$dbr = wfGetDB( DB_REPLICA );
 		$dbw = wfGetDB( DB_PRIMARY );
 		$mName = 'chatgetnew';
@@ -72,7 +73,6 @@ class GetNewWorker {
 			}
 
 			if ( $row->chat_type == MediaWikiChat::TYPE_MESSAGE ) {
-
 				$id = $row->chat_user_id;
 				$message = $row->chat_message;
 
@@ -80,7 +80,6 @@ class GetNewWorker {
 				$result->addValue( [ $mName, 'messages', $timestamp ], '*', $message );
 
 				$users[$id] = true; // ensure message sender is in users list
-
 			} elseif ( $row->chat_type == MediaWikiChat::TYPE_PM
 				&& (
 					$row->chat_user_id == $user->getId()
@@ -89,21 +88,21 @@ class GetNewWorker {
 
 				$message = $row->chat_message;
 
-				$fromid = $row->chat_user_id;
+				$fromId = $row->chat_user_id;
 				$toid = $row->chat_to_id;
 
-				if ( $fromid == $user->getId() ) {
-					$convwith = User::newFromId( $toid )->getName();
+				if ( $fromId == $user->getId() ) {
+					$convWith = User::newFromId( $toId )->getName();
 				} else {
-					$convwith = User::newFromId( $fromid )->getName();
+					$convWith = User::newFromId( $fromId )->getName();
 				}
 
 				$result->addValue( [ $mName, 'pms', $timestamp ], '*', $message );
-				$result->addValue( [ $mName, 'pms', $timestamp ], 'from', $fromid );
-				$result->addValue( [ $mName, 'pms', $timestamp ], 'conv', $convwith );
+				$result->addValue( [ $mName, 'pms', $timestamp ], 'from', $fromId );
+				$result->addValue( [ $mName, 'pms', $timestamp ], 'conv', $convWith );
 
-				$users[$fromid] = true; // ensure pm sender is in users list
-				$users[$toid] = true; // ensure pm receiver is in users list
+				$users[$fromId] = true; // ensure PM sender is in users list
+				$users[$toId] = true; // ensure PM receiver is in users list
 
 			} elseif ( $row->chat_type == MediaWikiChat::TYPE_KICK ) {
 				if ( $row->chat_to_id == $user->getId() ) {
@@ -130,24 +129,31 @@ class GetNewWorker {
 		foreach ( $onlineUsers as $id => $away ) {
 			$users[$id] = true; // ensure all online users are present in the users list
 		}
-		$genderCache = MediaWikiServices::getInstance()->getGenderCache();
-		$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
+
+		$services = MediaWikiServices::getInstance();
+		$genderCache = $services->getGenderCache();
+		$userGroupManager = $services->getUserGroupManager();
+
 		foreach ( $users as $id => $tr ) {
 			$userObject = User::newFromId( $id );
 			$idString = strval( $id );
 
 			$result->addValue( [ $mName, 'users', $idString ], 'name', $userObject->getName() );
+
 			if ( class_exists( 'SocialProfileHooks' ) ) { // is SocialProfile installed?
 				$result->addValue( [ $mName, 'users', $idString ], 'avatar', MediaWikiChat::getAvatar( $id ) );
 			}
+
 			if ( array_key_exists( $id, $onlineUsers ) ) {
 				$result->addValue( [ $mName, 'users', $idString ], 'online', 'true' );
 				$result->addValue( [ $mName, 'users', $idString ], 'away', $onlineUsers[$id] );
 			}
+
 			$groups = $userGroupManager->getUserGroups( $userObject );
 			if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
 				$result->addValue( [ $mName, 'users', $idString ], 'mod', 'true' );
 			}
+
 			$gender = $genderCache->getGenderOf( $userObject );
 			$result->addValue( [ $mName, 'users', $idString, ], 'gender', $gender );
 		}

@@ -10,12 +10,13 @@ class MediaWikiChatHooks {
 	 *
 	 * Whenever a user is added to or removed from the 'blockedfromchat' group,
 	 * this function ensures that the chat database table is updated accordingly.
+	 *
 	 * @param User $user
 	 * @param array $add
 	 * @param array $remove
 	 * @param User $performer
 	 */
-	public static function onUserRights( $user, array $add, array $remove, User $performer ) {
+	public static function onUserGroupsChanged( $user, array $add, array $remove, User $performer ) {
 		if ( in_array( 'blockedfromchat', $add ) ) {
 			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_BLOCK, $user, $performer );
 		}
@@ -27,23 +28,25 @@ class MediaWikiChatHooks {
 
 	/**
 	 * Hook for update.php
+	 *
 	 * @param DatabaseUpdater $updater
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$dir = __DIR__ . '/../sql/';
 
-		$updater->addExtensionTable( 'chat', $dir . 'chat.sql', true );
-		$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql', true );
+		$updater->addExtensionTable( 'chat', $dir . 'chat.sql' );
+		$updater->addExtensionTable( 'chat_users', $dir . 'chat_users.sql' );
 		$updater->addExtensionField( 'chat_users', 'cu_away', $dir . 'cu_away.sql' );
 		$updater->modifyExtensionField( 'chat_users', 'cu_away', $dir . 'cu_away_new.sql' );
 	}
 
 	/**
 	 * Hook for adding a sidebar portlet ($wgChatSidebarPortlet)
+	 *
 	 * @param Skin $skin
 	 * @param array &$bar
 	 */
-	public static function fnNewSidebarItem( Skin $skin, &$bar ) {
+	public static function onSkinBuildSidebar( Skin $skin, &$bar ) {
 		global $wgChatSidebarPortlet;
 
 		if (
@@ -70,9 +73,6 @@ class MediaWikiChatHooks {
 						$style .= "-webkit-filter: grayscale(1); /* old webkit */
 							-webkit-filter: grayscale(100%); /* new webkit */
 							-moz-filter: grayscale(100%); /* safari */
-							-ms-filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /* maybe ie */
-							filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /* maybe ie */
-							filter: gray; /* maybe ie */
 							filter: grayscale(100%); /* future */";
 					}
 					$arr[$id] = [
@@ -96,10 +96,12 @@ class MediaWikiChatHooks {
 	}
 
 	/**
+	 * Register new preference options so that they show up on Special:Preferences.
+	 *
 	 * @param User $user
 	 * @param array[] &$preferences
 	 */
-	static function wfPrefHook( $user, &$preferences ) {
+	public static function onGetPreferences( $user, &$preferences ) {
 		$preferences['chat-fullscreen'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-fullscreen',

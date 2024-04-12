@@ -28,8 +28,11 @@ class ChatSendPMAPI extends ApiBase {
 				// Flood check
 				$res = $dbr->selectField(
 					'chat',
-					[ 'count(*)' ],
-					[ "chat_timestamp > " . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ), " chat_user_id = " . $fromId ],
+					[ 'COUNT(*)' ],
+					[
+						'chat_timestamp > ' . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ),
+						'chat_user_id' => $fromId
+					],
 					__METHOD__
 				);
 				if ( $res > $wgChatFloodMessages ) {

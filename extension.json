@@ -73,10 +73,10 @@
 		"MediaWikiChatHooks": "includes/MediaWikiChatHooks.php"
 	},
 	"Hooks": {
-		"UserGroupsChanged": "MediaWikiChatHooks::onUserRights",
+		"UserGroupsChanged": "MediaWikiChatHooks::onUserGroupsChanged",
 		"LoadExtensionSchemaUpdates": "MediaWikiChatHooks::onLoadExtensionSchemaUpdates",
-		"SkinBuildSidebar": "MediaWikiChatHooks::fnNewSidebarItem",
-		"GetPreferences": "MediaWikiChatHooks::wfPrefHook"
+		"SkinBuildSidebar": "MediaWikiChatHooks::onSkinBuildSidebar",
+		"GetPreferences": "MediaWikiChatHooks::onGetPreferences"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",

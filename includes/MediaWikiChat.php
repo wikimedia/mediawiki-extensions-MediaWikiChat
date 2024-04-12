@@ -20,9 +20,9 @@ class MediaWikiChat {
 	 * Get the current UNIX time with 100th seconds (i.e. 138524180871).
 	 * Standard UNIX timestamp contains only 10 digits.
 	 *
-	 * @return int current UNIX timestamp + 100th seconds
+	 * @return int Current UNIX timestamp + 100th seconds
 	 */
-	static function now() {
+	public static function now() {
 		return (int)( microtime( true ) * 100 );
 	}
 
@@ -32,7 +32,7 @@ class MediaWikiChat {
 	 * @param int $id user ID
 	 * @return string avatar image path
 	 */
-	static function getAvatar( $id ) {
+	public static function getAvatar( $id ) {
 		global $wgUploadPath;
 
 		$avatar = new wAvatar( $id, 's' );
@@ -47,21 +47,22 @@ class MediaWikiChat {
 	 * @param UserIdentity $user user that has been blocked/unblocked
 	 * @param UserIdentity $performer user that did the blocking/unblocking
 	 */
-	static function sendSystemBlockingMessage( $type, UserIdentity $user, UserIdentity $performer ) {
+	public static function sendSystemBlockingMessage( $type, UserIdentity $user, UserIdentity $performer ) {
 		$dbw = wfGetDB( DB_PRIMARY );
 
-		$toid = $user->getId();
-		$fromid = $performer->getId();
+		$toId = $user->getId();
+		$fromId = $performer->getId();
 		$timestamp = self::now();
 
 		$dbw->insert(
 			'chat',
 			[
-				'chat_to_id' => $toid,
-				'chat_user_id' => $fromid,
+				'chat_to_id' => $toId,
+				'chat_user_id' => $fromId,
 				'chat_timestamp' => $timestamp,
 				'chat_type' => $type
-			]
+			],
+			__METHOD__
 		);
 	}
 
@@ -69,48 +70,49 @@ class MediaWikiChat {
 	 * Get the list of users who are online, if we have the "chat" user right.
 	 *
 	 * @param User $user
-	 * @return int[]|false array of user IDs and user names on success, boolean false
-	 * if the current user doesn't have the "chat" right
+	 * @return int[]|false Array of user IDs and user names on success, boolean false
+	 *  if the current user doesn't have the "chat" right
 	 */
-	static function getOnline( User $user ) {
+	public static function getOnline( User $user ) {
 		global $wgChatOnlineTimeout;
 
-		if ( $user->isAllowed( 'chat' ) ) {
-			$dbr = wfGetDB( DB_REPLICA );
-
-			$now = self::now();
-			$timestamp = $now - $wgChatOnlineTimeout;
-
-			$res = $dbr->select(
-				'chat_users',
-				[ 'cu_user_id', 'cu_away' ],
-				[
-					"cu_timestamp > $timestamp",
-					"cu_user_id != {$user->getId()}"
-				],
-				__METHOD__
-			);
-
-			$data = [];
-
-			foreach ( $res as $row ) {
-				$away = $row->cu_away;
-
-				$data[$row->cu_user_id] = $now - $away; // number of microseconds since user was last seen
-			}
-			return $data;
-		} else {
+		if ( !$user->isAllowed( 'chat' ) ) {
 			return false;
 		}
+
+		$dbr = wfGetDB( DB_REPLICA );
+
+		$now = self::now();
+		$timestamp = $now - $wgChatOnlineTimeout;
+
+		$res = $dbr->select(
+			'chat_users',
+			[ 'cu_user_id', 'cu_away' ],
+			[
+				"cu_timestamp > $timestamp",
+				"cu_user_id != {$user->getId()}"
+			],
+			__METHOD__
+		);
+
+		$data = [];
+
+		foreach ( $res as $row ) {
+			$away = $row->cu_away;
+
+			$data[$row->cu_user_id] = $now - $away; // number of microseconds since user was last seen
+		}
+
+		return $data;
 	}
 
 	/**
-	 * Is the current user online or not?
+	 * Is the given user online or not?
 	 *
 	 * @param UserIdentity $user
-	 * @return bool whether they're online or not.
+	 * @return bool Whether they're online or not.
 	 */
-	static function amIOnline( UserIdentity $user ) {
+	public static function amIOnline( UserIdentity $user ) {
 		global $wgChatOnlineTimeout;
 
 		$dbr = wfGetDB( DB_REPLICA );
@@ -133,9 +135,9 @@ class MediaWikiChat {
 	/**
 	 * Get interval to poll the server from. Based on the average milliseconds between recent messages.
 	 *
-	 * @return int polling interval to use (how long between each poll)
+	 * @return int Polling interval to use (how long between each poll)
 	 */
-	static function getInterval() {
+	public static function getInterval() {
 		$dbr = wfGetDB( DB_REPLICA );
 		$maxInterval = 30 * 1000;
 		$minInterval = 3 * 1000;
@@ -179,7 +181,7 @@ class MediaWikiChat {
 	 * @param User $user current user object
 	 * @return string parsed message
 	 */
-	static function parseMessage( $message, $user ) {
+	public static function parseMessage( $message, $user ) {
 		global $wgChatRichMessages, $wgChatUseStyleAttribute;
 
 		$smileyString = wfMessage( 'smileys' )->plain();
@@ -283,7 +285,7 @@ class MediaWikiChat {
 	 *
 	 * Prevents speeds slowing down due to massive IM tables
 	 */
-	static function deleteEntryIfNeeded() {
+	public static function deleteEntryIfNeeded() {
 		$dbr = wfGetDB( DB_REPLICA );
 		$field = $dbr->selectField(
 			'chat',
@@ -312,13 +314,14 @@ class MediaWikiChat {
 	 *
 	 * @param UserIdentity $user
 	 */
-	static function updateAway( UserIdentity $user ) {
+	public static function updateAway( UserIdentity $user ) {
 		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->update(
 			'chat_users',
 			[ 'cu_away' => self::now() ],
-			[ 'cu_user_id' => $user->getId() ]
+			[ 'cu_user_id' => $user->getId() ],
+			__METHOD__
 		);
 	}
 }
