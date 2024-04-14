@@ -252,7 +252,12 @@ class MediaWikiChat {
 				false // $linestart = false, prevents *#:; lists rendering
 			);
 
-			$message = $parseOut->getText( [ 'enableSectionEditLinks' => false ] );
+			$message = $parseOut->getText( [
+				'enableSectionEditLinks' => false,
+				// First part of a "fix" of some kind for T189417...
+				// Second part is below, before returning a value from this method
+				'wrapperDivClass' => ''
+			] );
 			$message = trim( $message );
 		} else {
 			$message = htmlentities( $message );
@@ -277,7 +282,14 @@ class MediaWikiChat {
 			}
 		}
 
-		return trim( $message );
+		$message = trim( $message );
+
+		// The second part of a "fix" of some kind for T189417
+		// This may (read: will) have false positives, but this was the only "solution"
+		// I could somehow get working the way I wanted.
+		$message = str_replace( [ '<p>', '</p>' ], '', $message );
+
+		return $message;
 	}
 
 	/**
