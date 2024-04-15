@@ -15,7 +15,7 @@
 	"chat-type-your-private-message": "Wpisz wiadomość prywatną",
 	"chat-no-other-users": "Brak innych użytkowników na czacie",
 	"chat-blocked-from-chat": "Zostałeś zablokowany na tym czacie.",
-	"chat-not-allowed": "Nie jesteś upoważniony do korzystania z czatu, najpierw się zaloguj.",
+	"chat-not-allowed": "Nie jesteś upoważniony do korzystania z czatu, najpierw się [[Special:UserLogin|zaloguj]].",
 	"chat-sounds": "Odtwarzaj dźwięki",
 	"chat-flood": "Nie możesz wysyłać wiadomości tak szybko, poczekaj zanim wyślesz ich więcej.",
 	"chat-too-long": "Ta wiadomość była zbyt długa, wyślij krótszą.",

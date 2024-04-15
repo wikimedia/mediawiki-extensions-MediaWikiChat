@@ -24,7 +24,7 @@
 	"chat-type-your-private-message": "Schrijf uw privébericht",
 	"chat-no-other-users": "Geen andere gebruikers in de chat",
 	"chat-blocked-from-chat": "U bent geblokkeerd voor deze chat.",
-	"chat-not-allowed": "U hebt niet de benodigde rechten om te chatten. Meld u eerst aan.",
+	"chat-not-allowed": "U hebt niet de benodigde rechten om te chatten. [[Special:UserLogin|Meld u eerst aan]].",
 	"chat-sounds": "Geluiden afspelen",
 	"chat-flood": "Zo snel kunt u geen berichten sturen. Wacht even voordat u er meer stuurt.",
 	"chat-too-long": "Dat bericht was te lang. Stuur een korter bericht.",
