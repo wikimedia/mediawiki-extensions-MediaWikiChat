@@ -3,6 +3,7 @@
 		"authors": [
 			"A Chinese Wikipedian",
 			"Anterdc99",
+			"GuoPC",
 			"Liuxinyu970226",
 			"Qiyue2001",
 			"Yfdyh000",
@@ -15,7 +16,7 @@
 	"chat-type-your-private-message": "键入您的私人信息",
 	"chat-no-other-users": "没有其他用户在线",
 	"chat-blocked-from-chat": "您已经被此聊天封禁。",
-	"chat-not-allowed": "您现在不能聊天，请先登录。",
+	"chat-not-allowed": "您现在不能聊天，请先尝试[[Special:UserLogin|登录]]。",
 	"chat-sounds": "播放声音",
 	"chat-flood": "您不能发送信息太快，请在下次发送前等待几秒。",
 	"chat-too-long": "那个信息太长，请发送一个简短信息。",

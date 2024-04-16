@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bjankuloski06",
+			"Jack Phoenix",
 			"Macofe"
 		]
 	},
@@ -11,7 +12,7 @@
 	"chat-type-your-private-message": "Внесете ја вашата лична порака",
 	"chat-no-other-users": "Нема други корисници во разговорот",
 	"chat-blocked-from-chat": "Блокирани сте од овој разговор во живо.",
-	"chat-not-allowed": "Немате пристап во разговорот. Прво најавете се",
+	"chat-not-allowed": "Немате пристап во разговорот. Прво [[Special:UserLogin|најавете се]]",
 	"chat-sounds": "Пуштај звуци",
 	"chat-flood": "Не можете да праќате пораки толку бргу. Почекајте, па испратете други.",
 	"chat-too-long": "Пораката беше предолга. Испратете покуса порака.",

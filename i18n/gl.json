@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Banjo",
-			"Elisardojm"
+			"Elisardojm",
+			"Jack Phoenix"
 		]
 	},
 	"chat": "Charla",
@@ -11,7 +12,7 @@
 	"chat-type-your-private-message": "Escriba a súa mensaxe privada",
 	"chat-no-other-users": "Non hai outros usuarios na charla",
 	"chat-blocked-from-chat": "Foi bloqueado nesta charla.",
-	"chat-not-allowed": "Intente iniciar sesión primeiro antes de charlar.",
+	"chat-not-allowed": "Intente [[Special:UserLogin|iniciar sesión]] primeiro antes de charlar.",
 	"chat-sounds": "Activar sons",
 	"chat-flood": "Non pode enviar mensaxes tan rápido, por favor espere antes de enviar máis.",
 	"chat-too-long": "A mensaxe foi demasiado lona, por favor envíe unha mensaxe máis curta.",

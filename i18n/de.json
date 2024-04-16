@@ -9,6 +9,7 @@
 			"Purodha",
 			"Tiin",
 			"ToBeFree",
+			"TomatoCake",
 			"XenonX3"
 		]
 	},
@@ -18,7 +19,7 @@
 	"chat-type-your-private-message": "Gib deine private Nachricht ein",
 	"chat-no-other-users": "Keine anderen Benutzer im Chat",
 	"chat-blocked-from-chat": "Du wurdest für diesen Chat gesperrt.",
-	"chat-not-allowed": "Du bist nicht berechtigt zu chatten. Versuche zuerst, dich  [[Special:UserLogin|anzumelden]].",
+	"chat-not-allowed": "Du bist nicht berechtigt zu chatten. Versuche zuerst, dich [[Special:UserLogin|anzumelden]].",
 	"chat-sounds": "Sounds abspielen",
 	"chat-flood": "Du kannst so schnell keine Nachrichten versenden. Bitte warte, bevor du weitere Nachrichten versendest.",
 	"chat-too-long": "Diese Nachricht war zu lang. Bitte sende eine kürzere Nachricht.",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jack Phoenix",
 			"McDutchie"
 		]
 	},
@@ -10,7 +11,7 @@
 	"chat-type-your-private-message": "Scribe tu message private",
 	"chat-no-other-users": "Nulle altere usatores in chat",
 	"chat-blocked-from-chat": "Tu ha essite blocate in iste chat.",
-	"chat-not-allowed": "Tu non es autorisate a chattar. Essaya aperir session primo.",
+	"chat-not-allowed": "Tu non es autorisate a chattar. Essaya [[Special:UserLogin|aperir session]] primo.",
 	"chat-sounds": "Activar sonos",
 	"chat-flood": "Tu non pote inviar messages tanto rapidemente. Per favor attende un momento ante de inviar alteres.",
 	"chat-too-long": "Iste message es troppo longe. Per favor, invia un message plus curte.",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jack Phoenix",
 			"Pyscowicz",
 			"Stryn"
 		]
@@ -9,6 +10,7 @@
 	"chat-type-your-private-message": "Kirjoita yksityisviestisi",
 	"chat-no-other-users": "Ei muita käyttäjiä chatissa",
 	"chat-blocked-from-chat": "Sinut on estetty tästä chatista.",
+	"chat-not-allowed": "Sinulla ei ole keskusteluoikeutta. Yritä [[Special:UserLogin|kirjautua sisään]] ensiksi.",
 	"chat-sounds": "Toista äänet",
 	"chat-flood": "Et voi lähettää viestejä niin nopeasti, odota, ennen kuin lähetät enemmän.",
 	"chat-too-long": "Viesti oli liian pitkä, ole hyvä ja lähetä lyhyempi viesti.",

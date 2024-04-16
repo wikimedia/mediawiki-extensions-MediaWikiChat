@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jack Phoenix",
 			"Jon Harald Søby",
 			"Jopparn",
 			"Lokal Profil",
@@ -14,7 +15,7 @@
 	"chat-type-your-private-message": "Skriv ditt privata meddelande",
 	"chat-no-other-users": "Inga andra användare i chatten",
 	"chat-blocked-from-chat": "Du har blockerats från denna chatt.",
-	"chat-not-allowed": "Du är inte tillåten att chatta, försök logga in först.",
+	"chat-not-allowed": "Du är inte tillåten att chatta, försök [[Special:UserLogin|logga in]] först.",
 	"chat-sounds": "Spela upp ljud",
 	"chat-flood": "Du kan inte skicka meddelanden så snabbt, var god vänta innan du skickar fler.",
 	"chat-too-long": "Meddelandet var för lång, skicka ett kortare meddelande.",

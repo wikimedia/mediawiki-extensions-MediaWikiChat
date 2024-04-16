@@ -13,7 +13,7 @@
 	"chat-type-your-private-message": "আপনার ব্যক্তিগত বার্তাটি লিখুন",
 	"chat-no-other-users": "আর কোনো ব্যবহারকারী আড্ডায় নেই",
 	"chat-blocked-from-chat": "আপনি এই আড্ডা থেকে অবরুদ্ধ।",
-	"chat-not-allowed": "আপনার বার্তা প্রেরণের অনুমতি নেই, প্রথমে প্রবেশ করার চেষ্টা করুন।",
+	"chat-not-allowed": "আপনার বার্তা প্রেরণের অনুমতি নেই, প্রথমে [[Special:UserLogin|প্রবেশ করার]] চেষ্টা করুন।",
 	"chat-sounds": "শব্দ চালানো হোক",
 	"chat-a-minute-ago": "এক মিনিট আগে",
 	"chat-yesterday": "গতকাল",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jack Phoenix",
 			"Jon Harald Søby"
 		]
 	},
@@ -10,7 +11,7 @@
 	"chat-type-your-private-message": "Skriv inn den private meldingen din",
 	"chat-no-other-users": "Ingen andre brukere i chatten",
 	"chat-blocked-from-chat": "Du har blitt blokkert fra denne chatten.",
-	"chat-not-allowed": "Du har ikke tillatelse til å chatte, prøv å logge inn først.",
+	"chat-not-allowed": "Du har ikke tillatelse til å chatte, prøv å [[Special:UserLogin|logge inn]] først.",
 	"chat-sounds": "Spill av lyder",
 	"chat-flood": "Du kan ikke sende meldinger så raskt, vent litt før du sender flere.",
 	"chat-too-long": "Den meldingen var for lang, prøv å sende en kortere melding.",
