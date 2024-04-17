@@ -7,6 +7,7 @@
 			"Joseph",
 			"MuratTheTurkish",
 			"Mustavanilya",
+			"RuzDD",
 			"Sayginer",
 			"Violetanka",
 			"Vito Genovese"
@@ -18,7 +19,7 @@
 	"chat-type-your-private-message": "Özel mesajınızı yazın",
 	"chat-no-other-users": "Sohbette başka kullanıcı yok",
 	"chat-blocked-from-chat": "Bu sohbette engellendiniz.",
-	"chat-not-allowed": "Sohbete izniniz yok, önce oturum açmayı deneyin.",
+	"chat-not-allowed": "Sohbet etmeye izniniz yok, önce [[Special:UserLogin|oturum açmayı]] deneyin.",
 	"chat-sounds": "Sesleri oynat",
 	"chat-flood": "Bu kadar hızlı mesaj gönderemezsiniz, lütfen daha çok mesaj göndermeden önce bekleyin.",
 	"chat-too-long": "Bu mesaj çok uzun, lütfen kısa mesaj gönderin.",
