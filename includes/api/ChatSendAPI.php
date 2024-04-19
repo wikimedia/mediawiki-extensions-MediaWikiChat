@@ -59,10 +59,10 @@ class ChatSendAPI extends ApiBase {
 
 				$logID = $logEntry->insert();
 
-				if ( class_exists( 'CheckUserHooks' ) ) {
+				if ( ExtensionRegistry::getInstance()->isLoaded( 'CheckUser' ) ) {
 					$rc = $logEntry->getRecentChange( $logID );
 
-					CheckUserHooks::updateCheckUserData( $rc );
+					MediaWiki\CheckUser\Hooks::updateCheckUserData( $rc );
 				}
 
 				MediaWikiChat::deleteEntryIfNeeded();
