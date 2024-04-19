@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a4a53b0_34ed9a04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2024-04-19T13:47:34Z",
+      "side": 1,
+      "message": "(CI failure is still wfGetDB() cruft, nothing to do w/ this patch.)",
+      "revId": "f2c44d79601358951055075c9cc7f13c2470825e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
