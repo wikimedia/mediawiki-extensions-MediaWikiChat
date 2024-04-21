@@ -13,7 +13,7 @@ class GetNewWorker {
 	static function execute( ApiResult $result, User $user, ApiMain $main ) {
 		global $wgChatOnlineTimeout;
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = $this->getDB();
 		$dbw = wfGetDB( DB_PRIMARY );
 		$mName = 'chatgetnew';
 
