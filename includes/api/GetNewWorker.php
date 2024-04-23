@@ -89,7 +89,7 @@ class GetNewWorker {
 				$message = $row->chat_message;
 
 				$fromId = $row->chat_user_id;
-				$toid = $row->chat_to_id;
+				$toId = $row->chat_to_id;
 
 				if ( $fromId == $user->getId() ) {
 					$convWith = User::newFromId( $toId )->getName();
