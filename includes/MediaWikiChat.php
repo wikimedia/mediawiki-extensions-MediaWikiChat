@@ -234,7 +234,6 @@ class MediaWikiChat {
 			$opts = new ParserOptions( $user );
 			$opts->setExternalLinkTarget( '_blank' );
 			$opts->setAllowSpecialInclusion( false );
-			$opts->setAllowExternalImages( false );
 
 			$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 
