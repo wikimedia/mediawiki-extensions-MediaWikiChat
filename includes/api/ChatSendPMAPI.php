@@ -77,6 +77,16 @@ class ChatSendPMAPI extends ApiBase {
 	}
 
 	/** @inheritDoc */
+	public function needsToken() {
+		return 'csrf';
+	}
+
+	/** @inheritDoc */
+	public function isWriteMode() {
+		return true;
+	}
+
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'message' => [
@@ -96,10 +106,5 @@ class ChatSendPMAPI extends ApiBase {
 			'action=chatsendpm&id=5&message=Hello%20World!'
 				=> 'apihelp-chatsendpm-example-1'
 		];
-	}
-
-	/** @inheritDoc */
-	public function mustBePosted() {
-		return true;
 	}
 }

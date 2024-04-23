@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.23.0",
+	"version": "2.24.0",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -99,7 +99,12 @@
 				"chat-idle-minutes", "chat-idle-hours", "chat-idle-more", "chat-today", "chat-message-from",
 				"chat-private-message-from", "chat-mentioned-by"
 			],
-			"dependencies": [ "mediawiki.jqueryMsg", "mediawiki.user", "mediawiki.util" ]
+			"dependencies": [
+				"mediawiki.api",
+				"mediawiki.jqueryMsg",
+				"mediawiki.user",
+				"mediawiki.util"
+			]
 		},
 		"ext.mediawikichat.site": {
 			"class": "MediaWiki\\ResourceLoader\\WikiModule",

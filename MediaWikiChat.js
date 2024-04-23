@@ -560,10 +560,10 @@ var MediaWikiChat = {
 		$( '#mwchat-users #' + userE + ' .mwchat-useritem-kicklink' ).click( function() {
 			var parent = $( this ).parent().parent();
 
-			$.ajax( {
-				type: 'POST',
-				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-				data: { 'action': 'chatkick', 'id': parent.attr( 'data-id' ), 'format': 'json' }
+			( new mw.Api() ).postWithToken( 'csrf', {
+				'action': 'chatkick',
+				'id': parent.attr( 'data-id' ),
+				'format': 'json'
 			} ).done( function() {
 				MediaWikiChat.getNew();
 			} );
@@ -603,15 +603,11 @@ var MediaWikiChat = {
 		var toid = $( this ).parents( '.mwchat-useritem' ).attr( 'data-id' );
 
 		if ( e.which == 13 ) {
-			$.ajax( {
-				type: 'POST',
-				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-				data: {
-					'action': 'chatsendpm',
-					'message': $( this )[0].value,
-					'id': toid,
-					'format': 'json'
-				}
+			( new mw.Api() ).postWithToken( 'csrf', {
+				'action': 'chatsendpm',
+				'message': $( this )[0].value,
+				'id': toid,
+				'format': 'json'
 			} ).done( function() {
 				MediaWikiChat.getNew();
 				MediaWikiChat.restartInterval();
@@ -763,14 +759,10 @@ $( function() {
 				parseInt( $( '#mwchat-loading' ).attr( 'data-queue' ) ) + 1 )
 			.animate( { opacity: $( '#mwchat-loading' ).attr( 'data-queue' ) } );
 
-			$.ajax( {
-				type: 'POST',
-				url: mw.config.get( 'wgScriptPath' ) + '/api.php',
-				data: {
-					'action': 'chatsend',
-					'message': message,
-					'format': 'json'
-				}
+			( new mw.Api() ).postWithToken( 'csrf', {
+				'action': 'chatsend',
+				'message': message,
+				'format': 'json'
 			} ).done( function( msg ) {
 				MediaWikiChat.getNewReply( msg );
 				$( '#mwchat-loading' ).attr(

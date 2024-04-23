@@ -59,6 +59,16 @@ class ChatKickAPI extends ApiBase {
 	}
 
 	/** @inheritDoc */
+	public function needsToken() {
+		return 'csrf';
+	}
+
+	/** @inheritDoc */
+	public function isWriteMode() {
+		return true;
+	}
+
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'id' => [
@@ -73,10 +83,5 @@ class ChatKickAPI extends ApiBase {
 		return [
 			'action=chatkick&id=1' => 'apihelp-chatkick-example-1'
 		];
-	}
-
-	/** @inheritDoc */
-	public function mustBePosted() {
-		return true;
 	}
 }
