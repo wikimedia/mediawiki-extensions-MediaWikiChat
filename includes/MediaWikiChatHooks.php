@@ -43,19 +43,44 @@ class MediaWikiChatHooks {
 	/**
 	 * Hook for adding a sidebar portlet ($wgChatSidebarPortlet)
 	 *
+	 * As of MediaWiki 1.39+ the actual rendering is done in onSkinAfterPortlet()
+	 * but we nevertheless need this hook handler as well.
+	 *
 	 * @param Skin $skin
 	 * @param array &$bar
 	 */
 	public static function onSkinBuildSidebar( Skin $skin, &$bar ) {
+		$bar['chat-sidebar-online'] = [];
+	}
+
+	/**
+	 * Prints the sidebar portlet listing users online on chat, if so configured.
+	 *
+	 * @param Skin $skin Instance of Skin class or its subclass
+	 * @param string $portlet Portlet name, either an internal one (e.g. "tb", "lang", etc.) or a
+	 *                        user-controlled string for [[MediaWiki:Sidebar]] top-level entries
+	 * @param string &$html The HTML we want to inject to the output
+	 */
+	public static function onSkinAfterPortlet( Skin $skin, string $portlet, string &$html ) {
 		global $wgChatSidebarPortlet;
 
+		// Don't show this if:
+		// 1) the user isn't allowed to use the special page,
+		// 2) we *are* on the special page (pointless, as chat itself already has a user list)
+		// 3) the feature is disabled in site configuration
 		if (
-			$skin->getUser()->isAllowed( 'chat' ) &&
-			!$skin->getTitle()->isSpecial( 'Chat' ) &&
-			$wgChatSidebarPortlet
+			!$skin->getUser()->isAllowed( 'chat' ) ||
+			$skin->getTitle()->isSpecial( 'Chat' ) ||
+			!$wgChatSidebarPortlet
 		) {
+			return;
+		}
+
+		// The comparison must match the string defined in onSkinBuildSidebar().
+		if ( $portlet === 'chat-sidebar-online' ) {
 			$users = MediaWikiChat::getOnline( $skin->getUser() );
 
+			// Only bother rendering this portlet if we have some active chatters...
 			if ( count( $users ) ) {
 				$arr = [];
 
@@ -83,6 +108,8 @@ class MediaWikiChatHooks {
 					];
 				}
 
+				// Display a "join chat" link if the user doesn't have the chat already open
+				// in another tab or whatever
 				if ( !MediaWikiChat::amIOnline( $skin->getUser() ) ) {
 					$arr['join'] = [
 						'text' => $skin->msg( 'chat-sidebar-join' )->text(),
@@ -90,7 +117,10 @@ class MediaWikiChatHooks {
 					];
 				}
 
-				$bar[$skin->msg( 'chat-sidebar-online' )->text()] = $arr;
+				// Output the list and whatnot.
+				foreach ( $arr as $key => $item ) {
+					$html .= $skin->makeListItem( $key, $item );
+				}
 			}
 		}
 	}

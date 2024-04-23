@@ -75,6 +75,7 @@
 	"Hooks": {
 		"UserGroupsChanged": "MediaWikiChatHooks::onUserGroupsChanged",
 		"LoadExtensionSchemaUpdates": "MediaWikiChatHooks::onLoadExtensionSchemaUpdates",
+		"SkinAfterPortlet": "MediaWikiChatHooks::onSkinAfterPortlet",
 		"SkinBuildSidebar": "MediaWikiChatHooks::onSkinBuildSidebar",
 		"GetPreferences": "MediaWikiChatHooks::onGetPreferences"
 	},
