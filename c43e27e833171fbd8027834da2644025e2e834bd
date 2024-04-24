@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "872de683_d1ea1899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2024-04-24T10:56:15Z",
+      "side": 1,
+      "message": "Turns out this isn\u0027t quite enough, as addMe() also uses the chat-mod-image i18n message...I\u0027ll probably create a new method for fetching the image and use it in both addMe() and addUser(). Fascinatingly enough the hardcoded image size varies between these two methods, too: addUser() uses 16px for the chat mod image whereas addMe() uses 20px.",
+      "revId": "c43e27e833171fbd8027834da2644025e2e834bd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ],
   "submitRequirementResults": []
 }
