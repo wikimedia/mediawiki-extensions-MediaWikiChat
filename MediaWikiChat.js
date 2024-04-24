@@ -50,10 +50,10 @@ var MediaWikiChat = {
 		var time = '';
 
 		if ( nowDate.getDate() == messageDate.getDate() && nowDate.getMonth() == messageDate.getMonth() ) {
-			time += mw.message( 'chat-today' ).text();
+			time += mw.message( 'chat-today' ).escaped();
 		} else {
 			var months = [ 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' ];
-			time += mw.message( months[messageDate.getMonth()] ).text();
+			time += mw.message( months[messageDate.getMonth()] ).escaped();
 			time += ' ' + messageDate.getDate();
 		}
 
@@ -75,9 +75,9 @@ var MediaWikiChat = {
 		var diff = ( tsNow - timestamp ) / 100;
 
 		if ( diff < 30 ) {
-			return mw.message( 'just-now' ).text();
+			return mw.message( 'just-now' ).escaped();
 		} else if ( diff < 2 * 60 ) {
-			return mw.message( 'chat-a-minute-ago' ).text();
+			return mw.message( 'chat-a-minute-ago' ).escaped();
 		} else if ( diff < 60 * 60 ) {
 			return mw.message( 'minutes-ago', Math.floor( diff / 60 ) ).text();
 		} else {
@@ -85,11 +85,11 @@ var MediaWikiChat = {
 				return MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
 			} else {
 				if ( dayNow == dayThen + 1 ) { // @TODO handle 31s
-					return mw.message( 'chat-yesterday' ).text().toLowerCase() + ', ' + MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
+					return mw.message( 'chat-yesterday' ).escaped().toLowerCase() + ', ' + MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' + MediaWikiChat.pad( dateThen.getMinutes(), 2 );
 				} else {
 					var day;
 					var days = [ 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ];
-					day = mw.message( days[dateThen.getDay()] ).text().toLowerCase();
+					day = mw.message( days[dateThen.getDay()] ).escaped().toLowerCase();
 					return day + ', ' +
 						MediaWikiChat.pad( dateThen.getHours(), 2 ) + ':' +
 						MediaWikiChat.pad( dateThen.getMinutes(), 2 );
@@ -451,7 +451,7 @@ var MediaWikiChat = {
 			if ( minutes > 10 ) {
 				tooltip = mw.message( 'chat-idle-minutes', Math.round( minutes ), mw.user.getName() ).text();
 			} else {
-				tooltip = mw.message( 'chat-private-message' ).text();
+				tooltip = mw.message( 'chat-private-message' ).escaped();
 			}
 		}
 
@@ -519,24 +519,24 @@ var MediaWikiChat = {
 		html += '</span>';
 		if ( user.mod ) {
 			html += '<img src="' + MediaWikiChat.getChatModImage() + '" height="16px" alt="" title="';
-			html += mw.message( 'chat-user-is-moderator' ).text() + '" />';
+			html += mw.message( 'chat-user-is-moderator' ).escaped() + '" />';
 		}
 		html += '</div><span class="mwchat-useritem-header-links">';
 
 		if ( MediaWikiChat.amIMod && ( !user.mod ) ) {
 			html += '<a class="mwchat-useritem-blocklink" href="' + mw.util.getUrl( 'Special:UserRights', { user: user.name } );
-			html += '" target="_blank">' + mw.message( 'chat-block' ).text() + '</a>';
+			html += '" target="_blank">' + mw.message( 'chat-block' ).escaped() + '</a>';
 
 			if ( mw.config.get( 'wgChatKicks' ) ) {
 				html += '&ensp;<a class="mwchat-useritem-kicklink" href="javascript:;">';
-				html += mw.message( 'chat-kick' ).text() + '</a>';
+				html += mw.message( 'chat-kick' ).escaped() + '</a>';
 			}
 		}
 
 		html += '</span>';
 		html += '<div class="mwchat-useritem-window" style="display:none;">';
 		html += '<div class="mwchat-useritem-content"></div>';
-		html += '<input type="text" placeholder="' + mw.message( 'chat-type-your-private-message' ).text() + '" />';
+		html += '<input type="text" placeholder="' + mw.message( 'chat-type-your-private-message' ).escaped() + '" />';
 		html += '</div>';
 		html += '</div>';
 
@@ -768,7 +768,7 @@ $( function() {
 			return false;
 		} else if ( e.which == 13 ) { // Enter
 			if ( message.length > mw.config.get( 'wgChatMaxMessageLength' ) ) {
-				alert( mw.message( 'chat-too-long' ).text() );
+				alert( mw.message( 'chat-too-long' ).escaped() );
 			} else {
 				$( '#mwchat-type input' ).val( '' );
 			}
@@ -794,7 +794,7 @@ $( function() {
 
 				if ( msg.chatsend && msg.chatsend.error == 'flood' ) {
 					$( '#mwchat-type input' ).val( message );
-					alert( mw.message( 'chat-flood' ).text() );
+					alert( mw.message( 'chat-flood' ).escaped() );
 				}
 			} );
 
