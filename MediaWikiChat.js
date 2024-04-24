@@ -518,15 +518,7 @@ var MediaWikiChat = {
 		html += mw.html.escape( user.name );
 		html += '</span>';
 		if ( user.mod ) {
-			// Support a custom chat mod image indicator, but default to using the
-			// local image from the extension's assets/ directory
-			// @see T209024
-			var customChatModImage = mw.message( 'chat-mod-image' ).escaped();
-			var chatModImage = customChatModImage;
-			if ( customChatModImage === '' ) {
-				chatModImage = mw.config.get( 'wgExtensionAssetsPath' ) + '/MediaWikiChat/assets/chatmod.png';
-			}
-			html += '<img src="' + chatModImage + '" height="16px" alt="" title="';
+			html += '<img src="' + MediaWikiChat.getChatModImage() + '" height="16px" alt="" title="';
 			html += mw.message( 'chat-user-is-moderator' ).text() + '" />';
 		}
 		html += '</div><span class="mwchat-useritem-header-links">';
@@ -634,7 +626,7 @@ var MediaWikiChat = {
 
 			if ( me.mod ) {
 				$( '#mwchat-me' ).append(
-					'<img src="' + mw.message( 'chat-mod-image' ).escaped() + '" height="20px" alt="" title="' +
+					'<img src="' + MediaWikiChat.getChatModImage() + '" height="20px" alt="" title="' +
 						mw.message( 'chat-you-are-moderator', mw.user ).text() + '" />'
 				);
 			}
@@ -642,6 +634,25 @@ var MediaWikiChat = {
 
 			$( '#mwchat-container' ).animate( { opacity: 1 } );
 		}
+	},
+
+	/**
+	 * Get the small chat mod "badge" image, either:
+	 * 1) the image from the extension's assets/ dir, or
+	 * 2) a local override configured on-wiki via [[MediaWiki:Chat-mod-image]]
+	 *
+	 * @return {string} URL to the chat mod "badge" image
+	 */
+	getChatModImage: function() {
+		// Support a custom chat mod image indicator, but default to using the
+		// local image from the extension's assets/ directory
+		// @see T209024
+		var customChatModImage = mw.message( 'chat-mod-image' ).escaped();
+		var chatModImage = customChatModImage;
+		if ( customChatModImage === '' ) {
+			chatModImage = mw.config.get( 'wgExtensionAssetsPath' ) + '/MediaWikiChat/assets/chatmod.png';
+		}
+		return chatModImage;
 	},
 
 	flash: function( title, message ) {
