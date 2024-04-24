@@ -518,7 +518,15 @@ var MediaWikiChat = {
 		html += mw.html.escape( user.name );
 		html += '</span>';
 		if ( user.mod ) {
-			html += '<img src="' + mw.message( 'chat-mod-image' ).escaped() + '" height="16px" alt="" title="';
+			// Support a custom chat mod image indicator, but default to using the
+			// local image from the extension's assets/ directory
+			// @see T209024
+			var customChatModImage = mw.message( 'chat-mod-image' ).escaped();
+			var chatModImage = customChatModImage;
+			if ( customChatModImage === '' ) {
+				chatModImage = mw.config.get( 'wgExtensionAssetsPath' ) + '/MediaWikiChat/assets/chatmod.png';
+			}
+			html += '<img src="' + chatModImage + '" height="16px" alt="" title="';
 			html += mw.message( 'chat-user-is-moderator' ).text() + '" />';
 		}
 		html += '</div><span class="mwchat-useritem-header-links">';
