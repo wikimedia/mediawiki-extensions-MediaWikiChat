@@ -279,9 +279,9 @@ var MediaWikiChat = {
 	showUnblockMessage: function( from, to, timestamp ) {
 		var message = '';
 		if ( from.name == mw.config.get( 'wgUserName' ) ) {
-			message = mw.message( 'chat-you-unblocked', to.name, mw.user );
+			message = mw.message( 'chat-you-unblocked', to.name, mw.user ).text();
 		} else {
-			message = mw.message( 'chat-unblocked', from.name, to.name, from.gender );
+			message = mw.message( 'chat-unblocked', from.name, to.name, from.gender ).text();
 		}
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
