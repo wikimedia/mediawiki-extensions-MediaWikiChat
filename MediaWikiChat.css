@@ -199,5 +199,12 @@
 	background-color: white;
 	margin: 2em;
 	padding: 1em;
-	border:1px solid #ccc;
+	border: 1px solid #ccc;
+}
+
+/* Hide main UI elements on Special:Chat if the user doesn't have JS */
+.client-nojs #mwchat-topic,
+.client-nojs #mwchat-container,
+.client-nojs #mwchat-options {
+	display: none;
 }
