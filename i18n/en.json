@@ -51,6 +51,8 @@
 	"logentry-chat-kick": "$1 {{GENDER:$1|kicked}} $4",
 	"log-show-hide-chat": "$1 chat log",
 	"logeventslist-chat-log": "Chat log",
+	"log-action-filter-chat": "Filter by action:",
+	"log-action-filter-chat-0": "User kicks",
 	"log-name-privatechat": "Private chat log",
 	"log-description-privatechat": "Private messages sent by MediaWikiChat",
 	"logentry-privatechat-send": "$1 to $5: $4",
