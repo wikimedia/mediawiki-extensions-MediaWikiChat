@@ -12,16 +12,46 @@
 		"MediaWiki": ">=1.39"
 	},
 	"config": {
-		"ChatKicks": true,
-		"ChatRichMessages": true,
-		"ChatSidebarPortlet": true,
-		"ChatOnlineTimeout": 6000,
-		"ChatFloodMessages": 3,
-		"ChatFloodSeconds": 5,
-		"ChatLinkUsernames": false,
-		"ChatMeCommand": false,
-		"ChatUseStyleAttribute": true,
-		"ChatMaxMessageLength": 1000
+		"ChatKicks": {
+			"value": true,
+			"description": "Enable the 'kicking' of other users by chatmods and sysops (and any and all other user groups with the 'modchat' user right)?"
+		},
+		"ChatRichMessages": {
+			"value": true,
+			"description": "Parse chat messages through the WikiText parser?"
+		},
+		"ChatSidebarPortlet": {
+			"value": true,
+			"description": "Show the online users module in the sidebar?"
+		},
+		"ChatOnlineTimeout": {
+			"value": 6000,
+			"description": "The length of time it takes for a user to be considered offline. Smaller values give faster response times for users to be considered offline, but increase the chance of users being reported offline when they aren't (there may just be a temporary blip in their connection to the server). Set in 100ths of a second. The default value of 6000 translates to 1 minute."
+		},
+		"ChatFloodMessages": {
+			"value": 3,
+			"description": "Stops users sending more than X messages per Y seconds. Defaults to 3 messages per 5 seconds."
+		},
+		"ChatFloodSeconds": {
+			"value": 5,
+			"description": "Stops users sending more than X messages per Y seconds. Defaults to 3 messages per 5 seconds."
+		},
+		"ChatLinkUsernames": {
+			"value": false,
+			"description": "Link users' user names to their user pages in the main chat window?"
+		},
+		"ChatMeCommand": {
+			"value": false,
+			"description": "Enable \/me <text>\" command that prints a status-type message?"
+		},
+		"ChatUseStyleAttribute": {
+			"value": true,
+			"description": "Allow the use of the style attribute on HTML elements?"
+		},
+		"ChatMaxMessageLength": {
+			"value": 1000,
+			"description": "Maximum individual chat message length in characters."
+		}
 	},
 	"SpecialPages": {
 		"Chat": {
@@ -168,5 +198,5 @@
 		"chat-notify-mention": 1,
 		"chat-notify-pm": 1
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
