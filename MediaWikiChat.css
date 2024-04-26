@@ -11,6 +11,13 @@
 	height: 450px;
 	overflow-y: scroll;
 	resize: vertical;
+	/**
+	 * Make sure that absolute positioning tricks can't be used to mess up the chat
+	 * for other users.
+	 *
+	 * @see T170479
+	 */
+	position: relative;
 }
 
 #mwchat-table {
