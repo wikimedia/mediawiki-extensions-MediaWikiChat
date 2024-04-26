@@ -21,6 +21,7 @@
 	"chat-block": "estä",
 	"chat-autoscroll": "automaattinen vieritys",
 	"chat-jump-to-latest": "siirry uusimpaan",
+	"chat-requires-js": "{{GRAMMAR:genitive|{{SITENAME}}}} chat vaatii toimiakseen JavaScriptin olevan päällä selaimessasi",
 	"chat-youve-been-kicked": "$1 on {{GENDER:$2|potkinut}} sinut ulos. Päivitä sivu palataksesi chatiin.",
 	"chat-you-kicked": "{{GENDER:$2|Potkaisit}} käyttäjän $1 ulos.",
 	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|potkaisi}}}} käyttäjän $2 ulos.",
