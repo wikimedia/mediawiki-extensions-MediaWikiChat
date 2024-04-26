@@ -50,6 +50,11 @@
 		"chat",
 		"privatechat"
 	],
+	"ActionFilteredLogs": {
+		"chat": [
+			"kick"
+		]
+	},
 	"LogActionsHandlers": {
 		"chat/*": "LogFormatter",
 		"privatechat/*": "LogFormatter"
