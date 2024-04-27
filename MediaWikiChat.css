@@ -159,8 +159,12 @@
 	color: #888;
 }
 
-.mwchat-message.system td {
+.mwchat-message.system:not(.private-message) td {
 	padding-left: 3em;
+}
+
+.mwchat-message.system.private-message td {
+	padding-left: 0.5em;
 }
 
 .mwchat-useritem-window .mwchat-avatar {

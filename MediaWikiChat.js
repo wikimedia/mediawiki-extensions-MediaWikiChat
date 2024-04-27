@@ -358,21 +358,24 @@ var MediaWikiChat = {
 	 *
 	 * @param {string} text Text, e.g. "Moderator has kicked ADisruptiveUser"
 	 * @param {number} timestamp Such as 171400152309
+	 * @param {object} pmData Private messaging data, for when this is a private message.
 	 */
-	addSystemMessage: function( text, timestamp ) {
+	addSystemMessage: function( text, timestamp, pmData = {} ) {
 		// stop processing the message if it's a duplicate
 		if ( MediaWikiChat.messageIsDuplicate( timestamp ) ) {
 			return;
 		}
 
-		var html = '<tr class="mwchat-message system mwchat-parent">'; // mwchat-parent so that sending a system message resets the parent/child system
+		var privateClass = ( pmData && pmData.isPrivate ? ' private-message' : '' );
+		// mwchat-parent so that sending a system message resets the parent/child system
+		var html = '<tr class="mwchat-message system mwchat-parent' + privateClass + '">';
 		html += '<td colspan="3" class="mwchat-item-messagecell"><span class="mwchat-item-message">';
 		html += text;
 		html += '</span>';
 		html += MediaWikiChat.htmlTimestamp( timestamp );
 		html += '</td></tr>';
 
-		MediaWikiChat.addGeneralMessage( html, timestamp );
+		MediaWikiChat.addGeneralMessage( html, timestamp, pmData );
 	},
 
 	messageIsDuplicate: function( timestamp ) {
@@ -454,10 +457,15 @@ var MediaWikiChat = {
 	/**
 	 * @param {string} html HTML to append
 	 * @param {number} timestamp
+	 * @param {object} pmData Private messaging data, for when this is a private message.
 	 */
-	addGeneralMessage: function( html, timestamp ) {
+	addGeneralMessage: function( html, timestamp, pmData = {} ) {
 		// assumes the message isn't a duplicate (already checked in addMessage and addSystemMessage)
-		var elem = $( html ).appendTo( $( '#mwchat-table' ) );
+		var target = '#mwchat-table';
+		if ( pmData && pmData.isPrivate && pmData.otherUser ) {
+			target = '#' + MediaWikiChat.safe( pmData.otherUser ) + ' .mwchat-useritem-content';
+		}
+		var elem = $( html ).appendTo( $( target ) );
 
 		elem.on( {
 			'mouseenter': function() {
@@ -512,18 +520,30 @@ var MediaWikiChat = {
 		var user = MediaWikiChat.userData[userId];
 		var convwithE = MediaWikiChat.safe( convwith );
 
-		var html = '<div class="mwchat-message">';
-		if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
-			html += '<img src="' + user.avatar + '" alt="' + mw.html.escape( user.name ) + '" name="' + mw.html.escape( user.name ) + '" title="' + mw.html.escape( user.name ) + '" />';
+		// Parse /me correctly if enabled (T146550)
+		if ( message.substring( 0, 4 ) == '/me ' && mw.config.get( 'wgChatMeCommand' ) ) {
+			MediaWikiChat.addSystemMessage(
+				'* ' + user.name + message.substring( 3 ),
+				timestamp,
+				{
+					isPrivate: true,
+					otherUser: convwith
+				}
+			);
 		} else {
-			html += '<span style="background-color:' + MediaWikiChat.getColourFromUsername( user.name ) + ';" class="mwchat-avatar-replacement" name="' + mw.html.escape( user.name ) + '" title="' + mw.html.escape( user.name ) + '">' + user.name.charAt( 0 ) + '</span>';
-		}
+			var html = '<div class="mwchat-message">';
+			if ( mw.config.get( 'wgChatSocialAvatars' ) ) {
+				html += '<img src="' + user.avatar + '" alt="' + mw.html.escape( user.name ) + '" name="' + mw.html.escape( user.name ) + '" title="' + mw.html.escape( user.name ) + '" />';
+			} else {
+				html += '<span style="background-color:' + MediaWikiChat.getColourFromUsername( user.name ) + ';" class="mwchat-avatar-replacement" name="' + mw.html.escape( user.name ) + '" title="' + mw.html.escape( user.name ) + '">' + user.name.charAt( 0 ) + '</span>';
+			}
 
-		html += '<span class="mwchat-item-message">';
-		html += message;
-		html += '</span>';
-		html += MediaWikiChat.htmlTimestamp( timestamp );
-		html += '</div>';
+			html += '<span class="mwchat-item-message">';
+			html += message;
+			html += '</span>';
+			html += MediaWikiChat.htmlTimestamp( timestamp );
+			html += '</div>';
+		}
 
 		// Open any link in private messages in a new tab
 		var elem = $( html ).appendTo( $( '#' + convwithE + ' .mwchat-useritem-content' ) );
