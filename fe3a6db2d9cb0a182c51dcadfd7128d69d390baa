@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee310eab_10ea9872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2024-04-27T12:41:21Z",
+      "side": 1,
+      "message": "CI also additionally complains about the ActionFilteredLogs variable in extension.json:\n\n15:37:49 1) ExtensionJsonValidationTest::testPassesValidation with data set #1 (\u0027/workspace/src/extensions/Med...n.json\u0027)\n15:37:49 /workspace/src/extensions/MediaWikiChat/extension.json did not pass validation.\n15:37:49 [ActionFilteredLogs.chat] Array value found, but an object is required\n\nBut changing that from array to object breaks my 1.39 dev wiki at least. Not sure about newer MWs but I\u0027m not able to test those right now anyway.",
+      "revId": "fe3a6db2d9cb0a182c51dcadfd7128d69d390baa",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
