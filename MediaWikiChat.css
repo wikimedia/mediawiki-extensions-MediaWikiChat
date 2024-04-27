@@ -68,6 +68,17 @@
 	width: 77%;
 }
 
+/* For private messages this needs to be 65% (or lower) to have the timestamp
+ * aligned correctly, i.e. so that it looks visually identical to "normal" messages'
+ * timestamps.
+ * Note that this applies only to messages involving the /me command (and only
+ * when that feature is enabled in site configuration), this does not apply to
+ * most private messages.
+ */
+.mwchat-message.private-message.mwchat-item-messagecell {
+	width: 65%;
+}
+
 .mwchat-item-timestamp-container {
 	float: right;
 	margin-left: 6px;
@@ -161,6 +172,10 @@
 
 .mwchat-message.system td {
 	padding-left: 3em;
+}
+
+.mwchat-message.system.private-message td {
+	padding-left: 0.5em;
 }
 
 .mwchat-useritem-window .mwchat-avatar {
