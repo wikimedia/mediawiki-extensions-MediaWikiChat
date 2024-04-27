@@ -42,7 +42,7 @@
 		},
 		"ChatMeCommand": {
 			"value": false,
-			"description": "Enable \/me <text>\" command that prints a status-type message?"
+			"description": "Enable \"/me <text>\" command that prints a status-type message?"
 		},
 		"ChatUseStyleAttribute": {
 			"value": true,
