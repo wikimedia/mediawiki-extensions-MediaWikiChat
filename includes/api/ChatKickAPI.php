@@ -13,7 +13,7 @@ class ChatKickAPI extends ApiBase {
 		$toName = $toUser->getName();
 
 		if ( $user->isAllowed( 'modchat' ) && !$toUser->isAllowed( 'modchat' ) && $wgChatKicks ) {
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = MediaWikiChat::getDBHandle( 'write' );
 
 			$fromId = $user->getId();
 			$timestamp = MediaWikiChat::now();

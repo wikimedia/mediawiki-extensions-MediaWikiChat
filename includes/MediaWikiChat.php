@@ -41,6 +41,36 @@ class MediaWikiChat {
 	}
 
 	/**
+	 * Get a handle for performing database operations.
+	 *
+	 * This is pretty much wfGetDB() in disguise with support for MW 1.39+
+	 * _without_ triggering WMF CI warnings/errors.
+	 *
+	 * @see https://phabricator.wikimedia.org/T273239
+	 * @see https://phabricator.wikimedia.org/T330641
+	 *
+	 * @param string $type 'read' or 'write', depending on what we need to do
+	 * @return Wikimedia\Rdbms\ILoadBalancer|Wikimedia\Rdbms\IConnectionProvider
+	 *  ILoadBalancer on 1.39(+), IConnectionProvider on 1.4x series MediaWikis
+	 */
+	public static function getDBHandle( $type = 'read' ) {
+		$services = MediaWikiServices::getInstance();
+		if ( $type === 'read' ) {
+			if ( method_exists( $services, 'getConnectionProvider' ) ) {
+				return $services->getConnectionProvider()->getReplicaDatabase();
+			} else {
+				return $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+			}
+		} elseif ( $type === 'write' ) {
+			if ( method_exists( $services, 'getConnectionProvider' ) ) {
+				return $services->getConnectionProvider()->getPrimaryDatabase();
+			} else {
+				return $services->getDBLoadBalancer()->getConnection( DB_PRIMARY );
+			}
+		}
+	}
+
+	/**
 	 * Send a message to the database that a user has been (un)blocked
 	 *
 	 * @param string $type block/unblock: whether the user has been blocked or unblocked
@@ -48,7 +78,7 @@ class MediaWikiChat {
 	 * @param UserIdentity $performer user that did the blocking/unblocking
 	 */
 	public static function sendSystemBlockingMessage( $type, UserIdentity $user, UserIdentity $performer ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getDBHandle( 'write' );
 
 		$toId = $user->getId();
 		$fromId = $performer->getId();
@@ -80,7 +110,7 @@ class MediaWikiChat {
 			return false;
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getDBHandle( 'read' );
 
 		$now = self::now();
 		$timestamp = $now - $wgChatOnlineTimeout;
@@ -115,7 +145,7 @@ class MediaWikiChat {
 	public static function amIOnline( UserIdentity $user ) {
 		global $wgChatOnlineTimeout;
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getDBHandle( 'read' );
 
 		$timestamp = self::now() - $wgChatOnlineTimeout;
 
@@ -138,7 +168,7 @@ class MediaWikiChat {
 	 * @return int Polling interval to use (how long between each poll)
 	 */
 	public static function getInterval() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getDBHandle( 'read' );
 		$maxInterval = 30 * 1000;
 		$minInterval = 3 * 1000;
 
@@ -297,7 +327,7 @@ class MediaWikiChat {
 	 * Prevents speeds slowing down due to massive IM tables
 	 */
 	public static function deleteEntryIfNeeded() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getDBHandle( 'read' );
 		$field = $dbr->selectField(
 			'chat',
 			'chat_timestamp',
@@ -311,7 +341,7 @@ class MediaWikiChat {
 		);
 
 		if ( $field ) {
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = self::getDBHandle( 'write' );
 			$dbw->delete(
 				'chat',
 				[ "chat_timestamp < $field" ],
@@ -326,7 +356,7 @@ class MediaWikiChat {
 	 * @param UserIdentity $user
 	 */
 	public static function updateAway( UserIdentity $user ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getDBHandle( 'write' );
 
 		$dbw->update(
 			'chat_users',
