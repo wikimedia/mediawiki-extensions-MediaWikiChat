@@ -81,9 +81,11 @@
 		"privatechat"
 	],
 	"ActionFilteredLogs": {
-		"chat": [
-			"kick"
-		]
+		"chat": {
+			"kick": [
+				"kick"
+			]
+		}
 	},
 	"LogActionsHandlers": {
 		"chat/*": "LogFormatter",
