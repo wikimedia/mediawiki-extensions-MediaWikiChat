@@ -12,8 +12,18 @@ class GetNewWorker {
 	 */
 	static function execute( ApiResult $result, User $user, ApiMain $main ) {
 		global $wgChatOnlineTimeout;
+<<<<<<< HEAD   (37effd Change a few (nowadays deprecated) wfGetDB( DB_REPLICA ) cal)
 		$dbr = wfGetDB( DB_REPLICA );
 		$dbw = wfGetDB( DB_PRIMARY );
+||||||| BASE
+
+		$dbr = wfGetDB( DB_REPLICA );
+		$dbw = wfGetDB( DB_PRIMARY );
+=======
+
+		$dbr = MediaWikiChat::getDBHandle( 'read' );
+		$dbw = MediaWikiChat::getDBHandle( 'write' );
+>>>>>>> CHANGE (233e3c Technically speaking it's not using wfGetDB anymore)
 		$mName = 'chatgetnew';
 
 		$thisCheck = MediaWikiChat::now();
