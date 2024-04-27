@@ -15,7 +15,7 @@ class ChatSendPMAPI extends ApiBase {
 
 			if ( $message != '' ) {
 				$dbw = wfGetDB( DB_PRIMARY );
-				$dbr = wfGetDB( DB_REPLICA );
+				$dbr = $this->getDB();
 
 				$fromId = $user->getID();
 				$timestamp = MediaWikiChat::now();
