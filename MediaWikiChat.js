@@ -12,6 +12,13 @@ var MediaWikiChat = {
 	title: document.title,
 	away: false,
 
+	/**
+	 * Pad the given num with zeroes if the need be.
+	 *
+	 * @param {number} num Number to (potentially) pad
+	 * @param {number} size Always 2, apparently
+	 * @return {string} Potentially zero-padded number as a string
+	 */
 	pad: function( num, size ) {
 		var s = num + '';
 		while ( s.length < size ) {
@@ -20,10 +27,23 @@ var MediaWikiChat = {
 		return s;
 	},
 
+	/**
+	 * Strip spaces and some other characters from a given string.
+	 * This is used to build certain <div> elements' IDs.
+	 *
+	 * @param {string} string Source string (usually a username) to manipulate
+	 * @return {string} "Sanitized" string
+	 */
 	safe: function( string ) {
 		return string.replace( /[^\w\s]|/g, '' ).replace( / /g, '' );
 	},
 
+	/**
+	 * Given an array, makes it contain only unique elements.
+	 *
+	 * @param {array} array Source array to manipulate
+	 * @return {array} Array with duplicate elements removed
+	 */
 	unique: function( array ) {
 		var a = array.concat();
 
@@ -38,10 +58,26 @@ var MediaWikiChat = {
 		return a;
 	},
 
+	/**
+	 * Get the current UNIX time, e.g. 171400152309.
+	 * It is in 10 millisecond sizes, meaning that the returned timestamps have
+	 * two more digits than an average TS_MW timestamp usually used by MediaWiki,
+	 * so you need to strip those away should you wish to convert the output of
+	 * this method into TS_MW for whatever reason.
+	 *
+	 * @return {number}
+	 */
 	now: function() {
 		return Math.round( new Date().getTime() / 10 ); // we need it in 10 millisecond sizes
 	},
 
+	/**
+	 * Get the real, human-readable date string from a given numerical timestamp.
+	 * The output of this method is currently visually hidden in the HTML (see htmlTimestamp() below).
+	 *
+	 * @param {number} timestamp Such as 171400152309
+	 * @return {string} Time string, e.g. "today, 03:52" or "January 02, 13:46"
+	 */
 	realTimestamp: function( timestamp ) {
 		var messageDate = new Date();
 		messageDate.setTime( timestamp * 10 );
@@ -63,6 +99,12 @@ var MediaWikiChat = {
 		return time;
 	},
 
+	/**
+	 * Given a timestamp, returns the date as an "X ago" string.
+	 *
+	 * @param {number} timestamp Such as 171400152309
+	 * @return {string} Time string, e.g. "just now", "24 minutes ago", "yesterday", "Thursday, 09:32"
+	 */
 	prettyTimestamp: function( timestamp ) {
 		var dateThen = new Date();
 		dateThen.setTime( timestamp * 10 );
@@ -98,6 +140,10 @@ var MediaWikiChat = {
 		}
 	},
 
+	/**
+	 * Update timestamps, if and when the need be.
+	 * This is a setInterval() callback method.
+	 */
 	redoTimestamps: function() {
 		$.each( $( '.mwchat-item-timestamp.pretty' ), function( index, item ) {
 			item = $( item );
@@ -113,6 +159,13 @@ var MediaWikiChat = {
 		} );
 	},
 
+	/**
+	 * Common helper method for building timestamp HTML to be used in various parts
+	 * of the chat UI (main chat, but also private messages).
+	 *
+	 * @param {number} timestamp Such as 171400152309
+	 * @return {string} HTML
+	 */
 	htmlTimestamp: function( timestamp ) {
 		var html = '<span class="mwchat-item-timestamp-container">';
 		html += '<span class="mwchat-item-timestamp pretty" data-timestamp="' + timestamp + '">';
@@ -123,6 +176,9 @@ var MediaWikiChat = {
 		return html;
 	},
 
+	/**
+	 * Ping the chat server for any and all new messages and events etc.
+	 */
 	getNew: function() {
 		var focussed = '';
 		if ( MediaWikiChat.focussed ) {
@@ -139,6 +195,11 @@ var MediaWikiChat = {
 		} ).done( MediaWikiChat.getNewReply );
 	},
 
+	/**
+	 * Callback for getNew(), updates user data etc. based on the response returned by the server.
+	 *
+	 * @param {object} response Data returned by the "chatgetnew" API module
+	 */
 	getNewReply: function( response ) {
 		var data = response.chatgetnew;
 
@@ -231,6 +292,9 @@ var MediaWikiChat = {
 		MediaWikiChat.addMe();
 	},
 
+	/**
+	 * It does exactly what it says on the tin. Shocking, right?!
+	 */
 	scrollToBottom: function() {
 		var div = $( '#mwchat-content' );
 
@@ -286,11 +350,21 @@ var MediaWikiChat = {
 		MediaWikiChat.addSystemMessage( message, timestamp );
 	},
 
+	/**
+	 * Add a system message. This used for:
+	 * - kicks
+	 * - /me does stuff (when wgChatMeCommand is set to true)
+	 * - probably more
+	 *
+	 * @param {string} text Text, e.g. "Moderator has kicked ADisruptiveUser"
+	 * @param {number} timestamp Such as 171400152309
+	 */
 	addSystemMessage: function( text, timestamp ) {
 		// stop processing the message if it's a duplicate
 		if ( MediaWikiChat.messageIsDuplicate( timestamp ) ) {
 			return;
 		}
+
 		var html = '<tr class="mwchat-message system mwchat-parent">'; // mwchat-parent so that sending a system message resets the parent/child system
 		html += '<td colspan="3" class="mwchat-item-messagecell"><span class="mwchat-item-message">';
 		html += text;
@@ -303,7 +377,7 @@ var MediaWikiChat = {
 
 	messageIsDuplicate: function( timestamp ) {
 		// note message is only considered duplicate if it has the same timestamp as another,
-		//regardless of who posted that other message
+		// regardless of who posted that other message
 		$( '.mwchat-item-timestamp.pretty' ).each( function( index, value ) {
 			if ( $( value ).attr( 'data-timestamp' ) == timestamp ) {
 				return true;
@@ -312,6 +386,14 @@ var MediaWikiChat = {
 		return false;
 	},
 
+	/**
+	 * Add a message of some kind somewhere, unless it's an exact duplicate
+	 * (as determined by its timestamp).
+	 *
+	 * @param {number} userId User ID of the person who sent the message
+	 * @param {string} message Message text
+	 * @param {number} timestamp Such as 171400152309
+	 */
 	addMessage: function( userId, message, timestamp ) {
 		// stop processing the message if it's a duplicate
 		if ( MediaWikiChat.messageIsDuplicate( timestamp ) ) {
@@ -369,6 +451,10 @@ var MediaWikiChat = {
 		MediaWikiChat.addGeneralMessage( html, timestamp );
 	},
 
+	/**
+	 * @param {string} html HTML to append
+	 * @param {number} timestamp
+	 */
 	addGeneralMessage: function( html, timestamp ) {
 		// assumes the message isn't a duplicate (already checked in addMessage and addSystemMessage)
 		var elem = $( html ).appendTo( $( '#mwchat-table' ) );
@@ -387,6 +473,16 @@ var MediaWikiChat = {
 		elem.find( 'a' ).attr( 'target', '_blank' );
 	},
 
+	/**
+	 * Get the color for a user's user name.
+	 *
+	 * Only used when SocialProfile is *not* installed, as then avatars aren't available,
+	 * so coloring is used to visually distinguish users on the user list.
+	 * If SocialProfile is installed, this method is never called.
+	 *
+	 * @param {string} name User name
+	 * @return {string} Hex color code
+	 */
 	getColourFromUsername: function( name ) {
 		name = name + 'abc'; // at least 4 digits
 		var one = Math.min( Math.max( Math.round( ( name.charCodeAt( 1 ) - 48 ) * 3 ), 0 ), 255 ).toString( 16 ); // the 30 and 1.3 are scaling
@@ -404,6 +500,14 @@ var MediaWikiChat = {
 		return '#' + one + two + three;
 	},
 
+	/**
+	 * Render a private message.
+	 *
+	 * @param {number} userId User ID of the user who is the recipient
+	 * @param {string} convwith User name of the person who sent the private message
+	 * @param {string} message Private message contents
+	 * @param {number} timestamp
+	 */
 	addPrivateMessage: function( userId, convwith, message, timestamp ) {
 		var user = MediaWikiChat.userData[userId];
 		var convwithE = MediaWikiChat.safe( convwith );
@@ -414,6 +518,7 @@ var MediaWikiChat = {
 		} else {
 			html += '<span style="background-color:' + MediaWikiChat.getColourFromUsername( user.name ) + ';" class="mwchat-avatar-replacement" name="' + mw.html.escape( user.name ) + '" title="' + mw.html.escape( user.name ) + '">' + user.name.charAt( 0 ) + '</span>';
 		}
+
 		html += '<span class="mwchat-item-message">';
 		html += message;
 		html += '</span>';
@@ -433,6 +538,12 @@ var MediaWikiChat = {
 		}
 	},
 
+	/**
+	 * Set the cosmetic properties on users who have been idle for some time.
+	 *
+	 * @param {jQuery} element
+	 * @param {number} microseconds
+	 */
 	greyscale: function( element, microseconds ) {
 		element = element.children( '.mwchat-useritem-header' );
 
@@ -479,28 +590,36 @@ var MediaWikiChat = {
 		$( element ).children( 'span' ).css( 'color', 'rgb(' + c + ', ' + c + ', ' + c + ')' );
 	},
 
-	doUsers: function( newusers ) {
-		var allusers = MediaWikiChat.users.concat( newusers );
-		allusers = MediaWikiChat.unique( allusers );
+	/**
+	 * Ensure that the users present are listed only once in the user list.
+	 * If no other users are present on the chat, show the i18n message
+	 * stating so.
+	 *
+	 * @param {array} newUsers Array containing the user's user name ('name'),
+	 *   avatar and gender info, keyed on the user ID
+	 */
+	doUsers: function( newUsers ) {
+		var allUsers = MediaWikiChat.users.concat( newUsers );
+		allUsers = MediaWikiChat.unique( allUsers );
 
-		allusers.forEach( function( userId ) {
-			if ( newusers.indexOf( userId ) == -1 ) {
+		allUsers.forEach( function( userId ) {
+			if ( newUsers.indexOf( userId ) == -1 ) {
 				MediaWikiChat.removeUser( userId );
-			} else if ( newusers.indexOf( userId ) != -1 && MediaWikiChat.users.indexOf( userId ) == -1 ) {
+			} else if ( newUsers.indexOf( userId ) != -1 && MediaWikiChat.users.indexOf( userId ) == -1 ) {
 				MediaWikiChat.addUser(
 					userId,
 					MediaWikiChat.firstTime
 				);
 			}
-		});
+		} );
 
-		if ( allusers.length ){
+		if ( allUsers.length ) {
 			$( '#mwchat-no-other-users' ).hide();
 		} else {
 			$( '#mwchat-no-other-users' ).show();
 		}
 
-		MediaWikiChat.users = newusers;
+		MediaWikiChat.users = newUsers;
 		MediaWikiChat.firstTime = false;
 	},
 
@@ -572,6 +691,11 @@ var MediaWikiChat = {
 		MediaWikiChat.flashJoinLeave( mw.message( 'chat-joined', user.name, user.gender ).text() );
 	},
 
+	/**
+	 * Remove a user from the chat and announce that they've left to the whole room.
+	 *
+	 * @param {number} userId User ID of the user whom to remove
+	 */
 	removeUser: function( userId ) {
 		var user = MediaWikiChat.userData[userId];
 		var userE = MediaWikiChat.safe( user.name );
@@ -583,6 +707,10 @@ var MediaWikiChat = {
 		MediaWikiChat.flashJoinLeave( mw.message( 'chat-left', user.name, user.gender ).text() );
 	},
 
+	/**
+	 * Handle clicks on user names on the user list, i.e. show or hide the PM window
+	 * for the user in question.
+	 */
 	clickUser: function() {
 		var parent = $( this ).parent();
 
@@ -597,6 +725,12 @@ var MediaWikiChat = {
 		$( '.mwchat-useritem.show' ).toggleClass( 'show noshow' );
 	},
 
+	/**
+	 * Handle the user pressing the Enter key.
+	 * This is an event callback, the actual event registration happens in addUser().
+	 *
+	 * @param {Event} e
+	 */
 	userKeypress: function( e ) {
 		$( this ).parents( '.mwchat-useritem' ).attr( 'data-read', '' );
 
@@ -617,6 +751,10 @@ var MediaWikiChat = {
 		}
 	},
 
+	/**
+	 * Add the current user to the chat user list (and flag them as a chat moderator
+	 * if they are one) if they're not present in the list already.
+	 */
 	addMe: function() {
 		if ( !MediaWikiChat.amI ) {
 			var me = MediaWikiChat.userData[mw.user.getId()];
@@ -655,6 +793,14 @@ var MediaWikiChat = {
 		return chatModImage;
 	},
 
+	/**
+	 * If the chat window does not have focus, make the chat window flash,
+	 * prepend a bullet to its title and optionally play a sound if the user
+	 * has the relevant user preferences enabled.
+	 *
+	 * @param {string} title Chat window title (document.title)
+	 * @param {string} message
+	 */
 	flash: function( title, message ) {
 		if ( !MediaWikiChat.focussed ) {
 			if ( mw.user.options.get( 'chat-ping-message' ) ) {
@@ -667,6 +813,15 @@ var MediaWikiChat = {
 		}
 	},
 
+	/**
+	 * If the chat window does not have focus, and the user receives
+	 * a private message, make the chat window flash, prepend a > sign to its
+	 * title and optionally play a sound if the user has the relevant user
+	 * preferences enabled.
+	 *
+	 * @param {string} title Chat window title (document.title)
+	 * @param {string} message
+	 */
 	flashPrivate: function( title, message ) {
 		if ( !MediaWikiChat.focussed ) {
 			if ( mw.user.options.get( 'chat-ping-pm' ) ) {
@@ -679,6 +834,14 @@ var MediaWikiChat = {
 		}
 	},
 
+	/**
+	 * If the chat window does not have focus, and the user receives a mention,
+	 * make the chat window flash, prepend an exclamation mark to its title and
+	 * optionally play a sound if the user has the relevant user preferences enabled.
+	 *
+	 * @param {string} title Chat window title (document.title)
+	 * @param {string} message
+	 */
 	flashMention: function( title, message ) {
 		if ( !MediaWikiChat.focussed ) {
 			if ( mw.user.options.get( 'chat-ping-mention' ) ) {
@@ -693,6 +856,15 @@ var MediaWikiChat = {
 		}
 	},
 
+	/**
+	 * If the chat window does not have focus, and the user has opted to receive
+	 * notifications (whether audio or using the browser's Notification API, or both)
+	 * when someone joins or leaves the chat, make the chat window flash, prepend a dash
+	 * to its title, play the sound and/or fire off the notification.
+	 *
+	 * @param {string} title Chat window title (document.title)
+	 * @param {string} message
+	 */
 	flashJoinLeave: function( title ) {
 		if ( !MediaWikiChat.focussed ) {
 			if ( mw.user.options.get( 'chat-ping-joinleave' ) ) {
@@ -705,10 +877,20 @@ var MediaWikiChat = {
 		}
 	},
 
+	/**
+	 * Mark all mentions as seen.
+	 */
 	clearMentions: function() {
 		$( '.mwchat-item-message[data-read="true"]' ).attr( 'data-read', '' );
 	},
 
+	/**
+	 * Play an audio file from MediaWikiChat's assets/ directory.
+	 * It is assumed that both MP3 and OGG Vorbis versions of the sound exist in
+	 * that directory.
+	 *
+	 * @param {string} filename File name *without* the extension
+	 */
 	audio: function( filename ) {
 		var audio = document.createElement( 'audio' );
 		var path = mw.config.get( 'wgExtensionAssetsPath' ) + '/MediaWikiChat/assets/' + filename;
@@ -726,6 +908,15 @@ var MediaWikiChat = {
 		audio.play();
 	},
 
+	/**
+	 * Send a notification using the browser's Notification API, but only if
+	 * the browser suppors that API and the user has opted into it.
+	 *
+	 * @see https://developer.mozilla.org/en-US/docs/Web/API/notification
+	 *
+	 * @param {string} title Notification title
+	 * @param {string} message Notification contents
+	 */
 	notify: function( title, message ) {
 		if ( !Notification ) {
 			return;
@@ -749,6 +940,11 @@ var MediaWikiChat = {
 		}, 5000, notification );
 	},
 
+	/**
+	 * Restart polling interval.
+	 *
+	 * @param {number} interval New polling interval; if not given, defaults to MediaWikiChat.interval
+	 */
 	restartInterval: function( interval ) {
 		if ( !interval ) {
 			interval = MediaWikiChat.interval;
@@ -833,21 +1029,24 @@ $( function() {
 
 	$( 'input[name=autoscroll]' ).change( function() {
 		if ( this.checked ) {
-			$( "#mwchat-jumptolatest-span" ).animate( { opacity: 0 } );
+			$( '#mwchat-jumptolatest-span' ).animate( { opacity: 0 } );
 		} else {
-			$( "#mwchat-jumptolatest-span" ).animate( { opacity: 1 } );
+			$( '#mwchat-jumptolatest-span' ).animate( { opacity: 1 } );
 		}
 	} );
 
-	$( "#mwchat-jumptolatest-link" ).click( function() {
+	$( '#mwchat-jumptolatest-link' ).click( function() {
 		MediaWikiChat.jumpToLatest();
 	} );
 } );
 
+// Mark when the chat window loses focus
 $( window ).blur( function() {
 	MediaWikiChat.focussed = false;
 } );
 
+// When the chat window regains focus, set the appropriate flag and restore the original page title
+// (i.e. clear out any and all markers which may have been set by the various flash*() methods)
 $( window ).focus( function() {
 	MediaWikiChat.focussed = true;
 	document.title = MediaWikiChat.title; // restore title
