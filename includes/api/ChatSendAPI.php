@@ -13,8 +13,16 @@ class ChatSendAPI extends ApiBase {
 			$message = MediaWikiChat::parseMessage( $originalMessage, $user );
 
 			if ( $message != '' ) {
+<<<<<<< HEAD   (a0ba94 Localisation updates from https://translatewiki.net.)
 				$dbw = wfGetDB( DB_PRIMARY );
 				$dbr = wfGetDB( DB_REPLICA );
+||||||| BASE
+				$dbw = wfGetDB( DB_PRIMARY );
+				$dbr = $this->getDB();
+=======
+				$dbw = MediaWikiChat::getDBHandle( 'write' );
+				$dbr = $this->getDB();
+>>>>>>> CHANGE (233e3c Technically speaking it's not using wfGetDB anymore)
 
 				$id = $user->getId();
 				$timestamp = MediaWikiChat::now();
