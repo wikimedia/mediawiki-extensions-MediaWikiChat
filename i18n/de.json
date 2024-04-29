@@ -54,6 +54,7 @@
 	"logentry-chat-kick": "$1 hat $4 {{GENDER:$1|hinausgeworfen}}",
 	"log-show-hide-chat": "Chat-Logbuch $1",
 	"logeventslist-chat-log": "Chat-Logbuch",
+	"log-action-filter-chat": "Nach Aktion filtern:",
 	"log-name-privatechat": "Privates Chat-Logbuch",
 	"log-description-privatechat": "Private Nachrichten, die von der Erweiterung „MediaWikiChat“ versandt wurden.",
 	"logentry-privatechat-send": "$1 an $5: $4",

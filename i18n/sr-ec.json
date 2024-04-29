@@ -25,6 +25,7 @@
 	"chat-sidebar-online": "Тренутно активни корисници у ћаскању",
 	"chat-sidebar-join": "Придружи се ћаскању",
 	"logentry-chat-send": "$1: $4",
+	"log-action-filter-chat": "Филтрирај по радњи:",
 	"tog-chat-ping-mention": "Репродукуј звук када вас неко помене",
 	"tog-chat-ping-pm": "Репродукуј звук по доспећу приватних порука",
 	"tog-chat-ping-message": "Репродукуј звук по доспећу нормалних порука",

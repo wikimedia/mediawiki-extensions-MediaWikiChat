@@ -45,6 +45,8 @@
 	"logentry-chat-kick": "$1 ha ejectate $4",
 	"log-show-hide-chat": "$1 le registro de chat",
 	"logeventslist-chat-log": "Registro de chat",
+	"log-action-filter-chat": "Filtrar per action:",
+	"log-action-filter-chat-kick": "Ejection de usatores",
 	"log-name-privatechat": "Registro de chat private",
 	"log-description-privatechat": "Message private inviate per MediaWikiChat",
 	"logentry-privatechat-send": "De $1 a $5: $4",

@@ -44,6 +44,8 @@
 	"logentry-chat-kick": "$1 {{GENDER:$1|potkaisi}} käyttäjän $4",
 	"log-show-hide-chat": "$1 chat-loki",
 	"logeventslist-chat-log": "Chat-loki",
+	"log-action-filter-chat": "Suodata toiminnon mukaan:",
+	"log-action-filter-chat-kick": "Käyttäjien potkut",
 	"log-name-privatechat": "Yksityiskeskustelujen loki",
 	"log-description-privatechat": "MediaWikiChatissa lähetetyt yksityisviestit",
 	"logentry-privatechat-send": "$1 käyttäjälle $5: $4",

@@ -26,6 +26,7 @@
 	"chat-block": "заблокировать",
 	"chat-autoscroll": "автопрокрутка",
 	"chat-jump-to-latest": "перейти к последнему",
+	"chat-requires-js": "Для чата {{SITENAME}} в вашем браузере должен быть включен JavaScript.",
 	"chat-youve-been-kicked": "Вы были {{GENDER:$2|выброшены}} участником $1. Обновите страницу чата.",
 	"chat-you-kicked": "Вы {{GENDER:$2|выбросили}} $1.",
 	"chat-kicked": "$1 выбросил{{GENDER:$3||а}} участни{{GENDER:$4|ка|цу}} $2.",
