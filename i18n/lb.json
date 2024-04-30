@@ -3,7 +3,8 @@
 		"authors": [
 			"Matěj Suchánek",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"chat": "Chat",
@@ -22,6 +23,7 @@
 	"chat-block": "spären",
 	"chat-autoscroll": "Automatesch scrollen",
 	"chat-jump-to-latest": "op déi lescht sprangen",
+	"chat-requires-js": "Fir de {{SITENAME}}-Chat muss JavaScript an Ärem Browser aktivéiert sinn",
 	"chat-youve-been-blocked": "Dir gouft {{GENDER:$2|vum}} $1 gespaart.",
 	"chat-you-blocked": "Dir hutt {{GENDER:$2|den |d'}}$1 gespaart",
 	"chat-you-unblocked": "Dir hutt dem {{GENDER:$2|seng}}$1 Spär opgehuewen.",
