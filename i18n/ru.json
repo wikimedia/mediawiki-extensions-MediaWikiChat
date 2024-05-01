@@ -3,6 +3,7 @@
 		"authors": [
 			"Dirruw'o",
 			"Happy13241",
+			"Kaganer",
 			"Macofe",
 			"Movses",
 			"Okras",
@@ -15,7 +16,7 @@
 	"chat-type-your-private-message": "Введите личное сообщение",
 	"chat-no-other-users": "Других пользователей в чате нет",
 	"chat-blocked-from-chat": "Вы были заблокированы в этом чате.",
-	"chat-not-allowed": "Вам не разрешено общаться в чате, попробуйте сначала [[Special:UserLogin|войти в систему]].",
+	"chat-not-allowed": "Вам не разрешено общаться в чате, попробуйте сначала [[Special:UserLogin|авторизоваться на сайте]].",
 	"chat-sounds": "Проигрывать звуки",
 	"chat-flood": "Нельзя отправлять сообщения так быстро. Пожалуйста, подождите, прежде чем отправить что-то ещё.",
 	"chat-too-long": "Это сообщение было слишком длинным, отправьте более короткое сообщение.",
@@ -26,7 +27,7 @@
 	"chat-block": "заблокировать",
 	"chat-autoscroll": "автопрокрутка",
 	"chat-jump-to-latest": "перейти к последнему",
-	"chat-requires-js": "Для чата {{SITENAME}} в вашем браузере должен быть включен JavaScript.",
+	"chat-requires-js": "Для чата {{SITENAME}} в вашем браузере должен быть включён JavaScript.",
 	"chat-youve-been-kicked": "Вы были {{GENDER:$2|выброшены}} участником $1. Обновите страницу чата.",
 	"chat-you-kicked": "Вы {{GENDER:$2|выбросили}} $1.",
 	"chat-kicked": "$1 выбросил{{GENDER:$3||а}} участни{{GENDER:$4|ка|цу}} $2.",
@@ -61,7 +62,7 @@
 	"group-blockedfromchat-member": "заблокирован{{GENDER:$1||а}} в чате",
 	"grouppage-blockedfromchat": "{{ns:project}}:Участники, заблокированные в чате",
 	"right-chat": "Использование Special:Chat",
-	"right-modchat": "Блокировать и удалять (если разрешено) пользователей из Special:Chat",
+	"right-modchat": "Блокировать и удалять (если разрешено) участников через Special:Chat",
 	"right-viewpmlog": "Просмотр [[Special:Log/privatechat|журнала личных сообщений чата]]",
 	"tog-chat-fullscreen": "Использовать чат в полноэкранном режиме (экспериментальная функция)",
 	"tog-chat-ping-mention": "Проигрывать звук при появлении упоминаний",
@@ -95,6 +96,6 @@
 	"chat-message-from": "Сообщение {{GENDER:$2|от}} $1",
 	"chat-private-message-from": "Личное сообщение {{GENDER:$2|от}} $1",
 	"chat-mentioned-by": "Упомянуто {{GENDER:$2|участником|участницей}} $1",
-	"chat.css": "/* CSS, загруженный здесь, будет влиять только на Special:Chat */",
-	"chat.js": "/* Любой JavaScript-код размещённый здесь, будет загружен для пользователей, которые используют  Special:Chat */"
+	"chat.css": "/* загруженный здесь CSS будет влиять только на Special:Chat */",
+	"chat.js": "/* Любой размещённый здесь код JavaScript будет загружен для участников, которые используют  Special:Chat */"
 }
