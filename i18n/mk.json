@@ -46,6 +46,8 @@
 	"logentry-chat-kick": "$1 го {{GENDER:$1|исфрли}} учесникот $4",
 	"log-show-hide-chat": "$1 записник за разговори",
 	"logeventslist-chat-log": "Записник на разговорот",
+	"log-action-filter-chat": "Филтрирај по дејство:",
+	"log-action-filter-chat-kick": "Кориснички исфрлања",
 	"log-name-privatechat": "Записник за лични разговори",
 	"log-description-privatechat": "Лична порака испратена од „MediaWikiChat“",
 	"logentry-privatechat-send": "Од $1 за $5: $4",
