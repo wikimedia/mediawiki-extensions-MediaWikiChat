@@ -5,7 +5,9 @@
 			"Macofe",
 			"Movses",
 			"Okras",
-			"Vlad5250"
+			"Vlad5250",
+			"Dirruw'o",
+			"Kaganer"
 		]
 	},
 	"chat": "Чат",
@@ -59,7 +61,7 @@
 	"group-blockedfromchat-member": "заблокирован{{GENDER:$1||а}} в чате",
 	"grouppage-blockedfromchat": "{{ns:project}}:Участники, заблокированные в чате",
 	"right-chat": "Использование Special:Chat",
-	"right-modchat": "Блокировать и удалять (если разрешено) пользователей из Special:Chat",
+	"right-modchat": "Блокировать и удалять (если разрешено) участников через Special:Chat",
 	"right-viewpmlog": "Просмотр [[Special:Log/privatechat|журнала личных сообщений чата]]",
 	"tog-chat-fullscreen": "Использовать чат в полноэкранном режиме (экспериментальная функция)",
 	"tog-chat-ping-mention": "Проигрывать звук при появлении упоминаний",
@@ -93,6 +95,6 @@
 	"chat-message-from": "Сообщение {{GENDER:$2|от}} $1",
 	"chat-private-message-from": "Личное сообщение {{GENDER:$2|от}} $1",
 	"chat-mentioned-by": "Упомянуто {{GENDER:$2|участником|участницей}} $1",
-	"chat.css": "/* CSS, загруженный здесь, будет влиять только на Special:Chat */",
-	"chat.js": "/* Любой JavaScript-код размещённый здесь, будет загружен для пользователей, которые используют  Special:Chat */"
+	"chat.css": "/* загруженный здесь CSS будет влиять только на Special:Chat */",
+	"chat.js": "/* Любой размещённый здесь код JavaScript будет загружен для участников, которые используют  Special:Chat */"
 }
