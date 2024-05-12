@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1bd581_5a52dc8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2024-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Untested but LGTM. A note about the CSS selector",
+      "revId": "f78123807115c618352aa7b8f88b3ff74ecaa25f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06dbdb6d_6c6999bb",
+        "filename": "MediaWikiChat.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2024-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Since the next selector is more specific than this one, the `:not(.private-message)` shouldn\u0027t be needed here",
+      "revId": "f78123807115c618352aa7b8f88b3ff74ecaa25f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
