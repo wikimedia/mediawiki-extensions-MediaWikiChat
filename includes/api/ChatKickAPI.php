@@ -7,7 +7,7 @@ class ChatKickAPI extends ApiBase {
 
 		$user = $this->getUser();
 		$result = $this->getResult();
-		$toId = $this->getMain()->getVal( 'id' );
+		$toId = (int)$this->getMain()->getVal( 'id' );
 
 		$toUser = User::newFromId( $toId );
 		$toName = $toUser->getName();

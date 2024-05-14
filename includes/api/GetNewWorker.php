@@ -19,7 +19,7 @@ class GetNewWorker {
 
 		$thisCheck = MediaWikiChat::now();
 
-		$lastCheck = $dbr->selectField(
+		$lastCheck = (int)$dbr->selectField(
 			'chat_users',
 			'cu_timestamp',
 			[ 'cu_user_id' => $user->getId() ],
@@ -43,7 +43,6 @@ class GetNewWorker {
 				],
 				__METHOD__
 			);
-			$lastCheck = 0;
 		}
 
 		if ( $lastCheck < $thisCheck - $wgChatOnlineTimeout || $main->getVal( 'focussed' ) ) {
