@@ -50,8 +50,7 @@ class MediaWikiChat {
 	 * @see https://phabricator.wikimedia.org/T330641
 	 *
 	 * @param string $type 'read' or 'write', depending on what we need to do
-	 * @return Wikimedia\Rdbms\ILoadBalancer|Wikimedia\Rdbms\IConnectionProvider
-	 *  ILoadBalancer on 1.39(+), IConnectionProvider on 1.4x series MediaWikis
+	 * @return Wikimedia\Rdbms\IDatabase|Wikimedia\Rdbms\IReadableDatabase
 	 */
 	public static function getDBHandle( $type = 'read' ) {
 		$services = MediaWikiServices::getInstance();
@@ -73,7 +72,7 @@ class MediaWikiChat {
 	/**
 	 * Send a message to the database that a user has been (un)blocked
 	 *
-	 * @param string $type block/unblock: whether the user has been blocked or unblocked
+	 * @param integer $type block/unblock: whether the user has been blocked or unblocked
 	 * @param UserIdentity $user user that has been blocked/unblocked
 	 * @param UserIdentity $performer user that did the blocking/unblocking
 	 */
@@ -216,9 +215,9 @@ class MediaWikiChat {
 
 		$smileyString = wfMessage( 'smileys' )->plain();
 		$smileyData = explode( '*', $smileyString );
+		$smileys = [];
 
 		if ( is_array( $smileyData ) ) {
-			$smileys = [];
 			foreach ( $smileyData as $line ) {
 				$line = trim( $line );
 				$bits = explode( ' ', $line );
@@ -248,13 +247,15 @@ class MediaWikiChat {
 				"#<nowiki>(.+?)</nowiki>#i",
 				static function ( $matches ) use ( $smileys ) { // loop through instances of <nowiki>
 					$s = $matches[0];
-					foreach ( $smileys as $chars => $filename ) {
-						// Converts ALL characters to html entities
-						$replacement = mb_encode_numericentity( $chars, [ 0x0, 0xffff, 0, 0xffff ], 'UTF-8' );
+					if ( $smileys ) {
+						foreach ( $smileys as $chars => $filename ) {
+							// Converts ALL characters to html entities
+							$replacement = mb_encode_numericentity( $chars, [ 0x0, 0xffff, 0, 0xffff ], 'UTF-8' );
 
-						// For each instance, replace smiley chars with converted versions, so they
-						// don't render
-						$s = str_ireplace( $chars, $replacement, $s );
+							// For each instance, replace smiley chars with converted versions, so they
+							// don't render
+							$s = str_ireplace( $chars, $replacement, $s );
+						}
 					}
 					return $s;
 				},
