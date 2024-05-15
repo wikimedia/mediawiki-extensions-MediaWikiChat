@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60c0b252_aa09ec69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24
+      },
+      "writtenOn": "2024-05-15T09:32:52Z",
+      "side": 1,
+      "message": "recheck after https://gerrit.wikimedia.org/r/c/integration/config/+/1031173",
+      "revId": "2dd2139da0875fcd15df23ea193abb53dbe3b4c4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
