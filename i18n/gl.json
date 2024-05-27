@@ -3,7 +3,8 @@
 		"authors": [
 			"Banjo",
 			"Elisardojm",
-			"Jack Phoenix"
+			"Jack Phoenix",
+			"Toliño"
 		]
 	},
 	"chat": "Charla",
@@ -23,6 +24,7 @@
 	"chat-block": "bloquear",
 	"chat-autoscroll": "desprazamento automático",
 	"chat-jump-to-latest": "saltar ó último",
+	"chat-requires-js": "A charla de {{SITENAME}} necesita que o JavaScript estea activado no seu navegador",
 	"chat-youve-been-kicked": "Foi {{GENDER:$2|expulsado|expulsada}} por $1. Recarge a páxina para charlar.",
 	"chat-you-kicked": "{{GENDER:$2|Expulsou}} a $1.",
 	"chat-kicked": "$1 {{GENDER:$3|{{GENDER:$4|expulsou a}}}} $2.",
@@ -45,6 +47,8 @@
 	"logentry-chat-kick": "$1 {{GENDER:$1|expulsou a}} $4",
 	"log-show-hide-chat": "$1 rexistro de chat",
 	"logeventslist-chat-log": "Rexistro de charla",
+	"log-action-filter-chat": "Filtrar por acción:",
+	"log-action-filter-chat-kick": "Expulsións de usuario",
 	"log-name-privatechat": "Rexistro da charla privada",
 	"log-description-privatechat": "Mensaxes privados enviados por MediaWikiChat",
 	"logentry-privatechat-send": "$1 para $5: $4",
