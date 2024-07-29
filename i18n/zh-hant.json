@@ -53,6 +53,7 @@
 	"log-show-hide-chat": "$1 聊天日誌",
 	"logeventslist-chat-log": "聊天日誌",
 	"log-action-filter-chat": "按操作篩選：",
+	"log-action-filter-chat-kick": "使用者踢除數",
 	"log-name-privatechat": "私人聊天日誌",
 	"log-description-privatechat": "私人訊息由 MediaWikiChat 傳送",
 	"logentry-privatechat-send": "$1 給 $5：$4",
