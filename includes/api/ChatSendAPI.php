@@ -46,7 +46,8 @@ class ChatSendAPI extends ApiBase {
 						'chat_timestamp' => $timestamp,
 						'chat_message' => $message,
 						'chat_type' => MediaWikiChat::TYPE_MESSAGE
-					]
+					],
+					__METHOD__
 				);
 
 				$logEntry = new ManualLogEntry( 'chat', 'send' ); // Action bar in log foo
