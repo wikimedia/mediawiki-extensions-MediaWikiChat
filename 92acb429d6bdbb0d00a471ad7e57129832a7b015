@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbbceb58_ab94123d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2024-11-10T16:01:25Z",
+      "side": 1,
+      "message": "I can\u0027t view the ticket in question but I trust you, plus this one-liner looks quite self-explanatory. :)",
+      "revId": "92acb429d6bdbb0d00a471ad7e57129832a7b015",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
