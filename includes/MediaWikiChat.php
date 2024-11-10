@@ -235,7 +235,7 @@ class MediaWikiChat {
 			if ( !$wgChatUseStyleAttribute ) {
 				// Remove style attribute of html elements
 				$message = preg_replace(
-					'#<([a-zA-z].+?) (.?)style=["\'].+?["\'](.?)>#',
+					'#<([a-zA-Z].+?) (.?)style=["\'].+?["\'](.?)>#',
 					'<$1 $2$3>',
 					$message
 				);
