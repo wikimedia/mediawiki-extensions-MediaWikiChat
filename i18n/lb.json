@@ -32,7 +32,7 @@
 	"chat-sidebar-online": "Online Benotzer am Chat",
 	"log-description-privatechat": "Privat Messagen déi iwwer MediaWikiChat verschéckt goufen",
 	"logentry-privatechat-send": "$1 fir $5: $4",
-	"group-blockedfromchat": "Benotzer déi fir den Chat gespaart sinn",
+	"group-blockedfromchat": "Benotzer, déi fir den Chat gespaart sinn",
 	"right-modchat": "Special:Chat benotzen",
 	"prefs-chat": "Chat",
 	"tog-chat-notify-pm": "Eng Notifikatioun weise wann een e private Message kritt (Chrome & Firefox)",
