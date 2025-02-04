@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ajeje Brazorf"
+			"Ajeje Brazorf",
+			"GianAntonucci"
 		]
 	},
 	"chat": "Chat",
-	"chat-today": "oi",
-	"chat-yesterday": "aieri",
+	"chat-today": "oji",
+	"chat-yesterday": "ajeri",
 	"prefs-chat": "Chat"
 }
