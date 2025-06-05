@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"chat": "بانډار",
@@ -17,7 +18,7 @@
 	"chat-block": "بنديز لگول",
 	"chat-youve-been-kicked": "تاسې د $1 لخوا {{GENDER:$2|وشړل شوئ}}. د بانډار لپاره مو مخ بياتاند کړئ.",
 	"chat-you-kicked": "تاسې $1 {{GENDER:$2|وشاړه}}.",
-	"chat-kicked": "$2 د $1 لخوا {{GENDER:$3|{{GENDER:$3|وشړل شو}}}}.",
+	"chat-kicked": "$2 د $1 لهٔ خوا {{GENDER:$3|{{GENDER:$4|شړل‌شوی}}}}.",
 	"chat-youve-been-blocked": "د $1 لخوا پر تاسې {{GENDER:$2|بنديز لگېدلی}}.",
 	"chat-you-blocked": "تاسې پر $1 {{GENDER:$2|بنديز لگولی}}.",
 	"chat-blocked": "$1 پر $2 {{GENDER:$3|بنديز لگولی}}.",
@@ -25,7 +26,7 @@
 	"chat-unblocked": "$1 له $2 {{GENDER:$3|بنديز لرې کړ}}.",
 	"chat-joined": "$1 په بانډار کې {{GENDER:$2|ورگډ شو}}.",
 	"chat-left": "$1 بانډار {{GENDER:$2|پرېښوده}}.",
-	"chat-private-message": "(شخصي پيغام)",
+	"chat-private-message": "ځاني پيغامونو لپاره کليک وکړئ",
 	"chat-user-is-moderator": "دا کارن يو منځگړی {{GENDER:$1|دی}}.",
 	"chat-you-are-moderator": "تاسې يو منځگړی {{GENDER:$1|ياست}}.",
 	"chat-topic": "د {{SITENAME}} بانډار ته ښه راغلئ. ([[Special:Log/chat|بانډار ته ورننوتل]])",
@@ -34,7 +35,7 @@
 	"log-name-chat": "بانډار يادښت",
 	"log-description-chat": "پيغامونه د مېډياويکي بانډار لخوا ولېږل شول، همداراز کارن شړل شوی",
 	"logentry-chat-kick": "$4 د $1 لخوا {{GENDER:$1|وشړل شو}}",
-	"log-show-hide-privatechat": "بانډار يادښت $1",
+	"log-show-hide-privatechat": "$1 ځاني بانډار يادښت",
 	"group-chatmod": "بانډار منځگړي",
 	"group-chatmod-member": "{{GENDER:$1|بانډار منځگړی}}",
 	"grouppage-chatmod": "{{ns:project}}:بانډار منځگړي",
