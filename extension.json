@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.24.0",
+	"version": "2.25.0",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -9,7 +9,7 @@
 	"descriptionmsg": "chat-desc",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">=1.39"
+		"MediaWiki": ">=1.43"
 	},
 	"config": {
 		"ChatKicks": {

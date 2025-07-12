@@ -280,12 +280,12 @@ class MediaWikiChat {
 				false // $linestart = false, prevents *#:; lists rendering
 			);
 
-			$message = $parseOut->getText( [
+			$message = $parseOut->runOutputPipeline( $opts, [
 				'enableSectionEditLinks' => false,
 				// First part of a "fix" of some kind for T189417...
 				// Second part is below, before returning a value from this method
 				'wrapperDivClass' => ''
-			] );
+			] )->getContentHolderText();
 			$message = trim( $message );
 		} else {
 			$message = htmlentities( $message );
