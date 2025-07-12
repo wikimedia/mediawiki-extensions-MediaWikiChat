@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Api\ApiResult;
 use MediaWiki\MediaWikiServices;
 
 class GetNewWorker {

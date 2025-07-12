@@ -1,6 +1,9 @@
 <?php
 
+use MediaWiki\Api\ApiBase;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ChatKickAPI extends ApiBase {
 
@@ -74,8 +77,8 @@ class ChatKickAPI extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'id' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_REQUIRED => true
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_REQUIRED => true
 			]
 		];
 	}

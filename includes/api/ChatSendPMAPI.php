@@ -1,6 +1,9 @@
 <?php
 
+use MediaWiki\Api\ApiBase;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ChatSendPMAPI extends ApiBase {
 
@@ -92,12 +95,12 @@ class ChatSendPMAPI extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'message' => [
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => true
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true
 			],
 			'id' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_REQUIRED => true
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_REQUIRED => true
 			]
 		];
 	}

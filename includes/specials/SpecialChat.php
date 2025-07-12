@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserOptionsLookup;
 

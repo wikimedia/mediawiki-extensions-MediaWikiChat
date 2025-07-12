@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\SpecialPage\SpecialPage;
+
 /**
  * Main user interface for Special:Chat.
  *

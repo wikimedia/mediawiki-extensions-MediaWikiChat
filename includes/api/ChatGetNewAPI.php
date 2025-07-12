@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\Api\ApiBase;
+use Wikimedia\ParamValidator\ParamValidator;
+
 class ChatGetNewAPI extends ApiBase {
 
 	public function execute() {
@@ -20,8 +23,8 @@ class ChatGetNewAPI extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'focussed' => [
-				ApiBase::PARAM_REQUIRED => false,
-				ApiBase::PARAM_TYPE => 'boolean'
+				ParamValidator::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_TYPE => 'boolean'
 			]
 		];
 	}
