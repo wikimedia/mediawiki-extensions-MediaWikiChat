@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ChatKickAPI extends ApiBase {
 
 	public function execute() {
@@ -13,7 +15,7 @@ class ChatKickAPI extends ApiBase {
 		$toName = $toUser->getName();
 
 		if ( $user->isAllowed( 'modchat' ) && !$toUser->isAllowed( 'modchat' ) && $wgChatKicks ) {
-			$dbw = MediaWikiChat::getDBHandle( 'write' );
+			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 			$fromId = $user->getId();
 			$timestamp = MediaWikiChat::now();

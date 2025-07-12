@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ChatSendAPI extends ApiBase {
 
 	public function execute() {
@@ -13,7 +15,7 @@ class ChatSendAPI extends ApiBase {
 			$message = MediaWikiChat::parseMessage( $originalMessage, $user );
 
 			if ( $message != '' ) {
-				$dbw = MediaWikiChat::getDBHandle( 'write' );
+				$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 				$dbr = $this->getDB();
 
 				$id = $user->getId();

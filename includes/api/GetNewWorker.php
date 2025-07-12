@@ -13,8 +13,9 @@ class GetNewWorker {
 	static function execute( ApiResult $result, User $user, ApiMain $main ) {
 		global $wgChatOnlineTimeout;
 
-		$dbr = MediaWikiChat::getDBHandle( 'read' );
-		$dbw = MediaWikiChat::getDBHandle( 'write' );
+		$connectionProvider = MediaWikiServices::getInstance()->getConnectionProvider();
+		$dbr = $connectionProvider->getReplicaDatabase();
+		$dbw = $connectionProvider->getPrimaryDatabase();
 		$mName = 'chatgetnew';
 
 		$thisCheck = MediaWikiChat::now();
