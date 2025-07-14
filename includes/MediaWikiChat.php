@@ -6,6 +6,8 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\ParserOptions;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\UserIdentity;
 
 class MediaWikiChat {
