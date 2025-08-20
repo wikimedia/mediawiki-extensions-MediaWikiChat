@@ -4,8 +4,10 @@
 			"Bosogo"
 		]
 	},
+	"chat": "Чат",
 	"chat-today": "бүгүн",
 	"chat-yesterday": "кечээ",
 	"chat-block": "бөгөттөө",
-	"chat-blocked": "$2 $1 тарабынан {{GENDER:$3|бөгөттөлгөн}}."
+	"chat-blocked": "$2 $1 тарабынан {{GENDER:$3|бөгөттөлгөн}}.",
+	"prefs-chat": "Чат"
 }
