@@ -14,7 +14,8 @@
 			"Revi",
 			"Ykhwong",
 			"고솜",
-			"아라"
+			"아라",
+			"YeBoy371"
 		]
 	},
 	"chat": "챗",
@@ -23,7 +24,7 @@
 	"chat-type-your-private-message": "개인 메시지를 입력하세요",
 	"chat-no-other-users": "챗하는 다른 사용자가 없습니다",
 	"chat-blocked-from-chat": "이 챗에서 차단되었습니다.",
-	"chat-not-allowed": "챗할 수 없습니다. 먼저 로그인해 보세요.",
+	"chat-not-allowed": "채팅할 수 없습니다. 먼저 [[Special:UserLogin|로그인]]해 보세요.",
 	"chat-sounds": "소리 재생",
 	"chat-flood": "메시지를 보내는 속도가 너무 빠릅니다. 더 보내려면 기다려주세요.",
 	"chat-too-long": "메시지가 너무 깁니다. 더 짧은 메시지를 보내주세요.",
