@@ -4,5 +4,6 @@
 			"Cabal"
 		]
 	},
-	"chat-block": "ਪਾਬੰਦੀ ਲਾਓ"
+	"chat-block": "ਪਾਬੰਦੀ ਲਾਓ",
+	"chat-topic": "{{SITENAME}} ਉੱਤੇ ਗੱਲਬਾਤ ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ। ([[Special:Log/chat|ਗੱਲਬਾਤਾਂ ਦਾ ਵੇਰਵਾ]])"
 }

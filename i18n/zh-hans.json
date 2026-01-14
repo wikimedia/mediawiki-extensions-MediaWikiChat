@@ -25,7 +25,7 @@
 	"chat-yesterday": "昨天",
 	"chat-kick": "踢",
 	"chat-block": "封禁",
-	"chat-autoscroll": "自动成卷",
+	"chat-autoscroll": "自动滚动",
 	"chat-jump-to-latest": "跳转至最新",
 	"chat-requires-js": "{{SITENAME}}的聊天功能需要在您的浏览器上启用JavaScript",
 	"chat-youve-been-kicked": "您已经被$1{{GENDER:$2|踢出}}。刷新页面以聊天。",
