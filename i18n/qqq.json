@@ -14,7 +14,8 @@
 			"Raymond",
 			"Robby",
 			"Shirayuki",
-			"Umherirrender"
+			"Umherirrender",
+			"Woytecr"
 		]
 	},
 	"chat": "{{doc-special|Chat}}\n{{Identical|Chat}}",
@@ -62,7 +63,7 @@
 	"logeventslist-chat-log": "Chat log option label on [[Special:Log]]",
 	"log-action-filter-chat": "{{doc-log-action-filter-action|chat}}",
 	"log-action-filter-chat-kick": "{{doc-log-action-filter-action|chat|kick}}",
-	"log-name-privatechat": "This should be consistent with {{msg-mw|Log-show-hide-chat}}.",
+	"log-name-privatechat": "This should be consistent with {{msg-mw|Log-show-hide-privatechat}}.",
 	"log-description-privatechat": "Used as description for log in [[Special:Log/privatechat]].",
 	"logentry-privatechat-send": "The user $1 sent the private message $4, to the user $5.\n\n{{logentry}}\nAdditional parameters:\n* $4 - private message\n* $5 - user\n{{Identical|To}}",
 	"log-show-hide-privatechat": "For [[Special:Log]].\n\nThis should be consistent with {{msg-mw|Log-name-privatechat}}.\n\nParameters:\n* $1 - {{msg-mw|Show}} or {{msg-mw|Hide}}\n{{Related|Log-show-hide}}",
