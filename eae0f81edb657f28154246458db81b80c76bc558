@@ -16,6 +16,24 @@
       "message": "Does this impact the required MW version in any way?",
       "revId": "eae0f81edb657f28154246458db81b80c76bc558",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22749b57_9612bb09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 562
+      },
+      "writtenOn": "2026-02-08T22:30:55Z",
+      "side": 1,
+      "message": "This change depends on the CheckUser change I4615371d0c34582b0a0dc6b8ecd019825687b26b included in REL1_42. The\n```json\n        \"requires\": {\n                \"MediaWiki\": \"\u003e\u003d1.43\"\n        },\n```\nin extension.json should be sufficient for this dependency.",
+      "parentUuid": "8553e633_2644739c",
+      "revId": "eae0f81edb657f28154246458db81b80c76bc558",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
     }
   ]
 }
