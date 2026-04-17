@@ -1,0 +1,7 @@
+Verified+2: jenkins-bot
+Code-Review+2: Libraryupgrader <tools.libraryupgrader@tools.wmflabs.org>
+Submitted-by: jenkins-bot
+Submitted-at: Fri, 17 Apr 2026 13:21:25 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/MediaWikiChat/+/1273778
+Project: mediawiki/extensions/MediaWikiChat
+Branch: refs/heads/REL1_43
