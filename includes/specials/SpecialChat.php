@@ -6,25 +6,20 @@ use MediaWiki\User\UserOptionsLookup;
 
 class SpecialChat extends SpecialPage {
 
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
-
-	/** @var UserGroupManager */
-	private $userGroupManager;
-
-	/**
-	 * Constructor -- set up the new special page
-	 *
-	 * @param UserOptionsLookup $userOptionsLookup
-	 * @param UserGroupManager $userGroupManager
-	 */
 	public function __construct(
-		UserOptionsLookup $userOptionsLookup,
-		UserGroupManager $userGroupManager
+		private readonly UserOptionsLookup $userOptionsLookup,
+		private readonly UserGroupManager $userGroupManager,
 	) {
-		parent::__construct( 'Chat', 'chat' );
-		$this->userOptionsLookup = $userOptionsLookup;
-		$this->userGroupManager = $userGroupManager;
+		if ( version_compare( MW_VERSION, '1.46', '>=' ) ) {
+			parent::__construct( 'Chat' );
+		} else {
+			parent::__construct( 'Chat', 'chat' );
+		}
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'chat';
 	}
 
 	/**
