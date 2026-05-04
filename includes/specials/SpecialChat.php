@@ -22,9 +22,14 @@ class SpecialChat extends SpecialPage {
 		UserOptionsLookup $userOptionsLookup,
 		UserGroupManager $userGroupManager
 	) {
-		parent::__construct( 'Chat', 'chat' );
+		parent::__construct( 'Chat' );
 		$this->userOptionsLookup = $userOptionsLookup;
 		$this->userGroupManager = $userGroupManager;
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'chat';
 	}
 
 	/**
