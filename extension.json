@@ -9,7 +9,7 @@
 	"descriptionmsg": "chat-desc",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">=1.43"
+		"MediaWiki": ">=1.46"
 	},
 	"config": {
 		"ChatKicks": {
