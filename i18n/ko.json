@@ -15,7 +15,8 @@
 			"Ykhwong",
 			"고솜",
 			"아라",
-			"YeBoy371"
+			"YeBoy371",
+			"Tensama0415"
 		]
 	},
 	"chat": "챗",
@@ -35,6 +36,7 @@
 	"chat-block": "차단",
 	"chat-autoscroll": "자동 스크롤",
 	"chat-jump-to-latest": "마지막으로 이동",
+	"chat-requires-js": "{{SITENAME}} 채팅을 이용하려면 브라우저에서 자바스크립트를 활성화해야 합니다",
 	"chat-youve-been-kicked": "$1님이 당신을 {{GENDER:$2|추방}}했습니다. 챗하려면 페이지를 새로 고치세요.",
 	"chat-you-kicked": "$1님을 {{GENDER:$2|추방했습니다}}.",
 	"chat-kicked": "$1님이 $2님을 {{GENDER:$3|{{GENDER:$4|추방했습니다}}}}.",
@@ -57,6 +59,8 @@
 	"logentry-chat-kick": "$1님이 $4님을 {{GENDER:$1|추방했습니다}}",
 	"log-show-hide-chat": "채팅 기록을 $1",
 	"logeventslist-chat-log": "채팅 기록",
+	"log-action-filter-chat": "작업별 필터링:",
+	"log-action-filter-chat-kick": "사용자 강퇴",
 	"log-name-privatechat": "비공개 채팅 기록",
 	"log-description-privatechat": "미디어위키채트에서 보낸 개인 메시지",
 	"logentry-privatechat-send": "$1님이 $5에게: $4",
@@ -69,7 +73,7 @@
 	"group-blockedfromchat-member": "{{GENDER:$1|채트에서 차단됨}}",
 	"grouppage-blockedfromchat": "{{ns:project}}:채트에서 차단된 사용자",
 	"right-chat": "Special:Chat 사용",
-	"right-modchat": "Special:Chat 사용",
+	"right-modchat": "Special:Chat에서 사용자를 차단 및 추방 (활성화 된 경우)",
 	"right-viewpmlog": "[[Special:Log/privatechat|개인 대화 메시지 기록]] 보기",
 	"tog-chat-fullscreen": "전체 화면 모드에서 챗 사용 (실험 기능)",
 	"tog-chat-ping-mention": "언급을 받았을 때 소리를 재생",
@@ -88,6 +92,7 @@
 	"action-modchat": "챗 중재",
 	"action-viewpmlog": "개인 채팅 메시지 로그 보기",
 	"apihelp-chatgetnew-summary": "채팅에서 새로운 메시지를 가져옵니다.",
+	"apihelp-chatgetnew-param-focussed": "현재 채팅 탭이 열려있는지/포커스 되어 있는지?",
 	"apihelp-chatgetnew-example-1": "채팅에서 새로운 메시지를 가져옵니다",
 	"apihelp-chatkick-summary": "대화방에서 사용자를 퇴장시킴",
 	"apihelp-chatkick-param-id": "퇴장시킬 사용자 ID",
