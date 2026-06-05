@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Subi"
+			"Subi",
+			"Xabier Armendaritz"
 		]
 	},
 	"chat-type-your-message": "Idatz ezazu zure mezua",
@@ -9,5 +10,6 @@
 	"chat-a-minute-ago": "duela minutu bat",
 	"chat-today": "gaur",
 	"chat-yesterday": "atzo",
+	"chat-block": "blokeatu",
 	"chat-message-from": "$1{{GENDER:$2|(r)en}} mezua"
 }
