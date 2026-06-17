@@ -6,7 +6,8 @@
 			"Salvare",
 			"Shirayuki",
 			"Sujiniku",
-			"春春眠眠"
+			"春春眠眠",
+			"Tensama0415"
 		]
 	},
 	"chat": "チャット",
@@ -14,7 +15,7 @@
 	"chat-type-your-private-message": "非公開メッセージを入力",
 	"chat-no-other-users": "チャットには他の利用者はいません",
 	"chat-blocked-from-chat": "あなたはこのチャットからブロックされています。",
-	"chat-not-allowed": "チャットの使用を許可されていません。ログインしてからお試しください。",
+	"chat-not-allowed": "チャットの使用を許可されていません。[[Special:UserLogin|ログイン]]してからお試しください。",
 	"chat-a-minute-ago": "1分前",
 	"chat-today": "今日",
 	"chat-yesterday": "昨日",
