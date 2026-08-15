@@ -1,12 +1,23 @@
 <?php
 
 use MediaWiki\Api\ApiBase;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Extension\CheckUser\Services\CheckUserInsert;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPage;
 use Wikimedia\ParamValidator\ParamValidator;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class ChatSendAPI extends ApiBase {
+
+	public function __construct(
+		ApiMain $mainModule,
+		string $moduleName,
+		private readonly IConnectionProvider $dbProvider,
+		private readonly ?CheckUserInsert $checkUserInsert,
+	) {
+		parent::__construct( $mainModule, $moduleName );
+	}
 
 	public function execute() {
 		global $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
@@ -19,7 +30,7 @@ class ChatSendAPI extends ApiBase {
 			$message = MediaWikiChat::parseMessage( $originalMessage, $user );
 
 			if ( $message != '' ) {
-				$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+				$dbw = $this->dbProvider->getPrimaryDatabase();
 				$dbr = $this->getDB();
 
 				$id = $user->getId();
@@ -66,11 +77,10 @@ class ChatSendAPI extends ApiBase {
 
 				$logID = $logEntry->insert();
 
-				if ( ExtensionRegistry::getInstance()->isLoaded( 'CheckUser' ) ) {
+				if ( ExtensionRegistry::getInstance()->isLoaded( 'CheckUser' ) && $this->checkUserInsert ) {
 					$rc = $logEntry->getRecentChange( $logID );
 
-					MediaWikiServices::getInstance()->get( 'CheckUserInsert' )
-						->updateCheckUserData( $rc );
+					$this->checkUserInsert->updateCheckUserData( $rc );
 				}
 
 				MediaWikiChat::deleteEntryIfNeeded();
