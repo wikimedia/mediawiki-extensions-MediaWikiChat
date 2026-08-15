@@ -2,6 +2,7 @@
 
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
+use MediaWiki\Config\Config;
 use MediaWiki\SpecialPage\SpecialPage;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IConnectionProvider;
@@ -11,13 +12,13 @@ class ChatSendPMAPI extends ApiBase {
 	public function __construct(
 		ApiMain $mainModule,
 		string $moduleName,
+		private readonly Config $config,
 		private readonly IConnectionProvider $dbProvider,
 	) {
 		parent::__construct( $mainModule, $moduleName );
 	}
 
 	public function execute() {
-		global $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
 		$result = $this->getResult();
 		$user = $this->getUser();
 
@@ -34,22 +35,23 @@ class ChatSendPMAPI extends ApiBase {
 				$fromId = $user->getID();
 				$timestamp = MediaWikiChat::now();
 
-				if ( strlen( $message ) > $wgChatMaxMessageLength ) {
+				if ( strlen( $message ) > $this->config->get( 'ChatMaxMessageLength' ) ) {
 					$result->addValue( $this->getModuleName(), 'error', 'length' );
 					return;
 				}
 
+				$seconds = $this->config->get( 'ChatFloodSeconds' );
 				// Flood check
 				$res = $dbr->selectField(
 					'chat',
 					[ 'COUNT(*)' ],
 					[
-						'chat_timestamp > ' . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ),
+						'chat_timestamp > ' . ( $timestamp - $seconds * 100 ),
 						'chat_user_id' => $fromId
 					],
 					__METHOD__
 				);
-				if ( $res > $wgChatFloodMessages ) {
+				if ( $res > $this->config->get( 'ChatFloodMessages' ) ) {
 					$result->addValue( $this->getModuleName(), 'error', 'flood' );
 					return;
 				}

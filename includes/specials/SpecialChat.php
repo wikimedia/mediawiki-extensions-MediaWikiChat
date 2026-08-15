@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Config\Config;
+use MediaWiki\MainConfigNames;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserOptionsLookup;
@@ -7,6 +9,7 @@ use MediaWiki\User\UserOptionsLookup;
 class SpecialChat extends SpecialPage {
 
 	public function __construct(
+		private readonly Config $config,
 		private readonly UserOptionsLookup $userOptionsLookup,
 		private readonly UserGroupManager $userGroupManager,
 	) {
@@ -29,8 +32,6 @@ class SpecialChat extends SpecialPage {
 	 * @param string|null $par parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $wgChatKicks, $wgChatLinkUsernames, $wgChatMeCommand, $wgChatMaxMessageLength, $wgCanonicalServer;
-
 		$out = $this->getOutput();
 		$user = $this->getUser();
 
@@ -61,12 +62,12 @@ class SpecialChat extends SpecialPage {
 
 			$out->addJsConfigVars(
 				[
-					'wgChatKicks' => $wgChatKicks,
+					'wgChatKicks' => $this->config->get( 'ChatKicks' ),
 					'wgChatSocialAvatars' => class_exists( 'SocialProfileHooks' ), // has SocialProfile been installed?
-					'wgChatLinkUsernames' => $wgChatLinkUsernames,
-					'wgChatMeCommand' => $wgChatMeCommand,
-					'wgChatMaxMessageLength' => $wgChatMaxMessageLength,
-					'wgCanonicalServer' => $wgCanonicalServer
+					'wgChatLinkUsernames' => $this->config->get( 'ChatLinkUsernames' ),
+					'wgChatMeCommand' => $this->config->get( 'ChatMeCommand' ),
+					'wgChatMaxMessageLength' => $this->config->get( 'ChatMaxMessageLength' ),
+					'wgCanonicalServer' => $this->config->get( MainConfigNames::CanonicalServer ),
 				]
 			);
 
