@@ -3,11 +3,13 @@
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiResult;
 use MediaWiki\Cache\GenderCache;
+use MediaWiki\Config\Config;
 use MediaWiki\User\UserGroupManager;
 use Wikimedia\Rdbms\IConnectionProvider;
 
 class GetNewWorker {
 	public function __construct(
+		private readonly Config $config,
 		private readonly IConnectionProvider $dbProvider,
 		private readonly GenderCache $genderCache,
 		private readonly UserGroupManager $userGroupManager,
@@ -22,8 +24,6 @@ class GetNewWorker {
 	 * @param ApiMain $main
 	 */
 	public function execute( ApiResult $result, User $user, ApiMain $main ) {
-		global $wgChatOnlineTimeout;
-
 		$dbr = $this->dbProvider->getReplicaDatabase();
 		$dbw = $this->dbProvider->getPrimaryDatabase();
 		$mName = 'chatgetnew';
@@ -56,7 +56,10 @@ class GetNewWorker {
 			);
 		}
 
-		if ( $lastCheck < $thisCheck - $wgChatOnlineTimeout || $main->getVal( 'focussed' ) ) {
+		if (
+			$lastCheck < $thisCheck - $this->config->get( 'ChatOnlineTimeout' ) ||
+			$main->getVal( 'focussed' )
+		) {
 			MediaWikiChat::updateAway( $user ); // user is returning from offline, so say they're not away, or their window is marked as focussed.
 		}
 

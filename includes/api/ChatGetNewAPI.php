@@ -3,6 +3,7 @@
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Cache\GenderCache;
+use MediaWiki\Config\Config;
 use MediaWiki\User\UserGroupManager;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IConnectionProvider;
@@ -13,12 +14,13 @@ class ChatGetNewAPI extends ApiBase {
 	public function __construct(
 		ApiMain $mainModule,
 		string $moduleName,
+		Config $config,
 		IConnectionProvider $dbProvider,
 		GenderCache $genderCache,
 		UserGroupManager $userGroupManager,
 	) {
 		parent::__construct( $mainModule, $moduleName );
-		$this->getNewWorker = new GetNewWorker( $dbProvider, $genderCache, $userGroupManager );
+		$this->getNewWorker = new GetNewWorker( $config, $dbProvider, $genderCache, $userGroupManager );
 	}
 
 	public function execute() {
