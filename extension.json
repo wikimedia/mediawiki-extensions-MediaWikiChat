@@ -76,11 +76,20 @@
 	},
 	"callback": "MediaWikiChatHooks::onRegistration",
 	"APIModules": {
-		"chatgetnew": "ChatGetNewAPI",
+		"chatgetnew": {
+			"class": "ChatGetNewAPI",
+			"services": [
+				"ConnectionProvider",
+				"GenderCache",
+				"UserGroupManager"
+			]
+		},
 		"chatsend": {
 			"class": "ChatSendAPI",
 			"services": [
-				"ConnectionProvider"
+				"ConnectionProvider",
+				"GenderCache",
+				"UserGroupManager"
 			],
 			"optional_services": [
 				"CheckUserInsert"
