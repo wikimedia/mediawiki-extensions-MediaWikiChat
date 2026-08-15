@@ -103,8 +103,6 @@ class MediaWikiChatHooks implements
 	 * @param string &$html The HTML we want to inject to the output
 	 */
 	public function onSkinAfterPortlet( $skin, $portlet, &$html ) {
-		global $wgChatSidebarPortlet;
-
 		// Don't show this if:
 		// 1) the user isn't allowed to use the special page,
 		// 2) we *are* on the special page (pointless, as chat itself already has a user list)
@@ -112,7 +110,7 @@ class MediaWikiChatHooks implements
 		if (
 			!$skin->getUser()->isAllowed( 'chat' ) ||
 			$skin->getTitle()->isSpecial( 'Chat' ) ||
-			!$wgChatSidebarPortlet
+			!$skin->getConfig()->get( 'ChatSidebarPortlet' )
 		) {
 			return;
 		}
