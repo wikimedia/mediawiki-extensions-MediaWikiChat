@@ -77,9 +77,27 @@
 	"callback": "MediaWikiChatHooks::onRegistration",
 	"APIModules": {
 		"chatgetnew": "ChatGetNewAPI",
-		"chatsend": "ChatSendAPI",
-		"chatsendpm": "ChatSendPMAPI",
-		"chatkick": "ChatKickAPI"
+		"chatsend": {
+			"class": "ChatSendAPI",
+			"services": [
+				"ConnectionProvider"
+			],
+			"optional_services": [
+				"CheckUserInsert"
+			]
+		},
+		"chatsendpm": {
+			"class": "ChatSendPMAPI",
+			"services": [
+				"ConnectionProvider"
+			]
+		},
+		"chatkick": {
+			"class": "ChatKickAPI",
+			"services": [
+				"ConnectionProvider"
+			]
+		}
 	},
 	"LogTypes": [
 		"chat",
