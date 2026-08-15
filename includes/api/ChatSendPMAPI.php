@@ -1,11 +1,20 @@
 <?php
 
 use MediaWiki\Api\ApiBase;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\SpecialPage\SpecialPage;
 use Wikimedia\ParamValidator\ParamValidator;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class ChatSendPMAPI extends ApiBase {
+
+	public function __construct(
+		ApiMain $mainModule,
+		string $moduleName,
+		private readonly IConnectionProvider $dbProvider,
+	) {
+		parent::__construct( $mainModule, $moduleName );
+	}
 
 	public function execute() {
 		global $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
@@ -19,7 +28,7 @@ class ChatSendPMAPI extends ApiBase {
 			$message = MediaWikiChat::parseMessage( $originalMessage, $user );
 
 			if ( $message != '' ) {
-				$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+				$dbw = $this->dbProvider->getPrimaryDatabase();
 				$dbr = $this->getDB();
 
 				$fromId = $user->getID();

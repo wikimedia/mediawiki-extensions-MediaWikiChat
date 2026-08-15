@@ -1,11 +1,20 @@
 <?php
 
 use MediaWiki\Api\ApiBase;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\SpecialPage\SpecialPage;
 use Wikimedia\ParamValidator\ParamValidator;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class ChatKickAPI extends ApiBase {
+
+	public function __construct(
+		ApiMain $mainModule,
+		string $moduleName,
+		private readonly IConnectionProvider $dbProvider,
+	) {
+		parent::__construct( $mainModule, $moduleName );
+	}
 
 	public function execute() {
 		global $wgChatKicks;
@@ -18,7 +27,7 @@ class ChatKickAPI extends ApiBase {
 		$toName = $toUser->getName();
 
 		if ( $user->isAllowed( 'modchat' ) && !$toUser->isAllowed( 'modchat' ) && $wgChatKicks ) {
-			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+			$dbw = $this->dbProvider->getPrimaryDatabase();
 
 			$fromId = $user->getId();
 			$timestamp = MediaWikiChat::now();
