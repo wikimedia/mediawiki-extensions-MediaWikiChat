@@ -2,9 +2,18 @@
 
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiResult;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Cache\GenderCache;
+use MediaWiki\User\UserGroupManager;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class GetNewWorker {
+	public function __construct(
+		private readonly IConnectionProvider $dbProvider,
+		private readonly GenderCache $genderCache,
+		private readonly UserGroupManager $userGroupManager,
+	) {
+	}
+
 	/**
 	 * Internals of GetNew, separate class so they can be used by other API actions
 	 *
@@ -12,12 +21,11 @@ class GetNewWorker {
 	 * @param User $user
 	 * @param ApiMain $main
 	 */
-	static function execute( ApiResult $result, User $user, ApiMain $main ) {
+	public function execute( ApiResult $result, User $user, ApiMain $main ) {
 		global $wgChatOnlineTimeout;
 
-		$connectionProvider = MediaWikiServices::getInstance()->getConnectionProvider();
-		$dbr = $connectionProvider->getReplicaDatabase();
-		$dbw = $connectionProvider->getPrimaryDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
+		$dbw = $this->dbProvider->getPrimaryDatabase();
 		$mName = 'chatgetnew';
 
 		$thisCheck = MediaWikiChat::now();
@@ -132,10 +140,6 @@ class GetNewWorker {
 			$users[$id] = true; // ensure all online users are present in the users list
 		}
 
-		$services = MediaWikiServices::getInstance();
-		$genderCache = $services->getGenderCache();
-		$userGroupManager = $services->getUserGroupManager();
-
 		foreach ( $users as $id => $tr ) {
 			$userObject = User::newFromId( $id );
 			$idString = strval( $id );
@@ -151,12 +155,12 @@ class GetNewWorker {
 				$result->addValue( [ $mName, 'users', $idString ], 'away', $onlineUsers[$id] );
 			}
 
-			$groups = $userGroupManager->getUserGroups( $userObject );
+			$groups = $this->userGroupManager->getUserGroups( $userObject );
 			if ( in_array( 'chatmod', $groups ) || in_array( 'sysop', $groups ) ) {
 				$result->addValue( [ $mName, 'users', $idString ], 'mod', 'true' );
 			}
 
-			$gender = $genderCache->getGenderOf( $userObject );
+			$gender = $this->genderCache->getGenderOf( $userObject );
 			$result->addValue( [ $mName, 'users', $idString, ], 'gender', $gender );
 		}
 
