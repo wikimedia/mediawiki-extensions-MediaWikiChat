@@ -7,6 +7,7 @@
 
 use MediaWiki\Extension\AbuseFilter\AbuseFilterServices;
 use MediaWiki\Extension\SpamBlacklist\BaseBlacklist;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Registration\ExtensionRegistry;
@@ -40,11 +41,11 @@ class MediaWikiChat {
 	 * @return string avatar image path
 	 */
 	public static function getAvatar( $id ) {
-		global $wgUploadPath;
+		$uploadPath = MediaWikiServices::getInstance()->getMainConfig()->get( MainConfigNames::UploadPath );
 
 		$avatar = new wAvatar( $id, 's' );
 
-		return $wgUploadPath . '/avatars/' . $avatar->getAvatarImage();
+		return $uploadPath . '/avatars/' . $avatar->getAvatarImage();
 	}
 
 	/**
@@ -81,8 +82,6 @@ class MediaWikiChat {
 	 *  if the current user doesn't have the "chat" right
 	 */
 	public static function getOnline( User $user ) {
-		global $wgChatOnlineTimeout;
-
 		if ( !$user->isAllowed( 'chat' ) ) {
 			return false;
 		}
@@ -90,7 +89,7 @@ class MediaWikiChat {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$now = self::now();
-		$timestamp = $now - $wgChatOnlineTimeout;
+		$timestamp = $now - MediaWikiServices::getInstance()->getMainConfig()->get( 'ChatOnlineTimeout' );
 
 		$res = $dbr->select(
 			'chat_users',
@@ -120,11 +119,9 @@ class MediaWikiChat {
 	 * @return int Whether they're online (1) or not (0).
 	 */
 	public static function amIOnline( UserIdentity $user ) {
-		global $wgChatOnlineTimeout;
-
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$timestamp = self::now() - $wgChatOnlineTimeout;
+		$timestamp = self::now() - MediaWikiServices::getInstance()->getMainConfig()->get( 'ChatOnlineTimeout' );
 
 		$res = $dbr->select(
 			'chat_users',
@@ -189,8 +186,6 @@ class MediaWikiChat {
 	 * @return string parsed message
 	 */
 	public static function parseMessage( $message, $user ) {
-		global $wgChatRichMessages, $wgChatUseStyleAttribute;
-
 		$smileyString = wfMessage( 'smileys' )->plain();
 		$smileyData = explode( '*', $smileyString );
 		$smileys = [];
@@ -207,10 +202,10 @@ class MediaWikiChat {
 			}
 		}
 
-		if ( $wgChatRichMessages ) {
+		if ( MediaWikiServices::getInstance()->getMainConfig()->get( 'ChatRichMessages' ) ) {
 			$message = str_ireplace( '[[', '[[:', $message ); // prevent users showing huge local images in chat
 
-			if ( !$wgChatUseStyleAttribute ) {
+			if ( !MediaWikiServices::getInstance()->getMainConfig()->get( 'ChatUseStyleAttribute' ) ) {
 				// Remove style attribute of html elements
 				$message = preg_replace(
 					'#<([a-zA-Z].+?) (.?)style=["\'].+?["\'](.?)>#',
@@ -354,7 +349,7 @@ class MediaWikiChat {
 	 */
 	public static function validateSpamRegex( $value ) {
 		// Respect $wgSpamRegex
-		global $wgSpamRegex;
+		$spamRegex = MediaWikiServices::getInstance()->getMainConfig()->get( 'SpamRegex' );
 
 		// Apparently this has to use the name SpamRegex specifies in its extension.json
 		// rather than the shorter directory name...
@@ -366,17 +361,17 @@ class MediaWikiChat {
 		// the config var being explicitly changed from the default value.
 		if (
 			!(
-				( is_array( $wgSpamRegex ) && count( $wgSpamRegex ) > 0 ) ||
-				( is_string( $wgSpamRegex ) && strlen( $wgSpamRegex ) > 0 )
+				( is_array( $spamRegex ) && count( $spamRegex ) > 0 ) ||
+				( is_string( $spamRegex ) && strlen( $spamRegex ) > 0 )
 			) &&
 			!$spamRegexExtIsInstalled
 		) {
 			return false;
 		}
 
-		// In older versions, $wgSpamRegex may be a single string rather than
+		// In older versions, $spamRegex may be a single string rather than
 		// an array of regexes, so make it compatible.
-		$regexes = (array)$wgSpamRegex;
+		$regexes = (array)$spamRegex;
 
 		// Support [[mw:Extension:SpamRegex]] if it's installed
 		if ( $spamRegexExtIsInstalled ) {
@@ -433,7 +428,7 @@ class MediaWikiChat {
 	public static function validateAbuseFilter( $value, $user, $action ) {
 		// Check AbuseFilter, if installed
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'Abuse Filter' ) ) {
-			global $wgMediaWikiChatAbuseFilterGroup;
+			$filterGroup = MediaWikiServices::getInstance()->getMainConfig()->get( 'MediaWikiChatAbuseFilterGroup' );
 
 			// Set up variables
 			$title = SpecialPage::getTitleFor( 'Chat' );
@@ -450,7 +445,7 @@ class MediaWikiChat {
 			$vars->setLazyLoadVar( 'new_size', 'length', [ 'length-var' => 'new_wikitext' ] );
 
 			$runnerFactory = AbuseFilterServices::getFilterRunnerFactory();
-			$runner = $runnerFactory->newRunner( $user, $title, $vars, $wgMediaWikiChatAbuseFilterGroup );
+			$runner = $runnerFactory->newRunner( $user, $title, $vars, $filterGroup );
 			$status = $runner->run();
 
 			return $status->isOK() ? false : $status->getErrorsArray();
