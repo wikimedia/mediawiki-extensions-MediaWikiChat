@@ -3,6 +3,7 @@
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Cache\GenderCache;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\CheckUser\Services\CheckUserInsert;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPage;
@@ -16,6 +17,7 @@ class ChatSendAPI extends ApiBase {
 	public function __construct(
 		ApiMain $mainModule,
 		string $moduleName,
+		private readonly Config $config,
 		private readonly IConnectionProvider $dbProvider,
 		GenderCache $genderCache,
 		UserGroupManager $userGroupManager,
@@ -26,8 +28,6 @@ class ChatSendAPI extends ApiBase {
 	}
 
 	public function execute() {
-		global $wgChatFloodMessages, $wgChatFloodSeconds, $wgChatMaxMessageLength;
-
 		$result = $this->getResult();
 		$user = $this->getUser();
 
@@ -42,22 +42,23 @@ class ChatSendAPI extends ApiBase {
 				$id = $user->getId();
 				$timestamp = MediaWikiChat::now();
 
-				if ( strlen( $message ) > $wgChatMaxMessageLength ) {
+				if ( strlen( $message ) > $this->config->get( 'ChatMaxMessageLength' ) ) {
 					$result->addValue( $this->getModuleName(), 'error', 'length' );
 					return;
 				}
 
+				$seconds = $this->config->get( 'ChatFloodSeconds' );
 				// Flood check
 				$res = $dbr->selectField(
 					'chat',
 					[ 'COUNT(*)' ],
 					[
-						'chat_timestamp > ' . ( $timestamp - ( $wgChatFloodSeconds * 100 ) ),
+						'chat_timestamp > ' . ( $timestamp - $seconds * 100 ),
 						'chat_user_id' => $id
 					],
 					__METHOD__
 				);
-				if ( $res > $wgChatFloodMessages ) {
+				if ( $res > $this->config->get( 'ChatFloodMessages' ) ) {
 					$result->addValue( $this->getModuleName(), 'error', 'flood' );
 					return;
 				}

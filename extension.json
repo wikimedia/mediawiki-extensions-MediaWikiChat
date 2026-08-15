@@ -57,6 +57,7 @@
 		"Chat": {
 			"class": "SpecialChat",
 			"services": [
+				"MainConfig",
 				"UserOptionsLookup",
 				"UserGroupManager"
 			]
@@ -82,6 +83,7 @@
 		"chatsend": {
 			"class": "ChatSendAPI",
 			"services": [
+				"MainConfig",
 				"ConnectionProvider",
 				"GenderCache",
 				"UserGroupManager"
@@ -93,12 +95,14 @@
 		"chatsendpm": {
 			"class": "ChatSendPMAPI",
 			"services": [
+				"MainConfig",
 				"ConnectionProvider"
 			]
 		},
 		"chatkick": {
 			"class": "ChatKickAPI",
 			"services": [
+				"MainConfig",
 				"ConnectionProvider"
 			]
 		}
