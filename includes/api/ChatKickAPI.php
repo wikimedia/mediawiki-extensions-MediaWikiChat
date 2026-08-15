@@ -2,6 +2,7 @@
 
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
+use MediaWiki\Config\Config;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -12,14 +13,13 @@ class ChatKickAPI extends ApiBase {
 	public function __construct(
 		ApiMain $mainModule,
 		string $moduleName,
+		private readonly Config $config,
 		private readonly IConnectionProvider $dbProvider,
 	) {
 		parent::__construct( $mainModule, $moduleName );
 	}
 
 	public function execute() {
-		global $wgChatKicks;
-
 		$user = $this->getUser();
 		$result = $this->getResult();
 		$toId = (int)$this->getMain()->getVal( 'id' );
@@ -27,7 +27,11 @@ class ChatKickAPI extends ApiBase {
 		$toUser = User::newFromId( $toId );
 		$toName = $toUser->getName();
 
-		if ( $user->isAllowed( 'modchat' ) && !$toUser->isAllowed( 'modchat' ) && $wgChatKicks ) {
+		if (
+			$user->isAllowed( 'modchat' ) &&
+			!$toUser->isAllowed( 'modchat' ) &&
+			$this->config->get( 'ChatKicks' )
+		) {
 			$dbw = $this->dbProvider->getPrimaryDatabase();
 
 			$fromId = $user->getId();
@@ -65,7 +69,7 @@ class ChatKickAPI extends ApiBase {
 			if ( $toUser->isAllowed( 'modchat' ) ) {
 				$result->addValue( $this->getModuleName(), 'error', 'the person you are kicking is a moderator' );
 			}
-			if ( !$wgChatKicks ) {
+			if ( !$this->config->get( 'ChatKicks' ) ) {
 				$result->addValue( $this->getModuleName(), 'error', 'kicking has been disabled' );
 			}
 		}
