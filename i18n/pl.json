@@ -7,7 +7,8 @@
 			"Rail",
 			"Railfail536",
 			"Vuh",
-			"Woytecr"
+			"Woytecr",
+			"PanWor"
 		]
 	},
 	"chat": "Czat",
@@ -47,7 +48,7 @@
 	"chat-sidebar-join": "Dołącz do czatu",
 	"log-name-chat": "Rejestr czatu",
 	"log-description-chat": "Wiadomości wysyłane przez MediaWikiChat, a także wyrzucenia użytkowników",
-	"logentry-chat-kick": "$1 {{GENDER:$1|wyrzucił|wyrzuciła}} $4",
+	"logentry-chat-kick": "$1 {{GENDER:$1|wyrzucił|wyrzuciła|wyrzucił(a)}} $4",
 	"log-show-hide-chat": "$1 rejestr czatu",
 	"logeventslist-chat-log": "Rejestr czatu",
 	"log-action-filter-chat": "Filtruj według akcji:",
