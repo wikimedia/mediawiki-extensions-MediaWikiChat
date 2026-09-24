@@ -14,14 +14,14 @@ class MediaWikiChatHooks {
 	 * @param User $user
 	 * @param array $add
 	 * @param array $remove
-	 * @param User $performer
+	 * @param User|bool $performer Boolean false in the case of autopromotions, normally a User
 	 */
-	public static function onUserGroupsChanged( $user, array $add, array $remove, User $performer ) {
-		if ( in_array( 'blockedfromchat', $add ) ) {
+	public static function onUserGroupsChanged( $user, array $add, array $remove, $performer ) {
+		if ( in_array( 'blockedfromchat', $add ) && $performer ) {
 			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_BLOCK, $user, $performer );
 		}
 
-		if ( in_array( 'blockedfromchat', $remove ) ) {
+		if ( in_array( 'blockedfromchat', $remove ) && $performer ) {
 			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_UNBLOCK, $user, $performer );
 		}
 	}
