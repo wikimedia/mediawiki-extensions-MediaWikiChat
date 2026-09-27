@@ -1,8 +1,8 @@
 <?php
 
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\UserGroupManager;
-use MediaWiki\User\UserOptionsLookup;
 
 class SpecialChat extends SpecialPage {
 

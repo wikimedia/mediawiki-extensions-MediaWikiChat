@@ -3,6 +3,7 @@
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiResult;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\User;
 
 class GetNewWorker {
 	/**
