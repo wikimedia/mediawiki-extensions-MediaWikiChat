@@ -3,6 +3,7 @@
 /**
  * Class containing hooks for the MediaWikiChat extension
  */
+use MediaWiki\Settings\SettingsBuilder;
 use MediaWiki\User\User;
 
 class MediaWikiChatHooks implements
@@ -15,21 +16,25 @@ class MediaWikiChatHooks implements
 	/**
 	 * Properly set up AbuseFilter-related variables for when AbuseFilter is (probably) installed.
 	 */
-	public static function onRegistration() {
+	public static function onRegistration(
+		array $extInfo,
+		SettingsBuilder $settings
+	) {
+		$config = $settings->getConfig();
 		global $wgAbuseFilterValidGroups, $wgAbuseFilterEmergencyDisableThreshold, $wgAbuseFilterEmergencyDisableCount, $wgAbuseFilterEmergencyDisableAge;
-		global $wgAbuseFilterActions;
-		global $wgMediaWikiChatAbuseFilterGroup;
+		$actions = $config->get( 'AbuseFilterActions' );
+		$filterGroup = $config->get( 'MediaWikiChatAbuseFilterGroup' );
 
 		// Note, it's too early to use ExtensionRegistry->isLoaded()
-		if ( $wgAbuseFilterActions !== null ) {
-			if ( $wgMediaWikiChatAbuseFilterGroup != 'default' ) {
+		if ( $actions !== null ) {
+			if ( $filterGroup !== 'default' ) {
 				// Add a custom filter group for AbuseFilter
-				$wgAbuseFilterValidGroups[] = $wgMediaWikiChatAbuseFilterGroup;
+				$wgAbuseFilterValidGroups[] = $filterGroup;
 
 				// set AbuseFilter emergency disable values for MediaWikiChat
-				$wgAbuseFilterEmergencyDisableThreshold[$wgMediaWikiChatAbuseFilterGroup] = 0.10;
-				$wgAbuseFilterEmergencyDisableCount[$wgMediaWikiChatAbuseFilterGroup] = 50;
-				$wgAbuseFilterEmergencyDisableAge[$wgMediaWikiChatAbuseFilterGroup] = 86400; // One day.
+				$wgAbuseFilterEmergencyDisableThreshold[$filterGroup] = 0.10;
+				$wgAbuseFilterEmergencyDisableCount[$filterGroup] = 50;
+				$wgAbuseFilterEmergencyDisableAge[$filterGroup] = 86400; // One day.
 			}
 		}
 	}
