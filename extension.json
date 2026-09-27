@@ -146,12 +146,17 @@
 		"MediaWikiChat": "includes/MediaWikiChat.php",
 		"MediaWikiChatHooks": "includes/MediaWikiChatHooks.php"
 	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWikiChatHooks"
+		}
+	},
 	"Hooks": {
-		"UserGroupsChanged": "MediaWikiChatHooks::onUserGroupsChanged",
-		"LoadExtensionSchemaUpdates": "MediaWikiChatHooks::onLoadExtensionSchemaUpdates",
-		"SkinAfterPortlet": "MediaWikiChatHooks::onSkinAfterPortlet",
-		"SkinBuildSidebar": "MediaWikiChatHooks::onSkinBuildSidebar",
-		"GetPreferences": "MediaWikiChatHooks::onGetPreferences"
+		"UserGroupsChanged": "main",
+		"LoadExtensionSchemaUpdates": "main",
+		"SkinAfterPortlet": "main",
+		"SkinBuildSidebar": "main",
+		"GetPreferences": "main"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
