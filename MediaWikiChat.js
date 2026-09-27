@@ -201,6 +201,29 @@ var MediaWikiChat = {
 	 * @param {object} response Data returned by the "chatgetnew" API module
 	 */
 	getNewReply: function( response ) {
+		// Handle error cases here b/c this method gets called even if the
+		// sending is blocked e.g. by SpamRegex
+		if ( response.chatsend ) {
+			// Handle potential error cases:
+			// 1) Flooding
+			// 2) Spam
+			// 3) AbuseFilter
+			if ( response.chatsend.error == 'flood' ) {
+				$( '#mwchat-type input' ).val( message );
+				alert( mw.message( 'chat-flood' ).escaped() );
+			} else if ( response.chatsend.error == 'spam-blacklist' || response.chatsend.error == 'spam-regex' ) {
+				$( '#mwchat-type input' ).val( message );
+				alert( mw.msg( 'chat-error-spam' ) );
+			} else if ( response.chatsend.error ) {
+				// catch-all for AbuseFilter errors etc.
+				$( '#mwchat-type input' ).val( message );
+				alert( mw.msg( 'chat-error-abuse-filter' ) );
+			}
+			// Make sure to do no further processing, obviously!
+			// Besides, "data" var below would be undefined anyway...
+			return;
+		}
+
 		var data = response.chatgetnew;
 
 		var onlineUsers = [];
@@ -1007,11 +1030,6 @@ $( function() {
 
 				window.clearInterval( MediaWikiChat.newInterval );
 				MediaWikiChat.newInterval = setInterval( MediaWikiChat.getNew, MediaWikiChat.interval );
-
-				if ( msg.chatsend && msg.chatsend.error == 'flood' ) {
-					$( '#mwchat-type input' ).val( message );
-					alert( mw.message( 'chat-flood' ).escaped() );
-				}
 			} );
 
 		} else if ( e.which == 9 ) { // Tab - autocompletion

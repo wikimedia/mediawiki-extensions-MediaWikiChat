@@ -13,6 +13,8 @@
 	"chat-blocked-from-chat": "You have been blocked from this chat.",
 	"chat-not-allowed": "You are not allowed to chat, try [[Special:UserLogin|logging in]] first.",
 	"chat-sounds": "Play sounds",
+	"chat-error-spam": "The message you wanted to send contains spam. Please rephrase.",
+	"chat-error-abuse-filter": "The message you wanted to send was blocked by an anti-abuse filter.",
 	"chat-flood": "You can't send messages that fast, please wait before sending more.",
 	"chat-too-long": "That message was too long, please send a shorter message.",
 	"chat-a-minute-ago": "a minute ago",
