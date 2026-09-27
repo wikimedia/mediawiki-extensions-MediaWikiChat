@@ -5,7 +5,13 @@
  */
 use MediaWiki\User\User;
 
-class MediaWikiChatHooks {
+class MediaWikiChatHooks implements
+	\MediaWiki\Hook\SkinBuildSidebarHook,
+	\MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook,
+	\MediaWiki\Preferences\Hook\GetPreferencesHook,
+	\MediaWiki\Skins\Hook\SkinAfterPortletHook,
+	\MediaWiki\User\Hook\UserGroupsChangedHook
+{
 	/**
 	 * Properly set up AbuseFilter-related variables for when AbuseFilter is (probably) installed.
 	 */
@@ -38,8 +44,20 @@ class MediaWikiChatHooks {
 	 * @param array $add
 	 * @param array $remove
 	 * @param User|bool $performer Boolean false in the case of autopromotions, normally a User
+	 * @param string|false $reason
+	 * @param UserGroupMembership[] $oldUGMs
+	 * @param UserGroupMembership[] $newUGMs
+	 * @return bool|void
 	 */
-	public static function onUserGroupsChanged( $user, array $add, array $remove, $performer ) {
+	public function onUserGroupsChanged(
+		$user,
+		$add,
+		$remove,
+		$performer,
+		$reason,
+		$oldUGMs,
+		$newUGMs
+	) {
 		if ( in_array( 'blockedfromchat', $add ) && $performer ) {
 			MediaWikiChat::sendSystemBlockingMessage( MediaWikiChat::TYPE_BLOCK, $user, $performer );
 		}
@@ -54,7 +72,7 @@ class MediaWikiChatHooks {
 	 *
 	 * @param MediaWiki\Installer\DatabaseUpdater $updater
 	 */
-	public static function onLoadExtensionSchemaUpdates( $updater ) {
+	public function onLoadExtensionSchemaUpdates( $updater ) {
 		$dir = __DIR__ . '/../sql/';
 
 		$updater->addExtensionTable( 'chat', $dir . 'chat.sql' );
@@ -72,7 +90,7 @@ class MediaWikiChatHooks {
 	 * @param Skin $skin
 	 * @param array &$bar
 	 */
-	public static function onSkinBuildSidebar( Skin $skin, &$bar ) {
+	public function onSkinBuildSidebar( $skin, &$bar ) {
 		$bar['chat-sidebar-online'] = [];
 	}
 
@@ -84,7 +102,7 @@ class MediaWikiChatHooks {
 	 *                        user-controlled string for [[MediaWiki:Sidebar]] top-level entries
 	 * @param string &$html The HTML we want to inject to the output
 	 */
-	public static function onSkinAfterPortlet( Skin $skin, string $portlet, string &$html ) {
+	public function onSkinAfterPortlet( $skin, $portlet, &$html ) {
 		global $wgChatSidebarPortlet;
 
 		// Don't show this if:
@@ -154,7 +172,7 @@ class MediaWikiChatHooks {
 	 * @param User $user
 	 * @param array[] &$preferences
 	 */
-	public static function onGetPreferences( $user, &$preferences ) {
+	public function onGetPreferences( $user, &$preferences ) {
 		$preferences['chat-fullscreen'] = [
 			'type' => 'toggle',
 			'label-message' => 'tog-chat-fullscreen',
