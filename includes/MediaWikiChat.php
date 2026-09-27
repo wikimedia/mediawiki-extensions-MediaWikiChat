@@ -12,6 +12,7 @@ use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 
 class MediaWikiChat {

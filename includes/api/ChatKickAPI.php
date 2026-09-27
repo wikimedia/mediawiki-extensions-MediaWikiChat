@@ -4,6 +4,7 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Config\Config;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\User\User;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IConnectionProvider;
 

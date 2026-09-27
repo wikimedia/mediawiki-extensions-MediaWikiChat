@@ -3,6 +3,8 @@
 /**
  * Class containing hooks for the MediaWikiChat extension
  */
+use MediaWiki\User\User;
+
 class MediaWikiChatHooks {
 	/**
 	 * Properly set up AbuseFilter-related variables for when AbuseFilter is (probably) installed.

@@ -4,6 +4,7 @@ use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiResult;
 use MediaWiki\Cache\GenderCache;
 use MediaWiki\Config\Config;
+use MediaWiki\User\User;
 use MediaWiki\User\UserGroupManager;
 use Wikimedia\Rdbms\IConnectionProvider;
 
