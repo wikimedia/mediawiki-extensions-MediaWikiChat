@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d5ffe4f_cf4a8592",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2026-09-27T14:46:44Z",
+      "side": 1,
+      "message": "Right, my bad, CI is currently failing (due to the phan test) until https://gerrit.wikimedia.org/r/1345324 is merged. Thus forcing the merge.",
+      "revId": "2c9eb1e74d093a8007992385f65395ab0d83d7c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
