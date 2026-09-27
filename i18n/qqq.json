@@ -26,6 +26,8 @@
 	"chat-blocked-from-chat": "Shown to users who have been blocked from chat",
 	"chat-not-allowed": "Shown to users who do not have sufficient permissions to chat (normally users who are not logged in)",
 	"chat-sounds": "Unused at this time.",
+	"chat-error-spam": "Error message shown to the user via a JavaScript <code>alert()</code> dialog if they try to send a message that contains something blocked either by [[mw:Manual:$wgSpamRegex|<code>$wgSpamRegex</code> configuration variable]], [[mw:Extension:SpamRegex|the SpamRegex extension]] or [[mw:Extension:SpamBlacklist|the SpamBlacklist extension]].",
+	"chat-error-abuse-filter": "Error message shown to the user via a JavaScript <code>alert()</code> dialog if they try to send a message that contains something blocked by an [[mw:Extension:AbuseFilter|AbuseFilter]] filter.",
 	"chat-flood": "Used as error message on javascript client when sending too many messages in a short timeframe.",
 	"chat-too-long": "Shown to users when their message was too long to send.",
 	"chat-a-minute-ago": "Used on javascript client to say that a chat was started a minute ago",
