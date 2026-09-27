@@ -1,6 +1,6 @@
 {
 	"name": "MediaWikiChat",
-	"version": "2.25.0",
+	"version": "2.26.0",
 	"author": [
 		"Adam Carter/UltrasonicNXT"
 	],
@@ -51,6 +51,10 @@
 		"ChatMaxMessageLength": {
 			"value": 1000,
 			"description": "Maximum individual chat message length in characters."
+		},
+		"MediaWikiChatAbuseFilterGroup": {
+			"description": "Custom group name for AbuseFilter, for when that extension is installed. It ensures that AbuseFilter only pulls the filters related to MediaWikiChat. If you would like AbuseFilter to pull all of the filters, enter 'default' here.",
+			"value": "chat"
 		}
 	},
 	"SpecialPages": {
@@ -70,6 +74,7 @@
 	"ExtensionMessagesFiles": {
 		"MediaWikiChatAlias": "MediaWikiChat.alias.php"
 	},
+	"callback": "MediaWikiChatHooks::onRegistration",
 	"APIModules": {
 		"chatgetnew": "ChatGetNewAPI",
 		"chatsend": "ChatSendAPI",
@@ -135,7 +140,8 @@
 				"chat-block", "chat-private-message", "chat-user-is-moderator", "chat-you-are-moderator",
 				"chat-joined", "chat-left", "chat-mod-image", "chat-yesterday", "chat-flood", "chat-too-long",
 				"chat-idle-minutes", "chat-idle-hours", "chat-idle-more", "chat-today", "chat-message-from",
-				"chat-private-message-from", "chat-mentioned-by"
+				"chat-private-message-from", "chat-mentioned-by",
+				"chat-error-spam", "chat-error-abuse-filter"
 			],
 			"dependencies": [
 				"mediawiki.api",

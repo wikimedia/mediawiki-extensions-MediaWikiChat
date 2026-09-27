@@ -4,6 +4,27 @@
  * Class containing hooks for the MediaWikiChat extension
  */
 class MediaWikiChatHooks {
+	/**
+	 * Properly set up AbuseFilter-related variables for when AbuseFilter is (probably) installed.
+	 */
+	public static function onRegistration() {
+		global $wgAbuseFilterValidGroups, $wgAbuseFilterEmergencyDisableThreshold, $wgAbuseFilterEmergencyDisableCount, $wgAbuseFilterEmergencyDisableAge;
+		global $wgAbuseFilterActions;
+		global $wgMediaWikiChatAbuseFilterGroup;
+
+		// Note, it's too early to use ExtensionRegistry->isLoaded()
+		if ( $wgAbuseFilterActions !== null ) {
+			if ( $wgMediaWikiChatAbuseFilterGroup != 'default' ) {
+				// Add a custom filter group for AbuseFilter
+				$wgAbuseFilterValidGroups[] = $wgMediaWikiChatAbuseFilterGroup;
+
+				// set AbuseFilter emergency disable values for MediaWikiChat
+				$wgAbuseFilterEmergencyDisableThreshold[$wgMediaWikiChatAbuseFilterGroup] = 0.10;
+				$wgAbuseFilterEmergencyDisableCount[$wgMediaWikiChatAbuseFilterGroup] = 50;
+				$wgAbuseFilterEmergencyDisableAge[$wgMediaWikiChatAbuseFilterGroup] = 86400; // One day.
+			}
+		}
+	}
 
 	/**
 	 * Hook for user rights changes

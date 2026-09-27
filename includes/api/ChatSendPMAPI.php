@@ -30,6 +30,35 @@ class ChatSendPMAPI extends ApiBase {
 					return;
 				}
 
+				/**
+				 * Check for abusive text in the following sequence (cheapest
+				 * processing to most expensive, returning if we get a hit):
+				 * 1) Check SpamRegex
+				 * 2) Check SpamBlacklist
+				 * 3) Check AbuseFilter
+				 */
+				if ( MediaWikiChat::validateSpamRegex( $message ) ) {
+					$result->addValue( $this->getModuleName(), 'error', 'spam-regex' );
+					return;
+				} elseif ( MediaWikiChat::validateSpamBlacklist( $message, $user ) ) {
+					$result->addValue( $this->getModuleName(), 'error', 'spam-blacklist' );
+					return;
+				} else {
+					$error = MediaWikiChat::validateAbuseFilter( $message, $user, 'chat-pm' );
+
+					if ( $error !== false ) {
+						$errMsg = '';
+						// $messages = [];
+						foreach ( $error as $message ) {
+							$errMsg = $message[1];
+							// $messages[] = $message[1];
+						}
+
+						$result->addValue( $this->getModuleName(), 'error', $errMsg );
+						return;
+					}
+				}
+
 				// Flood check
 				$res = $dbr->selectField(
 					'chat',
