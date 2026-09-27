@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42a4298b_4574ceed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 243
+      },
+      "writtenOn": "2026-09-27T12:55:58Z",
+      "side": 1,
+      "message": "Phan failure is currently expected and not a \"real\" failure per se but a CI config related one, which\u0027ll be addressed by https://gerrit.wikimedia.org/r/c/integration/config/+/1345324 once it\u0027s merged.",
+      "revId": "daa02929375693a859b8d8d8c8cf9c6c86e6f82b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
