@@ -33,6 +33,23 @@
       "message": "recheck after having deployed I07c86d4ef5e7bf96eccba2673945414eab9622b9",
       "revId": "daa02929375693a859b8d8d8c8cf9c6c86e6f82b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5533390_839254fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24
+      },
+      "writtenOn": "2026-09-28T08:00:37Z",
+      "side": 1,
+      "message": "@ashley@uncyclomedia.co you should not merge changes manually 😊  That ends up breaking CI for any other open change which otherwise would have passed (eg I97f53d037411f71396d3cc75e2a62efcb287e4fe ).\n\nAnd there is no guarantee Phan would have passed once the CI config to add AbuseFilter, SpamBlacklist, SpamRegex (I07c86d4ef5e7bf96eccba2673945414eab9622b9) had been merged. Well it did so that is good news!",
+      "revId": "daa02929375693a859b8d8d8c8cf9c6c86e6f82b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
     }
   ],
   "submitRequirementResults": []
