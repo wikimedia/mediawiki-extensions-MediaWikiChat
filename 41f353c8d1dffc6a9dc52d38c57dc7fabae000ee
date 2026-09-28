@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a943b9e1_c8f03e2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24
+      },
+      "writtenOn": "2026-09-28T08:01:46Z",
+      "side": 1,
+      "message": "recheck CI got broken temporarily due to I76596209caf3b0981a2c7a78efdf6badaabf57d3 being merged without the associated CI config I07c86d4ef5e7bf96eccba2673945414eab9622b9",
+      "revId": "41f353c8d1dffc6a9dc52d38c57dc7fabae000ee",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951"
+    }
+  ]
+}
