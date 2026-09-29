@@ -15,6 +15,8 @@
 	"chat-blocked-from-chat": "Foi bloqueado nesta charla.",
 	"chat-not-allowed": "Intente [[Special:UserLogin|iniciar sesión]] primeiro antes de charlar.",
 	"chat-sounds": "Activar sons",
+	"chat-error-spam": "A mensaxe que querías enviar contén spam. Por favor, reescríbea.",
+	"chat-error-abuse-filter": "A mensaxe que querías enviar foi bloqueada por un filtro antiabuso.",
 	"chat-flood": "Non pode enviar mensaxes tan rápido, por favor espere antes de enviar máis.",
 	"chat-too-long": "A mensaxe foi demasiado lona, por favor envíe unha mensaxe máis curta.",
 	"chat-a-minute-ago": "hai un minuto",

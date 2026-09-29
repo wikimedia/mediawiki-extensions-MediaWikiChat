@@ -12,6 +12,8 @@
 	"chat-blocked-from-chat": "Waxaa lagaa xannibay sheekaysigan.",
 	"chat-not-allowed": "Looma oggola inaad sheekaysato, marka hore isku day [[Special:UserLogin|inaad gasho]].",
 	"chat-sounds": "Daar dhawaaqyada",
+	"chat-error-spam": "Fariinta aad rabtay inaad dirto waxay ka kooban tahay spam. Fadlan si kale u qor.",
+	"chat-error-abuse-filter": "Fariinta aad rabtay inaad dirto waxaa xannibay shaandhaynta ka hortagga xadgudubka.",
 	"chat-flood": "Farriimaha si degdeg ah uma diri kartid, fadlan sug ka hor intaadan dirin kuwo kale.",
 	"chat-too-long": "Farriintaasi aad bay u dheeraatay, fadlan dir farriin ka gaaban.",
 	"chat-a-minute-ago": "Daqiiqad ka hor",
