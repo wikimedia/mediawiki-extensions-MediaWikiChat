@@ -26,6 +26,8 @@
 	"chat-blocked-from-chat": "U bent geblokkeerd voor deze chat.",
 	"chat-not-allowed": "U hebt niet de benodigde rechten om te chatten. [[Special:UserLogin|Meld u eerst aan]].",
 	"chat-sounds": "Geluiden afspelen",
+	"chat-error-spam": "Het bericht dat u wilde versturen bevat spam. Kunt u het bericht anders formuleren?",
+	"chat-error-abuse-filter": "Het bericht dat u wilde verzenden is geblokkeerd door een anti-misbruikfilter.",
 	"chat-flood": "Zo snel kunt u geen berichten sturen. Wacht even voordat u er meer stuurt.",
 	"chat-too-long": "Dat bericht was te lang. Stuur een korter bericht.",
 	"chat-a-minute-ago": "een minuut geleden",
